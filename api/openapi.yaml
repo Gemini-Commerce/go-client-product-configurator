@@ -1,0 +1,3282 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: info@gemini-commerce.com
+    name: Gemini Team
+  license:
+    name: Gemini fair use license
+    url: https://gemini-commerce.com/api/fair-use-license
+  title: Product Configurator Service
+  version: v1
+servers:
+- url: https://product-configurator.api.gogemini.io/
+paths:
+  /v1/{tenantId}/configurator/{configuratorId}:
+    delete:
+      operationId: ProductConfigurator_DeleteConfigurator
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: configuratorId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorconfiguratorDeleteResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+    put:
+      operationId: ProductConfigurator_UpdateConfigurator2
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: configuratorId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorconfiguratorEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+  /v1/{tenantId}/configurator/{configuratorId}/page-size/{pageSize}/matrices:
+    post:
+      operationId: ProductConfigurator_ListMatrices
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: configuratorId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: pageSize
+        required: true
+        schema:
+          format: uint64
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/matrixListMatricesRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/matrixListMatricesResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/configurator/{configuratorId}/step/create:
+    post:
+      operationId: ProductConfigurator_CreateStep
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: configuratorId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorstepCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorstepEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/configurator/{configuratorId}/step/create/bulk:
+    post:
+      operationId: ProductConfigurator_BulkCreateSteps
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: configuratorId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorstepBulkCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorstepBulkCreateResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/dependency/{dependencyId}:
+    delete:
+      operationId: ProductConfigurator_DeleteDependency
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: dependencyId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratordependencyDeleteResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+    put:
+      operationId: ProductConfigurator_UpdateDependency
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: dependencyId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratordependencyUpdateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratordependencyEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/matrix/create:
+    post:
+      operationId: ProductConfigurator_CreateMatrix
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratormatrixCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratormatrixEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/matrix/{matrixId}:
+    delete:
+      operationId: ProductConfigurator_DeleteMatrix
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: matrixId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratormatrixDeleteResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+    get:
+      operationId: ProductConfigurator_GetMatrix
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: matrixId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratormatrixEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+    put:
+      operationId: ProductConfigurator_UpdateMatrix
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: matrixId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratormatrixUpdateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratormatrixEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/matrix/{matrixId}/page-size/{pageSize}/properties:
+    post:
+      operationId: ProductConfigurator_ListProperties
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: matrixId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: pageSize
+        required: true
+        schema:
+          format: uint64
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/propertyListPropertiesRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertyListPropertiesResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/option/bulk:
+    put:
+      operationId: ProductConfigurator_BulkUpdateOptions
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratoroptionBulkUpdateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratoroptionBulkUpdateResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/option/delete/bulk:
+    post:
+      operationId: ProductConfigurator_BulkDeleteOptions
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratoroptionBulkDeleteRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratoroptionBulkDeleteResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/option/{optionId}:
+    delete:
+      operationId: ProductConfigurator_DeleteOption
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: optionId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratoroptionDeleteResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+    put:
+      operationId: ProductConfigurator_UpdateOption
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: optionId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratoroptionUpdateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratoroptionEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/option/{sourceOptionId}/copy:
+    post:
+      operationId: ProductConfigurator_CopyOption
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: sourceOptionId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratoroptionCopyRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratoroptionEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/page-size/{pageSize}/dependencies:
+    post:
+      operationId: ProductConfigurator_ListDependencies
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: pageSize
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dependencyListDependenciesRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dependencyListDependenciesResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/product/{productId}:
+    get:
+      operationId: ProductConfigurator_GetConfiguratorByProductId
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: productId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          default: UNKNOWN
+          enum:
+          - UNKNOWN
+          - ACTIVE
+          - DRAFT
+          - DISABLED
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorconfiguratorEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+  /v1/{tenantId}/product/{productId}/configuration:
+    get:
+      operationId: ProductConfigurator_GetAvailableConfiguration
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: productId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/configurationGetAvailableConfigurationResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+    post:
+      operationId: ProductConfigurator_GetAvailableConfiguration2
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: productId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/configurationGetAvailableConfigurationRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/configurationGetAvailableConfigurationResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/product/{productId}/create:
+    post:
+      operationId: ProductConfigurator_CreateConfigurator
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: productId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorconfiguratorCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorconfiguratorEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/product/{productId}/page-size/{pageSize}/configurators:
+    post:
+      operationId: ProductConfigurator_ListConfigurators
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: productId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: pageSize
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/configuratorListRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/configuratorListResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/product/{productId}/status/{status}:
+    get:
+      operationId: ProductConfigurator_GetConfiguratorByProductId2
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: productId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: status
+        required: true
+        schema:
+          enum:
+          - UNKNOWN
+          - ACTIVE
+          - DRAFT
+          - DISABLED
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorconfiguratorEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+  /v1/{tenantId}/product/{sourceProductId}/copy:
+    post:
+      operationId: ProductConfigurator_CopyConfigurator2
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: sourceProductId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorconfiguratorEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+  /v1/{tenantId}/property/bulk:
+    put:
+      operationId: ProductConfigurator_BulkUpdateProperties
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorpropertyBulkUpdateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorpropertyBulkUpdateResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/property/create:
+    post:
+      operationId: ProductConfigurator_CreateProperty
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorpropertyCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorpropertyEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/property/create/bulk:
+    post:
+      operationId: ProductConfigurator_BulkCreateProperties
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorpropertyBulkCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorpropertyBulkCreateResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/property/{propertyId}:
+    put:
+      operationId: ProductConfigurator_UpdateProperty
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: propertyId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorpropertyUpdateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorpropertyEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/step/delete/bulk:
+    post:
+      operationId: ProductConfigurator_BulkDeleteSteps
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorstepBulkDeleteRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorstepBulkDeleteResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/step/{sourceStepId}/copy:
+    post:
+      operationId: ProductConfigurator_CopyStep
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: sourceStepId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorstepCopyRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorstepEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/step/{stepId}:
+    delete:
+      operationId: ProductConfigurator_DeleteStep
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: stepId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorstepDeleteResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+    put:
+      operationId: ProductConfigurator_UpdateStep
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: stepId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorstepUpdateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorstepEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/step/{stepId}/dependency/create:
+    post:
+      operationId: ProductConfigurator_CreateDependency
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: stepId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratordependencyCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratordependencyEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/step/{stepId}/option/create:
+    post:
+      operationId: ProductConfigurator_CreateOption
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: stepId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratoroptionCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratoroptionEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/step/{stepId}/option/create/bulk:
+    post:
+      operationId: ProductConfigurator_BulkCreateOptions
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: stepId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratoroptionBulkCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratoroptionBulkCreateResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/step/{stepId}/page-size/{pageSize}/options:
+    post:
+      operationId: ProductConfigurator_ListOptions
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: stepId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: pageSize
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/optionListOptionsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/optionListOptionsResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    ListMatricesRequestFilter:
+      properties:
+        propertyType:
+          items:
+            $ref: '#/components/schemas/productconfiguratorPropertyType'
+          type: array
+        propertyKey:
+          items:
+            type: string
+          type: array
+      type: object
+    configurationConfigurator:
+      example:
+        grn: grn
+        id: id
+        steps:
+        - isRequired: true
+          grn: grn
+          options:
+          - grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            optionProperties:
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+            enabled: true
+          - grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            optionProperties:
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+            enabled: true
+          description:
+            value:
+              key: value
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          subjectToStepId: subjectToStepId
+          enabled: true
+        - isRequired: true
+          grn: grn
+          options:
+          - grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            optionProperties:
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+            enabled: true
+          - grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            optionProperties:
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+            enabled: true
+          description:
+            value:
+              key: value
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          subjectToStepId: subjectToStepId
+          enabled: true
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        steps:
+          items:
+            $ref: '#/components/schemas/configurationStep'
+          type: array
+      type: object
+    configurationGetAvailableConfigurationRequest:
+      properties:
+        tenantId:
+          type: string
+        productId:
+          type: string
+        selections:
+          items:
+            $ref: '#/components/schemas/configurationSelection'
+          type: array
+      type: object
+    configurationGetAvailableConfigurationResponse:
+      example:
+        configurator:
+          grn: grn
+          id: id
+          steps:
+          - isRequired: true
+            grn: grn
+            options:
+            - grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              optionProperties:
+              - subtractToGetVariation:
+                - subtractToGetVariation
+                - subtractToGetVariation
+                propertyType: null
+                propertyValue: propertyValue
+                propertyId: propertyId
+              - subtractToGetVariation:
+                - subtractToGetVariation
+                - subtractToGetVariation
+                propertyType: null
+                propertyValue: propertyValue
+                propertyId: propertyId
+              enabled: true
+            - grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              optionProperties:
+              - subtractToGetVariation:
+                - subtractToGetVariation
+                - subtractToGetVariation
+                propertyType: null
+                propertyValue: propertyValue
+                propertyId: propertyId
+              - subtractToGetVariation:
+                - subtractToGetVariation
+                - subtractToGetVariation
+                propertyType: null
+                propertyValue: propertyValue
+                propertyId: propertyId
+              enabled: true
+            description:
+              value:
+                key: value
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            subjectToStepId: subjectToStepId
+            enabled: true
+          - isRequired: true
+            grn: grn
+            options:
+            - grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              optionProperties:
+              - subtractToGetVariation:
+                - subtractToGetVariation
+                - subtractToGetVariation
+                propertyType: null
+                propertyValue: propertyValue
+                propertyId: propertyId
+              - subtractToGetVariation:
+                - subtractToGetVariation
+                - subtractToGetVariation
+                propertyType: null
+                propertyValue: propertyValue
+                propertyId: propertyId
+              enabled: true
+            - grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              optionProperties:
+              - subtractToGetVariation:
+                - subtractToGetVariation
+                - subtractToGetVariation
+                propertyType: null
+                propertyValue: propertyValue
+                propertyId: propertyId
+              - subtractToGetVariation:
+                - subtractToGetVariation
+                - subtractToGetVariation
+                propertyType: null
+                propertyValue: propertyValue
+                propertyId: propertyId
+              enabled: true
+            description:
+              value:
+                key: value
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            subjectToStepId: subjectToStepId
+            enabled: true
+        selections:
+        - stepId: stepId
+          optionId: optionId
+        - stepId: stepId
+          optionId: optionId
+        matchedProperties:
+        - propertyKey: propertyKey
+          grn: grn
+          propertyType: null
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+        - propertyKey: propertyKey
+          grn: grn
+          propertyType: null
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+        properties:
+        - propertyKey: propertyKey
+          grn: grn
+          propertyType: null
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+        - propertyKey: propertyKey
+          grn: grn
+          propertyType: null
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+      properties:
+        configurator:
+          $ref: '#/components/schemas/configurationConfigurator'
+        properties:
+          items:
+            $ref: '#/components/schemas/configurationProperty'
+          type: array
+        matchedProperties:
+          items:
+            $ref: '#/components/schemas/configurationProperty'
+          type: array
+        selections:
+          items:
+            $ref: '#/components/schemas/configurationSelection'
+          type: array
+      type: object
+    configurationOption:
+      example:
+        grn: grn
+        swatch:
+          grn: grn
+          url: url
+        id: id
+        label:
+          value:
+            key: value
+        position: position
+        optionProperties:
+        - subtractToGetVariation:
+          - subtractToGetVariation
+          - subtractToGetVariation
+          propertyType: null
+          propertyValue: propertyValue
+          propertyId: propertyId
+        - subtractToGetVariation:
+          - subtractToGetVariation
+          - subtractToGetVariation
+          propertyType: null
+          propertyValue: propertyValue
+          propertyId: propertyId
+        enabled: true
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        position:
+          format: uint64
+          type: string
+        swatch:
+          $ref: '#/components/schemas/optionSwatch'
+        enabled:
+          type: boolean
+        optionProperties:
+          items:
+            $ref: '#/components/schemas/configurationOptionProperty'
+          type: array
+      type: object
+    configurationOptionProperty:
+      example:
+        subtractToGetVariation:
+        - subtractToGetVariation
+        - subtractToGetVariation
+        propertyType: null
+        propertyValue: propertyValue
+        propertyId: propertyId
+      properties:
+        propertyId:
+          type: string
+        propertyValue:
+          type: string
+        propertyType:
+          $ref: '#/components/schemas/productconfiguratorPropertyType'
+        subtractToGetVariation:
+          description: subtract_to_get_variation is a list of values and is used to
+            calculate the variation from the property value.
+          items:
+            type: string
+          type: array
+      type: object
+    configurationProperty:
+      example:
+        propertyKey: propertyKey
+        grn: grn
+        propertyType: null
+        propertyValue: propertyValue
+        id: id
+        optionIds:
+        - optionIds
+        - optionIds
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        optionIds:
+          items:
+            type: string
+          type: array
+        propertyKey:
+          type: string
+        propertyValue:
+          type: string
+        propertyType:
+          $ref: '#/components/schemas/productconfiguratorPropertyType'
+      type: object
+    configurationSelection:
+      example:
+        stepId: stepId
+        optionId: optionId
+      properties:
+        stepId:
+          type: string
+        optionId:
+          type: string
+      type: object
+    configurationStep:
+      example:
+        isRequired: true
+        grn: grn
+        options:
+        - grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          optionProperties:
+          - subtractToGetVariation:
+            - subtractToGetVariation
+            - subtractToGetVariation
+            propertyType: null
+            propertyValue: propertyValue
+            propertyId: propertyId
+          - subtractToGetVariation:
+            - subtractToGetVariation
+            - subtractToGetVariation
+            propertyType: null
+            propertyValue: propertyValue
+            propertyId: propertyId
+          enabled: true
+        - grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          optionProperties:
+          - subtractToGetVariation:
+            - subtractToGetVariation
+            - subtractToGetVariation
+            propertyType: null
+            propertyValue: propertyValue
+            propertyId: propertyId
+          - subtractToGetVariation:
+            - subtractToGetVariation
+            - subtractToGetVariation
+            propertyType: null
+            propertyValue: propertyValue
+            propertyId: propertyId
+          enabled: true
+        description:
+          value:
+            key: value
+        id: id
+        label:
+          value:
+            key: value
+        position: position
+        subjectToStepId: subjectToStepId
+        enabled: true
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        description:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        subjectToStepId:
+          type: string
+        position:
+          format: uint64
+          type: string
+        isRequired:
+          type: boolean
+        options:
+          items:
+            $ref: '#/components/schemas/configurationOption'
+          type: array
+        enabled:
+          type: boolean
+      type: object
+    configuratorListRequest:
+      properties:
+        tenantId:
+          type: string
+        productId:
+          type: string
+        pageSize:
+          format: int64
+          type: integer
+        pageToken:
+          type: string
+      type: object
+    configuratorListResponse:
+      example:
+        nextPageToken: nextPageToken
+        configurators:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          productId: productId
+          id: id
+          label: label
+          steps:
+          - isRequired: true
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            options:
+            - createdAt: 2000-01-23T04:56:07.000+00:00
+              grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            - createdAt: 2000-01-23T04:56:07.000+00:00
+              grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            description:
+              value:
+                key: value
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            subjectToStepId: subjectToStepId
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          - isRequired: true
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            options:
+            - createdAt: 2000-01-23T04:56:07.000+00:00
+              grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            - createdAt: 2000-01-23T04:56:07.000+00:00
+              grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            description:
+              value:
+                key: value
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            subjectToStepId: subjectToStepId
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          status: null
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          productId: productId
+          id: id
+          label: label
+          steps:
+          - isRequired: true
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            options:
+            - createdAt: 2000-01-23T04:56:07.000+00:00
+              grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            - createdAt: 2000-01-23T04:56:07.000+00:00
+              grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            description:
+              value:
+                key: value
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            subjectToStepId: subjectToStepId
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          - isRequired: true
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            options:
+            - createdAt: 2000-01-23T04:56:07.000+00:00
+              grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            - createdAt: 2000-01-23T04:56:07.000+00:00
+              grn: grn
+              swatch:
+                grn: grn
+                url: url
+              id: id
+              label:
+                value:
+                  key: value
+              position: position
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            description:
+              value:
+                key: value
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            subjectToStepId: subjectToStepId
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          status: null
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        configurators:
+          items:
+            $ref: '#/components/schemas/productconfiguratorconfiguratorEntity'
+          type: array
+        nextPageToken:
+          type: string
+      type: object
+    dependencyCondition:
+      example:
+        conditions:
+        - null
+        - null
+        type: null
+        optionIds:
+        - optionIds
+        - optionIds
+      properties:
+        optionIds:
+          items:
+            type: string
+          title: the option ids that must be selected by previous steps in order for
+            this condition to be true
+          type: array
+        conditions:
+          items:
+            $ref: '#/components/schemas/dependencyCondition'
+          title: the conditions that must be true for this condition to be true
+          type: array
+        type:
+          $ref: '#/components/schemas/productconfiguratordependencyType'
+      title: |-
+        A dependency condition
+          options_ids and condition are mutually exclusive
+      type: object
+    dependencyListDependenciesRequest:
+      properties:
+        tenantId:
+          type: string
+        stepIds:
+          items:
+            type: string
+          type: array
+        pageSize:
+          format: int64
+          type: integer
+        pageToken:
+          type: string
+      type: object
+    dependencyListDependenciesResponse:
+      example:
+        nextPageToken: nextPageToken
+        dependencies:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          condition:
+            conditions:
+            - null
+            - null
+            type: null
+            optionIds:
+            - optionIds
+            - optionIds
+          stepId: stepId
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          condition:
+            conditions:
+            - null
+            - null
+            type: null
+            optionIds:
+            - optionIds
+            - optionIds
+          stepId: stepId
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        dependencies:
+          items:
+            $ref: '#/components/schemas/productconfiguratordependencyEntity'
+          type: array
+        nextPageToken:
+          type: string
+      type: object
+    googlerpcStatus:
+      properties:
+        code:
+          format: int32
+          type: integer
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+      type: object
+    localisationLocalizedText:
+      example:
+        value:
+          key: value
+      properties:
+        value:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    matrixGenericType:
+      properties:
+        propertyKey:
+          type: string
+        propertyValue:
+          type: string
+      type: object
+    matrixListMatricesRequest:
+      properties:
+        tenantId:
+          type: string
+        configuratorId:
+          type: string
+        filterMask:
+          items:
+            type: string
+          type: array
+        filter:
+          $ref: '#/components/schemas/ListMatricesRequestFilter'
+        pageSize:
+          format: uint64
+          type: string
+        pageToken:
+          type: string
+      type: object
+    matrixListMatricesResponse:
+      example:
+        nextPageToken: nextPageToken
+        matrices:
+        - propertyKey: propertyKey
+          defaultPropertyId: defaultPropertyId
+          grn: grn
+          xSteps:
+          - xSteps
+          - xSteps
+          yStepDeterminant: yStepDeterminant
+          pricelistGrn: pricelistGrn
+          label: label
+          ySteps:
+          - ySteps
+          - ySteps
+          configuratorId: configuratorId
+          xStepDeterminant: xStepDeterminant
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          propertyType: null
+          id: id
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - propertyKey: propertyKey
+          defaultPropertyId: defaultPropertyId
+          grn: grn
+          xSteps:
+          - xSteps
+          - xSteps
+          yStepDeterminant: yStepDeterminant
+          pricelistGrn: pricelistGrn
+          label: label
+          ySteps:
+          - ySteps
+          - ySteps
+          configuratorId: configuratorId
+          xStepDeterminant: xStepDeterminant
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          propertyType: null
+          id: id
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        matrices:
+          items:
+            $ref: '#/components/schemas/productconfiguratormatrixEntity'
+          type: array
+        nextPageToken:
+          type: string
+      type: object
+    matrixPriceType:
+      properties:
+        pricelistGrn:
+          type: string
+      type: object
+    optionListOptionsRequest:
+      properties:
+        tenantId:
+          type: string
+        stepId:
+          type: string
+        pageSize:
+          format: int64
+          type: integer
+        pageToken:
+          type: string
+      type: object
+    optionListOptionsResponse:
+      example:
+        nextPageToken: nextPageToken
+        options:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        options:
+          items:
+            $ref: '#/components/schemas/productconfiguratoroptionEntity'
+          type: array
+        nextPageToken:
+          type: string
+      type: object
+    optionSwatch:
+      example:
+        grn: grn
+        url: url
+      properties:
+        grn:
+          type: string
+        url:
+          type: string
+      type: object
+    productconfiguratorPropertyType:
+      default: PROPERTY_TYPE_UNKNOWN
+      enum:
+      - PROPERTY_TYPE_UNKNOWN
+      - PROPERTY_TYPE_GENERIC
+      - PROPERTY_TYPE_PRICE
+      type: string
+    productconfiguratorconfiguratorCopyRequest:
+      properties:
+        tenantId:
+          type: string
+        sourceProductId:
+          type: string
+        targetProductId:
+          type: string
+      type: object
+    productconfiguratorconfiguratorCreateRequest:
+      properties:
+        tenantId:
+          type: string
+        productId:
+          type: string
+        label:
+          type: string
+      type: object
+    productconfiguratorconfiguratorDeleteResponse:
+      type: object
+    productconfiguratorconfiguratorEntity:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        grn: grn
+        productId: productId
+        id: id
+        label: label
+        steps:
+        - isRequired: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          options:
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          description:
+            value:
+              key: value
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          subjectToStepId: subjectToStepId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - isRequired: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          options:
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          description:
+            value:
+              key: value
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          subjectToStepId: subjectToStepId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        status: null
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        productId:
+          type: string
+        label:
+          type: string
+        status:
+          $ref: '#/components/schemas/productconfiguratorconfiguratorStatus'
+        steps:
+          items:
+            $ref: '#/components/schemas/productconfiguratorstepEntity'
+          type: array
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    productconfiguratorconfiguratorStatus:
+      default: UNKNOWN
+      enum:
+      - UNKNOWN
+      - ACTIVE
+      - DRAFT
+      - DISABLED
+      type: string
+    productconfiguratorconfiguratorUpdatePayload:
+      properties:
+        label:
+          type: string
+        status:
+          $ref: '#/components/schemas/productconfiguratorconfiguratorStatus'
+      type: object
+    productconfiguratorconfiguratorUpdateRequest:
+      properties:
+        tenantId:
+          type: string
+        configuratorId:
+          type: string
+        payload:
+          $ref: '#/components/schemas/productconfiguratorconfiguratorUpdatePayload'
+        payloadMask:
+          items:
+            type: string
+          type: array
+      type: object
+    productconfiguratordependencyCreateRequest:
+      properties:
+        tenantId:
+          type: string
+        stepId:
+          type: string
+        optionIds:
+          items:
+            type: string
+          title: "The option ids owned by the step id, that will be shown if the condition\
+            \ is met"
+          type: array
+        condition:
+          $ref: '#/components/schemas/dependencyCondition'
+      type: object
+    productconfiguratordependencyDeleteResponse:
+      type: object
+    productconfiguratordependencyEntity:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        grn: grn
+        condition:
+          conditions:
+          - null
+          - null
+          type: null
+          optionIds:
+          - optionIds
+          - optionIds
+        stepId: stepId
+        id: id
+        optionIds:
+        - optionIds
+        - optionIds
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        optionIds:
+          items:
+            type: string
+          title: "The option ids owned by the step id, that will be shown if the condition\
+            \ is met"
+          type: array
+        condition:
+          $ref: '#/components/schemas/dependencyCondition'
+        stepId:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    productconfiguratordependencyType:
+      default: UNKNOWN
+      enum:
+      - UNKNOWN
+      - ALL
+      - ANY
+      type: string
+    productconfiguratordependencyUpdatePayload:
+      properties:
+        optionIds:
+          items:
+            type: string
+          type: array
+        condition:
+          $ref: '#/components/schemas/dependencyCondition'
+      type: object
+    productconfiguratordependencyUpdateRequest:
+      properties:
+        tenantId:
+          type: string
+        dependencyId:
+          type: string
+        payload:
+          $ref: '#/components/schemas/productconfiguratordependencyUpdatePayload'
+        payloadMask:
+          items:
+            type: string
+          type: array
+      type: object
+    productconfiguratormatrixCreateRequest:
+      properties:
+        tenantId:
+          type: string
+        configuratorId:
+          type: string
+        label:
+          type: string
+        xSteps:
+          items:
+            type: string
+          type: array
+        ySteps:
+          items:
+            type: string
+          type: array
+        xStepDeterminant:
+          type: string
+        yStepDeterminant:
+          type: string
+        genericType:
+          $ref: '#/components/schemas/matrixGenericType'
+        priceType:
+          $ref: '#/components/schemas/matrixPriceType'
+      type: object
+    productconfiguratormatrixDeleteResponse:
+      type: object
+    productconfiguratormatrixEntity:
+      example:
+        propertyKey: propertyKey
+        defaultPropertyId: defaultPropertyId
+        grn: grn
+        xSteps:
+        - xSteps
+        - xSteps
+        yStepDeterminant: yStepDeterminant
+        pricelistGrn: pricelistGrn
+        label: label
+        ySteps:
+        - ySteps
+        - ySteps
+        configuratorId: configuratorId
+        xStepDeterminant: xStepDeterminant
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        propertyType: null
+        id: id
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        configuratorId:
+          type: string
+        label:
+          type: string
+        xSteps:
+          items:
+            type: string
+          type: array
+        ySteps:
+          items:
+            type: string
+          type: array
+        propertyKey:
+          type: string
+        propertyType:
+          $ref: '#/components/schemas/productconfiguratorPropertyType'
+        xStepDeterminant:
+          type: string
+        yStepDeterminant:
+          type: string
+        pricelistGrn:
+          type: string
+        defaultPropertyId:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    productconfiguratormatrixUpdatePayload:
+      properties:
+        label:
+          type: string
+        defaultPropertyId:
+          description: |-
+            default_property_id is the id of the property
+            that will be used as the starting point to calculate the differences between the properties.
+          type: string
+      type: object
+    productconfiguratormatrixUpdateRequest:
+      properties:
+        tenantId:
+          type: string
+        matrixId:
+          type: string
+        payload:
+          $ref: '#/components/schemas/productconfiguratormatrixUpdatePayload'
+        payloadMask:
+          items:
+            type: string
+          type: array
+      type: object
+    productconfiguratoroptionBulkCreateRequest:
+      properties:
+        tenantId:
+          type: string
+        stepId:
+          type: string
+        options:
+          items:
+            $ref: '#/components/schemas/productconfiguratoroptionBulkCreateRequestCreateEntity'
+          type: array
+      type: object
+    productconfiguratoroptionBulkCreateRequestCreateEntity:
+      properties:
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        position:
+          format: uint64
+          type: string
+      type: object
+    productconfiguratoroptionBulkCreateResponse:
+      example:
+        options:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        options:
+          items:
+            $ref: '#/components/schemas/productconfiguratoroptionEntity'
+          type: array
+      type: object
+    productconfiguratoroptionBulkDeleteRequest:
+      properties:
+        tenantId:
+          type: string
+        optionIds:
+          items:
+            type: string
+          type: array
+      type: object
+    productconfiguratoroptionBulkDeleteResponse:
+      type: object
+    productconfiguratoroptionBulkUpdateRequest:
+      properties:
+        tenantId:
+          type: string
+        options:
+          items:
+            $ref: '#/components/schemas/productconfiguratoroptionBulkUpdateRequestUpdateEntity'
+          type: array
+      type: object
+    productconfiguratoroptionBulkUpdateRequestUpdateEntity:
+      properties:
+        optionId:
+          type: string
+        payload:
+          $ref: '#/components/schemas/productconfiguratoroptionUpdatePayload'
+        payloadMask:
+          items:
+            type: string
+          type: array
+      type: object
+    productconfiguratoroptionBulkUpdateResponse:
+      example:
+        options:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        options:
+          items:
+            $ref: '#/components/schemas/productconfiguratoroptionEntity'
+          type: array
+      type: object
+    productconfiguratoroptionCopyRequest:
+      properties:
+        tenantId:
+          type: string
+        sourceOptionId:
+          type: string
+        targetStepId:
+          type: string
+      type: object
+    productconfiguratoroptionCreateRequest:
+      properties:
+        tenantId:
+          type: string
+        stepId:
+          type: string
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        position:
+          format: uint64
+          type: string
+      type: object
+    productconfiguratoroptionDeleteResponse:
+      type: object
+    productconfiguratoroptionEntity:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        grn: grn
+        swatch:
+          grn: grn
+          url: url
+        id: id
+        label:
+          value:
+            key: value
+        position: position
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        position:
+          format: uint64
+          type: string
+        swatch:
+          $ref: '#/components/schemas/optionSwatch'
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    productconfiguratoroptionUpdatePayload:
+      properties:
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        position:
+          format: uint64
+          type: string
+      type: object
+    productconfiguratoroptionUpdateRequest:
+      properties:
+        tenantId:
+          type: string
+        optionId:
+          type: string
+        payload:
+          $ref: '#/components/schemas/productconfiguratoroptionUpdatePayload'
+        payloadMask:
+          items:
+            type: string
+          type: array
+      type: object
+    productconfiguratorpropertyBulkCreateRequest:
+      properties:
+        tenantId:
+          type: string
+        matrixId:
+          type: string
+        properties:
+          items:
+            $ref: '#/components/schemas/productconfiguratorpropertyBulkCreateRequestCreateEntity'
+          type: array
+      type: object
+    productconfiguratorpropertyBulkCreateRequestCreateEntity:
+      properties:
+        optionIds:
+          items:
+            type: string
+          type: array
+        genericProperty:
+          $ref: '#/components/schemas/productconfiguratorpropertyGenericProperty'
+        priceProperty:
+          type: object
+        coordinates:
+          description: |-
+            coordinates of the entity in the matrix. The order matters.
+            Example: [1, 2] means that the entity is located at the first row, second column.
+            Example: [1, 2, 3] means that the entity is located at the first row, second column, third layer.
+            Example: [1, 2, 3, 4] means that the entity is located at the first row, second column, third layer, fourth depth.
+          items:
+            format: int64
+            type: integer
+          type: array
+      type: object
+    productconfiguratorpropertyBulkCreateResponse:
+      example:
+        properties:
+        - propertyKey: propertyKey
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          propertyType: null
+          coordinates:
+          - 0
+          - 0
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - propertyKey: propertyKey
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          propertyType: null
+          coordinates:
+          - 0
+          - 0
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        properties:
+          items:
+            $ref: '#/components/schemas/productconfiguratorpropertyEntity'
+          type: array
+      type: object
+    productconfiguratorpropertyBulkUpdateRequest:
+      properties:
+        tenantId:
+          type: string
+        entities:
+          items:
+            $ref: '#/components/schemas/productconfiguratorpropertyBulkUpdateRequestUpdateEntity'
+          type: array
+      type: object
+    productconfiguratorpropertyBulkUpdateRequestUpdateEntity:
+      properties:
+        propertyId:
+          type: string
+        payload:
+          $ref: '#/components/schemas/productconfiguratorpropertyUpdatePayload'
+        payloadMask:
+          items:
+            type: string
+          type: array
+      type: object
+    productconfiguratorpropertyBulkUpdateResponse:
+      example:
+        properties:
+        - propertyKey: propertyKey
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          propertyType: null
+          coordinates:
+          - 0
+          - 0
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - propertyKey: propertyKey
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          propertyType: null
+          coordinates:
+          - 0
+          - 0
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        properties:
+          items:
+            $ref: '#/components/schemas/productconfiguratorpropertyEntity'
+          type: array
+      type: object
+    productconfiguratorpropertyCreateRequest:
+      properties:
+        tenantId:
+          type: string
+        matrixId:
+          type: string
+        optionIds:
+          items:
+            type: string
+          type: array
+        genericProperty:
+          $ref: '#/components/schemas/productconfiguratorpropertyGenericProperty'
+        priceProperty:
+          type: object
+        coordinates:
+          description: |-
+            coordinates of the entity in the matrix. The order matters.
+            Example: [1, 2] means that the entity is located at the first row, second column.
+            Example: [1, 2, 3] means that the entity is located at the first row, second column, third layer.
+            Example: [1, 2, 3, 4] means that the entity is located at the first row, second column, third layer, fourth depth.
+          items:
+            format: int64
+            type: integer
+          type: array
+      type: object
+    productconfiguratorpropertyEntity:
+      example:
+        propertyKey: propertyKey
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        grn: grn
+        propertyType: null
+        coordinates:
+        - 0
+        - 0
+        propertyValue: propertyValue
+        id: id
+        optionIds:
+        - optionIds
+        - optionIds
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        optionIds:
+          items:
+            type: string
+          type: array
+        propertyKey:
+          type: string
+        propertyValue:
+          type: string
+        propertyType:
+          $ref: '#/components/schemas/productconfiguratorPropertyType'
+        coordinates:
+          items:
+            format: int64
+            type: integer
+          type: array
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    productconfiguratorpropertyGenericProperty:
+      properties:
+        propertyKey:
+          type: string
+        propertyValue:
+          type: string
+      type: object
+    productconfiguratorpropertyUpdatePayload:
+      properties:
+        genericProperty:
+          $ref: '#/components/schemas/propertyUpdatePayloadGenericProperty'
+      type: object
+    productconfiguratorpropertyUpdateRequest:
+      properties:
+        tenantId:
+          type: string
+        propertyId:
+          type: string
+        payload:
+          $ref: '#/components/schemas/productconfiguratorpropertyUpdatePayload'
+        payloadMask:
+          items:
+            type: string
+          type: array
+      type: object
+    productconfiguratorstepBulkCreateRequest:
+      properties:
+        tenantId:
+          type: string
+        configuratorId:
+          type: string
+        steps:
+          items:
+            $ref: '#/components/schemas/productconfiguratorstepBulkCreateRequestCreateEntity'
+          type: array
+      type: object
+    productconfiguratorstepBulkCreateRequestCreateEntity:
+      properties:
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        description:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        position:
+          format: uint64
+          type: string
+        isRequired:
+          type: boolean
+        subjectToStepId:
+          type: string
+      type: object
+    productconfiguratorstepBulkCreateResponse:
+      example:
+        steps:
+        - isRequired: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          options:
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          description:
+            value:
+              key: value
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          subjectToStepId: subjectToStepId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - isRequired: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          options:
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            position: position
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          description:
+            value:
+              key: value
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          subjectToStepId: subjectToStepId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        steps:
+          items:
+            $ref: '#/components/schemas/productconfiguratorstepEntity'
+          type: array
+      type: object
+    productconfiguratorstepBulkDeleteRequest:
+      properties:
+        tenantId:
+          type: string
+        stepIds:
+          items:
+            type: string
+          type: array
+      type: object
+    productconfiguratorstepBulkDeleteResponse:
+      type: object
+    productconfiguratorstepCopyRequest:
+      properties:
+        tenantId:
+          type: string
+        sourceStepId:
+          type: string
+        targetConfiguratorId:
+          type: string
+      type: object
+    productconfiguratorstepCreateRequest:
+      properties:
+        tenantId:
+          type: string
+        configuratorId:
+          type: string
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        description:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        position:
+          format: uint64
+          type: string
+        isRequired:
+          type: boolean
+        subjectToStepId:
+          type: string
+      type: object
+    productconfiguratorstepDeleteResponse:
+      type: object
+    productconfiguratorstepEntity:
+      example:
+        isRequired: true
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        grn: grn
+        options:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        description:
+          value:
+            key: value
+        id: id
+        label:
+          value:
+            key: value
+        position: position
+        subjectToStepId: subjectToStepId
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        description:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        subjectToStepId:
+          type: string
+        position:
+          format: uint64
+          type: string
+        isRequired:
+          type: boolean
+        options:
+          items:
+            $ref: '#/components/schemas/productconfiguratoroptionEntity'
+          type: array
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    productconfiguratorstepUpdatePayload:
+      properties:
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        description:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        position:
+          format: uint64
+          type: string
+        isRequired:
+          type: boolean
+        subjectToStepId:
+          type: string
+      type: object
+    productconfiguratorstepUpdateRequest:
+      properties:
+        tenantId:
+          type: string
+        stepId:
+          type: string
+        payload:
+          $ref: '#/components/schemas/productconfiguratorstepUpdatePayload'
+        payloadMask:
+          items:
+            type: string
+          type: array
+      type: object
+    propertyListPropertiesRequest:
+      properties:
+        tenantId:
+          type: string
+        matrixId:
+          type: string
+        pageSize:
+          format: uint64
+          type: string
+        pageToken:
+          type: string
+      type: object
+    propertyListPropertiesResponse:
+      example:
+        nextPageToken: nextPageToken
+        properties:
+        - propertyKey: propertyKey
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          propertyType: null
+          coordinates:
+          - 0
+          - 0
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - propertyKey: propertyKey
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          propertyType: null
+          coordinates:
+          - 0
+          - 0
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        properties:
+          items:
+            $ref: '#/components/schemas/productconfiguratorpropertyEntity'
+          type: array
+        nextPageToken:
+          type: string
+      type: object
+    propertyPriceProperty:
+      type: object
+    propertyUpdatePayloadGenericProperty:
+      properties:
+        propertyValue:
+          type: string
+      type: object
+    protobufAny:
+      properties:
+        '@type':
+          type: string
+        value:
+          format: byte
+          pattern: "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+          type: string
+      type: object
+  securitySchemes:
+    standardAuthorization:
+      flows:
+        implicit:
+          scopes: {}
+      type: oauth2
+x-original-swagger-version: "2.0"

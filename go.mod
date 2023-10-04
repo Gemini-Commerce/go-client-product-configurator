@@ -1,4 +1,4 @@
-module github.com/GIT_USER_ID/GIT_REPO_ID
+module bitbucket.org/gogemini/go-client-product-configurator
 
 go 1.13
 

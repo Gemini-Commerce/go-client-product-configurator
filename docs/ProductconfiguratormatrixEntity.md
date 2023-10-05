@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **XSteps**| **[]string** |   | [optional]
 **YSteps**| **[]string** |   | [optional]
 **PropertyKey**| **string** |   | [optional]
-**PropertyType**| [**ProductconfiguratorPropertyType**](ProductconfiguratorPropertyType.md) |  for more information please, see Model/ProductconfiguratorPropertyType.php  | [optional] [default to UNKNOWN]
+**PropertyType**| [**ProductconfiguratorPropertyType**](ProductconfiguratorPropertyType.md) |  for more information please, see Model/ProductconfiguratorPropertyType.php  | [optional] [default to PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN]
 **XStepDeterminant**| **string** |   | [optional]
 **YStepDeterminant**| **string** |   | [optional]
 **PricelistGrn**| **string** |   | [optional]

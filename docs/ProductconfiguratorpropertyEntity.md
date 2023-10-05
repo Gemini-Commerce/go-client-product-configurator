@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **OptionIds**| **[]string** |   | [optional]
 **PropertyKey**| **string** |   | [optional]
 **PropertyValue**| **string** |   | [optional]
-**PropertyType**| [**ProductconfiguratorPropertyType**](ProductconfiguratorPropertyType.md) |  for more information please, see Model/ProductconfiguratorPropertyType.php  | [optional] [default to UNKNOWN]
+**PropertyType**| [**ProductconfiguratorPropertyType**](ProductconfiguratorPropertyType.md) |  for more information please, see Model/ProductconfiguratorPropertyType.php  | [optional] [default to PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN]
 **Coordinates**| **[]int64** |   | [optional]
 **CreatedAt**| [**time.Time**](time.Time.md) |   | [optional]
 **UpdatedAt**| [**time.Time**](time.Time.md) |   | [optional]

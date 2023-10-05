@@ -15,5 +15,5 @@ generate-go-client:
 	${openapi_generator} \
 	generate -i go-client-generator/modules/proto/${lower_service}/${lower_service}.swagger.json \
 	-g go -t go-client-generator/templates/go -o go-client-${lower_service} \
-	--additional-properties ${artifact_version}\
+	--skip-validate-spec --additional-properties ${artifact_version}enumClassPrefix=true,structPrefix=true\
 	packageName="${lower_service}",\

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Grn**| **string** |   | [optional]
 **ProductId**| **string** |   | [optional]
 **Label**| **string** |   | [optional]
-**Status**| [**ProductconfiguratorconfiguratorStatus**](ProductconfiguratorconfiguratorStatus.md) |  for more information please, see Model/ProductconfiguratorconfiguratorStatus.php  | [optional] [default to UNKNOWN]
+**Status**| [**ProductconfiguratorconfiguratorStatus**](ProductconfiguratorconfiguratorStatus.md) |  for more information please, see Model/ProductconfiguratorconfiguratorStatus.php  | [optional] [default to PRODUCTCONFIGURATORCONFIGURATORSTATUS_UNKNOWN]
 **Steps**| [**[]ProductconfiguratorstepEntity**](ProductconfiguratorstepEntity.md) |   | [optional]
 **CreatedAt**| [**time.Time**](time.Time.md) |   | [optional]
 **UpdatedAt**| [**time.Time**](time.Time.md) |   | [optional]

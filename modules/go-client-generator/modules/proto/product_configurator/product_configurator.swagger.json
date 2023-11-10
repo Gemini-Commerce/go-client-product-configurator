@@ -60,7 +60,7 @@
         ]
       },
       "put": {
-        "operationId": "ProductConfigurator_UpdateConfigurator2",
+        "operationId": "ProductConfigurator_UpdateConfigurator",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -87,6 +87,14 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorconfiguratorUpdateRequest"
+            }
           }
         ],
         "tags": [
@@ -512,6 +520,88 @@
         ]
       }
     },
+    "/v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn}": {
+      "delete": {
+        "operationId": "ProductConfigurator_RemovePricelistFromMatrix",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratormatrixEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "matrixId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pricelistGrn",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      },
+      "post": {
+        "operationId": "ProductConfigurator_AddPricelistToMatrix",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratormatrixEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "matrixId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pricelistGrn",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
     "/v1/{tenantId}/option/bulk": {
       "put": {
         "operationId": "ProductConfigurator_BulkUpdateOptions",
@@ -833,6 +923,12 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "configuratorId",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -874,6 +970,50 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/configurationGetAvailableConfigurationRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/product/{productId}/configuration-from-selections": {
+      "post": {
+        "operationId": "ProductConfigurator_GetConfigurationFromSelections",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/configurationGetConfigurationFromSelectionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/configurationGetConfigurationFromSelectionsRequest"
             }
           }
         ],
@@ -1025,9 +1165,9 @@
         ]
       }
     },
-    "/v1/{tenantId}/product/{sourceProductId}/copy": {
+    "/v1/{tenantId}/product/{sourceConfiguratorId}/copy": {
       "post": {
-        "operationId": "ProductConfigurator_CopyConfigurator2",
+        "operationId": "ProductConfigurator_CopyConfigurator",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1050,10 +1190,18 @@
             "type": "string"
           },
           {
-            "name": "sourceProductId",
+            "name": "sourceConfiguratorId",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorconfiguratorCopyRequest"
+            }
           }
         ],
         "tags": [
@@ -1061,7 +1209,7 @@
         ]
       }
     },
-    "/v1/{tenantId}/property/bulk": {
+    "/v1/{tenantId}/properties/bulk": {
       "put": {
         "operationId": "ProductConfigurator_BulkUpdateProperties",
         "responses": {
@@ -1564,6 +1712,29 @@
     }
   },
   "definitions": {
+    "ConfigurationStepOption": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "swatch": {
+          "$ref": "#/definitions/optionSwatch"
+        },
+        "optionProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationOptionProperty"
+          }
+        }
+      }
+    },
     "ListMatricesRequestFilter": {
       "type": "object",
       "properties": {
@@ -1581,6 +1752,23 @@
         }
       }
     },
+    "configurationConfigurationStep": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "option": {
+          "$ref": "#/definitions/ConfigurationStepOption"
+        }
+      }
+    },
     "configurationConfigurator": {
       "type": "object",
       "properties": {
@@ -1593,7 +1781,7 @@
         "steps": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/configurationStep"
+            "$ref": "#/definitions/productconfiguratorconfigurationStep"
           }
         }
       }
@@ -1612,6 +1800,15 @@
           "items": {
             "$ref": "#/definitions/configurationSelection"
           }
+        },
+        "propertyFilters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationPropertyFilter"
+          }
+        },
+        "configuratorId": {
+          "type": "string"
         }
       }
     },
@@ -1620,12 +1817,6 @@
       "properties": {
         "configurator": {
           "$ref": "#/definitions/configurationConfigurator"
-        },
-        "properties": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/configurationProperty"
-          }
         },
         "matchedProperties": {
           "type": "array",
@@ -1641,32 +1832,36 @@
         }
       }
     },
-    "configurationOption": {
+    "configurationGetConfigurationFromSelectionsRequest": {
       "type": "object",
       "properties": {
-        "id": {
+        "tenantId": {
           "type": "string"
         },
-        "grn": {
+        "productId": {
           "type": "string"
         },
-        "label": {
-          "$ref": "#/definitions/localisationLocalizedText"
-        },
-        "position": {
-          "type": "string",
-          "format": "uint64"
-        },
-        "swatch": {
-          "$ref": "#/definitions/optionSwatch"
-        },
-        "enabled": {
-          "type": "boolean"
-        },
-        "optionProperties": {
+        "selections": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/configurationOptionProperty"
+            "$ref": "#/definitions/configurationSelection"
+          }
+        }
+      }
+    },
+    "configurationGetConfigurationFromSelectionsResponse": {
+      "type": "object",
+      "properties": {
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationConfigurationStep"
+          }
+        },
+        "matchedProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationProperty"
           }
         }
       }
@@ -1718,6 +1913,34 @@
         }
       }
     },
+    "configurationPropertyFilter": {
+      "type": "object",
+      "properties": {
+        "genericProperty": {
+          "$ref": "#/definitions/configurationPropertyFilterGenericProperty"
+        },
+        "priceProperty": {
+          "$ref": "#/definitions/configurationPropertyFilterPriceProperty"
+        },
+        "weightProperty": {
+          "$ref": "#/definitions/configurationPropertyFilterWeightProperty"
+        }
+      }
+    },
+    "configurationPropertyFilterGenericProperty": {
+      "type": "object",
+      "properties": {
+        "propertyKey": {
+          "type": "string"
+        }
+      }
+    },
+    "configurationPropertyFilterPriceProperty": {
+      "type": "object"
+    },
+    "configurationPropertyFilterWeightProperty": {
+      "type": "object"
+    },
     "configurationSelection": {
       "type": "object",
       "properties": {
@@ -1726,42 +1949,6 @@
         },
         "optionId": {
           "type": "string"
-        }
-      }
-    },
-    "configurationStep": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "grn": {
-          "type": "string"
-        },
-        "label": {
-          "$ref": "#/definitions/localisationLocalizedText"
-        },
-        "description": {
-          "$ref": "#/definitions/localisationLocalizedText"
-        },
-        "subjectToStepId": {
-          "type": "string"
-        },
-        "position": {
-          "type": "string",
-          "format": "uint64"
-        },
-        "isRequired": {
-          "type": "boolean"
-        },
-        "options": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/configurationOption"
-          }
-        },
-        "enabled": {
-          "type": "boolean"
         }
       }
     },
@@ -1890,9 +2077,6 @@
       "properties": {
         "propertyKey": {
           "type": "string"
-        },
-        "propertyValue": {
-          "type": "string"
         }
       }
     },
@@ -1940,8 +2124,19 @@
     "matrixPriceType": {
       "type": "object",
       "properties": {
-        "pricelistGrn": {
-          "type": "string"
+        "pricelistGrns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "matrixWeightType": {
+      "type": "object",
+      "properties": {
+        "weightUnit": {
+          "$ref": "#/definitions/productconfiguratorWeightUnit"
         }
       }
     },
@@ -1988,14 +2183,106 @@
         }
       }
     },
+    "productconfiguratorMoney": {
+      "type": "object",
+      "properties": {
+        "units": {
+          "type": "string",
+          "format": "int64",
+          "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar."
+        },
+        "micros": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of micro (10^-6) units of the amount.\nThe value must be between -999,999 and +999,999 inclusive.\nIf `units` is positive, `micros` must be positive or zero.\nIf `units` is zero, `micros` can be positive, zero, or negative.\nIf `units` is negative, `micros` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `micros`=-750,000."
+        }
+      },
+      "description": "Represents an amount of money."
+    },
     "productconfiguratorPropertyType": {
       "type": "string",
       "enum": [
         "PROPERTY_TYPE_UNKNOWN",
         "PROPERTY_TYPE_GENERIC",
-        "PROPERTY_TYPE_PRICE"
+        "PROPERTY_TYPE_PRICE",
+        "PROPERTY_TYPE_WEIGHT"
       ],
       "default": "PROPERTY_TYPE_UNKNOWN"
+    },
+    "productconfiguratorWeightUnit": {
+      "type": "string",
+      "enum": [
+        "WEIGHT_UNIT_UNKNOWN",
+        "WEIGHT_UNIT_KILOGRAM",
+        "WEIGHT_UNIT_POUND"
+      ],
+      "default": "WEIGHT_UNIT_UNKNOWN"
+    },
+    "productconfiguratorconfigurationOption": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "position": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "swatch": {
+          "$ref": "#/definitions/optionSwatch"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "optionProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationOptionProperty"
+          }
+        }
+      }
+    },
+    "productconfiguratorconfigurationStep": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "description": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "subjectToStepId": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorconfigurationOption"
+          }
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      }
     },
     "productconfiguratorconfiguratorCopyRequest": {
       "type": "object",
@@ -2003,11 +2290,17 @@
         "tenantId": {
           "type": "string"
         },
-        "sourceProductId": {
+        "sourceConfiguratorId": {
           "type": "string"
         },
         "targetProductId": {
           "type": "string"
+        },
+        "copyDependencies": {
+          "type": "boolean"
+        },
+        "copyMatrices": {
+          "type": "boolean"
         }
       }
     },
@@ -2214,29 +2507,20 @@
         "label": {
           "type": "string"
         },
-        "xSteps": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "ySteps": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "xStepDeterminant": {
-          "type": "string"
-        },
-        "yStepDeterminant": {
-          "type": "string"
-        },
         "genericType": {
           "$ref": "#/definitions/matrixGenericType"
         },
         "priceType": {
           "$ref": "#/definitions/matrixPriceType"
+        },
+        "weightType": {
+          "$ref": "#/definitions/matrixWeightType"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratormatrixStep"
+          }
         }
       }
     },
@@ -2258,35 +2542,23 @@
         "label": {
           "type": "string"
         },
-        "xSteps": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "ySteps": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "propertyKey": {
-          "type": "string"
-        },
-        "propertyType": {
-          "$ref": "#/definitions/productconfiguratorPropertyType"
-        },
-        "xStepDeterminant": {
-          "type": "string"
-        },
-        "yStepDeterminant": {
-          "type": "string"
-        },
-        "pricelistGrn": {
-          "type": "string"
-        },
         "defaultPropertyId": {
           "type": "string"
+        },
+        "genericType": {
+          "$ref": "#/definitions/matrixGenericType"
+        },
+        "priceType": {
+          "$ref": "#/definitions/matrixPriceType"
+        },
+        "weightType": {
+          "$ref": "#/definitions/matrixWeightType"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratormatrixStep"
+          }
         },
         "createdAt": {
           "type": "string",
@@ -2295,6 +2567,19 @@
         "updatedAt": {
           "type": "string",
           "format": "date-time"
+        }
+      }
+    },
+    "productconfiguratormatrixStep": {
+      "type": "object",
+      "properties": {
+        "stepId": {
+          "type": "string"
+        },
+        "position": {
+          "type": "integer",
+          "format": "int64",
+          "title": "position of the step in the matrix columns"
         }
       }
     },
@@ -2356,6 +2641,12 @@
         "position": {
           "type": "string",
           "format": "uint64"
+        },
+        "externalReferenceId": {
+          "type": "string"
+        },
+        "swatch": {
+          "$ref": "#/definitions/optionSwatch"
         }
       }
     },
@@ -2458,6 +2749,12 @@
         "position": {
           "type": "string",
           "format": "uint64"
+        },
+        "externalReferenceId": {
+          "type": "string"
+        },
+        "swatch": {
+          "$ref": "#/definitions/optionSwatch"
         }
       }
     },
@@ -2483,6 +2780,9 @@
         "swatch": {
           "$ref": "#/definitions/optionSwatch"
         },
+        "externalReferenceId": {
+          "type": "string"
+        },
         "createdAt": {
           "type": "string",
           "format": "date-time"
@@ -2502,6 +2802,12 @@
         "position": {
           "type": "string",
           "format": "uint64"
+        },
+        "externalReferenceId": {
+          "type": "string"
+        },
+        "swatch": {
+          "$ref": "#/definitions/optionSwatch"
         }
       }
     },
@@ -2545,9 +2851,9 @@
     "productconfiguratorpropertyBulkCreateRequestCreateEntity": {
       "type": "object",
       "properties": {
-        "optionIds": {
-          "type": "array",
-          "items": {
+        "stepIdToOptionId": {
+          "type": "object",
+          "additionalProperties": {
             "type": "string"
           }
         },
@@ -2555,15 +2861,10 @@
           "$ref": "#/definitions/productconfiguratorpropertyGenericProperty"
         },
         "priceProperty": {
-          "$ref": "#/definitions/propertyPriceProperty"
+          "$ref": "#/definitions/productconfiguratorpropertyPriceProperty"
         },
-        "coordinates": {
-          "type": "array",
-          "items": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "description": "coordinates of the entity in the matrix. The order matters.\nExample: [1, 2] means that the entity is located at the first row, second column.\nExample: [1, 2, 3] means that the entity is located at the first row, second column, third layer.\nExample: [1, 2, 3, 4] means that the entity is located at the first row, second column, third layer, fourth depth."
+        "weightProperty": {
+          "$ref": "#/definitions/productconfiguratorpropertyWeightProperty"
         }
       }
     },
@@ -2582,6 +2883,9 @@
       "type": "object",
       "properties": {
         "tenantId": {
+          "type": "string"
+        },
+        "matrixId": {
           "type": "string"
         },
         "entities": {
@@ -2629,9 +2933,9 @@
         "matrixId": {
           "type": "string"
         },
-        "optionIds": {
-          "type": "array",
-          "items": {
+        "stepIdToOptionId": {
+          "type": "object",
+          "additionalProperties": {
             "type": "string"
           }
         },
@@ -2639,15 +2943,10 @@
           "$ref": "#/definitions/productconfiguratorpropertyGenericProperty"
         },
         "priceProperty": {
-          "$ref": "#/definitions/propertyPriceProperty"
+          "$ref": "#/definitions/productconfiguratorpropertyPriceProperty"
         },
-        "coordinates": {
-          "type": "array",
-          "items": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "description": "coordinates of the entity in the matrix. The order matters.\nExample: [1, 2] means that the entity is located at the first row, second column.\nExample: [1, 2, 3] means that the entity is located at the first row, second column, third layer.\nExample: [1, 2, 3, 4] means that the entity is located at the first row, second column, third layer, fourth depth."
+        "weightProperty": {
+          "$ref": "#/definitions/productconfiguratorpropertyWeightProperty"
         }
       }
     },
@@ -2660,9 +2959,9 @@
         "grn": {
           "type": "string"
         },
-        "optionIds": {
-          "type": "array",
-          "items": {
+        "stepIdToOptionId": {
+          "type": "object",
+          "additionalProperties": {
             "type": "string"
           }
         },
@@ -2674,13 +2973,6 @@
         },
         "propertyType": {
           "$ref": "#/definitions/productconfiguratorPropertyType"
-        },
-        "coordinates": {
-          "type": "array",
-          "items": {
-            "type": "integer",
-            "format": "int64"
-          }
         },
         "createdAt": {
           "type": "string",
@@ -2703,11 +2995,28 @@
         }
       }
     },
+    "productconfiguratorpropertyPriceProperty": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "$ref": "#/definitions/productconfiguratorMoney"
+        },
+        "pricelistGrn": {
+          "type": "string"
+        }
+      }
+    },
     "productconfiguratorpropertyUpdatePayload": {
       "type": "object",
       "properties": {
         "genericProperty": {
           "$ref": "#/definitions/propertyUpdatePayloadGenericProperty"
+        },
+        "weightProperty": {
+          "$ref": "#/definitions/propertyUpdatePayloadWeightProperty"
+        },
+        "priceProperty": {
+          "$ref": "#/definitions/propertyUpdatePayloadPriceProperty"
         }
       }
     },
@@ -2715,6 +3024,9 @@
       "type": "object",
       "properties": {
         "tenantId": {
+          "type": "string"
+        },
+        "matrixId": {
           "type": "string"
         },
         "propertyId": {
@@ -2728,6 +3040,18 @@
           "items": {
             "type": "string"
           }
+        }
+      }
+    },
+    "productconfiguratorpropertyWeightProperty": {
+      "type": "object",
+      "properties": {
+        "weight": {
+          "type": "number",
+          "format": "double"
+        },
+        "weightUnit": {
+          "$ref": "#/definitions/productconfiguratorWeightUnit"
         }
       }
     },
@@ -2756,10 +3080,6 @@
         },
         "description": {
           "$ref": "#/definitions/localisationLocalizedText"
-        },
-        "position": {
-          "type": "string",
-          "format": "uint64"
         },
         "isRequired": {
           "type": "boolean"
@@ -2825,10 +3145,6 @@
         },
         "description": {
           "$ref": "#/definitions/localisationLocalizedText"
-        },
-        "position": {
-          "type": "string",
-          "format": "uint64"
         },
         "isRequired": {
           "type": "boolean"
@@ -2955,14 +3271,31 @@
         }
       }
     },
-    "propertyPriceProperty": {
-      "type": "object"
-    },
     "propertyUpdatePayloadGenericProperty": {
       "type": "object",
       "properties": {
         "propertyValue": {
           "type": "string"
+        }
+      }
+    },
+    "propertyUpdatePayloadPriceProperty": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "$ref": "#/definitions/productconfiguratorMoney"
+        },
+        "pricelistGrn": {
+          "type": "string"
+        }
+      }
+    },
+    "propertyUpdatePayloadWeightProperty": {
+      "type": "object",
+      "properties": {
+        "weight": {
+          "type": "number",
+          "format": "double"
         }
       }
     },

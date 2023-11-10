@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TenantId**| **string** |   | [optional]
+**MatrixId**| **string** |   | [optional]
 **PropertyId**| **string** |   | [optional]
 **Payload**| [**ProductconfiguratorpropertyUpdatePayload**](ProductconfiguratorpropertyUpdatePayload.md) |   | [optional]
 **PayloadMask**| **[]string** |   | [optional]

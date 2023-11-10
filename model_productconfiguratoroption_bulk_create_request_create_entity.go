@@ -19,6 +19,8 @@ import (
 type ProductconfiguratoroptionBulkCreateRequestCreateEntity struct {
 	Label *LocalisationLocalizedText `json:"label,omitempty"`
 	Position *string `json:"position,omitempty"`
+	ExternalReferenceId *string `json:"externalReferenceId,omitempty"`
+	Swatch *OptionSwatch `json:"swatch,omitempty"`
 }
 
 // NewProductconfiguratoroptionBulkCreateRequestCreateEntity instantiates a new ProductconfiguratoroptionBulkCreateRequestCreateEntity object
@@ -102,6 +104,70 @@ func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) SetPosition(v s
 	o.Position = &v
 }
 
+// GetExternalReferenceId returns the ExternalReferenceId field value if set, zero value otherwise.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) GetExternalReferenceId() string {
+	if o == nil || isNil(o.ExternalReferenceId) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalReferenceId
+}
+
+// GetExternalReferenceIdOk returns a tuple with the ExternalReferenceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) GetExternalReferenceIdOk() (*string, bool) {
+	if o == nil || isNil(o.ExternalReferenceId) {
+    return nil, false
+	}
+	return o.ExternalReferenceId, true
+}
+
+// HasExternalReferenceId returns a boolean if a field has been set.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) HasExternalReferenceId() bool {
+	if o != nil && !isNil(o.ExternalReferenceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalReferenceId gets a reference to the given string and assigns it to the ExternalReferenceId field.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) SetExternalReferenceId(v string) {
+	o.ExternalReferenceId = &v
+}
+
+// GetSwatch returns the Swatch field value if set, zero value otherwise.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) GetSwatch() OptionSwatch {
+	if o == nil || isNil(o.Swatch) {
+		var ret OptionSwatch
+		return ret
+	}
+	return *o.Swatch
+}
+
+// GetSwatchOk returns a tuple with the Swatch field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) GetSwatchOk() (*OptionSwatch, bool) {
+	if o == nil || isNil(o.Swatch) {
+    return nil, false
+	}
+	return o.Swatch, true
+}
+
+// HasSwatch returns a boolean if a field has been set.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) HasSwatch() bool {
+	if o != nil && !isNil(o.Swatch) {
+		return true
+	}
+
+	return false
+}
+
+// SetSwatch gets a reference to the given OptionSwatch and assigns it to the Swatch field.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) SetSwatch(v OptionSwatch) {
+	o.Swatch = &v
+}
+
 func (o ProductconfiguratoroptionBulkCreateRequestCreateEntity) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Label) {
@@ -109,6 +175,12 @@ func (o ProductconfiguratoroptionBulkCreateRequestCreateEntity) MarshalJSON() ([
 	}
 	if !isNil(o.Position) {
 		toSerialize["position"] = o.Position
+	}
+	if !isNil(o.ExternalReferenceId) {
+		toSerialize["externalReferenceId"] = o.ExternalReferenceId
+	}
+	if !isNil(o.Swatch) {
+		toSerialize["swatch"] = o.Swatch
 	}
 	return json.Marshal(toSerialize)
 }

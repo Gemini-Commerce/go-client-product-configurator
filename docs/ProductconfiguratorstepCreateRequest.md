@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **ConfiguratorId**| **string** |   | [optional]
 **Label**| [**LocalisationLocalizedText**](LocalisationLocalizedText.md) |   | [optional]
 **Description**| [**LocalisationLocalizedText**](LocalisationLocalizedText.md) |   | [optional]
-**Position**| **string** |   | [optional]
 **IsRequired**| **bool** |   | [optional]
 **SubjectToStepId**| **string** |   | [optional]
 

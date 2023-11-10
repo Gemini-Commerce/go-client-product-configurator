@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// ConfigurationStep struct for ConfigurationStep
-type ConfigurationStep struct {
+// ProductconfiguratorconfigurationStep struct for ProductconfiguratorconfigurationStep
+type ProductconfiguratorconfigurationStep struct {
 	Id *string `json:"id,omitempty"`
 	Grn *string `json:"grn,omitempty"`
 	Label *LocalisationLocalizedText `json:"label,omitempty"`
@@ -24,29 +24,29 @@ type ConfigurationStep struct {
 	SubjectToStepId *string `json:"subjectToStepId,omitempty"`
 	Position *string `json:"position,omitempty"`
 	IsRequired *bool `json:"isRequired,omitempty"`
-	Options []ConfigurationOption `json:"options,omitempty"`
+	Options []ProductconfiguratorconfigurationOption `json:"options,omitempty"`
 	Enabled *bool `json:"enabled,omitempty"`
 }
 
-// NewConfigurationStep instantiates a new ConfigurationStep object
+// NewProductconfiguratorconfigurationStep instantiates a new ProductconfiguratorconfigurationStep object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConfigurationStep() *ConfigurationStep {
-	this := ConfigurationStep{}
+func NewProductconfiguratorconfigurationStep() *ProductconfiguratorconfigurationStep {
+	this := ProductconfiguratorconfigurationStep{}
 	return &this
 }
 
-// NewConfigurationStepWithDefaults instantiates a new ConfigurationStep object
+// NewProductconfiguratorconfigurationStepWithDefaults instantiates a new ProductconfiguratorconfigurationStep object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewConfigurationStepWithDefaults() *ConfigurationStep {
-	this := ConfigurationStep{}
+func NewProductconfiguratorconfigurationStepWithDefaults() *ProductconfiguratorconfigurationStep {
+	this := ProductconfiguratorconfigurationStep{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *ConfigurationStep) GetId() string {
+func (o *ProductconfiguratorconfigurationStep) GetId() string {
 	if o == nil || isNil(o.Id) {
 		var ret string
 		return ret
@@ -56,7 +56,7 @@ func (o *ConfigurationStep) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConfigurationStep) GetIdOk() (*string, bool) {
+func (o *ProductconfiguratorconfigurationStep) GetIdOk() (*string, bool) {
 	if o == nil || isNil(o.Id) {
     return nil, false
 	}
@@ -64,7 +64,7 @@ func (o *ConfigurationStep) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ConfigurationStep) HasId() bool {
+func (o *ProductconfiguratorconfigurationStep) HasId() bool {
 	if o != nil && !isNil(o.Id) {
 		return true
 	}
@@ -73,12 +73,12 @@ func (o *ConfigurationStep) HasId() bool {
 }
 
 // SetId gets a reference to the given string and assigns it to the Id field.
-func (o *ConfigurationStep) SetId(v string) {
+func (o *ProductconfiguratorconfigurationStep) SetId(v string) {
 	o.Id = &v
 }
 
 // GetGrn returns the Grn field value if set, zero value otherwise.
-func (o *ConfigurationStep) GetGrn() string {
+func (o *ProductconfiguratorconfigurationStep) GetGrn() string {
 	if o == nil || isNil(o.Grn) {
 		var ret string
 		return ret
@@ -88,7 +88,7 @@ func (o *ConfigurationStep) GetGrn() string {
 
 // GetGrnOk returns a tuple with the Grn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConfigurationStep) GetGrnOk() (*string, bool) {
+func (o *ProductconfiguratorconfigurationStep) GetGrnOk() (*string, bool) {
 	if o == nil || isNil(o.Grn) {
     return nil, false
 	}
@@ -96,7 +96,7 @@ func (o *ConfigurationStep) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ConfigurationStep) HasGrn() bool {
+func (o *ProductconfiguratorconfigurationStep) HasGrn() bool {
 	if o != nil && !isNil(o.Grn) {
 		return true
 	}
@@ -105,12 +105,12 @@ func (o *ConfigurationStep) HasGrn() bool {
 }
 
 // SetGrn gets a reference to the given string and assigns it to the Grn field.
-func (o *ConfigurationStep) SetGrn(v string) {
+func (o *ProductconfiguratorconfigurationStep) SetGrn(v string) {
 	o.Grn = &v
 }
 
 // GetLabel returns the Label field value if set, zero value otherwise.
-func (o *ConfigurationStep) GetLabel() LocalisationLocalizedText {
+func (o *ProductconfiguratorconfigurationStep) GetLabel() LocalisationLocalizedText {
 	if o == nil || isNil(o.Label) {
 		var ret LocalisationLocalizedText
 		return ret
@@ -120,7 +120,7 @@ func (o *ConfigurationStep) GetLabel() LocalisationLocalizedText {
 
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConfigurationStep) GetLabelOk() (*LocalisationLocalizedText, bool) {
+func (o *ProductconfiguratorconfigurationStep) GetLabelOk() (*LocalisationLocalizedText, bool) {
 	if o == nil || isNil(o.Label) {
     return nil, false
 	}
@@ -128,7 +128,7 @@ func (o *ConfigurationStep) GetLabelOk() (*LocalisationLocalizedText, bool) {
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ConfigurationStep) HasLabel() bool {
+func (o *ProductconfiguratorconfigurationStep) HasLabel() bool {
 	if o != nil && !isNil(o.Label) {
 		return true
 	}
@@ -137,12 +137,12 @@ func (o *ConfigurationStep) HasLabel() bool {
 }
 
 // SetLabel gets a reference to the given LocalisationLocalizedText and assigns it to the Label field.
-func (o *ConfigurationStep) SetLabel(v LocalisationLocalizedText) {
+func (o *ProductconfiguratorconfigurationStep) SetLabel(v LocalisationLocalizedText) {
 	o.Label = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
-func (o *ConfigurationStep) GetDescription() LocalisationLocalizedText {
+func (o *ProductconfiguratorconfigurationStep) GetDescription() LocalisationLocalizedText {
 	if o == nil || isNil(o.Description) {
 		var ret LocalisationLocalizedText
 		return ret
@@ -152,7 +152,7 @@ func (o *ConfigurationStep) GetDescription() LocalisationLocalizedText {
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConfigurationStep) GetDescriptionOk() (*LocalisationLocalizedText, bool) {
+func (o *ProductconfiguratorconfigurationStep) GetDescriptionOk() (*LocalisationLocalizedText, bool) {
 	if o == nil || isNil(o.Description) {
     return nil, false
 	}
@@ -160,7 +160,7 @@ func (o *ConfigurationStep) GetDescriptionOk() (*LocalisationLocalizedText, bool
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ConfigurationStep) HasDescription() bool {
+func (o *ProductconfiguratorconfigurationStep) HasDescription() bool {
 	if o != nil && !isNil(o.Description) {
 		return true
 	}
@@ -169,12 +169,12 @@ func (o *ConfigurationStep) HasDescription() bool {
 }
 
 // SetDescription gets a reference to the given LocalisationLocalizedText and assigns it to the Description field.
-func (o *ConfigurationStep) SetDescription(v LocalisationLocalizedText) {
+func (o *ProductconfiguratorconfigurationStep) SetDescription(v LocalisationLocalizedText) {
 	o.Description = &v
 }
 
 // GetSubjectToStepId returns the SubjectToStepId field value if set, zero value otherwise.
-func (o *ConfigurationStep) GetSubjectToStepId() string {
+func (o *ProductconfiguratorconfigurationStep) GetSubjectToStepId() string {
 	if o == nil || isNil(o.SubjectToStepId) {
 		var ret string
 		return ret
@@ -184,7 +184,7 @@ func (o *ConfigurationStep) GetSubjectToStepId() string {
 
 // GetSubjectToStepIdOk returns a tuple with the SubjectToStepId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConfigurationStep) GetSubjectToStepIdOk() (*string, bool) {
+func (o *ProductconfiguratorconfigurationStep) GetSubjectToStepIdOk() (*string, bool) {
 	if o == nil || isNil(o.SubjectToStepId) {
     return nil, false
 	}
@@ -192,7 +192,7 @@ func (o *ConfigurationStep) GetSubjectToStepIdOk() (*string, bool) {
 }
 
 // HasSubjectToStepId returns a boolean if a field has been set.
-func (o *ConfigurationStep) HasSubjectToStepId() bool {
+func (o *ProductconfiguratorconfigurationStep) HasSubjectToStepId() bool {
 	if o != nil && !isNil(o.SubjectToStepId) {
 		return true
 	}
@@ -201,12 +201,12 @@ func (o *ConfigurationStep) HasSubjectToStepId() bool {
 }
 
 // SetSubjectToStepId gets a reference to the given string and assigns it to the SubjectToStepId field.
-func (o *ConfigurationStep) SetSubjectToStepId(v string) {
+func (o *ProductconfiguratorconfigurationStep) SetSubjectToStepId(v string) {
 	o.SubjectToStepId = &v
 }
 
 // GetPosition returns the Position field value if set, zero value otherwise.
-func (o *ConfigurationStep) GetPosition() string {
+func (o *ProductconfiguratorconfigurationStep) GetPosition() string {
 	if o == nil || isNil(o.Position) {
 		var ret string
 		return ret
@@ -216,7 +216,7 @@ func (o *ConfigurationStep) GetPosition() string {
 
 // GetPositionOk returns a tuple with the Position field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConfigurationStep) GetPositionOk() (*string, bool) {
+func (o *ProductconfiguratorconfigurationStep) GetPositionOk() (*string, bool) {
 	if o == nil || isNil(o.Position) {
     return nil, false
 	}
@@ -224,7 +224,7 @@ func (o *ConfigurationStep) GetPositionOk() (*string, bool) {
 }
 
 // HasPosition returns a boolean if a field has been set.
-func (o *ConfigurationStep) HasPosition() bool {
+func (o *ProductconfiguratorconfigurationStep) HasPosition() bool {
 	if o != nil && !isNil(o.Position) {
 		return true
 	}
@@ -233,12 +233,12 @@ func (o *ConfigurationStep) HasPosition() bool {
 }
 
 // SetPosition gets a reference to the given string and assigns it to the Position field.
-func (o *ConfigurationStep) SetPosition(v string) {
+func (o *ProductconfiguratorconfigurationStep) SetPosition(v string) {
 	o.Position = &v
 }
 
 // GetIsRequired returns the IsRequired field value if set, zero value otherwise.
-func (o *ConfigurationStep) GetIsRequired() bool {
+func (o *ProductconfiguratorconfigurationStep) GetIsRequired() bool {
 	if o == nil || isNil(o.IsRequired) {
 		var ret bool
 		return ret
@@ -248,7 +248,7 @@ func (o *ConfigurationStep) GetIsRequired() bool {
 
 // GetIsRequiredOk returns a tuple with the IsRequired field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConfigurationStep) GetIsRequiredOk() (*bool, bool) {
+func (o *ProductconfiguratorconfigurationStep) GetIsRequiredOk() (*bool, bool) {
 	if o == nil || isNil(o.IsRequired) {
     return nil, false
 	}
@@ -256,7 +256,7 @@ func (o *ConfigurationStep) GetIsRequiredOk() (*bool, bool) {
 }
 
 // HasIsRequired returns a boolean if a field has been set.
-func (o *ConfigurationStep) HasIsRequired() bool {
+func (o *ProductconfiguratorconfigurationStep) HasIsRequired() bool {
 	if o != nil && !isNil(o.IsRequired) {
 		return true
 	}
@@ -265,14 +265,14 @@ func (o *ConfigurationStep) HasIsRequired() bool {
 }
 
 // SetIsRequired gets a reference to the given bool and assigns it to the IsRequired field.
-func (o *ConfigurationStep) SetIsRequired(v bool) {
+func (o *ProductconfiguratorconfigurationStep) SetIsRequired(v bool) {
 	o.IsRequired = &v
 }
 
 // GetOptions returns the Options field value if set, zero value otherwise.
-func (o *ConfigurationStep) GetOptions() []ConfigurationOption {
+func (o *ProductconfiguratorconfigurationStep) GetOptions() []ProductconfiguratorconfigurationOption {
 	if o == nil || isNil(o.Options) {
-		var ret []ConfigurationOption
+		var ret []ProductconfiguratorconfigurationOption
 		return ret
 	}
 	return o.Options
@@ -280,7 +280,7 @@ func (o *ConfigurationStep) GetOptions() []ConfigurationOption {
 
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConfigurationStep) GetOptionsOk() ([]ConfigurationOption, bool) {
+func (o *ProductconfiguratorconfigurationStep) GetOptionsOk() ([]ProductconfiguratorconfigurationOption, bool) {
 	if o == nil || isNil(o.Options) {
     return nil, false
 	}
@@ -288,7 +288,7 @@ func (o *ConfigurationStep) GetOptionsOk() ([]ConfigurationOption, bool) {
 }
 
 // HasOptions returns a boolean if a field has been set.
-func (o *ConfigurationStep) HasOptions() bool {
+func (o *ProductconfiguratorconfigurationStep) HasOptions() bool {
 	if o != nil && !isNil(o.Options) {
 		return true
 	}
@@ -296,13 +296,13 @@ func (o *ConfigurationStep) HasOptions() bool {
 	return false
 }
 
-// SetOptions gets a reference to the given []ConfigurationOption and assigns it to the Options field.
-func (o *ConfigurationStep) SetOptions(v []ConfigurationOption) {
+// SetOptions gets a reference to the given []ProductconfiguratorconfigurationOption and assigns it to the Options field.
+func (o *ProductconfiguratorconfigurationStep) SetOptions(v []ProductconfiguratorconfigurationOption) {
 	o.Options = v
 }
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
-func (o *ConfigurationStep) GetEnabled() bool {
+func (o *ProductconfiguratorconfigurationStep) GetEnabled() bool {
 	if o == nil || isNil(o.Enabled) {
 		var ret bool
 		return ret
@@ -312,7 +312,7 @@ func (o *ConfigurationStep) GetEnabled() bool {
 
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConfigurationStep) GetEnabledOk() (*bool, bool) {
+func (o *ProductconfiguratorconfigurationStep) GetEnabledOk() (*bool, bool) {
 	if o == nil || isNil(o.Enabled) {
     return nil, false
 	}
@@ -320,7 +320,7 @@ func (o *ConfigurationStep) GetEnabledOk() (*bool, bool) {
 }
 
 // HasEnabled returns a boolean if a field has been set.
-func (o *ConfigurationStep) HasEnabled() bool {
+func (o *ProductconfiguratorconfigurationStep) HasEnabled() bool {
 	if o != nil && !isNil(o.Enabled) {
 		return true
 	}
@@ -329,11 +329,11 @@ func (o *ConfigurationStep) HasEnabled() bool {
 }
 
 // SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
-func (o *ConfigurationStep) SetEnabled(v bool) {
+func (o *ProductconfiguratorconfigurationStep) SetEnabled(v bool) {
 	o.Enabled = &v
 }
 
-func (o ConfigurationStep) MarshalJSON() ([]byte, error) {
+func (o ProductconfiguratorconfigurationStep) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
@@ -365,38 +365,38 @@ func (o ConfigurationStep) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableConfigurationStep struct {
-	value *ConfigurationStep
+type NullableProductconfiguratorconfigurationStep struct {
+	value *ProductconfiguratorconfigurationStep
 	isSet bool
 }
 
-func (v NullableConfigurationStep) Get() *ConfigurationStep {
+func (v NullableProductconfiguratorconfigurationStep) Get() *ProductconfiguratorconfigurationStep {
 	return v.value
 }
 
-func (v *NullableConfigurationStep) Set(val *ConfigurationStep) {
+func (v *NullableProductconfiguratorconfigurationStep) Set(val *ProductconfiguratorconfigurationStep) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableConfigurationStep) IsSet() bool {
+func (v NullableProductconfiguratorconfigurationStep) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableConfigurationStep) Unset() {
+func (v *NullableProductconfiguratorconfigurationStep) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableConfigurationStep(val *ConfigurationStep) *NullableConfigurationStep {
-	return &NullableConfigurationStep{value: val, isSet: true}
+func NewNullableProductconfiguratorconfigurationStep(val *ProductconfiguratorconfigurationStep) *NullableProductconfiguratorconfigurationStep {
+	return &NullableProductconfiguratorconfigurationStep{value: val, isSet: true}
 }
 
-func (v NullableConfigurationStep) MarshalJSON() ([]byte, error) {
+func (v NullableProductconfiguratorconfigurationStep) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableConfigurationStep) UnmarshalJSON(src []byte) error {
+func (v *NullableProductconfiguratorconfigurationStep) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

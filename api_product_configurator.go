@@ -24,6 +24,123 @@ import (
 // ProductConfiguratorApiService ProductConfiguratorApi service
 type ProductConfiguratorApiService service
 
+type ApiProductConfiguratorAddPricelistToMatrixRequest struct {
+	ctx context.Context
+	ApiService *ProductConfiguratorApiService
+	tenantId string
+	matrixId string
+	pricelistGrn string
+}
+
+func (r ApiProductConfiguratorAddPricelistToMatrixRequest) Execute() (*ProductconfiguratormatrixEntity, *http.Response, error) {
+	return r.ApiService.ProductConfiguratorAddPricelistToMatrixExecute(r)
+}
+
+/*
+ProductConfiguratorAddPricelistToMatrix Method for ProductConfiguratorAddPricelistToMatrix
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @param matrixId
+ @param pricelistGrn
+ @return ApiProductConfiguratorAddPricelistToMatrixRequest
+*/
+func (a *ProductConfiguratorApiService) ProductConfiguratorAddPricelistToMatrix(ctx context.Context, tenantId string, matrixId string, pricelistGrn string) ApiProductConfiguratorAddPricelistToMatrixRequest {
+	return ApiProductConfiguratorAddPricelistToMatrixRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+		matrixId: matrixId,
+		pricelistGrn: pricelistGrn,
+	}
+}
+
+// Execute executes the request
+//  @return ProductconfiguratormatrixEntity
+func (a *ProductConfiguratorApiService) ProductConfiguratorAddPricelistToMatrixExecute(r ApiProductConfiguratorAddPricelistToMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ProductconfiguratormatrixEntity
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductConfiguratorApiService.ProductConfiguratorAddPricelistToMatrix")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterToString(r.tenantId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"matrixId"+"}", url.PathEscape(parameterToString(r.matrixId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pricelistGrn"+"}", url.PathEscape(parameterToString(r.pricelistGrn, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v GooglerpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiProductConfiguratorBulkCreateOptionsRequest struct {
 	ctx context.Context
 	ApiService *ProductConfiguratorApiService
@@ -798,7 +915,7 @@ func (a *ProductConfiguratorApiService) ProductConfiguratorBulkUpdatePropertiesE
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/{tenantId}/property/bulk"
+	localVarPath := localBasePath + "/v1/{tenantId}/properties/bulk"
 	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterToString(r.tenantId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -872,37 +989,43 @@ func (a *ProductConfiguratorApiService) ProductConfiguratorBulkUpdatePropertiesE
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiProductConfiguratorCopyConfigurator2Request struct {
+type ApiProductConfiguratorCopyConfiguratorRequest struct {
 	ctx context.Context
 	ApiService *ProductConfiguratorApiService
 	tenantId string
-	sourceProductId string
+	sourceConfiguratorId string
+	body *ProductconfiguratorconfiguratorCopyRequest
 }
 
-func (r ApiProductConfiguratorCopyConfigurator2Request) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
-	return r.ApiService.ProductConfiguratorCopyConfigurator2Execute(r)
+func (r ApiProductConfiguratorCopyConfiguratorRequest) Body(body ProductconfiguratorconfiguratorCopyRequest) ApiProductConfiguratorCopyConfiguratorRequest {
+	r.body = &body
+	return r
+}
+
+func (r ApiProductConfiguratorCopyConfiguratorRequest) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+	return r.ApiService.ProductConfiguratorCopyConfiguratorExecute(r)
 }
 
 /*
-ProductConfiguratorCopyConfigurator2 Method for ProductConfiguratorCopyConfigurator2
+ProductConfiguratorCopyConfigurator Method for ProductConfiguratorCopyConfigurator
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
- @param sourceProductId
- @return ApiProductConfiguratorCopyConfigurator2Request
+ @param sourceConfiguratorId
+ @return ApiProductConfiguratorCopyConfiguratorRequest
 */
-func (a *ProductConfiguratorApiService) ProductConfiguratorCopyConfigurator2(ctx context.Context, tenantId string, sourceProductId string) ApiProductConfiguratorCopyConfigurator2Request {
-	return ApiProductConfiguratorCopyConfigurator2Request{
+func (a *ProductConfiguratorApiService) ProductConfiguratorCopyConfigurator(ctx context.Context, tenantId string, sourceConfiguratorId string) ApiProductConfiguratorCopyConfiguratorRequest {
+	return ApiProductConfiguratorCopyConfiguratorRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
-		sourceProductId: sourceProductId,
+		sourceConfiguratorId: sourceConfiguratorId,
 	}
 }
 
 // Execute executes the request
 //  @return ProductconfiguratorconfiguratorEntity
-func (a *ProductConfiguratorApiService) ProductConfiguratorCopyConfigurator2Execute(r ApiProductConfiguratorCopyConfigurator2Request) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+func (a *ProductConfiguratorApiService) ProductConfiguratorCopyConfiguratorExecute(r ApiProductConfiguratorCopyConfiguratorRequest) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -910,21 +1033,24 @@ func (a *ProductConfiguratorApiService) ProductConfiguratorCopyConfigurator2Exec
 		localVarReturnValue  *ProductconfiguratorconfiguratorEntity
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductConfiguratorApiService.ProductConfiguratorCopyConfigurator2")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductConfiguratorApiService.ProductConfiguratorCopyConfigurator")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/{tenantId}/product/{sourceProductId}/copy"
+	localVarPath := localBasePath + "/v1/{tenantId}/product/{sourceConfiguratorId}/copy"
 	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterToString(r.tenantId, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"sourceProductId"+"}", url.PathEscape(parameterToString(r.sourceProductId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"sourceConfiguratorId"+"}", url.PathEscape(parameterToString(r.sourceConfiguratorId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -940,6 +1066,8 @@ func (a *ProductConfiguratorApiService) ProductConfiguratorCopyConfigurator2Exec
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2539,6 +2667,12 @@ type ApiProductConfiguratorGetAvailableConfigurationRequest struct {
 	ApiService *ProductConfiguratorApiService
 	tenantId string
 	productId string
+	configuratorId *string
+}
+
+func (r ApiProductConfiguratorGetAvailableConfigurationRequest) ConfiguratorId(configuratorId string) ApiProductConfiguratorGetAvailableConfigurationRequest {
+	r.configuratorId = &configuratorId
+	return r
 }
 
 func (r ApiProductConfiguratorGetAvailableConfigurationRequest) Execute() (*ConfigurationGetAvailableConfigurationResponse, *http.Response, error) {
@@ -2585,6 +2719,9 @@ func (a *ProductConfiguratorApiService) ProductConfiguratorGetAvailableConfigura
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.configuratorId != nil {
+		localVarQueryParams.Add("configuratorId", parameterToString(*r.configuratorId, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -2697,6 +2834,130 @@ func (a *ProductConfiguratorApiService) ProductConfiguratorGetAvailableConfigura
 	}
 
 	localVarPath := localBasePath + "/v1/{tenantId}/product/{productId}/configuration"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterToString(r.tenantId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productId"+"}", url.PathEscape(parameterToString(r.productId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.body
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v GooglerpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiProductConfiguratorGetConfigurationFromSelectionsRequest struct {
+	ctx context.Context
+	ApiService *ProductConfiguratorApiService
+	tenantId string
+	productId string
+	body *ConfigurationGetConfigurationFromSelectionsRequest
+}
+
+func (r ApiProductConfiguratorGetConfigurationFromSelectionsRequest) Body(body ConfigurationGetConfigurationFromSelectionsRequest) ApiProductConfiguratorGetConfigurationFromSelectionsRequest {
+	r.body = &body
+	return r
+}
+
+func (r ApiProductConfiguratorGetConfigurationFromSelectionsRequest) Execute() (*ConfigurationGetConfigurationFromSelectionsResponse, *http.Response, error) {
+	return r.ApiService.ProductConfiguratorGetConfigurationFromSelectionsExecute(r)
+}
+
+/*
+ProductConfiguratorGetConfigurationFromSelections Method for ProductConfiguratorGetConfigurationFromSelections
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @param productId
+ @return ApiProductConfiguratorGetConfigurationFromSelectionsRequest
+*/
+func (a *ProductConfiguratorApiService) ProductConfiguratorGetConfigurationFromSelections(ctx context.Context, tenantId string, productId string) ApiProductConfiguratorGetConfigurationFromSelectionsRequest {
+	return ApiProductConfiguratorGetConfigurationFromSelectionsRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+		productId: productId,
+	}
+}
+
+// Execute executes the request
+//  @return ConfigurationGetConfigurationFromSelectionsResponse
+func (a *ProductConfiguratorApiService) ProductConfiguratorGetConfigurationFromSelectionsExecute(r ApiProductConfiguratorGetConfigurationFromSelectionsRequest) (*ConfigurationGetConfigurationFromSelectionsResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ConfigurationGetConfigurationFromSelectionsResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductConfiguratorApiService.ProductConfiguratorGetConfigurationFromSelections")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/{tenantId}/product/{productId}/configuration-from-selections"
 	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterToString(r.tenantId, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"productId"+"}", url.PathEscape(parameterToString(r.productId, "")), -1)
 
@@ -3759,52 +4020,56 @@ func (a *ProductConfiguratorApiService) ProductConfiguratorListPropertiesExecute
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiProductConfiguratorUpdateConfigurator2Request struct {
+type ApiProductConfiguratorRemovePricelistFromMatrixRequest struct {
 	ctx context.Context
 	ApiService *ProductConfiguratorApiService
 	tenantId string
-	configuratorId string
+	matrixId string
+	pricelistGrn string
 }
 
-func (r ApiProductConfiguratorUpdateConfigurator2Request) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
-	return r.ApiService.ProductConfiguratorUpdateConfigurator2Execute(r)
+func (r ApiProductConfiguratorRemovePricelistFromMatrixRequest) Execute() (*ProductconfiguratormatrixEntity, *http.Response, error) {
+	return r.ApiService.ProductConfiguratorRemovePricelistFromMatrixExecute(r)
 }
 
 /*
-ProductConfiguratorUpdateConfigurator2 Method for ProductConfiguratorUpdateConfigurator2
+ProductConfiguratorRemovePricelistFromMatrix Method for ProductConfiguratorRemovePricelistFromMatrix
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
- @param configuratorId
- @return ApiProductConfiguratorUpdateConfigurator2Request
+ @param matrixId
+ @param pricelistGrn
+ @return ApiProductConfiguratorRemovePricelistFromMatrixRequest
 */
-func (a *ProductConfiguratorApiService) ProductConfiguratorUpdateConfigurator2(ctx context.Context, tenantId string, configuratorId string) ApiProductConfiguratorUpdateConfigurator2Request {
-	return ApiProductConfiguratorUpdateConfigurator2Request{
+func (a *ProductConfiguratorApiService) ProductConfiguratorRemovePricelistFromMatrix(ctx context.Context, tenantId string, matrixId string, pricelistGrn string) ApiProductConfiguratorRemovePricelistFromMatrixRequest {
+	return ApiProductConfiguratorRemovePricelistFromMatrixRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
-		configuratorId: configuratorId,
+		matrixId: matrixId,
+		pricelistGrn: pricelistGrn,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratorconfiguratorEntity
-func (a *ProductConfiguratorApiService) ProductConfiguratorUpdateConfigurator2Execute(r ApiProductConfiguratorUpdateConfigurator2Request) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+//  @return ProductconfiguratormatrixEntity
+func (a *ProductConfiguratorApiService) ProductConfiguratorRemovePricelistFromMatrixExecute(r ApiProductConfiguratorRemovePricelistFromMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
+		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratorconfiguratorEntity
+		localVarReturnValue  *ProductconfiguratormatrixEntity
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductConfiguratorApiService.ProductConfiguratorUpdateConfigurator2")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductConfiguratorApiService.ProductConfiguratorRemovePricelistFromMatrix")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/{tenantId}/configurator/{configuratorId}"
+	localVarPath := localBasePath + "/v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn}"
 	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterToString(r.tenantId, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"configuratorId"+"}", url.PathEscape(parameterToString(r.configuratorId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"matrixId"+"}", url.PathEscape(parameterToString(r.matrixId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"pricelistGrn"+"}", url.PathEscape(parameterToString(r.pricelistGrn, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3827,6 +4092,130 @@ func (a *ProductConfiguratorApiService) ProductConfiguratorUpdateConfigurator2Ex
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v GooglerpcStatus
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiProductConfiguratorUpdateConfiguratorRequest struct {
+	ctx context.Context
+	ApiService *ProductConfiguratorApiService
+	tenantId string
+	configuratorId string
+	body *ProductconfiguratorconfiguratorUpdateRequest
+}
+
+func (r ApiProductConfiguratorUpdateConfiguratorRequest) Body(body ProductconfiguratorconfiguratorUpdateRequest) ApiProductConfiguratorUpdateConfiguratorRequest {
+	r.body = &body
+	return r
+}
+
+func (r ApiProductConfiguratorUpdateConfiguratorRequest) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+	return r.ApiService.ProductConfiguratorUpdateConfiguratorExecute(r)
+}
+
+/*
+ProductConfiguratorUpdateConfigurator Method for ProductConfiguratorUpdateConfigurator
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param tenantId
+ @param configuratorId
+ @return ApiProductConfiguratorUpdateConfiguratorRequest
+*/
+func (a *ProductConfiguratorApiService) ProductConfiguratorUpdateConfigurator(ctx context.Context, tenantId string, configuratorId string) ApiProductConfiguratorUpdateConfiguratorRequest {
+	return ApiProductConfiguratorUpdateConfiguratorRequest{
+		ApiService: a,
+		ctx: ctx,
+		tenantId: tenantId,
+		configuratorId: configuratorId,
+	}
+}
+
+// Execute executes the request
+//  @return ProductconfiguratorconfiguratorEntity
+func (a *ProductConfiguratorApiService) ProductConfiguratorUpdateConfiguratorExecute(r ApiProductConfiguratorUpdateConfiguratorRequest) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ProductconfiguratorconfiguratorEntity
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductConfiguratorApiService.ProductConfiguratorUpdateConfigurator")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/{tenantId}/configurator/{configuratorId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterToString(r.tenantId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"configuratorId"+"}", url.PathEscape(parameterToString(r.configuratorId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.body == nil {
+		return localVarReturnValue, nil, reportError("body is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.body
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

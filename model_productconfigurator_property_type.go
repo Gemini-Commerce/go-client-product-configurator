@@ -24,6 +24,7 @@ const (
 	PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN ProductconfiguratorPropertyType = "PROPERTY_TYPE_UNKNOWN"
 	PRODUCTCONFIGURATORPROPERTYTYPE_GENERIC ProductconfiguratorPropertyType = "PROPERTY_TYPE_GENERIC"
 	PRODUCTCONFIGURATORPROPERTYTYPE_PRICE ProductconfiguratorPropertyType = "PROPERTY_TYPE_PRICE"
+	PRODUCTCONFIGURATORPROPERTYTYPE_WEIGHT ProductconfiguratorPropertyType = "PROPERTY_TYPE_WEIGHT"
 )
 
 // All allowed values of ProductconfiguratorPropertyType enum
@@ -31,6 +32,7 @@ var AllowedProductconfiguratorPropertyTypeEnumValues = []ProductconfiguratorProp
 	"PROPERTY_TYPE_UNKNOWN",
 	"PROPERTY_TYPE_GENERIC",
 	"PROPERTY_TYPE_PRICE",
+	"PROPERTY_TYPE_WEIGHT",
 }
 
 func (v *ProductconfiguratorPropertyType) UnmarshalJSON(src []byte) error {

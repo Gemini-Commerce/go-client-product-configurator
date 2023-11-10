@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TenantId**| **string** |   | [optional]
+**MatrixId**| **string** |   | [optional]
 **Entities**| [**[]ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity**](ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity.md) |   | [optional]
 
 

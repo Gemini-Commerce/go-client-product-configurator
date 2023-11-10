@@ -78,14 +78,15 @@ All URIs are relative to *https://product-configurator.api.gogemini.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ProductConfiguratorApi* | [**ProductConfiguratorAddPricelistToMatrix**](docs/ProductConfiguratorApi.md#productconfiguratoraddpricelisttomatrix) | **Post** /v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn} | 
 *ProductConfiguratorApi* | [**ProductConfiguratorBulkCreateOptions**](docs/ProductConfiguratorApi.md#productconfiguratorbulkcreateoptions) | **Post** /v1/{tenantId}/step/{stepId}/option/create/bulk | 
 *ProductConfiguratorApi* | [**ProductConfiguratorBulkCreateProperties**](docs/ProductConfiguratorApi.md#productconfiguratorbulkcreateproperties) | **Post** /v1/{tenantId}/property/create/bulk | 
 *ProductConfiguratorApi* | [**ProductConfiguratorBulkCreateSteps**](docs/ProductConfiguratorApi.md#productconfiguratorbulkcreatesteps) | **Post** /v1/{tenantId}/configurator/{configuratorId}/step/create/bulk | 
 *ProductConfiguratorApi* | [**ProductConfiguratorBulkDeleteOptions**](docs/ProductConfiguratorApi.md#productconfiguratorbulkdeleteoptions) | **Post** /v1/{tenantId}/option/delete/bulk | 
 *ProductConfiguratorApi* | [**ProductConfiguratorBulkDeleteSteps**](docs/ProductConfiguratorApi.md#productconfiguratorbulkdeletesteps) | **Post** /v1/{tenantId}/step/delete/bulk | 
 *ProductConfiguratorApi* | [**ProductConfiguratorBulkUpdateOptions**](docs/ProductConfiguratorApi.md#productconfiguratorbulkupdateoptions) | **Put** /v1/{tenantId}/option/bulk | 
-*ProductConfiguratorApi* | [**ProductConfiguratorBulkUpdateProperties**](docs/ProductConfiguratorApi.md#productconfiguratorbulkupdateproperties) | **Put** /v1/{tenantId}/property/bulk | 
-*ProductConfiguratorApi* | [**ProductConfiguratorCopyConfigurator2**](docs/ProductConfiguratorApi.md#productconfiguratorcopyconfigurator2) | **Post** /v1/{tenantId}/product/{sourceProductId}/copy | 
+*ProductConfiguratorApi* | [**ProductConfiguratorBulkUpdateProperties**](docs/ProductConfiguratorApi.md#productconfiguratorbulkupdateproperties) | **Put** /v1/{tenantId}/properties/bulk | 
+*ProductConfiguratorApi* | [**ProductConfiguratorCopyConfigurator**](docs/ProductConfiguratorApi.md#productconfiguratorcopyconfigurator) | **Post** /v1/{tenantId}/product/{sourceConfiguratorId}/copy | 
 *ProductConfiguratorApi* | [**ProductConfiguratorCopyOption**](docs/ProductConfiguratorApi.md#productconfiguratorcopyoption) | **Post** /v1/{tenantId}/option/{sourceOptionId}/copy | 
 *ProductConfiguratorApi* | [**ProductConfiguratorCopyStep**](docs/ProductConfiguratorApi.md#productconfiguratorcopystep) | **Post** /v1/{tenantId}/step/{sourceStepId}/copy | 
 *ProductConfiguratorApi* | [**ProductConfiguratorCreateConfigurator**](docs/ProductConfiguratorApi.md#productconfiguratorcreateconfigurator) | **Post** /v1/{tenantId}/product/{productId}/create | 
@@ -101,6 +102,7 @@ Class | Method | HTTP request | Description
 *ProductConfiguratorApi* | [**ProductConfiguratorDeleteStep**](docs/ProductConfiguratorApi.md#productconfiguratordeletestep) | **Delete** /v1/{tenantId}/step/{stepId} | 
 *ProductConfiguratorApi* | [**ProductConfiguratorGetAvailableConfiguration**](docs/ProductConfiguratorApi.md#productconfiguratorgetavailableconfiguration) | **Get** /v1/{tenantId}/product/{productId}/configuration | 
 *ProductConfiguratorApi* | [**ProductConfiguratorGetAvailableConfiguration2**](docs/ProductConfiguratorApi.md#productconfiguratorgetavailableconfiguration2) | **Post** /v1/{tenantId}/product/{productId}/configuration | 
+*ProductConfiguratorApi* | [**ProductConfiguratorGetConfigurationFromSelections**](docs/ProductConfiguratorApi.md#productconfiguratorgetconfigurationfromselections) | **Post** /v1/{tenantId}/product/{productId}/configuration-from-selections | 
 *ProductConfiguratorApi* | [**ProductConfiguratorGetConfiguratorByProductId**](docs/ProductConfiguratorApi.md#productconfiguratorgetconfiguratorbyproductid) | **Get** /v1/{tenantId}/product/{productId} | 
 *ProductConfiguratorApi* | [**ProductConfiguratorGetConfiguratorByProductId2**](docs/ProductConfiguratorApi.md#productconfiguratorgetconfiguratorbyproductid2) | **Get** /v1/{tenantId}/product/{productId}/status/{status} | 
 *ProductConfiguratorApi* | [**ProductConfiguratorGetMatrix**](docs/ProductConfiguratorApi.md#productconfiguratorgetmatrix) | **Get** /v1/{tenantId}/matrix/{matrixId} | 
@@ -109,7 +111,8 @@ Class | Method | HTTP request | Description
 *ProductConfiguratorApi* | [**ProductConfiguratorListMatrices**](docs/ProductConfiguratorApi.md#productconfiguratorlistmatrices) | **Post** /v1/{tenantId}/configurator/{configuratorId}/page-size/{pageSize}/matrices | 
 *ProductConfiguratorApi* | [**ProductConfiguratorListOptions**](docs/ProductConfiguratorApi.md#productconfiguratorlistoptions) | **Post** /v1/{tenantId}/step/{stepId}/page-size/{pageSize}/options | 
 *ProductConfiguratorApi* | [**ProductConfiguratorListProperties**](docs/ProductConfiguratorApi.md#productconfiguratorlistproperties) | **Post** /v1/{tenantId}/matrix/{matrixId}/page-size/{pageSize}/properties | 
-*ProductConfiguratorApi* | [**ProductConfiguratorUpdateConfigurator2**](docs/ProductConfiguratorApi.md#productconfiguratorupdateconfigurator2) | **Put** /v1/{tenantId}/configurator/{configuratorId} | 
+*ProductConfiguratorApi* | [**ProductConfiguratorRemovePricelistFromMatrix**](docs/ProductConfiguratorApi.md#productconfiguratorremovepricelistfrommatrix) | **Delete** /v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn} | 
+*ProductConfiguratorApi* | [**ProductConfiguratorUpdateConfigurator**](docs/ProductConfiguratorApi.md#productconfiguratorupdateconfigurator) | **Put** /v1/{tenantId}/configurator/{configuratorId} | 
 *ProductConfiguratorApi* | [**ProductConfiguratorUpdateDependency**](docs/ProductConfiguratorApi.md#productconfiguratorupdatedependency) | **Put** /v1/{tenantId}/dependency/{dependencyId} | 
 *ProductConfiguratorApi* | [**ProductConfiguratorUpdateMatrix**](docs/ProductConfiguratorApi.md#productconfiguratorupdatematrix) | **Put** /v1/{tenantId}/matrix/{matrixId} | 
 *ProductConfiguratorApi* | [**ProductConfiguratorUpdateOption**](docs/ProductConfiguratorApi.md#productconfiguratorupdateoption) | **Put** /v1/{tenantId}/option/{optionId} | 
@@ -119,14 +122,18 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [ConfigurationConfigurationStep](docs/ConfigurationConfigurationStep.md)
  - [ConfigurationConfigurator](docs/ConfigurationConfigurator.md)
  - [ConfigurationGetAvailableConfigurationRequest](docs/ConfigurationGetAvailableConfigurationRequest.md)
  - [ConfigurationGetAvailableConfigurationResponse](docs/ConfigurationGetAvailableConfigurationResponse.md)
- - [ConfigurationOption](docs/ConfigurationOption.md)
+ - [ConfigurationGetConfigurationFromSelectionsRequest](docs/ConfigurationGetConfigurationFromSelectionsRequest.md)
+ - [ConfigurationGetConfigurationFromSelectionsResponse](docs/ConfigurationGetConfigurationFromSelectionsResponse.md)
  - [ConfigurationOptionProperty](docs/ConfigurationOptionProperty.md)
  - [ConfigurationProperty](docs/ConfigurationProperty.md)
+ - [ConfigurationPropertyFilter](docs/ConfigurationPropertyFilter.md)
+ - [ConfigurationPropertyFilterGenericProperty](docs/ConfigurationPropertyFilterGenericProperty.md)
  - [ConfigurationSelection](docs/ConfigurationSelection.md)
- - [ConfigurationStep](docs/ConfigurationStep.md)
+ - [ConfigurationStepOption](docs/ConfigurationStepOption.md)
  - [ConfiguratorListRequest](docs/ConfiguratorListRequest.md)
  - [ConfiguratorListResponse](docs/ConfiguratorListResponse.md)
  - [DependencyCondition](docs/DependencyCondition.md)
@@ -139,10 +146,15 @@ Class | Method | HTTP request | Description
  - [MatrixListMatricesRequest](docs/MatrixListMatricesRequest.md)
  - [MatrixListMatricesResponse](docs/MatrixListMatricesResponse.md)
  - [MatrixPriceType](docs/MatrixPriceType.md)
+ - [MatrixWeightType](docs/MatrixWeightType.md)
  - [OptionListOptionsRequest](docs/OptionListOptionsRequest.md)
  - [OptionListOptionsResponse](docs/OptionListOptionsResponse.md)
  - [OptionSwatch](docs/OptionSwatch.md)
+ - [ProductconfiguratorMoney](docs/ProductconfiguratorMoney.md)
  - [ProductconfiguratorPropertyType](docs/ProductconfiguratorPropertyType.md)
+ - [ProductconfiguratorWeightUnit](docs/ProductconfiguratorWeightUnit.md)
+ - [ProductconfiguratorconfigurationOption](docs/ProductconfiguratorconfigurationOption.md)
+ - [ProductconfiguratorconfigurationStep](docs/ProductconfiguratorconfigurationStep.md)
  - [ProductconfiguratorconfiguratorCopyRequest](docs/ProductconfiguratorconfiguratorCopyRequest.md)
  - [ProductconfiguratorconfiguratorCreateRequest](docs/ProductconfiguratorconfiguratorCreateRequest.md)
  - [ProductconfiguratorconfiguratorEntity](docs/ProductconfiguratorconfiguratorEntity.md)
@@ -156,6 +168,7 @@ Class | Method | HTTP request | Description
  - [ProductconfiguratordependencyUpdateRequest](docs/ProductconfiguratordependencyUpdateRequest.md)
  - [ProductconfiguratormatrixCreateRequest](docs/ProductconfiguratormatrixCreateRequest.md)
  - [ProductconfiguratormatrixEntity](docs/ProductconfiguratormatrixEntity.md)
+ - [ProductconfiguratormatrixStep](docs/ProductconfiguratormatrixStep.md)
  - [ProductconfiguratormatrixUpdatePayload](docs/ProductconfiguratormatrixUpdatePayload.md)
  - [ProductconfiguratormatrixUpdateRequest](docs/ProductconfiguratormatrixUpdateRequest.md)
  - [ProductconfiguratoroptionBulkCreateRequest](docs/ProductconfiguratoroptionBulkCreateRequest.md)
@@ -179,8 +192,10 @@ Class | Method | HTTP request | Description
  - [ProductconfiguratorpropertyCreateRequest](docs/ProductconfiguratorpropertyCreateRequest.md)
  - [ProductconfiguratorpropertyEntity](docs/ProductconfiguratorpropertyEntity.md)
  - [ProductconfiguratorpropertyGenericProperty](docs/ProductconfiguratorpropertyGenericProperty.md)
+ - [ProductconfiguratorpropertyPriceProperty](docs/ProductconfiguratorpropertyPriceProperty.md)
  - [ProductconfiguratorpropertyUpdatePayload](docs/ProductconfiguratorpropertyUpdatePayload.md)
  - [ProductconfiguratorpropertyUpdateRequest](docs/ProductconfiguratorpropertyUpdateRequest.md)
+ - [ProductconfiguratorpropertyWeightProperty](docs/ProductconfiguratorpropertyWeightProperty.md)
  - [ProductconfiguratorstepBulkCreateRequest](docs/ProductconfiguratorstepBulkCreateRequest.md)
  - [ProductconfiguratorstepBulkCreateRequestCreateEntity](docs/ProductconfiguratorstepBulkCreateRequestCreateEntity.md)
  - [ProductconfiguratorstepBulkCreateResponse](docs/ProductconfiguratorstepBulkCreateResponse.md)
@@ -193,6 +208,8 @@ Class | Method | HTTP request | Description
  - [PropertyListPropertiesRequest](docs/PropertyListPropertiesRequest.md)
  - [PropertyListPropertiesResponse](docs/PropertyListPropertiesResponse.md)
  - [PropertyUpdatePayloadGenericProperty](docs/PropertyUpdatePayloadGenericProperty.md)
+ - [PropertyUpdatePayloadPriceProperty](docs/PropertyUpdatePayloadPriceProperty.md)
+ - [PropertyUpdatePayloadWeightProperty](docs/PropertyUpdatePayloadWeightProperty.md)
  - [ProtobufAny](docs/ProtobufAny.md)
 
 

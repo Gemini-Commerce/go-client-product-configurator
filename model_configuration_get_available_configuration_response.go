@@ -18,7 +18,6 @@ import (
 // ConfigurationGetAvailableConfigurationResponse struct for ConfigurationGetAvailableConfigurationResponse
 type ConfigurationGetAvailableConfigurationResponse struct {
 	Configurator *ConfigurationConfigurator `json:"configurator,omitempty"`
-	Properties []ConfigurationProperty `json:"properties,omitempty"`
 	MatchedProperties []ConfigurationProperty `json:"matchedProperties,omitempty"`
 	Selections []ConfigurationSelection `json:"selections,omitempty"`
 }
@@ -70,38 +69,6 @@ func (o *ConfigurationGetAvailableConfigurationResponse) HasConfigurator() bool 
 // SetConfigurator gets a reference to the given ConfigurationConfigurator and assigns it to the Configurator field.
 func (o *ConfigurationGetAvailableConfigurationResponse) SetConfigurator(v ConfigurationConfigurator) {
 	o.Configurator = &v
-}
-
-// GetProperties returns the Properties field value if set, zero value otherwise.
-func (o *ConfigurationGetAvailableConfigurationResponse) GetProperties() []ConfigurationProperty {
-	if o == nil || isNil(o.Properties) {
-		var ret []ConfigurationProperty
-		return ret
-	}
-	return o.Properties
-}
-
-// GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ConfigurationGetAvailableConfigurationResponse) GetPropertiesOk() ([]ConfigurationProperty, bool) {
-	if o == nil || isNil(o.Properties) {
-    return nil, false
-	}
-	return o.Properties, true
-}
-
-// HasProperties returns a boolean if a field has been set.
-func (o *ConfigurationGetAvailableConfigurationResponse) HasProperties() bool {
-	if o != nil && !isNil(o.Properties) {
-		return true
-	}
-
-	return false
-}
-
-// SetProperties gets a reference to the given []ConfigurationProperty and assigns it to the Properties field.
-func (o *ConfigurationGetAvailableConfigurationResponse) SetProperties(v []ConfigurationProperty) {
-	o.Properties = v
 }
 
 // GetMatchedProperties returns the MatchedProperties field value if set, zero value otherwise.
@@ -172,9 +139,6 @@ func (o ConfigurationGetAvailableConfigurationResponse) MarshalJSON() ([]byte, e
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Configurator) {
 		toSerialize["configurator"] = o.Configurator
-	}
-	if !isNil(o.Properties) {
-		toSerialize["properties"] = o.Properties
 	}
 	if !isNil(o.MatchedProperties) {
 		toSerialize["matchedProperties"] = o.MatchedProperties

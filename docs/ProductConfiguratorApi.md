@@ -4,14 +4,15 @@ All URIs are relative to *https://product-configurator.api.gogemini.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ProductConfiguratorAddPricelistToMatrix**](ProductConfiguratorApi.md#ProductConfiguratorAddPricelistToMatrix) | **Post** /v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn} | 
 [**ProductConfiguratorBulkCreateOptions**](ProductConfiguratorApi.md#ProductConfiguratorBulkCreateOptions) | **Post** /v1/{tenantId}/step/{stepId}/option/create/bulk | 
 [**ProductConfiguratorBulkCreateProperties**](ProductConfiguratorApi.md#ProductConfiguratorBulkCreateProperties) | **Post** /v1/{tenantId}/property/create/bulk | 
 [**ProductConfiguratorBulkCreateSteps**](ProductConfiguratorApi.md#ProductConfiguratorBulkCreateSteps) | **Post** /v1/{tenantId}/configurator/{configuratorId}/step/create/bulk | 
 [**ProductConfiguratorBulkDeleteOptions**](ProductConfiguratorApi.md#ProductConfiguratorBulkDeleteOptions) | **Post** /v1/{tenantId}/option/delete/bulk | 
 [**ProductConfiguratorBulkDeleteSteps**](ProductConfiguratorApi.md#ProductConfiguratorBulkDeleteSteps) | **Post** /v1/{tenantId}/step/delete/bulk | 
 [**ProductConfiguratorBulkUpdateOptions**](ProductConfiguratorApi.md#ProductConfiguratorBulkUpdateOptions) | **Put** /v1/{tenantId}/option/bulk | 
-[**ProductConfiguratorBulkUpdateProperties**](ProductConfiguratorApi.md#ProductConfiguratorBulkUpdateProperties) | **Put** /v1/{tenantId}/property/bulk | 
-[**ProductConfiguratorCopyConfigurator2**](ProductConfiguratorApi.md#ProductConfiguratorCopyConfigurator2) | **Post** /v1/{tenantId}/product/{sourceProductId}/copy | 
+[**ProductConfiguratorBulkUpdateProperties**](ProductConfiguratorApi.md#ProductConfiguratorBulkUpdateProperties) | **Put** /v1/{tenantId}/properties/bulk | 
+[**ProductConfiguratorCopyConfigurator**](ProductConfiguratorApi.md#ProductConfiguratorCopyConfigurator) | **Post** /v1/{tenantId}/product/{sourceConfiguratorId}/copy | 
 [**ProductConfiguratorCopyOption**](ProductConfiguratorApi.md#ProductConfiguratorCopyOption) | **Post** /v1/{tenantId}/option/{sourceOptionId}/copy | 
 [**ProductConfiguratorCopyStep**](ProductConfiguratorApi.md#ProductConfiguratorCopyStep) | **Post** /v1/{tenantId}/step/{sourceStepId}/copy | 
 [**ProductConfiguratorCreateConfigurator**](ProductConfiguratorApi.md#ProductConfiguratorCreateConfigurator) | **Post** /v1/{tenantId}/product/{productId}/create | 
@@ -27,6 +28,7 @@ Method | HTTP request | Description
 [**ProductConfiguratorDeleteStep**](ProductConfiguratorApi.md#ProductConfiguratorDeleteStep) | **Delete** /v1/{tenantId}/step/{stepId} | 
 [**ProductConfiguratorGetAvailableConfiguration**](ProductConfiguratorApi.md#ProductConfiguratorGetAvailableConfiguration) | **Get** /v1/{tenantId}/product/{productId}/configuration | 
 [**ProductConfiguratorGetAvailableConfiguration2**](ProductConfiguratorApi.md#ProductConfiguratorGetAvailableConfiguration2) | **Post** /v1/{tenantId}/product/{productId}/configuration | 
+[**ProductConfiguratorGetConfigurationFromSelections**](ProductConfiguratorApi.md#ProductConfiguratorGetConfigurationFromSelections) | **Post** /v1/{tenantId}/product/{productId}/configuration-from-selections | 
 [**ProductConfiguratorGetConfiguratorByProductId**](ProductConfiguratorApi.md#ProductConfiguratorGetConfiguratorByProductId) | **Get** /v1/{tenantId}/product/{productId} | 
 [**ProductConfiguratorGetConfiguratorByProductId2**](ProductConfiguratorApi.md#ProductConfiguratorGetConfiguratorByProductId2) | **Get** /v1/{tenantId}/product/{productId}/status/{status} | 
 [**ProductConfiguratorGetMatrix**](ProductConfiguratorApi.md#ProductConfiguratorGetMatrix) | **Get** /v1/{tenantId}/matrix/{matrixId} | 
@@ -35,13 +37,88 @@ Method | HTTP request | Description
 [**ProductConfiguratorListMatrices**](ProductConfiguratorApi.md#ProductConfiguratorListMatrices) | **Post** /v1/{tenantId}/configurator/{configuratorId}/page-size/{pageSize}/matrices | 
 [**ProductConfiguratorListOptions**](ProductConfiguratorApi.md#ProductConfiguratorListOptions) | **Post** /v1/{tenantId}/step/{stepId}/page-size/{pageSize}/options | 
 [**ProductConfiguratorListProperties**](ProductConfiguratorApi.md#ProductConfiguratorListProperties) | **Post** /v1/{tenantId}/matrix/{matrixId}/page-size/{pageSize}/properties | 
-[**ProductConfiguratorUpdateConfigurator2**](ProductConfiguratorApi.md#ProductConfiguratorUpdateConfigurator2) | **Put** /v1/{tenantId}/configurator/{configuratorId} | 
+[**ProductConfiguratorRemovePricelistFromMatrix**](ProductConfiguratorApi.md#ProductConfiguratorRemovePricelistFromMatrix) | **Delete** /v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn} | 
+[**ProductConfiguratorUpdateConfigurator**](ProductConfiguratorApi.md#ProductConfiguratorUpdateConfigurator) | **Put** /v1/{tenantId}/configurator/{configuratorId} | 
 [**ProductConfiguratorUpdateDependency**](ProductConfiguratorApi.md#ProductConfiguratorUpdateDependency) | **Put** /v1/{tenantId}/dependency/{dependencyId} | 
 [**ProductConfiguratorUpdateMatrix**](ProductConfiguratorApi.md#ProductConfiguratorUpdateMatrix) | **Put** /v1/{tenantId}/matrix/{matrixId} | 
 [**ProductConfiguratorUpdateOption**](ProductConfiguratorApi.md#ProductConfiguratorUpdateOption) | **Put** /v1/{tenantId}/option/{optionId} | 
 [**ProductConfiguratorUpdateProperty**](ProductConfiguratorApi.md#ProductConfiguratorUpdateProperty) | **Put** /v1/{tenantId}/property/{propertyId} | 
 [**ProductConfiguratorUpdateStep**](ProductConfiguratorApi.md#ProductConfiguratorUpdateStep) | **Put** /v1/{tenantId}/step/{stepId} | 
 
+
+
+## ProductConfiguratorAddPricelistToMatrix
+
+> ProductconfiguratormatrixEntity ProductConfiguratorAddPricelistToMatrix(ctx, tenantId, matrixId, pricelistGrn).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    tenantId := "tenantId_example" // string | 
+    matrixId := "matrixId_example" // string | 
+    pricelistGrn := "pricelistGrn_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProductConfiguratorApi.ProductConfiguratorAddPricelistToMatrix(context.Background(), tenantId, matrixId, pricelistGrn).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProductConfiguratorApi.ProductConfiguratorAddPricelistToMatrix``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ProductConfiguratorAddPricelistToMatrix`: ProductconfiguratormatrixEntity
+    fmt.Fprintf(os.Stdout, "Response from `ProductConfiguratorApi.ProductConfiguratorAddPricelistToMatrix`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+**matrixId** | **string** |  | 
+**pricelistGrn** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProductConfiguratorAddPricelistToMatrixRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+[**ProductconfiguratormatrixEntity**](ProductconfiguratormatrixEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ProductConfiguratorBulkCreateOptions
@@ -540,9 +617,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## ProductConfiguratorCopyConfigurator2
+## ProductConfiguratorCopyConfigurator
 
-> ProductconfiguratorconfiguratorEntity ProductConfiguratorCopyConfigurator2(ctx, tenantId, sourceProductId).Execute()
+> ProductconfiguratorconfiguratorEntity ProductConfiguratorCopyConfigurator(ctx, tenantId, sourceConfiguratorId).Body(body).Execute()
 
 
 
@@ -560,17 +637,18 @@ import (
 
 func main() {
     tenantId := "tenantId_example" // string | 
-    sourceProductId := "sourceProductId_example" // string | 
+    sourceConfiguratorId := "sourceConfiguratorId_example" // string | 
+    body := *openapiclient.NewProductconfiguratorconfiguratorCopyRequest() // ProductconfiguratorconfiguratorCopyRequest | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductConfiguratorApi.ProductConfiguratorCopyConfigurator2(context.Background(), tenantId, sourceProductId).Execute()
+    resp, r, err := apiClient.ProductConfiguratorApi.ProductConfiguratorCopyConfigurator(context.Background(), tenantId, sourceConfiguratorId).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductConfiguratorApi.ProductConfiguratorCopyConfigurator2``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ProductConfiguratorApi.ProductConfiguratorCopyConfigurator``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ProductConfiguratorCopyConfigurator2`: ProductconfiguratorconfiguratorEntity
-    fmt.Fprintf(os.Stdout, "Response from `ProductConfiguratorApi.ProductConfiguratorCopyConfigurator2`: %v\n", resp)
+    // response from `ProductConfiguratorCopyConfigurator`: ProductconfiguratorconfiguratorEntity
+    fmt.Fprintf(os.Stdout, "Response from `ProductConfiguratorApi.ProductConfiguratorCopyConfigurator`: %v\n", resp)
 }
 ```
 
@@ -581,17 +659,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **tenantId** | **string** |  | 
-**sourceProductId** | **string** |  | 
+**sourceConfiguratorId** | **string** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiProductConfiguratorCopyConfigurator2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiProductConfiguratorCopyConfiguratorRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **body** | [**ProductconfiguratorconfiguratorCopyRequest**](ProductconfiguratorconfiguratorCopyRequest.md) |  | 
 
 ### Return type
 
@@ -603,7 +682,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1546,7 +1625,7 @@ No authorization required
 
 ## ProductConfiguratorGetAvailableConfiguration
 
-> ConfigurationGetAvailableConfigurationResponse ProductConfiguratorGetAvailableConfiguration(ctx, tenantId, productId).Execute()
+> ConfigurationGetAvailableConfigurationResponse ProductConfiguratorGetAvailableConfiguration(ctx, tenantId, productId).ConfiguratorId(configuratorId).Execute()
 
 
 
@@ -1565,10 +1644,11 @@ import (
 func main() {
     tenantId := "tenantId_example" // string | 
     productId := "productId_example" // string | 
+    configuratorId := "configuratorId_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductConfiguratorApi.ProductConfiguratorGetAvailableConfiguration(context.Background(), tenantId, productId).Execute()
+    resp, r, err := apiClient.ProductConfiguratorApi.ProductConfiguratorGetAvailableConfiguration(context.Background(), tenantId, productId).ConfiguratorId(configuratorId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProductConfiguratorApi.ProductConfiguratorGetAvailableConfiguration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1596,6 +1676,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **configuratorId** | **string** |  | 
 
 ### Return type
 
@@ -1673,6 +1754,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConfigurationGetAvailableConfigurationResponse**](ConfigurationGetAvailableConfigurationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ProductConfiguratorGetConfigurationFromSelections
+
+> ConfigurationGetConfigurationFromSelectionsResponse ProductConfiguratorGetConfigurationFromSelections(ctx, tenantId, productId).Body(body).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    tenantId := "tenantId_example" // string | 
+    productId := "productId_example" // string | 
+    body := *openapiclient.NewConfigurationGetConfigurationFromSelectionsRequest() // ConfigurationGetConfigurationFromSelectionsRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProductConfiguratorApi.ProductConfiguratorGetConfigurationFromSelections(context.Background(), tenantId, productId).Body(body).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProductConfiguratorApi.ProductConfiguratorGetConfigurationFromSelections``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ProductConfiguratorGetConfigurationFromSelections`: ConfigurationGetConfigurationFromSelectionsResponse
+    fmt.Fprintf(os.Stdout, "Response from `ProductConfiguratorApi.ProductConfiguratorGetConfigurationFromSelections`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+**productId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProductConfiguratorGetConfigurationFromSelectionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **body** | [**ConfigurationGetConfigurationFromSelectionsRequest**](ConfigurationGetConfigurationFromSelectionsRequest.md) |  | 
+
+### Return type
+
+[**ConfigurationGetConfigurationFromSelectionsResponse**](ConfigurationGetConfigurationFromSelectionsResponse.md)
 
 ### Authorization
 
@@ -2283,9 +2437,83 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## ProductConfiguratorUpdateConfigurator2
+## ProductConfiguratorRemovePricelistFromMatrix
 
-> ProductconfiguratorconfiguratorEntity ProductConfiguratorUpdateConfigurator2(ctx, tenantId, configuratorId).Execute()
+> ProductconfiguratormatrixEntity ProductConfiguratorRemovePricelistFromMatrix(ctx, tenantId, matrixId, pricelistGrn).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    tenantId := "tenantId_example" // string | 
+    matrixId := "matrixId_example" // string | 
+    pricelistGrn := "pricelistGrn_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProductConfiguratorApi.ProductConfiguratorRemovePricelistFromMatrix(context.Background(), tenantId, matrixId, pricelistGrn).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProductConfiguratorApi.ProductConfiguratorRemovePricelistFromMatrix``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ProductConfiguratorRemovePricelistFromMatrix`: ProductconfiguratormatrixEntity
+    fmt.Fprintf(os.Stdout, "Response from `ProductConfiguratorApi.ProductConfiguratorRemovePricelistFromMatrix`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+**matrixId** | **string** |  | 
+**pricelistGrn** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProductConfiguratorRemovePricelistFromMatrixRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+### Return type
+
+[**ProductconfiguratormatrixEntity**](ProductconfiguratormatrixEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ProductConfiguratorUpdateConfigurator
+
+> ProductconfiguratorconfiguratorEntity ProductConfiguratorUpdateConfigurator(ctx, tenantId, configuratorId).Body(body).Execute()
 
 
 
@@ -2304,16 +2532,17 @@ import (
 func main() {
     tenantId := "tenantId_example" // string | 
     configuratorId := "configuratorId_example" // string | 
+    body := *openapiclient.NewProductconfiguratorconfiguratorUpdateRequest() // ProductconfiguratorconfiguratorUpdateRequest | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductConfiguratorApi.ProductConfiguratorUpdateConfigurator2(context.Background(), tenantId, configuratorId).Execute()
+    resp, r, err := apiClient.ProductConfiguratorApi.ProductConfiguratorUpdateConfigurator(context.Background(), tenantId, configuratorId).Body(body).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductConfiguratorApi.ProductConfiguratorUpdateConfigurator2``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ProductConfiguratorApi.ProductConfiguratorUpdateConfigurator``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ProductConfiguratorUpdateConfigurator2`: ProductconfiguratorconfiguratorEntity
-    fmt.Fprintf(os.Stdout, "Response from `ProductConfiguratorApi.ProductConfiguratorUpdateConfigurator2`: %v\n", resp)
+    // response from `ProductConfiguratorUpdateConfigurator`: ProductconfiguratorconfiguratorEntity
+    fmt.Fprintf(os.Stdout, "Response from `ProductConfiguratorApi.ProductConfiguratorUpdateConfigurator`: %v\n", resp)
 }
 ```
 
@@ -2328,13 +2557,14 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiProductConfiguratorUpdateConfigurator2Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiProductConfiguratorUpdateConfiguratorRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **body** | [**ProductconfiguratorconfiguratorUpdateRequest**](ProductconfiguratorconfiguratorUpdateRequest.md) |  | 
 
 ### Return type
 
@@ -2346,7 +2576,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

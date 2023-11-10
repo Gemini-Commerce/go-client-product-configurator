@@ -20,6 +20,8 @@ type ConfigurationGetAvailableConfigurationRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
 	ProductId *string `json:"productId,omitempty"`
 	Selections []ConfigurationSelection `json:"selections,omitempty"`
+	PropertyFilters []ConfigurationPropertyFilter `json:"propertyFilters,omitempty"`
+	ConfiguratorId *string `json:"configuratorId,omitempty"`
 }
 
 // NewConfigurationGetAvailableConfigurationRequest instantiates a new ConfigurationGetAvailableConfigurationRequest object
@@ -135,6 +137,70 @@ func (o *ConfigurationGetAvailableConfigurationRequest) SetSelections(v []Config
 	o.Selections = v
 }
 
+// GetPropertyFilters returns the PropertyFilters field value if set, zero value otherwise.
+func (o *ConfigurationGetAvailableConfigurationRequest) GetPropertyFilters() []ConfigurationPropertyFilter {
+	if o == nil || isNil(o.PropertyFilters) {
+		var ret []ConfigurationPropertyFilter
+		return ret
+	}
+	return o.PropertyFilters
+}
+
+// GetPropertyFiltersOk returns a tuple with the PropertyFilters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConfigurationGetAvailableConfigurationRequest) GetPropertyFiltersOk() ([]ConfigurationPropertyFilter, bool) {
+	if o == nil || isNil(o.PropertyFilters) {
+    return nil, false
+	}
+	return o.PropertyFilters, true
+}
+
+// HasPropertyFilters returns a boolean if a field has been set.
+func (o *ConfigurationGetAvailableConfigurationRequest) HasPropertyFilters() bool {
+	if o != nil && !isNil(o.PropertyFilters) {
+		return true
+	}
+
+	return false
+}
+
+// SetPropertyFilters gets a reference to the given []ConfigurationPropertyFilter and assigns it to the PropertyFilters field.
+func (o *ConfigurationGetAvailableConfigurationRequest) SetPropertyFilters(v []ConfigurationPropertyFilter) {
+	o.PropertyFilters = v
+}
+
+// GetConfiguratorId returns the ConfiguratorId field value if set, zero value otherwise.
+func (o *ConfigurationGetAvailableConfigurationRequest) GetConfiguratorId() string {
+	if o == nil || isNil(o.ConfiguratorId) {
+		var ret string
+		return ret
+	}
+	return *o.ConfiguratorId
+}
+
+// GetConfiguratorIdOk returns a tuple with the ConfiguratorId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConfigurationGetAvailableConfigurationRequest) GetConfiguratorIdOk() (*string, bool) {
+	if o == nil || isNil(o.ConfiguratorId) {
+    return nil, false
+	}
+	return o.ConfiguratorId, true
+}
+
+// HasConfiguratorId returns a boolean if a field has been set.
+func (o *ConfigurationGetAvailableConfigurationRequest) HasConfiguratorId() bool {
+	if o != nil && !isNil(o.ConfiguratorId) {
+		return true
+	}
+
+	return false
+}
+
+// SetConfiguratorId gets a reference to the given string and assigns it to the ConfiguratorId field.
+func (o *ConfigurationGetAvailableConfigurationRequest) SetConfiguratorId(v string) {
+	o.ConfiguratorId = &v
+}
+
 func (o ConfigurationGetAvailableConfigurationRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.TenantId) {
@@ -145,6 +211,12 @@ func (o ConfigurationGetAvailableConfigurationRequest) MarshalJSON() ([]byte, er
 	}
 	if !isNil(o.Selections) {
 		toSerialize["selections"] = o.Selections
+	}
+	if !isNil(o.PropertyFilters) {
+		toSerialize["propertyFilters"] = o.PropertyFilters
+	}
+	if !isNil(o.ConfiguratorId) {
+		toSerialize["configuratorId"] = o.ConfiguratorId
 	}
 	return json.Marshal(toSerialize)
 }

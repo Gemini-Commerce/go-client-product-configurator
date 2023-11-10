@@ -8,11 +8,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id**| **string** |   | [optional]
 **Grn**| **string** |   | [optional]
-**OptionIds**| **[]string** |   | [optional]
+**StepIdToOptionId**| **map[string]string** |   | [optional]
 **PropertyKey**| **string** |   | [optional]
 **PropertyValue**| **string** |   | [optional]
 **PropertyType**| [**ProductconfiguratorPropertyType**](ProductconfiguratorPropertyType.md) |  for more information please, see Model/ProductconfiguratorPropertyType.php  | [optional] [default to PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN]
-**Coordinates**| **[]int64** |   | [optional]
 **CreatedAt**| [**time.Time**](time.Time.md) |   | [optional]
 **UpdatedAt**| [**time.Time**](time.Time.md) |   | [optional]
 

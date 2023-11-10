@@ -17,7 +17,7 @@ import (
 
 // MatrixPriceType struct for MatrixPriceType
 type MatrixPriceType struct {
-	PricelistGrn *string `json:"pricelistGrn,omitempty"`
+	PricelistGrns []string `json:"pricelistGrns,omitempty"`
 }
 
 // NewMatrixPriceType instantiates a new MatrixPriceType object
@@ -37,42 +37,42 @@ func NewMatrixPriceTypeWithDefaults() *MatrixPriceType {
 	return &this
 }
 
-// GetPricelistGrn returns the PricelistGrn field value if set, zero value otherwise.
-func (o *MatrixPriceType) GetPricelistGrn() string {
-	if o == nil || isNil(o.PricelistGrn) {
-		var ret string
+// GetPricelistGrns returns the PricelistGrns field value if set, zero value otherwise.
+func (o *MatrixPriceType) GetPricelistGrns() []string {
+	if o == nil || isNil(o.PricelistGrns) {
+		var ret []string
 		return ret
 	}
-	return *o.PricelistGrn
+	return o.PricelistGrns
 }
 
-// GetPricelistGrnOk returns a tuple with the PricelistGrn field value if set, nil otherwise
+// GetPricelistGrnsOk returns a tuple with the PricelistGrns field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *MatrixPriceType) GetPricelistGrnOk() (*string, bool) {
-	if o == nil || isNil(o.PricelistGrn) {
+func (o *MatrixPriceType) GetPricelistGrnsOk() ([]string, bool) {
+	if o == nil || isNil(o.PricelistGrns) {
     return nil, false
 	}
-	return o.PricelistGrn, true
+	return o.PricelistGrns, true
 }
 
-// HasPricelistGrn returns a boolean if a field has been set.
-func (o *MatrixPriceType) HasPricelistGrn() bool {
-	if o != nil && !isNil(o.PricelistGrn) {
+// HasPricelistGrns returns a boolean if a field has been set.
+func (o *MatrixPriceType) HasPricelistGrns() bool {
+	if o != nil && !isNil(o.PricelistGrns) {
 		return true
 	}
 
 	return false
 }
 
-// SetPricelistGrn gets a reference to the given string and assigns it to the PricelistGrn field.
-func (o *MatrixPriceType) SetPricelistGrn(v string) {
-	o.PricelistGrn = &v
+// SetPricelistGrns gets a reference to the given []string and assigns it to the PricelistGrns field.
+func (o *MatrixPriceType) SetPricelistGrns(v []string) {
+	o.PricelistGrns = v
 }
 
 func (o MatrixPriceType) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.PricelistGrn) {
-		toSerialize["pricelistGrn"] = o.PricelistGrn
+	if !isNil(o.PricelistGrns) {
+		toSerialize["pricelistGrns"] = o.PricelistGrns
 	}
 	return json.Marshal(toSerialize)
 }

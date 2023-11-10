@@ -21,7 +21,6 @@ type ProductconfiguratorstepCreateRequest struct {
 	ConfiguratorId *string `json:"configuratorId,omitempty"`
 	Label *LocalisationLocalizedText `json:"label,omitempty"`
 	Description *LocalisationLocalizedText `json:"description,omitempty"`
-	Position *string `json:"position,omitempty"`
 	IsRequired *bool `json:"isRequired,omitempty"`
 	SubjectToStepId *string `json:"subjectToStepId,omitempty"`
 }
@@ -171,38 +170,6 @@ func (o *ProductconfiguratorstepCreateRequest) SetDescription(v LocalisationLoca
 	o.Description = &v
 }
 
-// GetPosition returns the Position field value if set, zero value otherwise.
-func (o *ProductconfiguratorstepCreateRequest) GetPosition() string {
-	if o == nil || isNil(o.Position) {
-		var ret string
-		return ret
-	}
-	return *o.Position
-}
-
-// GetPositionOk returns a tuple with the Position field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratorstepCreateRequest) GetPositionOk() (*string, bool) {
-	if o == nil || isNil(o.Position) {
-    return nil, false
-	}
-	return o.Position, true
-}
-
-// HasPosition returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepCreateRequest) HasPosition() bool {
-	if o != nil && !isNil(o.Position) {
-		return true
-	}
-
-	return false
-}
-
-// SetPosition gets a reference to the given string and assigns it to the Position field.
-func (o *ProductconfiguratorstepCreateRequest) SetPosition(v string) {
-	o.Position = &v
-}
-
 // GetIsRequired returns the IsRequired field value if set, zero value otherwise.
 func (o *ProductconfiguratorstepCreateRequest) GetIsRequired() bool {
 	if o == nil || isNil(o.IsRequired) {
@@ -280,9 +247,6 @@ func (o ProductconfiguratorstepCreateRequest) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Description) {
 		toSerialize["description"] = o.Description
-	}
-	if !isNil(o.Position) {
-		toSerialize["position"] = o.Position
 	}
 	if !isNil(o.IsRequired) {
 		toSerialize["isRequired"] = o.IsRequired

@@ -18,7 +18,6 @@ import (
 // MatrixGenericType struct for MatrixGenericType
 type MatrixGenericType struct {
 	PropertyKey *string `json:"propertyKey,omitempty"`
-	PropertyValue *string `json:"propertyValue,omitempty"`
 }
 
 // NewMatrixGenericType instantiates a new MatrixGenericType object
@@ -70,45 +69,10 @@ func (o *MatrixGenericType) SetPropertyKey(v string) {
 	o.PropertyKey = &v
 }
 
-// GetPropertyValue returns the PropertyValue field value if set, zero value otherwise.
-func (o *MatrixGenericType) GetPropertyValue() string {
-	if o == nil || isNil(o.PropertyValue) {
-		var ret string
-		return ret
-	}
-	return *o.PropertyValue
-}
-
-// GetPropertyValueOk returns a tuple with the PropertyValue field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *MatrixGenericType) GetPropertyValueOk() (*string, bool) {
-	if o == nil || isNil(o.PropertyValue) {
-    return nil, false
-	}
-	return o.PropertyValue, true
-}
-
-// HasPropertyValue returns a boolean if a field has been set.
-func (o *MatrixGenericType) HasPropertyValue() bool {
-	if o != nil && !isNil(o.PropertyValue) {
-		return true
-	}
-
-	return false
-}
-
-// SetPropertyValue gets a reference to the given string and assigns it to the PropertyValue field.
-func (o *MatrixGenericType) SetPropertyValue(v string) {
-	o.PropertyValue = &v
-}
-
 func (o MatrixGenericType) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.PropertyKey) {
 		toSerialize["propertyKey"] = o.PropertyKey
-	}
-	if !isNil(o.PropertyValue) {
-		toSerialize["propertyValue"] = o.PropertyValue
 	}
 	return json.Marshal(toSerialize)
 }

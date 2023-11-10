@@ -19,7 +19,7 @@ import (
 type ConfigurationConfigurator struct {
 	Id *string `json:"id,omitempty"`
 	Grn *string `json:"grn,omitempty"`
-	Steps []ConfigurationStep `json:"steps,omitempty"`
+	Steps []ProductconfiguratorconfigurationStep `json:"steps,omitempty"`
 }
 
 // NewConfigurationConfigurator instantiates a new ConfigurationConfigurator object
@@ -104,9 +104,9 @@ func (o *ConfigurationConfigurator) SetGrn(v string) {
 }
 
 // GetSteps returns the Steps field value if set, zero value otherwise.
-func (o *ConfigurationConfigurator) GetSteps() []ConfigurationStep {
+func (o *ConfigurationConfigurator) GetSteps() []ProductconfiguratorconfigurationStep {
 	if o == nil || isNil(o.Steps) {
-		var ret []ConfigurationStep
+		var ret []ProductconfiguratorconfigurationStep
 		return ret
 	}
 	return o.Steps
@@ -114,7 +114,7 @@ func (o *ConfigurationConfigurator) GetSteps() []ConfigurationStep {
 
 // GetStepsOk returns a tuple with the Steps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConfigurationConfigurator) GetStepsOk() ([]ConfigurationStep, bool) {
+func (o *ConfigurationConfigurator) GetStepsOk() ([]ProductconfiguratorconfigurationStep, bool) {
 	if o == nil || isNil(o.Steps) {
     return nil, false
 	}
@@ -130,8 +130,8 @@ func (o *ConfigurationConfigurator) HasSteps() bool {
 	return false
 }
 
-// SetSteps gets a reference to the given []ConfigurationStep and assigns it to the Steps field.
-func (o *ConfigurationConfigurator) SetSteps(v []ConfigurationStep) {
+// SetSteps gets a reference to the given []ProductconfiguratorconfigurationStep and assigns it to the Steps field.
+func (o *ConfigurationConfigurator) SetSteps(v []ProductconfiguratorconfigurationStep) {
 	o.Steps = v
 }
 

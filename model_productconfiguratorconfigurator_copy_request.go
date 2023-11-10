@@ -18,8 +18,10 @@ import (
 // ProductconfiguratorconfiguratorCopyRequest struct for ProductconfiguratorconfiguratorCopyRequest
 type ProductconfiguratorconfiguratorCopyRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
-	SourceProductId *string `json:"sourceProductId,omitempty"`
+	SourceConfiguratorId *string `json:"sourceConfiguratorId,omitempty"`
 	TargetProductId *string `json:"targetProductId,omitempty"`
+	CopyDependencies *bool `json:"copyDependencies,omitempty"`
+	CopyMatrices *bool `json:"copyMatrices,omitempty"`
 }
 
 // NewProductconfiguratorconfiguratorCopyRequest instantiates a new ProductconfiguratorconfiguratorCopyRequest object
@@ -71,36 +73,36 @@ func (o *ProductconfiguratorconfiguratorCopyRequest) SetTenantId(v string) {
 	o.TenantId = &v
 }
 
-// GetSourceProductId returns the SourceProductId field value if set, zero value otherwise.
-func (o *ProductconfiguratorconfiguratorCopyRequest) GetSourceProductId() string {
-	if o == nil || isNil(o.SourceProductId) {
+// GetSourceConfiguratorId returns the SourceConfiguratorId field value if set, zero value otherwise.
+func (o *ProductconfiguratorconfiguratorCopyRequest) GetSourceConfiguratorId() string {
+	if o == nil || isNil(o.SourceConfiguratorId) {
 		var ret string
 		return ret
 	}
-	return *o.SourceProductId
+	return *o.SourceConfiguratorId
 }
 
-// GetSourceProductIdOk returns a tuple with the SourceProductId field value if set, nil otherwise
+// GetSourceConfiguratorIdOk returns a tuple with the SourceConfiguratorId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProductconfiguratorconfiguratorCopyRequest) GetSourceProductIdOk() (*string, bool) {
-	if o == nil || isNil(o.SourceProductId) {
+func (o *ProductconfiguratorconfiguratorCopyRequest) GetSourceConfiguratorIdOk() (*string, bool) {
+	if o == nil || isNil(o.SourceConfiguratorId) {
     return nil, false
 	}
-	return o.SourceProductId, true
+	return o.SourceConfiguratorId, true
 }
 
-// HasSourceProductId returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfiguratorCopyRequest) HasSourceProductId() bool {
-	if o != nil && !isNil(o.SourceProductId) {
+// HasSourceConfiguratorId returns a boolean if a field has been set.
+func (o *ProductconfiguratorconfiguratorCopyRequest) HasSourceConfiguratorId() bool {
+	if o != nil && !isNil(o.SourceConfiguratorId) {
 		return true
 	}
 
 	return false
 }
 
-// SetSourceProductId gets a reference to the given string and assigns it to the SourceProductId field.
-func (o *ProductconfiguratorconfiguratorCopyRequest) SetSourceProductId(v string) {
-	o.SourceProductId = &v
+// SetSourceConfiguratorId gets a reference to the given string and assigns it to the SourceConfiguratorId field.
+func (o *ProductconfiguratorconfiguratorCopyRequest) SetSourceConfiguratorId(v string) {
+	o.SourceConfiguratorId = &v
 }
 
 // GetTargetProductId returns the TargetProductId field value if set, zero value otherwise.
@@ -135,16 +137,86 @@ func (o *ProductconfiguratorconfiguratorCopyRequest) SetTargetProductId(v string
 	o.TargetProductId = &v
 }
 
+// GetCopyDependencies returns the CopyDependencies field value if set, zero value otherwise.
+func (o *ProductconfiguratorconfiguratorCopyRequest) GetCopyDependencies() bool {
+	if o == nil || isNil(o.CopyDependencies) {
+		var ret bool
+		return ret
+	}
+	return *o.CopyDependencies
+}
+
+// GetCopyDependenciesOk returns a tuple with the CopyDependencies field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratorconfiguratorCopyRequest) GetCopyDependenciesOk() (*bool, bool) {
+	if o == nil || isNil(o.CopyDependencies) {
+    return nil, false
+	}
+	return o.CopyDependencies, true
+}
+
+// HasCopyDependencies returns a boolean if a field has been set.
+func (o *ProductconfiguratorconfiguratorCopyRequest) HasCopyDependencies() bool {
+	if o != nil && !isNil(o.CopyDependencies) {
+		return true
+	}
+
+	return false
+}
+
+// SetCopyDependencies gets a reference to the given bool and assigns it to the CopyDependencies field.
+func (o *ProductconfiguratorconfiguratorCopyRequest) SetCopyDependencies(v bool) {
+	o.CopyDependencies = &v
+}
+
+// GetCopyMatrices returns the CopyMatrices field value if set, zero value otherwise.
+func (o *ProductconfiguratorconfiguratorCopyRequest) GetCopyMatrices() bool {
+	if o == nil || isNil(o.CopyMatrices) {
+		var ret bool
+		return ret
+	}
+	return *o.CopyMatrices
+}
+
+// GetCopyMatricesOk returns a tuple with the CopyMatrices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratorconfiguratorCopyRequest) GetCopyMatricesOk() (*bool, bool) {
+	if o == nil || isNil(o.CopyMatrices) {
+    return nil, false
+	}
+	return o.CopyMatrices, true
+}
+
+// HasCopyMatrices returns a boolean if a field has been set.
+func (o *ProductconfiguratorconfiguratorCopyRequest) HasCopyMatrices() bool {
+	if o != nil && !isNil(o.CopyMatrices) {
+		return true
+	}
+
+	return false
+}
+
+// SetCopyMatrices gets a reference to the given bool and assigns it to the CopyMatrices field.
+func (o *ProductconfiguratorconfiguratorCopyRequest) SetCopyMatrices(v bool) {
+	o.CopyMatrices = &v
+}
+
 func (o ProductconfiguratorconfiguratorCopyRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.TenantId) {
 		toSerialize["tenantId"] = o.TenantId
 	}
-	if !isNil(o.SourceProductId) {
-		toSerialize["sourceProductId"] = o.SourceProductId
+	if !isNil(o.SourceConfiguratorId) {
+		toSerialize["sourceConfiguratorId"] = o.SourceConfiguratorId
 	}
 	if !isNil(o.TargetProductId) {
 		toSerialize["targetProductId"] = o.TargetProductId
+	}
+	if !isNil(o.CopyDependencies) {
+		toSerialize["copyDependencies"] = o.CopyDependencies
+	}
+	if !isNil(o.CopyMatrices) {
+		toSerialize["copyMatrices"] = o.CopyMatrices
 	}
 	return json.Marshal(toSerialize)
 }

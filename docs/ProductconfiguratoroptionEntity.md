@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Label**| [**LocalisationLocalizedText**](LocalisationLocalizedText.md) |   | [optional]
 **Position**| **string** |   | [optional]
 **Swatch**| [**OptionSwatch**](OptionSwatch.md) |   | [optional]
+**ExternalReferenceId**| **string** |   | [optional]
 **CreatedAt**| [**time.Time**](time.Time.md) |   | [optional]
 **UpdatedAt**| [**time.Time**](time.Time.md) |   | [optional]
 

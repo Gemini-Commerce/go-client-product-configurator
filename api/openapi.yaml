@@ -41,7 +41,7 @@ paths:
       tags:
       - ProductConfigurator
     put:
-      operationId: ProductConfigurator_UpdateConfigurator2
+      operationId: ProductConfigurator_UpdateConfigurator
       parameters:
       - in: path
         name: tenantId
@@ -53,6 +53,12 @@ paths:
         required: true
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorconfiguratorUpdateRequest'
+        required: true
       responses:
         "200":
           content:
@@ -68,6 +74,7 @@ paths:
           description: An unexpected error response.
       tags:
       - ProductConfigurator
+      x-codegen-request-body-name: body
   /v1/{tenantId}/configurator/{configuratorId}/page-size/{pageSize}/matrices:
     post:
       operationId: ProductConfigurator_ListMatrices
@@ -411,6 +418,73 @@ paths:
       tags:
       - ProductConfigurator
       x-codegen-request-body-name: body
+  /v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn}:
+    delete:
+      operationId: ProductConfigurator_RemovePricelistFromMatrix
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: matrixId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: pricelistGrn
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratormatrixEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+    post:
+      operationId: ProductConfigurator_AddPricelistToMatrix
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: matrixId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: pricelistGrn
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratormatrixEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
   /v1/{tenantId}/option/bulk:
     put:
       operationId: ProductConfigurator_BulkUpdateOptions
@@ -663,6 +737,10 @@ paths:
         required: true
         schema:
           type: string
+      - in: query
+        name: configuratorId
+        schema:
+          type: string
       responses:
         "200":
           content:
@@ -703,6 +781,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/configurationGetAvailableConfigurationResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/product/{productId}/configuration-from-selections:
+    post:
+      operationId: ProductConfigurator_GetConfigurationFromSelections
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: productId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/configurationGetConfigurationFromSelectionsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/configurationGetConfigurationFromSelectionsResponse'
           description: A successful response.
         default:
           content:
@@ -830,9 +944,9 @@ paths:
           description: An unexpected error response.
       tags:
       - ProductConfigurator
-  /v1/{tenantId}/product/{sourceProductId}/copy:
+  /v1/{tenantId}/product/{sourceConfiguratorId}/copy:
     post:
-      operationId: ProductConfigurator_CopyConfigurator2
+      operationId: ProductConfigurator_CopyConfigurator
       parameters:
       - in: path
         name: tenantId
@@ -840,10 +954,16 @@ paths:
         schema:
           type: string
       - in: path
-        name: sourceProductId
+        name: sourceConfiguratorId
         required: true
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productconfiguratorconfiguratorCopyRequest'
+        required: true
       responses:
         "200":
           content:
@@ -859,7 +979,8 @@ paths:
           description: An unexpected error response.
       tags:
       - ProductConfigurator
-  /v1/{tenantId}/property/bulk:
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/properties/bulk:
     put:
       operationId: ProductConfigurator_BulkUpdateProperties
       parameters:
@@ -1271,6 +1392,43 @@ paths:
       x-codegen-request-body-name: body
 components:
   schemas:
+    ConfigurationStepOption:
+      example:
+        grn: grn
+        swatch:
+          grn: grn
+          url: url
+        id: id
+        label:
+          value:
+            key: value
+        optionProperties:
+        - subtractToGetVariation:
+          - subtractToGetVariation
+          - subtractToGetVariation
+          propertyType: null
+          propertyValue: propertyValue
+          propertyId: propertyId
+        - subtractToGetVariation:
+          - subtractToGetVariation
+          - subtractToGetVariation
+          propertyType: null
+          propertyValue: propertyValue
+          propertyId: propertyId
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        swatch:
+          $ref: '#/components/schemas/optionSwatch'
+        optionProperties:
+          items:
+            $ref: '#/components/schemas/configurationOptionProperty'
+          type: array
+      type: object
     ListMatricesRequestFilter:
       properties:
         propertyType:
@@ -1281,6 +1439,45 @@ components:
           items:
             type: string
           type: array
+      type: object
+    configurationConfigurationStep:
+      example:
+        grn: grn
+        id: id
+        label:
+          value:
+            key: value
+        option:
+          grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          optionProperties:
+          - subtractToGetVariation:
+            - subtractToGetVariation
+            - subtractToGetVariation
+            propertyType: null
+            propertyValue: propertyValue
+            propertyId: propertyId
+          - subtractToGetVariation:
+            - subtractToGetVariation
+            - subtractToGetVariation
+            propertyType: null
+            propertyValue: propertyValue
+            propertyId: propertyId
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        option:
+          $ref: '#/components/schemas/ConfigurationStepOption'
       type: object
     configurationConfigurator:
       example:
@@ -1412,7 +1609,7 @@ components:
           type: string
         steps:
           items:
-            $ref: '#/components/schemas/configurationStep'
+            $ref: '#/components/schemas/productconfiguratorconfigurationStep'
           type: array
       type: object
     configurationGetAvailableConfigurationRequest:
@@ -1425,6 +1622,12 @@ components:
           items:
             $ref: '#/components/schemas/configurationSelection'
           type: array
+        propertyFilters:
+          items:
+            $ref: '#/components/schemas/configurationPropertyFilter'
+          type: array
+        configuratorId:
+          type: string
       type: object
     configurationGetAvailableConfigurationResponse:
       example:
@@ -1572,30 +1775,9 @@ components:
           optionIds:
           - optionIds
           - optionIds
-        properties:
-        - propertyKey: propertyKey
-          grn: grn
-          propertyType: null
-          propertyValue: propertyValue
-          id: id
-          optionIds:
-          - optionIds
-          - optionIds
-        - propertyKey: propertyKey
-          grn: grn
-          propertyType: null
-          propertyValue: propertyValue
-          id: id
-          optionIds:
-          - optionIds
-          - optionIds
       properties:
         configurator:
           $ref: '#/components/schemas/configurationConfigurator'
-        properties:
-          items:
-            $ref: '#/components/schemas/configurationProperty'
-          type: array
         matchedProperties:
           items:
             $ref: '#/components/schemas/configurationProperty'
@@ -1605,48 +1787,99 @@ components:
             $ref: '#/components/schemas/configurationSelection'
           type: array
       type: object
-    configurationOption:
-      example:
-        grn: grn
-        swatch:
-          grn: grn
-          url: url
-        id: id
-        label:
-          value:
-            key: value
-        position: position
-        optionProperties:
-        - subtractToGetVariation:
-          - subtractToGetVariation
-          - subtractToGetVariation
-          propertyType: null
-          propertyValue: propertyValue
-          propertyId: propertyId
-        - subtractToGetVariation:
-          - subtractToGetVariation
-          - subtractToGetVariation
-          propertyType: null
-          propertyValue: propertyValue
-          propertyId: propertyId
-        enabled: true
+    configurationGetConfigurationFromSelectionsRequest:
       properties:
-        id:
+        tenantId:
           type: string
-        grn:
+        productId:
           type: string
-        label:
-          $ref: '#/components/schemas/localisationLocalizedText'
-        position:
-          format: uint64
-          type: string
-        swatch:
-          $ref: '#/components/schemas/optionSwatch'
-        enabled:
-          type: boolean
-        optionProperties:
+        selections:
           items:
-            $ref: '#/components/schemas/configurationOptionProperty'
+            $ref: '#/components/schemas/configurationSelection'
+          type: array
+      type: object
+    configurationGetConfigurationFromSelectionsResponse:
+      example:
+        matchedProperties:
+        - propertyKey: propertyKey
+          grn: grn
+          propertyType: null
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+        - propertyKey: propertyKey
+          grn: grn
+          propertyType: null
+          propertyValue: propertyValue
+          id: id
+          optionIds:
+          - optionIds
+          - optionIds
+        steps:
+        - grn: grn
+          id: id
+          label:
+            value:
+              key: value
+          option:
+            grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            optionProperties:
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+        - grn: grn
+          id: id
+          label:
+            value:
+              key: value
+          option:
+            grn: grn
+            swatch:
+              grn: grn
+              url: url
+            id: id
+            label:
+              value:
+                key: value
+            optionProperties:
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+            - subtractToGetVariation:
+              - subtractToGetVariation
+              - subtractToGetVariation
+              propertyType: null
+              propertyValue: propertyValue
+              propertyId: propertyId
+      properties:
+        steps:
+          items:
+            $ref: '#/components/schemas/configurationConfigurationStep'
+          type: array
+        matchedProperties:
+          items:
+            $ref: '#/components/schemas/configurationProperty'
           type: array
       type: object
     configurationOptionProperty:
@@ -1697,6 +1930,24 @@ components:
         propertyType:
           $ref: '#/components/schemas/productconfiguratorPropertyType'
       type: object
+    configurationPropertyFilter:
+      properties:
+        genericProperty:
+          $ref: '#/components/schemas/configurationPropertyFilterGenericProperty'
+        priceProperty:
+          type: object
+        weightProperty:
+          type: object
+      type: object
+    configurationPropertyFilterGenericProperty:
+      properties:
+        propertyKey:
+          type: string
+      type: object
+    configurationPropertyFilterPriceProperty:
+      type: object
+    configurationPropertyFilterWeightProperty:
+      type: object
     configurationSelection:
       example:
         stepId: stepId
@@ -1706,90 +1957,6 @@ components:
           type: string
         optionId:
           type: string
-      type: object
-    configurationStep:
-      example:
-        isRequired: true
-        grn: grn
-        options:
-        - grn: grn
-          swatch:
-            grn: grn
-            url: url
-          id: id
-          label:
-            value:
-              key: value
-          position: position
-          optionProperties:
-          - subtractToGetVariation:
-            - subtractToGetVariation
-            - subtractToGetVariation
-            propertyType: null
-            propertyValue: propertyValue
-            propertyId: propertyId
-          - subtractToGetVariation:
-            - subtractToGetVariation
-            - subtractToGetVariation
-            propertyType: null
-            propertyValue: propertyValue
-            propertyId: propertyId
-          enabled: true
-        - grn: grn
-          swatch:
-            grn: grn
-            url: url
-          id: id
-          label:
-            value:
-              key: value
-          position: position
-          optionProperties:
-          - subtractToGetVariation:
-            - subtractToGetVariation
-            - subtractToGetVariation
-            propertyType: null
-            propertyValue: propertyValue
-            propertyId: propertyId
-          - subtractToGetVariation:
-            - subtractToGetVariation
-            - subtractToGetVariation
-            propertyType: null
-            propertyValue: propertyValue
-            propertyId: propertyId
-          enabled: true
-        description:
-          value:
-            key: value
-        id: id
-        label:
-          value:
-            key: value
-        position: position
-        subjectToStepId: subjectToStepId
-        enabled: true
-      properties:
-        id:
-          type: string
-        grn:
-          type: string
-        label:
-          $ref: '#/components/schemas/localisationLocalizedText'
-        description:
-          $ref: '#/components/schemas/localisationLocalizedText'
-        subjectToStepId:
-          type: string
-        position:
-          format: uint64
-          type: string
-        isRequired:
-          type: boolean
-        options:
-          items:
-            $ref: '#/components/schemas/configurationOption'
-          type: array
-        enabled:
-          type: boolean
       type: object
     configuratorListRequest:
       properties:
@@ -1817,7 +1984,8 @@ components:
             createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             options:
-            - createdAt: 2000-01-23T04:56:07.000+00:00
+            - externalReferenceId: externalReferenceId
+              createdAt: 2000-01-23T04:56:07.000+00:00
               grn: grn
               swatch:
                 grn: grn
@@ -1828,7 +1996,8 @@ components:
                   key: value
               position: position
               updatedAt: 2000-01-23T04:56:07.000+00:00
-            - createdAt: 2000-01-23T04:56:07.000+00:00
+            - externalReferenceId: externalReferenceId
+              createdAt: 2000-01-23T04:56:07.000+00:00
               grn: grn
               swatch:
                 grn: grn
@@ -1853,7 +2022,8 @@ components:
             createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             options:
-            - createdAt: 2000-01-23T04:56:07.000+00:00
+            - externalReferenceId: externalReferenceId
+              createdAt: 2000-01-23T04:56:07.000+00:00
               grn: grn
               swatch:
                 grn: grn
@@ -1864,7 +2034,8 @@ components:
                   key: value
               position: position
               updatedAt: 2000-01-23T04:56:07.000+00:00
-            - createdAt: 2000-01-23T04:56:07.000+00:00
+            - externalReferenceId: externalReferenceId
+              createdAt: 2000-01-23T04:56:07.000+00:00
               grn: grn
               swatch:
                 grn: grn
@@ -1897,7 +2068,8 @@ components:
             createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             options:
-            - createdAt: 2000-01-23T04:56:07.000+00:00
+            - externalReferenceId: externalReferenceId
+              createdAt: 2000-01-23T04:56:07.000+00:00
               grn: grn
               swatch:
                 grn: grn
@@ -1908,7 +2080,8 @@ components:
                   key: value
               position: position
               updatedAt: 2000-01-23T04:56:07.000+00:00
-            - createdAt: 2000-01-23T04:56:07.000+00:00
+            - externalReferenceId: externalReferenceId
+              createdAt: 2000-01-23T04:56:07.000+00:00
               grn: grn
               swatch:
                 grn: grn
@@ -1933,7 +2106,8 @@ components:
             createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             options:
-            - createdAt: 2000-01-23T04:56:07.000+00:00
+            - externalReferenceId: externalReferenceId
+              createdAt: 2000-01-23T04:56:07.000+00:00
               grn: grn
               swatch:
                 grn: grn
@@ -1944,7 +2118,8 @@ components:
                   key: value
               position: position
               updatedAt: 2000-01-23T04:56:07.000+00:00
-            - createdAt: 2000-01-23T04:56:07.000+00:00
+            - externalReferenceId: externalReferenceId
+              createdAt: 2000-01-23T04:56:07.000+00:00
               grn: grn
               swatch:
                 grn: grn
@@ -2083,10 +2258,10 @@ components:
           type: object
       type: object
     matrixGenericType:
+      example:
+        propertyKey: propertyKey
       properties:
         propertyKey:
-          type: string
-        propertyValue:
           type: string
       type: object
     matrixListMatricesRequest:
@@ -2111,41 +2286,45 @@ components:
       example:
         nextPageToken: nextPageToken
         matrices:
-        - propertyKey: propertyKey
-          defaultPropertyId: defaultPropertyId
-          grn: grn
-          xSteps:
-          - xSteps
-          - xSteps
-          yStepDeterminant: yStepDeterminant
-          pricelistGrn: pricelistGrn
-          label: label
-          ySteps:
-          - ySteps
-          - ySteps
-          configuratorId: configuratorId
-          xStepDeterminant: xStepDeterminant
+        - defaultPropertyId: defaultPropertyId
+          weightType:
+            weightUnit: null
           createdAt: 2000-01-23T04:56:07.000+00:00
-          propertyType: null
+          grn: grn
+          priceType:
+            pricelistGrns:
+            - pricelistGrns
+            - pricelistGrns
           id: id
+          label: label
+          genericType:
+            propertyKey: propertyKey
+          configuratorId: configuratorId
+          steps:
+          - stepId: stepId
+            position: 0
+          - stepId: stepId
+            position: 0
           updatedAt: 2000-01-23T04:56:07.000+00:00
-        - propertyKey: propertyKey
-          defaultPropertyId: defaultPropertyId
-          grn: grn
-          xSteps:
-          - xSteps
-          - xSteps
-          yStepDeterminant: yStepDeterminant
-          pricelistGrn: pricelistGrn
-          label: label
-          ySteps:
-          - ySteps
-          - ySteps
-          configuratorId: configuratorId
-          xStepDeterminant: xStepDeterminant
+        - defaultPropertyId: defaultPropertyId
+          weightType:
+            weightUnit: null
           createdAt: 2000-01-23T04:56:07.000+00:00
-          propertyType: null
+          grn: grn
+          priceType:
+            pricelistGrns:
+            - pricelistGrns
+            - pricelistGrns
           id: id
+          label: label
+          genericType:
+            propertyKey: propertyKey
+          configuratorId: configuratorId
+          steps:
+          - stepId: stepId
+            position: 0
+          - stepId: stepId
+            position: 0
           updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         matrices:
@@ -2156,9 +2335,22 @@ components:
           type: string
       type: object
     matrixPriceType:
+      example:
+        pricelistGrns:
+        - pricelistGrns
+        - pricelistGrns
       properties:
-        pricelistGrn:
-          type: string
+        pricelistGrns:
+          items:
+            type: string
+          type: array
+      type: object
+    matrixWeightType:
+      example:
+        weightUnit: null
+      properties:
+        weightUnit:
+          $ref: '#/components/schemas/productconfiguratorWeightUnit'
       type: object
     optionListOptionsRequest:
       properties:
@@ -2176,7 +2368,8 @@ components:
       example:
         nextPageToken: nextPageToken
         options:
-        - createdAt: 2000-01-23T04:56:07.000+00:00
+        - externalReferenceId: externalReferenceId
+          createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           swatch:
             grn: grn
@@ -2187,7 +2380,8 @@ components:
               key: value
           position: position
           updatedAt: 2000-01-23T04:56:07.000+00:00
-        - createdAt: 2000-01-23T04:56:07.000+00:00
+        - externalReferenceId: externalReferenceId
+          createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           swatch:
             grn: grn
@@ -2216,21 +2410,181 @@ components:
         url:
           type: string
       type: object
+    productconfiguratorMoney:
+      description: Represents an amount of money.
+      properties:
+        units:
+          description: |-
+            The whole units of the amount.
+            For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
+          format: int64
+          type: string
+        micros:
+          description: |-
+            Number of micro (10^-6) units of the amount.
+            The value must be between -999,999 and +999,999 inclusive.
+            If `units` is positive, `micros` must be positive or zero.
+            If `units` is zero, `micros` can be positive, zero, or negative.
+            If `units` is negative, `micros` must be negative or zero.
+            For example $-1.75 is represented as `units`=-1 and `micros`=-750,000.
+          format: int32
+          type: integer
+      type: object
     productconfiguratorPropertyType:
       default: PROPERTY_TYPE_UNKNOWN
       enum:
       - PROPERTY_TYPE_UNKNOWN
       - PROPERTY_TYPE_GENERIC
       - PROPERTY_TYPE_PRICE
+      - PROPERTY_TYPE_WEIGHT
       type: string
+    productconfiguratorWeightUnit:
+      default: WEIGHT_UNIT_UNKNOWN
+      enum:
+      - WEIGHT_UNIT_UNKNOWN
+      - WEIGHT_UNIT_KILOGRAM
+      - WEIGHT_UNIT_POUND
+      type: string
+    productconfiguratorconfigurationOption:
+      example:
+        grn: grn
+        swatch:
+          grn: grn
+          url: url
+        id: id
+        label:
+          value:
+            key: value
+        position: position
+        optionProperties:
+        - subtractToGetVariation:
+          - subtractToGetVariation
+          - subtractToGetVariation
+          propertyType: null
+          propertyValue: propertyValue
+          propertyId: propertyId
+        - subtractToGetVariation:
+          - subtractToGetVariation
+          - subtractToGetVariation
+          propertyType: null
+          propertyValue: propertyValue
+          propertyId: propertyId
+        enabled: true
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        position:
+          format: uint64
+          type: string
+        swatch:
+          $ref: '#/components/schemas/optionSwatch'
+        enabled:
+          type: boolean
+        optionProperties:
+          items:
+            $ref: '#/components/schemas/configurationOptionProperty'
+          type: array
+      type: object
+    productconfiguratorconfigurationStep:
+      example:
+        isRequired: true
+        grn: grn
+        options:
+        - grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          optionProperties:
+          - subtractToGetVariation:
+            - subtractToGetVariation
+            - subtractToGetVariation
+            propertyType: null
+            propertyValue: propertyValue
+            propertyId: propertyId
+          - subtractToGetVariation:
+            - subtractToGetVariation
+            - subtractToGetVariation
+            propertyType: null
+            propertyValue: propertyValue
+            propertyId: propertyId
+          enabled: true
+        - grn: grn
+          swatch:
+            grn: grn
+            url: url
+          id: id
+          label:
+            value:
+              key: value
+          position: position
+          optionProperties:
+          - subtractToGetVariation:
+            - subtractToGetVariation
+            - subtractToGetVariation
+            propertyType: null
+            propertyValue: propertyValue
+            propertyId: propertyId
+          - subtractToGetVariation:
+            - subtractToGetVariation
+            - subtractToGetVariation
+            propertyType: null
+            propertyValue: propertyValue
+            propertyId: propertyId
+          enabled: true
+        description:
+          value:
+            key: value
+        id: id
+        label:
+          value:
+            key: value
+        position: position
+        subjectToStepId: subjectToStepId
+        enabled: true
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        label:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        description:
+          $ref: '#/components/schemas/localisationLocalizedText'
+        subjectToStepId:
+          type: string
+        position:
+          format: uint64
+          type: string
+        isRequired:
+          type: boolean
+        options:
+          items:
+            $ref: '#/components/schemas/productconfiguratorconfigurationOption'
+          type: array
+        enabled:
+          type: boolean
+      type: object
     productconfiguratorconfiguratorCopyRequest:
       properties:
         tenantId:
           type: string
-        sourceProductId:
+        sourceConfiguratorId:
           type: string
         targetProductId:
           type: string
+        copyDependencies:
+          type: boolean
+        copyMatrices:
+          type: boolean
       type: object
     productconfiguratorconfiguratorCreateRequest:
       properties:
@@ -2255,7 +2609,8 @@ components:
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           options:
-          - createdAt: 2000-01-23T04:56:07.000+00:00
+          - externalReferenceId: externalReferenceId
+            createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             swatch:
               grn: grn
@@ -2266,7 +2621,8 @@ components:
                 key: value
             position: position
             updatedAt: 2000-01-23T04:56:07.000+00:00
-          - createdAt: 2000-01-23T04:56:07.000+00:00
+          - externalReferenceId: externalReferenceId
+            createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             swatch:
               grn: grn
@@ -2291,7 +2647,8 @@ components:
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           options:
-          - createdAt: 2000-01-23T04:56:07.000+00:00
+          - externalReferenceId: externalReferenceId
+            createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             swatch:
               grn: grn
@@ -2302,7 +2659,8 @@ components:
                 key: value
             position: position
             updatedAt: 2000-01-23T04:56:07.000+00:00
-          - createdAt: 2000-01-23T04:56:07.000+00:00
+          - externalReferenceId: externalReferenceId
+            createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             swatch:
               grn: grn
@@ -2469,44 +2827,40 @@ components:
           type: string
         label:
           type: string
-        xSteps:
-          items:
-            type: string
-          type: array
-        ySteps:
-          items:
-            type: string
-          type: array
-        xStepDeterminant:
-          type: string
-        yStepDeterminant:
-          type: string
         genericType:
           $ref: '#/components/schemas/matrixGenericType'
         priceType:
           $ref: '#/components/schemas/matrixPriceType'
+        weightType:
+          $ref: '#/components/schemas/matrixWeightType'
+        steps:
+          items:
+            $ref: '#/components/schemas/productconfiguratormatrixStep'
+          type: array
       type: object
     productconfiguratormatrixDeleteResponse:
       type: object
     productconfiguratormatrixEntity:
       example:
-        propertyKey: propertyKey
         defaultPropertyId: defaultPropertyId
-        grn: grn
-        xSteps:
-        - xSteps
-        - xSteps
-        yStepDeterminant: yStepDeterminant
-        pricelistGrn: pricelistGrn
-        label: label
-        ySteps:
-        - ySteps
-        - ySteps
-        configuratorId: configuratorId
-        xStepDeterminant: xStepDeterminant
+        weightType:
+          weightUnit: null
         createdAt: 2000-01-23T04:56:07.000+00:00
-        propertyType: null
+        grn: grn
+        priceType:
+          pricelistGrns:
+          - pricelistGrns
+          - pricelistGrns
         id: id
+        label: label
+        genericType:
+          propertyKey: propertyKey
+        configuratorId: configuratorId
+        steps:
+        - stepId: stepId
+          position: 0
+        - stepId: stepId
+          position: 0
         updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
@@ -2517,32 +2871,36 @@ components:
           type: string
         label:
           type: string
-        xSteps:
-          items:
-            type: string
-          type: array
-        ySteps:
-          items:
-            type: string
-          type: array
-        propertyKey:
-          type: string
-        propertyType:
-          $ref: '#/components/schemas/productconfiguratorPropertyType'
-        xStepDeterminant:
-          type: string
-        yStepDeterminant:
-          type: string
-        pricelistGrn:
-          type: string
         defaultPropertyId:
           type: string
+        genericType:
+          $ref: '#/components/schemas/matrixGenericType'
+        priceType:
+          $ref: '#/components/schemas/matrixPriceType'
+        weightType:
+          $ref: '#/components/schemas/matrixWeightType'
+        steps:
+          items:
+            $ref: '#/components/schemas/productconfiguratormatrixStep'
+          type: array
         createdAt:
           format: date-time
           type: string
         updatedAt:
           format: date-time
           type: string
+      type: object
+    productconfiguratormatrixStep:
+      example:
+        stepId: stepId
+        position: 0
+      properties:
+        stepId:
+          type: string
+        position:
+          format: int64
+          title: position of the step in the matrix columns
+          type: integer
       type: object
     productconfiguratormatrixUpdatePayload:
       properties:
@@ -2585,11 +2943,16 @@ components:
         position:
           format: uint64
           type: string
+        externalReferenceId:
+          type: string
+        swatch:
+          $ref: '#/components/schemas/optionSwatch'
       type: object
     productconfiguratoroptionBulkCreateResponse:
       example:
         options:
-        - createdAt: 2000-01-23T04:56:07.000+00:00
+        - externalReferenceId: externalReferenceId
+          createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           swatch:
             grn: grn
@@ -2600,7 +2963,8 @@ components:
               key: value
           position: position
           updatedAt: 2000-01-23T04:56:07.000+00:00
-        - createdAt: 2000-01-23T04:56:07.000+00:00
+        - externalReferenceId: externalReferenceId
+          createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           swatch:
             grn: grn
@@ -2651,7 +3015,8 @@ components:
     productconfiguratoroptionBulkUpdateResponse:
       example:
         options:
-        - createdAt: 2000-01-23T04:56:07.000+00:00
+        - externalReferenceId: externalReferenceId
+          createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           swatch:
             grn: grn
@@ -2662,7 +3027,8 @@ components:
               key: value
           position: position
           updatedAt: 2000-01-23T04:56:07.000+00:00
-        - createdAt: 2000-01-23T04:56:07.000+00:00
+        - externalReferenceId: externalReferenceId
+          createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           swatch:
             grn: grn
@@ -2699,11 +3065,16 @@ components:
         position:
           format: uint64
           type: string
+        externalReferenceId:
+          type: string
+        swatch:
+          $ref: '#/components/schemas/optionSwatch'
       type: object
     productconfiguratoroptionDeleteResponse:
       type: object
     productconfiguratoroptionEntity:
       example:
+        externalReferenceId: externalReferenceId
         createdAt: 2000-01-23T04:56:07.000+00:00
         grn: grn
         swatch:
@@ -2727,6 +3098,8 @@ components:
           type: string
         swatch:
           $ref: '#/components/schemas/optionSwatch'
+        externalReferenceId:
+          type: string
         createdAt:
           format: date-time
           type: string
@@ -2741,6 +3114,10 @@ components:
         position:
           format: uint64
           type: string
+        externalReferenceId:
+          type: string
+        swatch:
+          $ref: '#/components/schemas/optionSwatch'
       type: object
     productconfiguratoroptionUpdateRequest:
       properties:
@@ -2768,24 +3145,16 @@ components:
       type: object
     productconfiguratorpropertyBulkCreateRequestCreateEntity:
       properties:
-        optionIds:
-          items:
+        stepIdToOptionId:
+          additionalProperties:
             type: string
-          type: array
+          type: object
         genericProperty:
           $ref: '#/components/schemas/productconfiguratorpropertyGenericProperty'
         priceProperty:
-          type: object
-        coordinates:
-          description: |-
-            coordinates of the entity in the matrix. The order matters.
-            Example: [1, 2] means that the entity is located at the first row, second column.
-            Example: [1, 2, 3] means that the entity is located at the first row, second column, third layer.
-            Example: [1, 2, 3, 4] means that the entity is located at the first row, second column, third layer, fourth depth.
-          items:
-            format: int64
-            type: integer
-          type: array
+          $ref: '#/components/schemas/productconfiguratorpropertyPriceProperty'
+        weightProperty:
+          $ref: '#/components/schemas/productconfiguratorpropertyWeightProperty'
       type: object
     productconfiguratorpropertyBulkCreateResponse:
       example:
@@ -2794,27 +3163,19 @@ components:
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           propertyType: null
-          coordinates:
-          - 0
-          - 0
           propertyValue: propertyValue
           id: id
-          optionIds:
-          - optionIds
-          - optionIds
+          stepIdToOptionId:
+            key: stepIdToOptionId
           updatedAt: 2000-01-23T04:56:07.000+00:00
         - propertyKey: propertyKey
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           propertyType: null
-          coordinates:
-          - 0
-          - 0
           propertyValue: propertyValue
           id: id
-          optionIds:
-          - optionIds
-          - optionIds
+          stepIdToOptionId:
+            key: stepIdToOptionId
           updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         properties:
@@ -2825,6 +3186,8 @@ components:
     productconfiguratorpropertyBulkUpdateRequest:
       properties:
         tenantId:
+          type: string
+        matrixId:
           type: string
         entities:
           items:
@@ -2849,27 +3212,19 @@ components:
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           propertyType: null
-          coordinates:
-          - 0
-          - 0
           propertyValue: propertyValue
           id: id
-          optionIds:
-          - optionIds
-          - optionIds
+          stepIdToOptionId:
+            key: stepIdToOptionId
           updatedAt: 2000-01-23T04:56:07.000+00:00
         - propertyKey: propertyKey
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           propertyType: null
-          coordinates:
-          - 0
-          - 0
           propertyValue: propertyValue
           id: id
-          optionIds:
-          - optionIds
-          - optionIds
+          stepIdToOptionId:
+            key: stepIdToOptionId
           updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         properties:
@@ -2883,24 +3238,16 @@ components:
           type: string
         matrixId:
           type: string
-        optionIds:
-          items:
+        stepIdToOptionId:
+          additionalProperties:
             type: string
-          type: array
+          type: object
         genericProperty:
           $ref: '#/components/schemas/productconfiguratorpropertyGenericProperty'
         priceProperty:
-          type: object
-        coordinates:
-          description: |-
-            coordinates of the entity in the matrix. The order matters.
-            Example: [1, 2] means that the entity is located at the first row, second column.
-            Example: [1, 2, 3] means that the entity is located at the first row, second column, third layer.
-            Example: [1, 2, 3, 4] means that the entity is located at the first row, second column, third layer, fourth depth.
-          items:
-            format: int64
-            type: integer
-          type: array
+          $ref: '#/components/schemas/productconfiguratorpropertyPriceProperty'
+        weightProperty:
+          $ref: '#/components/schemas/productconfiguratorpropertyWeightProperty'
       type: object
     productconfiguratorpropertyEntity:
       example:
@@ -2908,35 +3255,26 @@ components:
         createdAt: 2000-01-23T04:56:07.000+00:00
         grn: grn
         propertyType: null
-        coordinates:
-        - 0
-        - 0
         propertyValue: propertyValue
         id: id
-        optionIds:
-        - optionIds
-        - optionIds
+        stepIdToOptionId:
+          key: stepIdToOptionId
         updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
           type: string
         grn:
           type: string
-        optionIds:
-          items:
+        stepIdToOptionId:
+          additionalProperties:
             type: string
-          type: array
+          type: object
         propertyKey:
           type: string
         propertyValue:
           type: string
         propertyType:
           $ref: '#/components/schemas/productconfiguratorPropertyType'
-        coordinates:
-          items:
-            format: int64
-            type: integer
-          type: array
         createdAt:
           format: date-time
           type: string
@@ -2951,14 +3289,27 @@ components:
         propertyValue:
           type: string
       type: object
+    productconfiguratorpropertyPriceProperty:
+      properties:
+        price:
+          $ref: '#/components/schemas/productconfiguratorMoney'
+        pricelistGrn:
+          type: string
+      type: object
     productconfiguratorpropertyUpdatePayload:
       properties:
         genericProperty:
           $ref: '#/components/schemas/propertyUpdatePayloadGenericProperty'
+        weightProperty:
+          $ref: '#/components/schemas/propertyUpdatePayloadWeightProperty'
+        priceProperty:
+          $ref: '#/components/schemas/propertyUpdatePayloadPriceProperty'
       type: object
     productconfiguratorpropertyUpdateRequest:
       properties:
         tenantId:
+          type: string
+        matrixId:
           type: string
         propertyId:
           type: string
@@ -2968,6 +3319,14 @@ components:
           items:
             type: string
           type: array
+      type: object
+    productconfiguratorpropertyWeightProperty:
+      properties:
+        weight:
+          format: double
+          type: number
+        weightUnit:
+          $ref: '#/components/schemas/productconfiguratorWeightUnit'
       type: object
     productconfiguratorstepBulkCreateRequest:
       properties:
@@ -2986,9 +3345,6 @@ components:
           $ref: '#/components/schemas/localisationLocalizedText'
         description:
           $ref: '#/components/schemas/localisationLocalizedText'
-        position:
-          format: uint64
-          type: string
         isRequired:
           type: boolean
         subjectToStepId:
@@ -3001,7 +3357,8 @@ components:
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           options:
-          - createdAt: 2000-01-23T04:56:07.000+00:00
+          - externalReferenceId: externalReferenceId
+            createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             swatch:
               grn: grn
@@ -3012,7 +3369,8 @@ components:
                 key: value
             position: position
             updatedAt: 2000-01-23T04:56:07.000+00:00
-          - createdAt: 2000-01-23T04:56:07.000+00:00
+          - externalReferenceId: externalReferenceId
+            createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             swatch:
               grn: grn
@@ -3037,7 +3395,8 @@ components:
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           options:
-          - createdAt: 2000-01-23T04:56:07.000+00:00
+          - externalReferenceId: externalReferenceId
+            createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             swatch:
               grn: grn
@@ -3048,7 +3407,8 @@ components:
                 key: value
             position: position
             updatedAt: 2000-01-23T04:56:07.000+00:00
-          - createdAt: 2000-01-23T04:56:07.000+00:00
+          - externalReferenceId: externalReferenceId
+            createdAt: 2000-01-23T04:56:07.000+00:00
             grn: grn
             swatch:
               grn: grn
@@ -3105,9 +3465,6 @@ components:
           $ref: '#/components/schemas/localisationLocalizedText'
         description:
           $ref: '#/components/schemas/localisationLocalizedText'
-        position:
-          format: uint64
-          type: string
         isRequired:
           type: boolean
         subjectToStepId:
@@ -3121,7 +3478,8 @@ components:
         createdAt: 2000-01-23T04:56:07.000+00:00
         grn: grn
         options:
-        - createdAt: 2000-01-23T04:56:07.000+00:00
+        - externalReferenceId: externalReferenceId
+          createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           swatch:
             grn: grn
@@ -3132,7 +3490,8 @@ components:
               key: value
           position: position
           updatedAt: 2000-01-23T04:56:07.000+00:00
-        - createdAt: 2000-01-23T04:56:07.000+00:00
+        - externalReferenceId: externalReferenceId
+          createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           swatch:
             grn: grn
@@ -3227,27 +3586,19 @@ components:
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           propertyType: null
-          coordinates:
-          - 0
-          - 0
           propertyValue: propertyValue
           id: id
-          optionIds:
-          - optionIds
-          - optionIds
+          stepIdToOptionId:
+            key: stepIdToOptionId
           updatedAt: 2000-01-23T04:56:07.000+00:00
         - propertyKey: propertyKey
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
           propertyType: null
-          coordinates:
-          - 0
-          - 0
           propertyValue: propertyValue
           id: id
-          optionIds:
-          - optionIds
-          - optionIds
+          stepIdToOptionId:
+            key: stepIdToOptionId
           updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         properties:
@@ -3257,12 +3608,23 @@ components:
         nextPageToken:
           type: string
       type: object
-    propertyPriceProperty:
-      type: object
     propertyUpdatePayloadGenericProperty:
       properties:
         propertyValue:
           type: string
+      type: object
+    propertyUpdatePayloadPriceProperty:
+      properties:
+        price:
+          $ref: '#/components/schemas/productconfiguratorMoney'
+        pricelistGrn:
+          type: string
+      type: object
+    propertyUpdatePayloadWeightProperty:
+      properties:
+        weight:
+          format: double
+          type: number
       type: object
     protobufAny:
       properties:

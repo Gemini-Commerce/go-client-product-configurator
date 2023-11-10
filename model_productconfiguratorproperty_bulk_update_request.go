@@ -18,6 +18,7 @@ import (
 // ProductconfiguratorpropertyBulkUpdateRequest struct for ProductconfiguratorpropertyBulkUpdateRequest
 type ProductconfiguratorpropertyBulkUpdateRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
+	MatrixId *string `json:"matrixId,omitempty"`
 	Entities []ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity `json:"entities,omitempty"`
 }
 
@@ -70,6 +71,38 @@ func (o *ProductconfiguratorpropertyBulkUpdateRequest) SetTenantId(v string) {
 	o.TenantId = &v
 }
 
+// GetMatrixId returns the MatrixId field value if set, zero value otherwise.
+func (o *ProductconfiguratorpropertyBulkUpdateRequest) GetMatrixId() string {
+	if o == nil || isNil(o.MatrixId) {
+		var ret string
+		return ret
+	}
+	return *o.MatrixId
+}
+
+// GetMatrixIdOk returns a tuple with the MatrixId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratorpropertyBulkUpdateRequest) GetMatrixIdOk() (*string, bool) {
+	if o == nil || isNil(o.MatrixId) {
+    return nil, false
+	}
+	return o.MatrixId, true
+}
+
+// HasMatrixId returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyBulkUpdateRequest) HasMatrixId() bool {
+	if o != nil && !isNil(o.MatrixId) {
+		return true
+	}
+
+	return false
+}
+
+// SetMatrixId gets a reference to the given string and assigns it to the MatrixId field.
+func (o *ProductconfiguratorpropertyBulkUpdateRequest) SetMatrixId(v string) {
+	o.MatrixId = &v
+}
+
 // GetEntities returns the Entities field value if set, zero value otherwise.
 func (o *ProductconfiguratorpropertyBulkUpdateRequest) GetEntities() []ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity {
 	if o == nil || isNil(o.Entities) {
@@ -106,6 +139,9 @@ func (o ProductconfiguratorpropertyBulkUpdateRequest) MarshalJSON() ([]byte, err
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.TenantId) {
 		toSerialize["tenantId"] = o.TenantId
+	}
+	if !isNil(o.MatrixId) {
+		toSerialize["matrixId"] = o.MatrixId
 	}
 	if !isNil(o.Entities) {
 		toSerialize["entities"] = o.Entities

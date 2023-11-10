@@ -18,6 +18,8 @@ import (
 // ProductconfiguratorpropertyUpdatePayload struct for ProductconfiguratorpropertyUpdatePayload
 type ProductconfiguratorpropertyUpdatePayload struct {
 	GenericProperty *PropertyUpdatePayloadGenericProperty `json:"genericProperty,omitempty"`
+	WeightProperty *PropertyUpdatePayloadWeightProperty `json:"weightProperty,omitempty"`
+	PriceProperty *PropertyUpdatePayloadPriceProperty `json:"priceProperty,omitempty"`
 }
 
 // NewProductconfiguratorpropertyUpdatePayload instantiates a new ProductconfiguratorpropertyUpdatePayload object
@@ -69,10 +71,80 @@ func (o *ProductconfiguratorpropertyUpdatePayload) SetGenericProperty(v Property
 	o.GenericProperty = &v
 }
 
+// GetWeightProperty returns the WeightProperty field value if set, zero value otherwise.
+func (o *ProductconfiguratorpropertyUpdatePayload) GetWeightProperty() PropertyUpdatePayloadWeightProperty {
+	if o == nil || isNil(o.WeightProperty) {
+		var ret PropertyUpdatePayloadWeightProperty
+		return ret
+	}
+	return *o.WeightProperty
+}
+
+// GetWeightPropertyOk returns a tuple with the WeightProperty field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratorpropertyUpdatePayload) GetWeightPropertyOk() (*PropertyUpdatePayloadWeightProperty, bool) {
+	if o == nil || isNil(o.WeightProperty) {
+    return nil, false
+	}
+	return o.WeightProperty, true
+}
+
+// HasWeightProperty returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyUpdatePayload) HasWeightProperty() bool {
+	if o != nil && !isNil(o.WeightProperty) {
+		return true
+	}
+
+	return false
+}
+
+// SetWeightProperty gets a reference to the given PropertyUpdatePayloadWeightProperty and assigns it to the WeightProperty field.
+func (o *ProductconfiguratorpropertyUpdatePayload) SetWeightProperty(v PropertyUpdatePayloadWeightProperty) {
+	o.WeightProperty = &v
+}
+
+// GetPriceProperty returns the PriceProperty field value if set, zero value otherwise.
+func (o *ProductconfiguratorpropertyUpdatePayload) GetPriceProperty() PropertyUpdatePayloadPriceProperty {
+	if o == nil || isNil(o.PriceProperty) {
+		var ret PropertyUpdatePayloadPriceProperty
+		return ret
+	}
+	return *o.PriceProperty
+}
+
+// GetPricePropertyOk returns a tuple with the PriceProperty field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratorpropertyUpdatePayload) GetPricePropertyOk() (*PropertyUpdatePayloadPriceProperty, bool) {
+	if o == nil || isNil(o.PriceProperty) {
+    return nil, false
+	}
+	return o.PriceProperty, true
+}
+
+// HasPriceProperty returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyUpdatePayload) HasPriceProperty() bool {
+	if o != nil && !isNil(o.PriceProperty) {
+		return true
+	}
+
+	return false
+}
+
+// SetPriceProperty gets a reference to the given PropertyUpdatePayloadPriceProperty and assigns it to the PriceProperty field.
+func (o *ProductconfiguratorpropertyUpdatePayload) SetPriceProperty(v PropertyUpdatePayloadPriceProperty) {
+	o.PriceProperty = &v
+}
+
 func (o ProductconfiguratorpropertyUpdatePayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.GenericProperty) {
 		toSerialize["genericProperty"] = o.GenericProperty
+	}
+	if !isNil(o.WeightProperty) {
+		toSerialize["weightProperty"] = o.WeightProperty
+	}
+	if !isNil(o.PriceProperty) {
+		toSerialize["priceProperty"] = o.PriceProperty
 	}
 	return json.Marshal(toSerialize)
 }

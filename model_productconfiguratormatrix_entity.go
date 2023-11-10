@@ -22,14 +22,11 @@ type ProductconfiguratormatrixEntity struct {
 	Grn *string `json:"grn,omitempty"`
 	ConfiguratorId *string `json:"configuratorId,omitempty"`
 	Label *string `json:"label,omitempty"`
-	XSteps []string `json:"xSteps,omitempty"`
-	YSteps []string `json:"ySteps,omitempty"`
-	PropertyKey *string `json:"propertyKey,omitempty"`
-	PropertyType *ProductconfiguratorPropertyType `json:"propertyType,omitempty"`
-	XStepDeterminant *string `json:"xStepDeterminant,omitempty"`
-	YStepDeterminant *string `json:"yStepDeterminant,omitempty"`
-	PricelistGrn *string `json:"pricelistGrn,omitempty"`
 	DefaultPropertyId *string `json:"defaultPropertyId,omitempty"`
+	GenericType *MatrixGenericType `json:"genericType,omitempty"`
+	PriceType *MatrixPriceType `json:"priceType,omitempty"`
+	WeightType *MatrixWeightType `json:"weightType,omitempty"`
+	Steps []ProductconfiguratormatrixStep `json:"steps,omitempty"`
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
@@ -40,8 +37,6 @@ type ProductconfiguratormatrixEntity struct {
 // will change when the set of required properties is changed
 func NewProductconfiguratormatrixEntity() *ProductconfiguratormatrixEntity {
 	this := ProductconfiguratormatrixEntity{}
-	var propertyType ProductconfiguratorPropertyType = PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN
-	this.PropertyType = &propertyType
 	return &this
 }
 
@@ -50,8 +45,6 @@ func NewProductconfiguratormatrixEntity() *ProductconfiguratormatrixEntity {
 // but it doesn't guarantee that properties required by API are set
 func NewProductconfiguratormatrixEntityWithDefaults() *ProductconfiguratormatrixEntity {
 	this := ProductconfiguratormatrixEntity{}
-	var propertyType ProductconfiguratorPropertyType = PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN
-	this.PropertyType = &propertyType
 	return &this
 }
 
@@ -183,230 +176,6 @@ func (o *ProductconfiguratormatrixEntity) SetLabel(v string) {
 	o.Label = &v
 }
 
-// GetXSteps returns the XSteps field value if set, zero value otherwise.
-func (o *ProductconfiguratormatrixEntity) GetXSteps() []string {
-	if o == nil || isNil(o.XSteps) {
-		var ret []string
-		return ret
-	}
-	return o.XSteps
-}
-
-// GetXStepsOk returns a tuple with the XSteps field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratormatrixEntity) GetXStepsOk() ([]string, bool) {
-	if o == nil || isNil(o.XSteps) {
-    return nil, false
-	}
-	return o.XSteps, true
-}
-
-// HasXSteps returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasXSteps() bool {
-	if o != nil && !isNil(o.XSteps) {
-		return true
-	}
-
-	return false
-}
-
-// SetXSteps gets a reference to the given []string and assigns it to the XSteps field.
-func (o *ProductconfiguratormatrixEntity) SetXSteps(v []string) {
-	o.XSteps = v
-}
-
-// GetYSteps returns the YSteps field value if set, zero value otherwise.
-func (o *ProductconfiguratormatrixEntity) GetYSteps() []string {
-	if o == nil || isNil(o.YSteps) {
-		var ret []string
-		return ret
-	}
-	return o.YSteps
-}
-
-// GetYStepsOk returns a tuple with the YSteps field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratormatrixEntity) GetYStepsOk() ([]string, bool) {
-	if o == nil || isNil(o.YSteps) {
-    return nil, false
-	}
-	return o.YSteps, true
-}
-
-// HasYSteps returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasYSteps() bool {
-	if o != nil && !isNil(o.YSteps) {
-		return true
-	}
-
-	return false
-}
-
-// SetYSteps gets a reference to the given []string and assigns it to the YSteps field.
-func (o *ProductconfiguratormatrixEntity) SetYSteps(v []string) {
-	o.YSteps = v
-}
-
-// GetPropertyKey returns the PropertyKey field value if set, zero value otherwise.
-func (o *ProductconfiguratormatrixEntity) GetPropertyKey() string {
-	if o == nil || isNil(o.PropertyKey) {
-		var ret string
-		return ret
-	}
-	return *o.PropertyKey
-}
-
-// GetPropertyKeyOk returns a tuple with the PropertyKey field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratormatrixEntity) GetPropertyKeyOk() (*string, bool) {
-	if o == nil || isNil(o.PropertyKey) {
-    return nil, false
-	}
-	return o.PropertyKey, true
-}
-
-// HasPropertyKey returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasPropertyKey() bool {
-	if o != nil && !isNil(o.PropertyKey) {
-		return true
-	}
-
-	return false
-}
-
-// SetPropertyKey gets a reference to the given string and assigns it to the PropertyKey field.
-func (o *ProductconfiguratormatrixEntity) SetPropertyKey(v string) {
-	o.PropertyKey = &v
-}
-
-// GetPropertyType returns the PropertyType field value if set, zero value otherwise.
-func (o *ProductconfiguratormatrixEntity) GetPropertyType() ProductconfiguratorPropertyType {
-	if o == nil || isNil(o.PropertyType) {
-		var ret ProductconfiguratorPropertyType
-		return ret
-	}
-	return *o.PropertyType
-}
-
-// GetPropertyTypeOk returns a tuple with the PropertyType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratormatrixEntity) GetPropertyTypeOk() (*ProductconfiguratorPropertyType, bool) {
-	if o == nil || isNil(o.PropertyType) {
-    return nil, false
-	}
-	return o.PropertyType, true
-}
-
-// HasPropertyType returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasPropertyType() bool {
-	if o != nil && !isNil(o.PropertyType) {
-		return true
-	}
-
-	return false
-}
-
-// SetPropertyType gets a reference to the given ProductconfiguratorPropertyType and assigns it to the PropertyType field.
-func (o *ProductconfiguratormatrixEntity) SetPropertyType(v ProductconfiguratorPropertyType) {
-	o.PropertyType = &v
-}
-
-// GetXStepDeterminant returns the XStepDeterminant field value if set, zero value otherwise.
-func (o *ProductconfiguratormatrixEntity) GetXStepDeterminant() string {
-	if o == nil || isNil(o.XStepDeterminant) {
-		var ret string
-		return ret
-	}
-	return *o.XStepDeterminant
-}
-
-// GetXStepDeterminantOk returns a tuple with the XStepDeterminant field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratormatrixEntity) GetXStepDeterminantOk() (*string, bool) {
-	if o == nil || isNil(o.XStepDeterminant) {
-    return nil, false
-	}
-	return o.XStepDeterminant, true
-}
-
-// HasXStepDeterminant returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasXStepDeterminant() bool {
-	if o != nil && !isNil(o.XStepDeterminant) {
-		return true
-	}
-
-	return false
-}
-
-// SetXStepDeterminant gets a reference to the given string and assigns it to the XStepDeterminant field.
-func (o *ProductconfiguratormatrixEntity) SetXStepDeterminant(v string) {
-	o.XStepDeterminant = &v
-}
-
-// GetYStepDeterminant returns the YStepDeterminant field value if set, zero value otherwise.
-func (o *ProductconfiguratormatrixEntity) GetYStepDeterminant() string {
-	if o == nil || isNil(o.YStepDeterminant) {
-		var ret string
-		return ret
-	}
-	return *o.YStepDeterminant
-}
-
-// GetYStepDeterminantOk returns a tuple with the YStepDeterminant field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratormatrixEntity) GetYStepDeterminantOk() (*string, bool) {
-	if o == nil || isNil(o.YStepDeterminant) {
-    return nil, false
-	}
-	return o.YStepDeterminant, true
-}
-
-// HasYStepDeterminant returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasYStepDeterminant() bool {
-	if o != nil && !isNil(o.YStepDeterminant) {
-		return true
-	}
-
-	return false
-}
-
-// SetYStepDeterminant gets a reference to the given string and assigns it to the YStepDeterminant field.
-func (o *ProductconfiguratormatrixEntity) SetYStepDeterminant(v string) {
-	o.YStepDeterminant = &v
-}
-
-// GetPricelistGrn returns the PricelistGrn field value if set, zero value otherwise.
-func (o *ProductconfiguratormatrixEntity) GetPricelistGrn() string {
-	if o == nil || isNil(o.PricelistGrn) {
-		var ret string
-		return ret
-	}
-	return *o.PricelistGrn
-}
-
-// GetPricelistGrnOk returns a tuple with the PricelistGrn field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratormatrixEntity) GetPricelistGrnOk() (*string, bool) {
-	if o == nil || isNil(o.PricelistGrn) {
-    return nil, false
-	}
-	return o.PricelistGrn, true
-}
-
-// HasPricelistGrn returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasPricelistGrn() bool {
-	if o != nil && !isNil(o.PricelistGrn) {
-		return true
-	}
-
-	return false
-}
-
-// SetPricelistGrn gets a reference to the given string and assigns it to the PricelistGrn field.
-func (o *ProductconfiguratormatrixEntity) SetPricelistGrn(v string) {
-	o.PricelistGrn = &v
-}
-
 // GetDefaultPropertyId returns the DefaultPropertyId field value if set, zero value otherwise.
 func (o *ProductconfiguratormatrixEntity) GetDefaultPropertyId() string {
 	if o == nil || isNil(o.DefaultPropertyId) {
@@ -437,6 +206,134 @@ func (o *ProductconfiguratormatrixEntity) HasDefaultPropertyId() bool {
 // SetDefaultPropertyId gets a reference to the given string and assigns it to the DefaultPropertyId field.
 func (o *ProductconfiguratormatrixEntity) SetDefaultPropertyId(v string) {
 	o.DefaultPropertyId = &v
+}
+
+// GetGenericType returns the GenericType field value if set, zero value otherwise.
+func (o *ProductconfiguratormatrixEntity) GetGenericType() MatrixGenericType {
+	if o == nil || isNil(o.GenericType) {
+		var ret MatrixGenericType
+		return ret
+	}
+	return *o.GenericType
+}
+
+// GetGenericTypeOk returns a tuple with the GenericType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratormatrixEntity) GetGenericTypeOk() (*MatrixGenericType, bool) {
+	if o == nil || isNil(o.GenericType) {
+    return nil, false
+	}
+	return o.GenericType, true
+}
+
+// HasGenericType returns a boolean if a field has been set.
+func (o *ProductconfiguratormatrixEntity) HasGenericType() bool {
+	if o != nil && !isNil(o.GenericType) {
+		return true
+	}
+
+	return false
+}
+
+// SetGenericType gets a reference to the given MatrixGenericType and assigns it to the GenericType field.
+func (o *ProductconfiguratormatrixEntity) SetGenericType(v MatrixGenericType) {
+	o.GenericType = &v
+}
+
+// GetPriceType returns the PriceType field value if set, zero value otherwise.
+func (o *ProductconfiguratormatrixEntity) GetPriceType() MatrixPriceType {
+	if o == nil || isNil(o.PriceType) {
+		var ret MatrixPriceType
+		return ret
+	}
+	return *o.PriceType
+}
+
+// GetPriceTypeOk returns a tuple with the PriceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratormatrixEntity) GetPriceTypeOk() (*MatrixPriceType, bool) {
+	if o == nil || isNil(o.PriceType) {
+    return nil, false
+	}
+	return o.PriceType, true
+}
+
+// HasPriceType returns a boolean if a field has been set.
+func (o *ProductconfiguratormatrixEntity) HasPriceType() bool {
+	if o != nil && !isNil(o.PriceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetPriceType gets a reference to the given MatrixPriceType and assigns it to the PriceType field.
+func (o *ProductconfiguratormatrixEntity) SetPriceType(v MatrixPriceType) {
+	o.PriceType = &v
+}
+
+// GetWeightType returns the WeightType field value if set, zero value otherwise.
+func (o *ProductconfiguratormatrixEntity) GetWeightType() MatrixWeightType {
+	if o == nil || isNil(o.WeightType) {
+		var ret MatrixWeightType
+		return ret
+	}
+	return *o.WeightType
+}
+
+// GetWeightTypeOk returns a tuple with the WeightType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratormatrixEntity) GetWeightTypeOk() (*MatrixWeightType, bool) {
+	if o == nil || isNil(o.WeightType) {
+    return nil, false
+	}
+	return o.WeightType, true
+}
+
+// HasWeightType returns a boolean if a field has been set.
+func (o *ProductconfiguratormatrixEntity) HasWeightType() bool {
+	if o != nil && !isNil(o.WeightType) {
+		return true
+	}
+
+	return false
+}
+
+// SetWeightType gets a reference to the given MatrixWeightType and assigns it to the WeightType field.
+func (o *ProductconfiguratormatrixEntity) SetWeightType(v MatrixWeightType) {
+	o.WeightType = &v
+}
+
+// GetSteps returns the Steps field value if set, zero value otherwise.
+func (o *ProductconfiguratormatrixEntity) GetSteps() []ProductconfiguratormatrixStep {
+	if o == nil || isNil(o.Steps) {
+		var ret []ProductconfiguratormatrixStep
+		return ret
+	}
+	return o.Steps
+}
+
+// GetStepsOk returns a tuple with the Steps field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratormatrixEntity) GetStepsOk() ([]ProductconfiguratormatrixStep, bool) {
+	if o == nil || isNil(o.Steps) {
+    return nil, false
+	}
+	return o.Steps, true
+}
+
+// HasSteps returns a boolean if a field has been set.
+func (o *ProductconfiguratormatrixEntity) HasSteps() bool {
+	if o != nil && !isNil(o.Steps) {
+		return true
+	}
+
+	return false
+}
+
+// SetSteps gets a reference to the given []ProductconfiguratormatrixStep and assigns it to the Steps field.
+func (o *ProductconfiguratormatrixEntity) SetSteps(v []ProductconfiguratormatrixStep) {
+	o.Steps = v
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
@@ -517,29 +414,20 @@ func (o ProductconfiguratormatrixEntity) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
-	if !isNil(o.XSteps) {
-		toSerialize["xSteps"] = o.XSteps
-	}
-	if !isNil(o.YSteps) {
-		toSerialize["ySteps"] = o.YSteps
-	}
-	if !isNil(o.PropertyKey) {
-		toSerialize["propertyKey"] = o.PropertyKey
-	}
-	if !isNil(o.PropertyType) {
-		toSerialize["propertyType"] = o.PropertyType
-	}
-	if !isNil(o.XStepDeterminant) {
-		toSerialize["xStepDeterminant"] = o.XStepDeterminant
-	}
-	if !isNil(o.YStepDeterminant) {
-		toSerialize["yStepDeterminant"] = o.YStepDeterminant
-	}
-	if !isNil(o.PricelistGrn) {
-		toSerialize["pricelistGrn"] = o.PricelistGrn
-	}
 	if !isNil(o.DefaultPropertyId) {
 		toSerialize["defaultPropertyId"] = o.DefaultPropertyId
+	}
+	if !isNil(o.GenericType) {
+		toSerialize["genericType"] = o.GenericType
+	}
+	if !isNil(o.PriceType) {
+		toSerialize["priceType"] = o.PriceType
+	}
+	if !isNil(o.WeightType) {
+		toSerialize["weightType"] = o.WeightType
+	}
+	if !isNil(o.Steps) {
+		toSerialize["steps"] = o.Steps
 	}
 	if !isNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt

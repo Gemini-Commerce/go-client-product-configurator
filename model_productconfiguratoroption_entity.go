@@ -23,6 +23,7 @@ type ProductconfiguratoroptionEntity struct {
 	Label *LocalisationLocalizedText `json:"label,omitempty"`
 	Position *string `json:"position,omitempty"`
 	Swatch *OptionSwatch `json:"swatch,omitempty"`
+	ExternalReferenceId *string `json:"externalReferenceId,omitempty"`
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
@@ -204,6 +205,38 @@ func (o *ProductconfiguratoroptionEntity) SetSwatch(v OptionSwatch) {
 	o.Swatch = &v
 }
 
+// GetExternalReferenceId returns the ExternalReferenceId field value if set, zero value otherwise.
+func (o *ProductconfiguratoroptionEntity) GetExternalReferenceId() string {
+	if o == nil || isNil(o.ExternalReferenceId) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalReferenceId
+}
+
+// GetExternalReferenceIdOk returns a tuple with the ExternalReferenceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratoroptionEntity) GetExternalReferenceIdOk() (*string, bool) {
+	if o == nil || isNil(o.ExternalReferenceId) {
+    return nil, false
+	}
+	return o.ExternalReferenceId, true
+}
+
+// HasExternalReferenceId returns a boolean if a field has been set.
+func (o *ProductconfiguratoroptionEntity) HasExternalReferenceId() bool {
+	if o != nil && !isNil(o.ExternalReferenceId) {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalReferenceId gets a reference to the given string and assigns it to the ExternalReferenceId field.
+func (o *ProductconfiguratoroptionEntity) SetExternalReferenceId(v string) {
+	o.ExternalReferenceId = &v
+}
+
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ProductconfiguratoroptionEntity) GetCreatedAt() time.Time {
 	if o == nil || isNil(o.CreatedAt) {
@@ -284,6 +317,9 @@ func (o ProductconfiguratoroptionEntity) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Swatch) {
 		toSerialize["swatch"] = o.Swatch
+	}
+	if !isNil(o.ExternalReferenceId) {
+		toSerialize["externalReferenceId"] = o.ExternalReferenceId
 	}
 	if !isNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt

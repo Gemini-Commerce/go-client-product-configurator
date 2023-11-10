@@ -19,11 +19,10 @@ import (
 type ProductconfiguratorpropertyCreateRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
 	MatrixId *string `json:"matrixId,omitempty"`
-	OptionIds []string `json:"optionIds,omitempty"`
+	StepIdToOptionId *map[string]string `json:"stepIdToOptionId,omitempty"`
 	GenericProperty *ProductconfiguratorpropertyGenericProperty `json:"genericProperty,omitempty"`
-	PriceProperty map[string]interface{} `json:"priceProperty,omitempty"`
-	// coordinates of the entity in the matrix. The order matters. Example: [1, 2] means that the entity is located at the first row, second column. Example: [1, 2, 3] means that the entity is located at the first row, second column, third layer. Example: [1, 2, 3, 4] means that the entity is located at the first row, second column, third layer, fourth depth.
-	Coordinates []int64 `json:"coordinates,omitempty"`
+	PriceProperty *ProductconfiguratorpropertyPriceProperty `json:"priceProperty,omitempty"`
+	WeightProperty *ProductconfiguratorpropertyWeightProperty `json:"weightProperty,omitempty"`
 }
 
 // NewProductconfiguratorpropertyCreateRequest instantiates a new ProductconfiguratorpropertyCreateRequest object
@@ -107,36 +106,36 @@ func (o *ProductconfiguratorpropertyCreateRequest) SetMatrixId(v string) {
 	o.MatrixId = &v
 }
 
-// GetOptionIds returns the OptionIds field value if set, zero value otherwise.
-func (o *ProductconfiguratorpropertyCreateRequest) GetOptionIds() []string {
-	if o == nil || isNil(o.OptionIds) {
-		var ret []string
+// GetStepIdToOptionId returns the StepIdToOptionId field value if set, zero value otherwise.
+func (o *ProductconfiguratorpropertyCreateRequest) GetStepIdToOptionId() map[string]string {
+	if o == nil || isNil(o.StepIdToOptionId) {
+		var ret map[string]string
 		return ret
 	}
-	return o.OptionIds
+	return *o.StepIdToOptionId
 }
 
-// GetOptionIdsOk returns a tuple with the OptionIds field value if set, nil otherwise
+// GetStepIdToOptionIdOk returns a tuple with the StepIdToOptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProductconfiguratorpropertyCreateRequest) GetOptionIdsOk() ([]string, bool) {
-	if o == nil || isNil(o.OptionIds) {
+func (o *ProductconfiguratorpropertyCreateRequest) GetStepIdToOptionIdOk() (*map[string]string, bool) {
+	if o == nil || isNil(o.StepIdToOptionId) {
     return nil, false
 	}
-	return o.OptionIds, true
+	return o.StepIdToOptionId, true
 }
 
-// HasOptionIds returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyCreateRequest) HasOptionIds() bool {
-	if o != nil && !isNil(o.OptionIds) {
+// HasStepIdToOptionId returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyCreateRequest) HasStepIdToOptionId() bool {
+	if o != nil && !isNil(o.StepIdToOptionId) {
 		return true
 	}
 
 	return false
 }
 
-// SetOptionIds gets a reference to the given []string and assigns it to the OptionIds field.
-func (o *ProductconfiguratorpropertyCreateRequest) SetOptionIds(v []string) {
-	o.OptionIds = v
+// SetStepIdToOptionId gets a reference to the given map[string]string and assigns it to the StepIdToOptionId field.
+func (o *ProductconfiguratorpropertyCreateRequest) SetStepIdToOptionId(v map[string]string) {
+	o.StepIdToOptionId = &v
 }
 
 // GetGenericProperty returns the GenericProperty field value if set, zero value otherwise.
@@ -172,19 +171,19 @@ func (o *ProductconfiguratorpropertyCreateRequest) SetGenericProperty(v Productc
 }
 
 // GetPriceProperty returns the PriceProperty field value if set, zero value otherwise.
-func (o *ProductconfiguratorpropertyCreateRequest) GetPriceProperty() map[string]interface{} {
+func (o *ProductconfiguratorpropertyCreateRequest) GetPriceProperty() ProductconfiguratorpropertyPriceProperty {
 	if o == nil || isNil(o.PriceProperty) {
-		var ret map[string]interface{}
+		var ret ProductconfiguratorpropertyPriceProperty
 		return ret
 	}
-	return o.PriceProperty
+	return *o.PriceProperty
 }
 
 // GetPricePropertyOk returns a tuple with the PriceProperty field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProductconfiguratorpropertyCreateRequest) GetPricePropertyOk() (map[string]interface{}, bool) {
+func (o *ProductconfiguratorpropertyCreateRequest) GetPricePropertyOk() (*ProductconfiguratorpropertyPriceProperty, bool) {
 	if o == nil || isNil(o.PriceProperty) {
-    return map[string]interface{}{}, false
+    return nil, false
 	}
 	return o.PriceProperty, true
 }
@@ -198,41 +197,41 @@ func (o *ProductconfiguratorpropertyCreateRequest) HasPriceProperty() bool {
 	return false
 }
 
-// SetPriceProperty gets a reference to the given map[string]interface{} and assigns it to the PriceProperty field.
-func (o *ProductconfiguratorpropertyCreateRequest) SetPriceProperty(v map[string]interface{}) {
-	o.PriceProperty = v
+// SetPriceProperty gets a reference to the given ProductconfiguratorpropertyPriceProperty and assigns it to the PriceProperty field.
+func (o *ProductconfiguratorpropertyCreateRequest) SetPriceProperty(v ProductconfiguratorpropertyPriceProperty) {
+	o.PriceProperty = &v
 }
 
-// GetCoordinates returns the Coordinates field value if set, zero value otherwise.
-func (o *ProductconfiguratorpropertyCreateRequest) GetCoordinates() []int64 {
-	if o == nil || isNil(o.Coordinates) {
-		var ret []int64
+// GetWeightProperty returns the WeightProperty field value if set, zero value otherwise.
+func (o *ProductconfiguratorpropertyCreateRequest) GetWeightProperty() ProductconfiguratorpropertyWeightProperty {
+	if o == nil || isNil(o.WeightProperty) {
+		var ret ProductconfiguratorpropertyWeightProperty
 		return ret
 	}
-	return o.Coordinates
+	return *o.WeightProperty
 }
 
-// GetCoordinatesOk returns a tuple with the Coordinates field value if set, nil otherwise
+// GetWeightPropertyOk returns a tuple with the WeightProperty field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProductconfiguratorpropertyCreateRequest) GetCoordinatesOk() ([]int64, bool) {
-	if o == nil || isNil(o.Coordinates) {
+func (o *ProductconfiguratorpropertyCreateRequest) GetWeightPropertyOk() (*ProductconfiguratorpropertyWeightProperty, bool) {
+	if o == nil || isNil(o.WeightProperty) {
     return nil, false
 	}
-	return o.Coordinates, true
+	return o.WeightProperty, true
 }
 
-// HasCoordinates returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyCreateRequest) HasCoordinates() bool {
-	if o != nil && !isNil(o.Coordinates) {
+// HasWeightProperty returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyCreateRequest) HasWeightProperty() bool {
+	if o != nil && !isNil(o.WeightProperty) {
 		return true
 	}
 
 	return false
 }
 
-// SetCoordinates gets a reference to the given []int64 and assigns it to the Coordinates field.
-func (o *ProductconfiguratorpropertyCreateRequest) SetCoordinates(v []int64) {
-	o.Coordinates = v
+// SetWeightProperty gets a reference to the given ProductconfiguratorpropertyWeightProperty and assigns it to the WeightProperty field.
+func (o *ProductconfiguratorpropertyCreateRequest) SetWeightProperty(v ProductconfiguratorpropertyWeightProperty) {
+	o.WeightProperty = &v
 }
 
 func (o ProductconfiguratorpropertyCreateRequest) MarshalJSON() ([]byte, error) {
@@ -243,8 +242,8 @@ func (o ProductconfiguratorpropertyCreateRequest) MarshalJSON() ([]byte, error) 
 	if !isNil(o.MatrixId) {
 		toSerialize["matrixId"] = o.MatrixId
 	}
-	if !isNil(o.OptionIds) {
-		toSerialize["optionIds"] = o.OptionIds
+	if !isNil(o.StepIdToOptionId) {
+		toSerialize["stepIdToOptionId"] = o.StepIdToOptionId
 	}
 	if !isNil(o.GenericProperty) {
 		toSerialize["genericProperty"] = o.GenericProperty
@@ -252,8 +251,8 @@ func (o ProductconfiguratorpropertyCreateRequest) MarshalJSON() ([]byte, error) 
 	if !isNil(o.PriceProperty) {
 		toSerialize["priceProperty"] = o.PriceProperty
 	}
-	if !isNil(o.Coordinates) {
-		toSerialize["coordinates"] = o.Coordinates
+	if !isNil(o.WeightProperty) {
+		toSerialize["weightProperty"] = o.WeightProperty
 	}
 	return json.Marshal(toSerialize)
 }

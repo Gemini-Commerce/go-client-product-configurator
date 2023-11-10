@@ -20,11 +20,10 @@ import (
 type ProductconfiguratorpropertyEntity struct {
 	Id *string `json:"id,omitempty"`
 	Grn *string `json:"grn,omitempty"`
-	OptionIds []string `json:"optionIds,omitempty"`
+	StepIdToOptionId *map[string]string `json:"stepIdToOptionId,omitempty"`
 	PropertyKey *string `json:"propertyKey,omitempty"`
 	PropertyValue *string `json:"propertyValue,omitempty"`
 	PropertyType *ProductconfiguratorPropertyType `json:"propertyType,omitempty"`
-	Coordinates []int64 `json:"coordinates,omitempty"`
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
@@ -114,36 +113,36 @@ func (o *ProductconfiguratorpropertyEntity) SetGrn(v string) {
 	o.Grn = &v
 }
 
-// GetOptionIds returns the OptionIds field value if set, zero value otherwise.
-func (o *ProductconfiguratorpropertyEntity) GetOptionIds() []string {
-	if o == nil || isNil(o.OptionIds) {
-		var ret []string
+// GetStepIdToOptionId returns the StepIdToOptionId field value if set, zero value otherwise.
+func (o *ProductconfiguratorpropertyEntity) GetStepIdToOptionId() map[string]string {
+	if o == nil || isNil(o.StepIdToOptionId) {
+		var ret map[string]string
 		return ret
 	}
-	return o.OptionIds
+	return *o.StepIdToOptionId
 }
 
-// GetOptionIdsOk returns a tuple with the OptionIds field value if set, nil otherwise
+// GetStepIdToOptionIdOk returns a tuple with the StepIdToOptionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProductconfiguratorpropertyEntity) GetOptionIdsOk() ([]string, bool) {
-	if o == nil || isNil(o.OptionIds) {
+func (o *ProductconfiguratorpropertyEntity) GetStepIdToOptionIdOk() (*map[string]string, bool) {
+	if o == nil || isNil(o.StepIdToOptionId) {
     return nil, false
 	}
-	return o.OptionIds, true
+	return o.StepIdToOptionId, true
 }
 
-// HasOptionIds returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyEntity) HasOptionIds() bool {
-	if o != nil && !isNil(o.OptionIds) {
+// HasStepIdToOptionId returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyEntity) HasStepIdToOptionId() bool {
+	if o != nil && !isNil(o.StepIdToOptionId) {
 		return true
 	}
 
 	return false
 }
 
-// SetOptionIds gets a reference to the given []string and assigns it to the OptionIds field.
-func (o *ProductconfiguratorpropertyEntity) SetOptionIds(v []string) {
-	o.OptionIds = v
+// SetStepIdToOptionId gets a reference to the given map[string]string and assigns it to the StepIdToOptionId field.
+func (o *ProductconfiguratorpropertyEntity) SetStepIdToOptionId(v map[string]string) {
+	o.StepIdToOptionId = &v
 }
 
 // GetPropertyKey returns the PropertyKey field value if set, zero value otherwise.
@@ -242,38 +241,6 @@ func (o *ProductconfiguratorpropertyEntity) SetPropertyType(v Productconfigurato
 	o.PropertyType = &v
 }
 
-// GetCoordinates returns the Coordinates field value if set, zero value otherwise.
-func (o *ProductconfiguratorpropertyEntity) GetCoordinates() []int64 {
-	if o == nil || isNil(o.Coordinates) {
-		var ret []int64
-		return ret
-	}
-	return o.Coordinates
-}
-
-// GetCoordinatesOk returns a tuple with the Coordinates field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratorpropertyEntity) GetCoordinatesOk() ([]int64, bool) {
-	if o == nil || isNil(o.Coordinates) {
-    return nil, false
-	}
-	return o.Coordinates, true
-}
-
-// HasCoordinates returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyEntity) HasCoordinates() bool {
-	if o != nil && !isNil(o.Coordinates) {
-		return true
-	}
-
-	return false
-}
-
-// SetCoordinates gets a reference to the given []int64 and assigns it to the Coordinates field.
-func (o *ProductconfiguratorpropertyEntity) SetCoordinates(v []int64) {
-	o.Coordinates = v
-}
-
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
 func (o *ProductconfiguratorpropertyEntity) GetCreatedAt() time.Time {
 	if o == nil || isNil(o.CreatedAt) {
@@ -346,8 +313,8 @@ func (o ProductconfiguratorpropertyEntity) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Grn) {
 		toSerialize["grn"] = o.Grn
 	}
-	if !isNil(o.OptionIds) {
-		toSerialize["optionIds"] = o.OptionIds
+	if !isNil(o.StepIdToOptionId) {
+		toSerialize["stepIdToOptionId"] = o.StepIdToOptionId
 	}
 	if !isNil(o.PropertyKey) {
 		toSerialize["propertyKey"] = o.PropertyKey
@@ -357,9 +324,6 @@ func (o ProductconfiguratorpropertyEntity) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.PropertyType) {
 		toSerialize["propertyType"] = o.PropertyType
-	}
-	if !isNil(o.Coordinates) {
-		toSerialize["coordinates"] = o.Coordinates
 	}
 	if !isNil(o.CreatedAt) {
 		toSerialize["createdAt"] = o.CreatedAt

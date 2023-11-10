@@ -7,7 +7,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Configurator**| [**ConfigurationConfigurator**](ConfigurationConfigurator.md) |   | [optional]
-**Properties**| [**[]ConfigurationProperty**](ConfigurationProperty.md) |   | [optional]
 **MatchedProperties**| [**[]ConfigurationProperty**](ConfigurationProperty.md) |   | [optional]
 **Selections**| [**[]ConfigurationSelection**](ConfigurationSelection.md) |   | [optional]
 

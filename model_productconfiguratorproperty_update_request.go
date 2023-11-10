@@ -18,6 +18,7 @@ import (
 // ProductconfiguratorpropertyUpdateRequest struct for ProductconfiguratorpropertyUpdateRequest
 type ProductconfiguratorpropertyUpdateRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
+	MatrixId *string `json:"matrixId,omitempty"`
 	PropertyId *string `json:"propertyId,omitempty"`
 	Payload *ProductconfiguratorpropertyUpdatePayload `json:"payload,omitempty"`
 	PayloadMask []string `json:"payloadMask,omitempty"`
@@ -70,6 +71,38 @@ func (o *ProductconfiguratorpropertyUpdateRequest) HasTenantId() bool {
 // SetTenantId gets a reference to the given string and assigns it to the TenantId field.
 func (o *ProductconfiguratorpropertyUpdateRequest) SetTenantId(v string) {
 	o.TenantId = &v
+}
+
+// GetMatrixId returns the MatrixId field value if set, zero value otherwise.
+func (o *ProductconfiguratorpropertyUpdateRequest) GetMatrixId() string {
+	if o == nil || isNil(o.MatrixId) {
+		var ret string
+		return ret
+	}
+	return *o.MatrixId
+}
+
+// GetMatrixIdOk returns a tuple with the MatrixId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratorpropertyUpdateRequest) GetMatrixIdOk() (*string, bool) {
+	if o == nil || isNil(o.MatrixId) {
+    return nil, false
+	}
+	return o.MatrixId, true
+}
+
+// HasMatrixId returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyUpdateRequest) HasMatrixId() bool {
+	if o != nil && !isNil(o.MatrixId) {
+		return true
+	}
+
+	return false
+}
+
+// SetMatrixId gets a reference to the given string and assigns it to the MatrixId field.
+func (o *ProductconfiguratorpropertyUpdateRequest) SetMatrixId(v string) {
+	o.MatrixId = &v
 }
 
 // GetPropertyId returns the PropertyId field value if set, zero value otherwise.
@@ -172,6 +205,9 @@ func (o ProductconfiguratorpropertyUpdateRequest) MarshalJSON() ([]byte, error) 
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.TenantId) {
 		toSerialize["tenantId"] = o.TenantId
+	}
+	if !isNil(o.MatrixId) {
+		toSerialize["matrixId"] = o.MatrixId
 	}
 	if !isNil(o.PropertyId) {
 		toSerialize["propertyId"] = o.PropertyId

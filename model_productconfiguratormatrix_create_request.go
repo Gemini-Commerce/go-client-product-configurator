@@ -20,12 +20,10 @@ type ProductconfiguratormatrixCreateRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
 	ConfiguratorId *string `json:"configuratorId,omitempty"`
 	Label *string `json:"label,omitempty"`
-	XSteps []string `json:"xSteps,omitempty"`
-	YSteps []string `json:"ySteps,omitempty"`
-	XStepDeterminant *string `json:"xStepDeterminant,omitempty"`
-	YStepDeterminant *string `json:"yStepDeterminant,omitempty"`
 	GenericType *MatrixGenericType `json:"genericType,omitempty"`
 	PriceType *MatrixPriceType `json:"priceType,omitempty"`
+	WeightType *MatrixWeightType `json:"weightType,omitempty"`
+	Steps []ProductconfiguratormatrixStep `json:"steps,omitempty"`
 }
 
 // NewProductconfiguratormatrixCreateRequest instantiates a new ProductconfiguratormatrixCreateRequest object
@@ -141,134 +139,6 @@ func (o *ProductconfiguratormatrixCreateRequest) SetLabel(v string) {
 	o.Label = &v
 }
 
-// GetXSteps returns the XSteps field value if set, zero value otherwise.
-func (o *ProductconfiguratormatrixCreateRequest) GetXSteps() []string {
-	if o == nil || isNil(o.XSteps) {
-		var ret []string
-		return ret
-	}
-	return o.XSteps
-}
-
-// GetXStepsOk returns a tuple with the XSteps field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratormatrixCreateRequest) GetXStepsOk() ([]string, bool) {
-	if o == nil || isNil(o.XSteps) {
-    return nil, false
-	}
-	return o.XSteps, true
-}
-
-// HasXSteps returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixCreateRequest) HasXSteps() bool {
-	if o != nil && !isNil(o.XSteps) {
-		return true
-	}
-
-	return false
-}
-
-// SetXSteps gets a reference to the given []string and assigns it to the XSteps field.
-func (o *ProductconfiguratormatrixCreateRequest) SetXSteps(v []string) {
-	o.XSteps = v
-}
-
-// GetYSteps returns the YSteps field value if set, zero value otherwise.
-func (o *ProductconfiguratormatrixCreateRequest) GetYSteps() []string {
-	if o == nil || isNil(o.YSteps) {
-		var ret []string
-		return ret
-	}
-	return o.YSteps
-}
-
-// GetYStepsOk returns a tuple with the YSteps field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratormatrixCreateRequest) GetYStepsOk() ([]string, bool) {
-	if o == nil || isNil(o.YSteps) {
-    return nil, false
-	}
-	return o.YSteps, true
-}
-
-// HasYSteps returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixCreateRequest) HasYSteps() bool {
-	if o != nil && !isNil(o.YSteps) {
-		return true
-	}
-
-	return false
-}
-
-// SetYSteps gets a reference to the given []string and assigns it to the YSteps field.
-func (o *ProductconfiguratormatrixCreateRequest) SetYSteps(v []string) {
-	o.YSteps = v
-}
-
-// GetXStepDeterminant returns the XStepDeterminant field value if set, zero value otherwise.
-func (o *ProductconfiguratormatrixCreateRequest) GetXStepDeterminant() string {
-	if o == nil || isNil(o.XStepDeterminant) {
-		var ret string
-		return ret
-	}
-	return *o.XStepDeterminant
-}
-
-// GetXStepDeterminantOk returns a tuple with the XStepDeterminant field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratormatrixCreateRequest) GetXStepDeterminantOk() (*string, bool) {
-	if o == nil || isNil(o.XStepDeterminant) {
-    return nil, false
-	}
-	return o.XStepDeterminant, true
-}
-
-// HasXStepDeterminant returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixCreateRequest) HasXStepDeterminant() bool {
-	if o != nil && !isNil(o.XStepDeterminant) {
-		return true
-	}
-
-	return false
-}
-
-// SetXStepDeterminant gets a reference to the given string and assigns it to the XStepDeterminant field.
-func (o *ProductconfiguratormatrixCreateRequest) SetXStepDeterminant(v string) {
-	o.XStepDeterminant = &v
-}
-
-// GetYStepDeterminant returns the YStepDeterminant field value if set, zero value otherwise.
-func (o *ProductconfiguratormatrixCreateRequest) GetYStepDeterminant() string {
-	if o == nil || isNil(o.YStepDeterminant) {
-		var ret string
-		return ret
-	}
-	return *o.YStepDeterminant
-}
-
-// GetYStepDeterminantOk returns a tuple with the YStepDeterminant field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProductconfiguratormatrixCreateRequest) GetYStepDeterminantOk() (*string, bool) {
-	if o == nil || isNil(o.YStepDeterminant) {
-    return nil, false
-	}
-	return o.YStepDeterminant, true
-}
-
-// HasYStepDeterminant returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixCreateRequest) HasYStepDeterminant() bool {
-	if o != nil && !isNil(o.YStepDeterminant) {
-		return true
-	}
-
-	return false
-}
-
-// SetYStepDeterminant gets a reference to the given string and assigns it to the YStepDeterminant field.
-func (o *ProductconfiguratormatrixCreateRequest) SetYStepDeterminant(v string) {
-	o.YStepDeterminant = &v
-}
-
 // GetGenericType returns the GenericType field value if set, zero value otherwise.
 func (o *ProductconfiguratormatrixCreateRequest) GetGenericType() MatrixGenericType {
 	if o == nil || isNil(o.GenericType) {
@@ -333,6 +203,70 @@ func (o *ProductconfiguratormatrixCreateRequest) SetPriceType(v MatrixPriceType)
 	o.PriceType = &v
 }
 
+// GetWeightType returns the WeightType field value if set, zero value otherwise.
+func (o *ProductconfiguratormatrixCreateRequest) GetWeightType() MatrixWeightType {
+	if o == nil || isNil(o.WeightType) {
+		var ret MatrixWeightType
+		return ret
+	}
+	return *o.WeightType
+}
+
+// GetWeightTypeOk returns a tuple with the WeightType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratormatrixCreateRequest) GetWeightTypeOk() (*MatrixWeightType, bool) {
+	if o == nil || isNil(o.WeightType) {
+    return nil, false
+	}
+	return o.WeightType, true
+}
+
+// HasWeightType returns a boolean if a field has been set.
+func (o *ProductconfiguratormatrixCreateRequest) HasWeightType() bool {
+	if o != nil && !isNil(o.WeightType) {
+		return true
+	}
+
+	return false
+}
+
+// SetWeightType gets a reference to the given MatrixWeightType and assigns it to the WeightType field.
+func (o *ProductconfiguratormatrixCreateRequest) SetWeightType(v MatrixWeightType) {
+	o.WeightType = &v
+}
+
+// GetSteps returns the Steps field value if set, zero value otherwise.
+func (o *ProductconfiguratormatrixCreateRequest) GetSteps() []ProductconfiguratormatrixStep {
+	if o == nil || isNil(o.Steps) {
+		var ret []ProductconfiguratormatrixStep
+		return ret
+	}
+	return o.Steps
+}
+
+// GetStepsOk returns a tuple with the Steps field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratormatrixCreateRequest) GetStepsOk() ([]ProductconfiguratormatrixStep, bool) {
+	if o == nil || isNil(o.Steps) {
+    return nil, false
+	}
+	return o.Steps, true
+}
+
+// HasSteps returns a boolean if a field has been set.
+func (o *ProductconfiguratormatrixCreateRequest) HasSteps() bool {
+	if o != nil && !isNil(o.Steps) {
+		return true
+	}
+
+	return false
+}
+
+// SetSteps gets a reference to the given []ProductconfiguratormatrixStep and assigns it to the Steps field.
+func (o *ProductconfiguratormatrixCreateRequest) SetSteps(v []ProductconfiguratormatrixStep) {
+	o.Steps = v
+}
+
 func (o ProductconfiguratormatrixCreateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.TenantId) {
@@ -344,23 +278,17 @@ func (o ProductconfiguratormatrixCreateRequest) MarshalJSON() ([]byte, error) {
 	if !isNil(o.Label) {
 		toSerialize["label"] = o.Label
 	}
-	if !isNil(o.XSteps) {
-		toSerialize["xSteps"] = o.XSteps
-	}
-	if !isNil(o.YSteps) {
-		toSerialize["ySteps"] = o.YSteps
-	}
-	if !isNil(o.XStepDeterminant) {
-		toSerialize["xStepDeterminant"] = o.XStepDeterminant
-	}
-	if !isNil(o.YStepDeterminant) {
-		toSerialize["yStepDeterminant"] = o.YStepDeterminant
-	}
 	if !isNil(o.GenericType) {
 		toSerialize["genericType"] = o.GenericType
 	}
 	if !isNil(o.PriceType) {
 		toSerialize["priceType"] = o.PriceType
+	}
+	if !isNil(o.WeightType) {
+		toSerialize["weightType"] = o.WeightType
+	}
+	if !isNil(o.Steps) {
+		toSerialize["steps"] = o.Steps
 	}
 	return json.Marshal(toSerialize)
 }

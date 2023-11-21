@@ -53,7 +53,7 @@ func (o *ProductconfiguratordependencyUpdateRequest) GetTenantId() string {
 // and a boolean to check if the value has been set.
 func (o *ProductconfiguratordependencyUpdateRequest) GetTenantIdOk() (*string, bool) {
 	if o == nil || isNil(o.TenantId) {
-		return nil, false
+    return nil, false
 	}
 	return o.TenantId, true
 }
@@ -85,7 +85,7 @@ func (o *ProductconfiguratordependencyUpdateRequest) GetDependencyId() string {
 // and a boolean to check if the value has been set.
 func (o *ProductconfiguratordependencyUpdateRequest) GetDependencyIdOk() (*string, bool) {
 	if o == nil || isNil(o.DependencyId) {
-		return nil, false
+    return nil, false
 	}
 	return o.DependencyId, true
 }
@@ -117,7 +117,7 @@ func (o *ProductconfiguratordependencyUpdateRequest) GetPayload() Productconfigu
 // and a boolean to check if the value has been set.
 func (o *ProductconfiguratordependencyUpdateRequest) GetPayloadOk() (*ProductconfiguratordependencyUpdatePayload, bool) {
 	if o == nil || isNil(o.Payload) {
-		return nil, false
+    return nil, false
 	}
 	return o.Payload, true
 }

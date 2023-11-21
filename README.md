@@ -78,7 +78,6 @@ All URIs are relative to *https://product-configurator.api.gogemini.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ProductConfiguratorApi* | [**ProductConfiguratorAddPricelistToMatrix**](docs/ProductConfiguratorApi.md#productconfiguratoraddpricelisttomatrix) | **Post** /v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn} | 
 *ProductConfiguratorApi* | [**ProductConfiguratorBulkCreateOptions**](docs/ProductConfiguratorApi.md#productconfiguratorbulkcreateoptions) | **Post** /v1/{tenantId}/step/{stepId}/option/create/bulk | 
 *ProductConfiguratorApi* | [**ProductConfiguratorBulkCreateProperties**](docs/ProductConfiguratorApi.md#productconfiguratorbulkcreateproperties) | **Post** /v1/{tenantId}/property/create/bulk | 
 *ProductConfiguratorApi* | [**ProductConfiguratorBulkCreateSteps**](docs/ProductConfiguratorApi.md#productconfiguratorbulkcreatesteps) | **Post** /v1/{tenantId}/configurator/{configuratorId}/step/create/bulk | 
@@ -151,6 +150,7 @@ Class | Method | HTTP request | Description
  - [OptionListOptionsResponse](docs/OptionListOptionsResponse.md)
  - [OptionSwatch](docs/OptionSwatch.md)
  - [ProductconfiguratorMoney](docs/ProductconfiguratorMoney.md)
+ - [ProductconfiguratorPropertyMode](docs/ProductconfiguratorPropertyMode.md)
  - [ProductconfiguratorPropertyType](docs/ProductconfiguratorPropertyType.md)
  - [ProductconfiguratorWeightUnit](docs/ProductconfiguratorWeightUnit.md)
  - [ProductconfiguratorconfigurationOption](docs/ProductconfiguratorconfigurationOption.md)

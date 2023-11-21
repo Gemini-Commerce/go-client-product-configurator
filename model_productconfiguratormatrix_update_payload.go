@@ -20,6 +20,7 @@ type ProductconfiguratormatrixUpdatePayload struct {
 	Label *string `json:"label,omitempty"`
 	// default_property_id is the id of the property that will be used as the starting point to calculate the differences between the properties.
 	DefaultPropertyId *string `json:"defaultPropertyId,omitempty"`
+	PropertiesMode *ProductconfiguratorPropertyMode `json:"propertiesMode,omitempty"`
 }
 
 // NewProductconfiguratormatrixUpdatePayload instantiates a new ProductconfiguratormatrixUpdatePayload object
@@ -28,6 +29,8 @@ type ProductconfiguratormatrixUpdatePayload struct {
 // will change when the set of required properties is changed
 func NewProductconfiguratormatrixUpdatePayload() *ProductconfiguratormatrixUpdatePayload {
 	this := ProductconfiguratormatrixUpdatePayload{}
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
+	this.PropertiesMode = &propertiesMode
 	return &this
 }
 
@@ -36,6 +39,8 @@ func NewProductconfiguratormatrixUpdatePayload() *ProductconfiguratormatrixUpdat
 // but it doesn't guarantee that properties required by API are set
 func NewProductconfiguratormatrixUpdatePayloadWithDefaults() *ProductconfiguratormatrixUpdatePayload {
 	this := ProductconfiguratormatrixUpdatePayload{}
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
+	this.PropertiesMode = &propertiesMode
 	return &this
 }
 
@@ -103,6 +108,38 @@ func (o *ProductconfiguratormatrixUpdatePayload) SetDefaultPropertyId(v string) 
 	o.DefaultPropertyId = &v
 }
 
+// GetPropertiesMode returns the PropertiesMode field value if set, zero value otherwise.
+func (o *ProductconfiguratormatrixUpdatePayload) GetPropertiesMode() ProductconfiguratorPropertyMode {
+	if o == nil || isNil(o.PropertiesMode) {
+		var ret ProductconfiguratorPropertyMode
+		return ret
+	}
+	return *o.PropertiesMode
+}
+
+// GetPropertiesModeOk returns a tuple with the PropertiesMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratormatrixUpdatePayload) GetPropertiesModeOk() (*ProductconfiguratorPropertyMode, bool) {
+	if o == nil || isNil(o.PropertiesMode) {
+    return nil, false
+	}
+	return o.PropertiesMode, true
+}
+
+// HasPropertiesMode returns a boolean if a field has been set.
+func (o *ProductconfiguratormatrixUpdatePayload) HasPropertiesMode() bool {
+	if o != nil && !isNil(o.PropertiesMode) {
+		return true
+	}
+
+	return false
+}
+
+// SetPropertiesMode gets a reference to the given ProductconfiguratorPropertyMode and assigns it to the PropertiesMode field.
+func (o *ProductconfiguratormatrixUpdatePayload) SetPropertiesMode(v ProductconfiguratorPropertyMode) {
+	o.PropertiesMode = &v
+}
+
 func (o ProductconfiguratormatrixUpdatePayload) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Label) {
@@ -110,6 +147,9 @@ func (o ProductconfiguratormatrixUpdatePayload) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.DefaultPropertyId) {
 		toSerialize["defaultPropertyId"] = o.DefaultPropertyId
+	}
+	if !isNil(o.PropertiesMode) {
+		toSerialize["propertiesMode"] = o.PropertiesMode
 	}
 	return json.Marshal(toSerialize)
 }

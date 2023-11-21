@@ -23,6 +23,7 @@ type ConfigurationProperty struct {
 	PropertyKey *string `json:"propertyKey,omitempty"`
 	PropertyValue *string `json:"propertyValue,omitempty"`
 	PropertyType *ProductconfiguratorPropertyType `json:"propertyType,omitempty"`
+	PropertyMode *ProductconfiguratorPropertyMode `json:"propertyMode,omitempty"`
 }
 
 // NewConfigurationProperty instantiates a new ConfigurationProperty object
@@ -33,6 +34,8 @@ func NewConfigurationProperty() *ConfigurationProperty {
 	this := ConfigurationProperty{}
 	var propertyType ProductconfiguratorPropertyType = PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN
 	this.PropertyType = &propertyType
+	var propertyMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
+	this.PropertyMode = &propertyMode
 	return &this
 }
 
@@ -43,6 +46,8 @@ func NewConfigurationPropertyWithDefaults() *ConfigurationProperty {
 	this := ConfigurationProperty{}
 	var propertyType ProductconfiguratorPropertyType = PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN
 	this.PropertyType = &propertyType
+	var propertyMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
+	this.PropertyMode = &propertyMode
 	return &this
 }
 
@@ -238,6 +243,38 @@ func (o *ConfigurationProperty) SetPropertyType(v ProductconfiguratorPropertyTyp
 	o.PropertyType = &v
 }
 
+// GetPropertyMode returns the PropertyMode field value if set, zero value otherwise.
+func (o *ConfigurationProperty) GetPropertyMode() ProductconfiguratorPropertyMode {
+	if o == nil || isNil(o.PropertyMode) {
+		var ret ProductconfiguratorPropertyMode
+		return ret
+	}
+	return *o.PropertyMode
+}
+
+// GetPropertyModeOk returns a tuple with the PropertyMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ConfigurationProperty) GetPropertyModeOk() (*ProductconfiguratorPropertyMode, bool) {
+	if o == nil || isNil(o.PropertyMode) {
+    return nil, false
+	}
+	return o.PropertyMode, true
+}
+
+// HasPropertyMode returns a boolean if a field has been set.
+func (o *ConfigurationProperty) HasPropertyMode() bool {
+	if o != nil && !isNil(o.PropertyMode) {
+		return true
+	}
+
+	return false
+}
+
+// SetPropertyMode gets a reference to the given ProductconfiguratorPropertyMode and assigns it to the PropertyMode field.
+func (o *ConfigurationProperty) SetPropertyMode(v ProductconfiguratorPropertyMode) {
+	o.PropertyMode = &v
+}
+
 func (o ConfigurationProperty) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Id) {
@@ -257,6 +294,9 @@ func (o ConfigurationProperty) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.PropertyType) {
 		toSerialize["propertyType"] = o.PropertyType
+	}
+	if !isNil(o.PropertyMode) {
+		toSerialize["propertyMode"] = o.PropertyMode
 	}
 	return json.Marshal(toSerialize)
 }

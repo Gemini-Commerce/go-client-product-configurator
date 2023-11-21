@@ -4,7 +4,6 @@ All URIs are relative to *https://product-configurator.api.gogemini.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ProductConfiguratorAddPricelistToMatrix**](ProductConfiguratorApi.md#ProductConfiguratorAddPricelistToMatrix) | **Post** /v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn} | 
 [**ProductConfiguratorBulkCreateOptions**](ProductConfiguratorApi.md#ProductConfiguratorBulkCreateOptions) | **Post** /v1/{tenantId}/step/{stepId}/option/create/bulk | 
 [**ProductConfiguratorBulkCreateProperties**](ProductConfiguratorApi.md#ProductConfiguratorBulkCreateProperties) | **Post** /v1/{tenantId}/property/create/bulk | 
 [**ProductConfiguratorBulkCreateSteps**](ProductConfiguratorApi.md#ProductConfiguratorBulkCreateSteps) | **Post** /v1/{tenantId}/configurator/{configuratorId}/step/create/bulk | 
@@ -45,80 +44,6 @@ Method | HTTP request | Description
 [**ProductConfiguratorUpdateProperty**](ProductConfiguratorApi.md#ProductConfiguratorUpdateProperty) | **Put** /v1/{tenantId}/property/{propertyId} | 
 [**ProductConfiguratorUpdateStep**](ProductConfiguratorApi.md#ProductConfiguratorUpdateStep) | **Put** /v1/{tenantId}/step/{stepId} | 
 
-
-
-## ProductConfiguratorAddPricelistToMatrix
-
-> ProductconfiguratormatrixEntity ProductConfiguratorAddPricelistToMatrix(ctx, tenantId, matrixId, pricelistGrn).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    tenantId := "tenantId_example" // string | 
-    matrixId := "matrixId_example" // string | 
-    pricelistGrn := "pricelistGrn_example" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProductConfiguratorApi.ProductConfiguratorAddPricelistToMatrix(context.Background(), tenantId, matrixId, pricelistGrn).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProductConfiguratorApi.ProductConfiguratorAddPricelistToMatrix``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorAddPricelistToMatrix`: ProductconfiguratormatrixEntity
-    fmt.Fprintf(os.Stdout, "Response from `ProductConfiguratorApi.ProductConfiguratorAddPricelistToMatrix`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**tenantId** | **string** |  | 
-**matrixId** | **string** |  | 
-**pricelistGrn** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiProductConfiguratorAddPricelistToMatrixRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-
-### Return type
-
-[**ProductconfiguratormatrixEntity**](ProductconfiguratormatrixEntity.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## ProductConfiguratorBulkCreateOptions

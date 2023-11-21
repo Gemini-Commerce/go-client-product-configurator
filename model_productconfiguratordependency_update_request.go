@@ -20,7 +20,7 @@ type ProductconfiguratordependencyUpdateRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
 	DependencyId *string `json:"dependencyId,omitempty"`
 	Payload *ProductconfiguratordependencyUpdatePayload `json:"payload,omitempty"`
-	PayloadMask []string `json:"payloadMask,omitempty"`
+	PayloadMask string `json:"payloadMask,omitempty"`
 }
 
 // NewProductconfiguratordependencyUpdateRequest instantiates a new ProductconfiguratordependencyUpdateRequest object
@@ -53,7 +53,7 @@ func (o *ProductconfiguratordependencyUpdateRequest) GetTenantId() string {
 // and a boolean to check if the value has been set.
 func (o *ProductconfiguratordependencyUpdateRequest) GetTenantIdOk() (*string, bool) {
 	if o == nil || isNil(o.TenantId) {
-    return nil, false
+		return nil, false
 	}
 	return o.TenantId, true
 }
@@ -85,7 +85,7 @@ func (o *ProductconfiguratordependencyUpdateRequest) GetDependencyId() string {
 // and a boolean to check if the value has been set.
 func (o *ProductconfiguratordependencyUpdateRequest) GetDependencyIdOk() (*string, bool) {
 	if o == nil || isNil(o.DependencyId) {
-    return nil, false
+		return nil, false
 	}
 	return o.DependencyId, true
 }
@@ -117,7 +117,7 @@ func (o *ProductconfiguratordependencyUpdateRequest) GetPayload() Productconfigu
 // and a boolean to check if the value has been set.
 func (o *ProductconfiguratordependencyUpdateRequest) GetPayloadOk() (*ProductconfiguratordependencyUpdatePayload, bool) {
 	if o == nil || isNil(o.Payload) {
-    return nil, false
+		return nil, false
 	}
 	return o.Payload, true
 }
@@ -137,9 +137,9 @@ func (o *ProductconfiguratordependencyUpdateRequest) SetPayload(v Productconfigu
 }
 
 // GetPayloadMask returns the PayloadMask field value if set, zero value otherwise.
-func (o *ProductconfiguratordependencyUpdateRequest) GetPayloadMask() []string {
+func (o *ProductconfiguratordependencyUpdateRequest) GetPayloadMask() string {
 	if o == nil || isNil(o.PayloadMask) {
-		var ret []string
+		var ret string
 		return ret
 	}
 	return o.PayloadMask
@@ -147,9 +147,9 @@ func (o *ProductconfiguratordependencyUpdateRequest) GetPayloadMask() []string {
 
 // GetPayloadMaskOk returns a tuple with the PayloadMask field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProductconfiguratordependencyUpdateRequest) GetPayloadMaskOk() ([]string, bool) {
+func (o *ProductconfiguratordependencyUpdateRequest) GetPayloadMaskOk() (string, bool) {
 	if o == nil || isNil(o.PayloadMask) {
-    return nil, false
+		return "", false
 	}
 	return o.PayloadMask, true
 }
@@ -164,7 +164,7 @@ func (o *ProductconfiguratordependencyUpdateRequest) HasPayloadMask() bool {
 }
 
 // SetPayloadMask gets a reference to the given []string and assigns it to the PayloadMask field.
-func (o *ProductconfiguratordependencyUpdateRequest) SetPayloadMask(v []string) {
+func (o *ProductconfiguratordependencyUpdateRequest) SetPayloadMask(v string) {
 	o.PayloadMask = v
 }
 

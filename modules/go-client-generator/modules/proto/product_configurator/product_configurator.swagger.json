@@ -560,46 +560,6 @@
         "tags": [
           "ProductConfigurator"
         ]
-      },
-      "post": {
-        "operationId": "ProductConfigurator_AddPricelistToMatrix",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/productconfiguratormatrixEntity"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "tenantId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "matrixId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "pricelistGrn",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ProductConfigurator"
-        ]
       }
     },
     "/v1/{tenantId}/option/bulk": {
@@ -1910,6 +1870,9 @@
         },
         "propertyType": {
           "$ref": "#/definitions/productconfiguratorPropertyType"
+        },
+        "propertyMode": {
+          "$ref": "#/definitions/productconfiguratorPropertyMode"
         }
       }
     },
@@ -2198,6 +2161,15 @@
         }
       },
       "description": "Represents an amount of money."
+    },
+    "productconfiguratorPropertyMode": {
+      "type": "string",
+      "enum": [
+        "PROPERTY_MODE_UNKNOWN",
+        "PROPERTY_MODE_FINAL",
+        "PROPERTY_MODE_INCREMENTAL"
+      ],
+      "default": "PROPERTY_MODE_UNKNOWN"
     },
     "productconfiguratorPropertyType": {
       "type": "string",
@@ -2521,6 +2493,9 @@
           "items": {
             "$ref": "#/definitions/productconfiguratormatrixStep"
           }
+        },
+        "propertiesMode": {
+          "$ref": "#/definitions/productconfiguratorPropertyMode"
         }
       }
     },
@@ -2544,6 +2519,9 @@
         },
         "defaultPropertyId": {
           "type": "string"
+        },
+        "propertiesMode": {
+          "$ref": "#/definitions/productconfiguratorPropertyMode"
         },
         "genericType": {
           "$ref": "#/definitions/matrixGenericType"
@@ -2592,6 +2570,9 @@
         "defaultPropertyId": {
           "type": "string",
           "description": "default_property_id is the id of the property\nthat will be used as the starting point to calculate the differences between the properties."
+        },
+        "propertiesMode": {
+          "$ref": "#/definitions/productconfiguratorPropertyMode"
         }
       }
     },

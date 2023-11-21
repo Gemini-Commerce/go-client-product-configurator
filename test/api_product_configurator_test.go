@@ -22,6 +22,22 @@ func Test_openapi_ProductConfiguratorApiService(t *testing.T) {
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
 
+    t.Run("Test ProductConfiguratorApiService ProductConfiguratorAddPricelistToMatrix", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var tenantId string
+        var matrixId string
+        var pricelistGrn string
+
+        resp, httpRes, err := apiClient.ProductConfiguratorApi.ProductConfiguratorAddPricelistToMatrix(context.Background(), tenantId, matrixId, pricelistGrn).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test ProductConfiguratorApiService ProductConfiguratorBulkCreateOptions", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -122,14 +138,14 @@ func Test_openapi_ProductConfiguratorApiService(t *testing.T) {
 
     })
 
-    t.Run("Test ProductConfiguratorApiService ProductConfiguratorCopyConfigurator2", func(t *testing.T) {
+    t.Run("Test ProductConfiguratorApiService ProductConfiguratorCopyConfigurator", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
 
         var tenantId string
-        var sourceProductId string
+        var sourceConfiguratorId string
 
-        resp, httpRes, err := apiClient.ProductConfiguratorApi.ProductConfiguratorCopyConfigurator2(context.Background(), tenantId, sourceProductId).Execute()
+        resp, httpRes, err := apiClient.ProductConfiguratorApi.ProductConfiguratorCopyConfigurator(context.Background(), tenantId, sourceConfiguratorId).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -360,6 +376,21 @@ func Test_openapi_ProductConfiguratorApiService(t *testing.T) {
 
     })
 
+    t.Run("Test ProductConfiguratorApiService ProductConfiguratorGetConfigurationFromSelections", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var tenantId string
+        var productId string
+
+        resp, httpRes, err := apiClient.ProductConfiguratorApi.ProductConfiguratorGetConfigurationFromSelections(context.Background(), tenantId, productId).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test ProductConfiguratorApiService ProductConfiguratorGetConfiguratorByProductId", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
@@ -485,14 +516,30 @@ func Test_openapi_ProductConfiguratorApiService(t *testing.T) {
 
     })
 
-    t.Run("Test ProductConfiguratorApiService ProductConfiguratorUpdateConfigurator2", func(t *testing.T) {
+    t.Run("Test ProductConfiguratorApiService ProductConfiguratorRemovePricelistFromMatrix", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        var tenantId string
+        var matrixId string
+        var pricelistGrn string
+
+        resp, httpRes, err := apiClient.ProductConfiguratorApi.ProductConfiguratorRemovePricelistFromMatrix(context.Background(), tenantId, matrixId, pricelistGrn).Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
+    t.Run("Test ProductConfiguratorApiService ProductConfiguratorUpdateConfigurator", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
 
         var tenantId string
         var configuratorId string
 
-        resp, httpRes, err := apiClient.ProductConfiguratorApi.ProductConfiguratorUpdateConfigurator2(context.Background(), tenantId, configuratorId).Execute()
+        resp, httpRes, err := apiClient.ProductConfiguratorApi.ProductConfiguratorUpdateConfigurator(context.Background(), tenantId, configuratorId).Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)

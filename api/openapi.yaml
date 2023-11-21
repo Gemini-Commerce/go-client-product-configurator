@@ -452,39 +452,6 @@ paths:
           description: An unexpected error response.
       tags:
       - ProductConfigurator
-    post:
-      operationId: ProductConfigurator_AddPricelistToMatrix
-      parameters:
-      - in: path
-        name: tenantId
-        required: true
-        schema:
-          type: string
-      - in: path
-        name: matrixId
-        required: true
-        schema:
-          type: string
-      - in: path
-        name: pricelistGrn
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/productconfiguratormatrixEntity'
-          description: A successful response.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/googlerpcStatus'
-          description: An unexpected error response.
-      tags:
-      - ProductConfigurator
   /v1/{tenantId}/option/bulk:
     put:
       operationId: ProductConfigurator_BulkUpdateOptions
@@ -1767,6 +1734,7 @@ components:
           optionIds:
           - optionIds
           - optionIds
+          propertyMode: null
         - propertyKey: propertyKey
           grn: grn
           propertyType: null
@@ -1775,6 +1743,7 @@ components:
           optionIds:
           - optionIds
           - optionIds
+          propertyMode: null
       properties:
         configurator:
           $ref: '#/components/schemas/configurationConfigurator'
@@ -1809,6 +1778,7 @@ components:
           optionIds:
           - optionIds
           - optionIds
+          propertyMode: null
         - propertyKey: propertyKey
           grn: grn
           propertyType: null
@@ -1817,6 +1787,7 @@ components:
           optionIds:
           - optionIds
           - optionIds
+          propertyMode: null
         steps:
         - grn: grn
           id: id
@@ -1914,6 +1885,7 @@ components:
         optionIds:
         - optionIds
         - optionIds
+        propertyMode: null
       properties:
         id:
           type: string
@@ -1929,6 +1901,8 @@ components:
           type: string
         propertyType:
           $ref: '#/components/schemas/productconfiguratorPropertyType'
+        propertyMode:
+          $ref: '#/components/schemas/productconfiguratorPropertyMode'
       type: object
     configurationPropertyFilter:
       properties:
@@ -2291,6 +2265,7 @@ components:
             weightUnit: null
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
+          propertiesMode: null
           priceType:
             pricelistGrns:
             - pricelistGrns
@@ -2311,6 +2286,7 @@ components:
             weightUnit: null
           createdAt: 2000-01-23T04:56:07.000+00:00
           grn: grn
+          propertiesMode: null
           priceType:
             pricelistGrns:
             - pricelistGrns
@@ -2430,6 +2406,13 @@ components:
           format: int32
           type: integer
       type: object
+    productconfiguratorPropertyMode:
+      default: PROPERTY_MODE_UNKNOWN
+      enum:
+      - PROPERTY_MODE_UNKNOWN
+      - PROPERTY_MODE_FINAL
+      - PROPERTY_MODE_INCREMENTAL
+      type: string
     productconfiguratorPropertyType:
       default: PROPERTY_TYPE_UNKNOWN
       enum:
@@ -2837,6 +2820,8 @@ components:
           items:
             $ref: '#/components/schemas/productconfiguratormatrixStep'
           type: array
+        propertiesMode:
+          $ref: '#/components/schemas/productconfiguratorPropertyMode'
       type: object
     productconfiguratormatrixDeleteResponse:
       type: object
@@ -2847,6 +2832,7 @@ components:
           weightUnit: null
         createdAt: 2000-01-23T04:56:07.000+00:00
         grn: grn
+        propertiesMode: null
         priceType:
           pricelistGrns:
           - pricelistGrns
@@ -2873,6 +2859,8 @@ components:
           type: string
         defaultPropertyId:
           type: string
+        propertiesMode:
+          $ref: '#/components/schemas/productconfiguratorPropertyMode'
         genericType:
           $ref: '#/components/schemas/matrixGenericType'
         priceType:
@@ -2911,6 +2899,8 @@ components:
             default_property_id is the id of the property
             that will be used as the starting point to calculate the differences between the properties.
           type: string
+        propertiesMode:
+          $ref: '#/components/schemas/productconfiguratorPropertyMode'
       type: object
     productconfiguratormatrixUpdateRequest:
       properties:

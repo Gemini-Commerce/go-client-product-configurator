@@ -35,6 +35,7 @@ docs/OptionListOptionsResponse.md
 docs/OptionSwatch.md
 docs/ProductConfiguratorApi.md
 docs/ProductconfiguratorMoney.md
+docs/ProductconfiguratorPropertyMode.md
 docs/ProductconfiguratorPropertyType.md
 docs/ProductconfiguratorWeightUnit.md
 docs/ProductconfiguratorconfigurationOption.md
@@ -127,6 +128,7 @@ model_option_list_options_request.go
 model_option_list_options_response.go
 model_option_swatch.go
 model_productconfigurator_money.go
+model_productconfigurator_property_mode.go
 model_productconfigurator_property_type.go
 model_productconfigurator_weight_unit.go
 model_productconfiguratorconfiguration_option.go

@@ -23,6 +23,7 @@ type ProductconfiguratormatrixEntity struct {
 	ConfiguratorId *string `json:"configuratorId,omitempty"`
 	Label *string `json:"label,omitempty"`
 	DefaultPropertyId *string `json:"defaultPropertyId,omitempty"`
+	PropertiesMode *ProductconfiguratorPropertyMode `json:"propertiesMode,omitempty"`
 	GenericType *MatrixGenericType `json:"genericType,omitempty"`
 	PriceType *MatrixPriceType `json:"priceType,omitempty"`
 	WeightType *MatrixWeightType `json:"weightType,omitempty"`
@@ -37,6 +38,8 @@ type ProductconfiguratormatrixEntity struct {
 // will change when the set of required properties is changed
 func NewProductconfiguratormatrixEntity() *ProductconfiguratormatrixEntity {
 	this := ProductconfiguratormatrixEntity{}
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
+	this.PropertiesMode = &propertiesMode
 	return &this
 }
 
@@ -45,6 +48,8 @@ func NewProductconfiguratormatrixEntity() *ProductconfiguratormatrixEntity {
 // but it doesn't guarantee that properties required by API are set
 func NewProductconfiguratormatrixEntityWithDefaults() *ProductconfiguratormatrixEntity {
 	this := ProductconfiguratormatrixEntity{}
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
+	this.PropertiesMode = &propertiesMode
 	return &this
 }
 
@@ -206,6 +211,38 @@ func (o *ProductconfiguratormatrixEntity) HasDefaultPropertyId() bool {
 // SetDefaultPropertyId gets a reference to the given string and assigns it to the DefaultPropertyId field.
 func (o *ProductconfiguratormatrixEntity) SetDefaultPropertyId(v string) {
 	o.DefaultPropertyId = &v
+}
+
+// GetPropertiesMode returns the PropertiesMode field value if set, zero value otherwise.
+func (o *ProductconfiguratormatrixEntity) GetPropertiesMode() ProductconfiguratorPropertyMode {
+	if o == nil || isNil(o.PropertiesMode) {
+		var ret ProductconfiguratorPropertyMode
+		return ret
+	}
+	return *o.PropertiesMode
+}
+
+// GetPropertiesModeOk returns a tuple with the PropertiesMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratormatrixEntity) GetPropertiesModeOk() (*ProductconfiguratorPropertyMode, bool) {
+	if o == nil || isNil(o.PropertiesMode) {
+    return nil, false
+	}
+	return o.PropertiesMode, true
+}
+
+// HasPropertiesMode returns a boolean if a field has been set.
+func (o *ProductconfiguratormatrixEntity) HasPropertiesMode() bool {
+	if o != nil && !isNil(o.PropertiesMode) {
+		return true
+	}
+
+	return false
+}
+
+// SetPropertiesMode gets a reference to the given ProductconfiguratorPropertyMode and assigns it to the PropertiesMode field.
+func (o *ProductconfiguratormatrixEntity) SetPropertiesMode(v ProductconfiguratorPropertyMode) {
+	o.PropertiesMode = &v
 }
 
 // GetGenericType returns the GenericType field value if set, zero value otherwise.
@@ -416,6 +453,9 @@ func (o ProductconfiguratormatrixEntity) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.DefaultPropertyId) {
 		toSerialize["defaultPropertyId"] = o.DefaultPropertyId
+	}
+	if !isNil(o.PropertiesMode) {
+		toSerialize["propertiesMode"] = o.PropertiesMode
 	}
 	if !isNil(o.GenericType) {
 		toSerialize["genericType"] = o.GenericType

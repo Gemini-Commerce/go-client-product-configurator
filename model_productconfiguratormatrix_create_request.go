@@ -24,6 +24,7 @@ type ProductconfiguratormatrixCreateRequest struct {
 	PriceType *MatrixPriceType `json:"priceType,omitempty"`
 	WeightType *MatrixWeightType `json:"weightType,omitempty"`
 	Steps []ProductconfiguratormatrixStep `json:"steps,omitempty"`
+	PropertiesMode *ProductconfiguratorPropertyMode `json:"propertiesMode,omitempty"`
 }
 
 // NewProductconfiguratormatrixCreateRequest instantiates a new ProductconfiguratormatrixCreateRequest object
@@ -32,6 +33,8 @@ type ProductconfiguratormatrixCreateRequest struct {
 // will change when the set of required properties is changed
 func NewProductconfiguratormatrixCreateRequest() *ProductconfiguratormatrixCreateRequest {
 	this := ProductconfiguratormatrixCreateRequest{}
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
+	this.PropertiesMode = &propertiesMode
 	return &this
 }
 
@@ -40,6 +43,8 @@ func NewProductconfiguratormatrixCreateRequest() *ProductconfiguratormatrixCreat
 // but it doesn't guarantee that properties required by API are set
 func NewProductconfiguratormatrixCreateRequestWithDefaults() *ProductconfiguratormatrixCreateRequest {
 	this := ProductconfiguratormatrixCreateRequest{}
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
+	this.PropertiesMode = &propertiesMode
 	return &this
 }
 
@@ -267,6 +272,38 @@ func (o *ProductconfiguratormatrixCreateRequest) SetSteps(v []Productconfigurato
 	o.Steps = v
 }
 
+// GetPropertiesMode returns the PropertiesMode field value if set, zero value otherwise.
+func (o *ProductconfiguratormatrixCreateRequest) GetPropertiesMode() ProductconfiguratorPropertyMode {
+	if o == nil || isNil(o.PropertiesMode) {
+		var ret ProductconfiguratorPropertyMode
+		return ret
+	}
+	return *o.PropertiesMode
+}
+
+// GetPropertiesModeOk returns a tuple with the PropertiesMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProductconfiguratormatrixCreateRequest) GetPropertiesModeOk() (*ProductconfiguratorPropertyMode, bool) {
+	if o == nil || isNil(o.PropertiesMode) {
+    return nil, false
+	}
+	return o.PropertiesMode, true
+}
+
+// HasPropertiesMode returns a boolean if a field has been set.
+func (o *ProductconfiguratormatrixCreateRequest) HasPropertiesMode() bool {
+	if o != nil && !isNil(o.PropertiesMode) {
+		return true
+	}
+
+	return false
+}
+
+// SetPropertiesMode gets a reference to the given ProductconfiguratorPropertyMode and assigns it to the PropertiesMode field.
+func (o *ProductconfiguratormatrixCreateRequest) SetPropertiesMode(v ProductconfiguratorPropertyMode) {
+	o.PropertiesMode = &v
+}
+
 func (o ProductconfiguratormatrixCreateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.TenantId) {
@@ -289,6 +326,9 @@ func (o ProductconfiguratormatrixCreateRequest) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Steps) {
 		toSerialize["steps"] = o.Steps
+	}
+	if !isNil(o.PropertiesMode) {
+		toSerialize["propertiesMode"] = o.PropertiesMode
 	}
 	return json.Marshal(toSerialize)
 }

@@ -20,7 +20,7 @@ type ProductconfiguratorstepUpdateRequest struct {
 	TenantId *string `json:"tenantId,omitempty"`
 	StepId *string `json:"stepId,omitempty"`
 	Payload *ProductconfiguratorstepUpdatePayload `json:"payload,omitempty"`
-	PayloadMask []string `json:"payloadMask,omitempty"`
+	PayloadMask string `json:"payloadMask,omitempty"`
 }
 
 // NewProductconfiguratorstepUpdateRequest instantiates a new ProductconfiguratorstepUpdateRequest object
@@ -137,9 +137,9 @@ func (o *ProductconfiguratorstepUpdateRequest) SetPayload(v Productconfigurators
 }
 
 // GetPayloadMask returns the PayloadMask field value if set, zero value otherwise.
-func (o *ProductconfiguratorstepUpdateRequest) GetPayloadMask() []string {
+func (o *ProductconfiguratorstepUpdateRequest) GetPayloadMask() string {
 	if o == nil || isNil(o.PayloadMask) {
-		var ret []string
+		var ret string
 		return ret
 	}
 	return o.PayloadMask
@@ -147,9 +147,9 @@ func (o *ProductconfiguratorstepUpdateRequest) GetPayloadMask() []string {
 
 // GetPayloadMaskOk returns a tuple with the PayloadMask field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProductconfiguratorstepUpdateRequest) GetPayloadMaskOk() ([]string, bool) {
+func (o *ProductconfiguratorstepUpdateRequest) GetPayloadMaskOk() (string, bool) {
 	if o == nil || isNil(o.PayloadMask) {
-    return nil, false
+    return "", false
 	}
 	return o.PayloadMask, true
 }
@@ -164,7 +164,7 @@ func (o *ProductconfiguratorstepUpdateRequest) HasPayloadMask() bool {
 }
 
 // SetPayloadMask gets a reference to the given []string and assigns it to the PayloadMask field.
-func (o *ProductconfiguratorstepUpdateRequest) SetPayloadMask(v []string) {
+func (o *ProductconfiguratorstepUpdateRequest) SetPayloadMask(v string) {
 	o.PayloadMask = v
 }
 

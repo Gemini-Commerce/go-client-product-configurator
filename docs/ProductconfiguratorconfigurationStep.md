@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **IsRequired**| **bool** |   | [optional]
 **Options**| [**[]ProductconfiguratorconfigurationOption**](ProductconfiguratorconfigurationOption.md) |   | [optional]
 **Enabled**| **bool** |   | [optional]
+**HasMultipleSelection**| **bool** |   | [optional]
 
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

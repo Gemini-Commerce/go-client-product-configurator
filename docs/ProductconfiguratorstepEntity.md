@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **Position**| **string** |   | [optional]
 **IsRequired**| **bool** |   | [optional]
 **Options**| [**[]ProductconfiguratoroptionEntity**](ProductconfiguratoroptionEntity.md) |   | [optional]
+**HasMultipleSelection**| **bool** |   | [optional]
+**OptionsHaveQuantity**| **bool** |   | [optional]
 **CreatedAt**| [**time.Time**](time.Time.md) |   | [optional]
 **UpdatedAt**| [**time.Time**](time.Time.md) |   | [optional]
 

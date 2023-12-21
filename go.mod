@@ -1,6 +1,6 @@
-module bitbucket.org/gogemini/go-client-product-configurator
+module github.com/gemini-commerce/go-client-product_configurator
 
-go 1.13
+go 1.18
 
 require (
 	golang.org/x/oauth2 v0.0.0-20210323180902-22b0adad7558

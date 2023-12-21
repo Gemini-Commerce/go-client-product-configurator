@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **Position**| **string** |   | [optional]
 **IsRequired**| **bool** |   | [optional]
 **SubjectToStepId**| **string** |   | [optional]
+**HasMultipleSelection**| **bool** |   | [optional]
+**OptionsHaveQuantity**| **bool** |   | [optional]
 
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

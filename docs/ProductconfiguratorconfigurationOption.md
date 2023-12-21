@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Swatch**| [**OptionSwatch**](OptionSwatch.md) |   | [optional]
 **Enabled**| **bool** |   | [optional]
 **OptionProperties**| [**[]ConfigurationOptionProperty**](ConfigurationOptionProperty.md) |   | [optional]
+**HasQuantity**| **bool** |   | [optional]
 
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

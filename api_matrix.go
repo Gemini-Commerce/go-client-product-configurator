@@ -24,19 +24,19 @@ import (
 // MatrixAPIService MatrixAPI service
 type MatrixAPIService service
 
-type MatrixAPIProductConfiguratorCreateMatrixRequest struct {
+type ApiProductConfiguratorCreateMatrixRequest struct {
 	ctx context.Context
 	ApiService *MatrixAPIService
 	tenantId string
 	body *ProductConfiguratorCreateMatrixRequest
 }
 
-func (r MatrixAPIProductConfiguratorCreateMatrixRequest) Body(body ProductConfiguratorCreateMatrixRequest) MatrixAPIProductConfiguratorCreateMatrixRequest {
+func (r ApiProductConfiguratorCreateMatrixRequest) Body(body ProductConfiguratorCreateMatrixRequest) ApiProductConfiguratorCreateMatrixRequest {
 	r.body = &body
 	return r
 }
 
-func (r MatrixAPIProductConfiguratorCreateMatrixRequest) Execute() (*ProductconfiguratormatrixEntity, *http.Response, error) {
+func (r ApiProductConfiguratorCreateMatrixRequest) Execute() (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorCreateMatrixExecute(r)
 }
 
@@ -47,10 +47,10 @@ Establish a new matrix by specifying the tenant ID. Utilize a POST request with 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
- @return MatrixAPIProductConfiguratorCreateMatrixRequest
+ @return ApiProductConfiguratorCreateMatrixRequest
 */
-func (a *MatrixAPIService) ProductConfiguratorCreateMatrix(ctx context.Context, tenantId string) MatrixAPIProductConfiguratorCreateMatrixRequest {
-	return MatrixAPIProductConfiguratorCreateMatrixRequest{
+func (a *MatrixAPIService) ProductConfiguratorCreateMatrix(ctx context.Context, tenantId string) ApiProductConfiguratorCreateMatrixRequest {
+	return ApiProductConfiguratorCreateMatrixRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -59,7 +59,7 @@ func (a *MatrixAPIService) ProductConfiguratorCreateMatrix(ctx context.Context, 
 
 // Execute executes the request
 //  @return ProductconfiguratormatrixEntity
-func (a *MatrixAPIService) ProductConfiguratorCreateMatrixExecute(r MatrixAPIProductConfiguratorCreateMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
+func (a *MatrixAPIService) ProductConfiguratorCreateMatrixExecute(r ApiProductConfiguratorCreateMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -101,6 +101,20 @@ func (a *MatrixAPIService) ProductConfiguratorCreateMatrixExecute(r MatrixAPIPro
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -179,14 +193,14 @@ func (a *MatrixAPIService) ProductConfiguratorCreateMatrixExecute(r MatrixAPIPro
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MatrixAPIProductConfiguratorDeleteMatrixRequest struct {
+type ApiProductConfiguratorDeleteMatrixRequest struct {
 	ctx context.Context
 	ApiService *MatrixAPIService
 	tenantId string
 	matrixId string
 }
 
-func (r MatrixAPIProductConfiguratorDeleteMatrixRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiProductConfiguratorDeleteMatrixRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorDeleteMatrixExecute(r)
 }
 
@@ -198,10 +212,10 @@ Remove a specific matrix by specifying the tenant and matrix IDs. Ensure precisi
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param matrixId
- @return MatrixAPIProductConfiguratorDeleteMatrixRequest
+ @return ApiProductConfiguratorDeleteMatrixRequest
 */
-func (a *MatrixAPIService) ProductConfiguratorDeleteMatrix(ctx context.Context, tenantId string, matrixId string) MatrixAPIProductConfiguratorDeleteMatrixRequest {
-	return MatrixAPIProductConfiguratorDeleteMatrixRequest{
+func (a *MatrixAPIService) ProductConfiguratorDeleteMatrix(ctx context.Context, tenantId string, matrixId string) ApiProductConfiguratorDeleteMatrixRequest {
+	return ApiProductConfiguratorDeleteMatrixRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -211,7 +225,7 @@ func (a *MatrixAPIService) ProductConfiguratorDeleteMatrix(ctx context.Context, 
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *MatrixAPIService) ProductConfiguratorDeleteMatrixExecute(r MatrixAPIProductConfiguratorDeleteMatrixRequest) (map[string]interface{}, *http.Response, error) {
+func (a *MatrixAPIService) ProductConfiguratorDeleteMatrixExecute(r ApiProductConfiguratorDeleteMatrixRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -249,6 +263,20 @@ func (a *MatrixAPIService) ProductConfiguratorDeleteMatrixExecute(r MatrixAPIPro
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -327,14 +355,14 @@ func (a *MatrixAPIService) ProductConfiguratorDeleteMatrixExecute(r MatrixAPIPro
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MatrixAPIProductConfiguratorGetMatrixRequest struct {
+type ApiProductConfiguratorGetMatrixRequest struct {
 	ctx context.Context
 	ApiService *MatrixAPIService
 	tenantId string
 	matrixId string
 }
 
-func (r MatrixAPIProductConfiguratorGetMatrixRequest) Execute() (*ProductconfiguratormatrixEntity, *http.Response, error) {
+func (r ApiProductConfiguratorGetMatrixRequest) Execute() (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorGetMatrixExecute(r)
 }
 
@@ -346,10 +374,10 @@ Retrieve matrix details by specifying the tenant and matrix IDs. Utilize a GET r
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param matrixId
- @return MatrixAPIProductConfiguratorGetMatrixRequest
+ @return ApiProductConfiguratorGetMatrixRequest
 */
-func (a *MatrixAPIService) ProductConfiguratorGetMatrix(ctx context.Context, tenantId string, matrixId string) MatrixAPIProductConfiguratorGetMatrixRequest {
-	return MatrixAPIProductConfiguratorGetMatrixRequest{
+func (a *MatrixAPIService) ProductConfiguratorGetMatrix(ctx context.Context, tenantId string, matrixId string) ApiProductConfiguratorGetMatrixRequest {
+	return ApiProductConfiguratorGetMatrixRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -359,7 +387,7 @@ func (a *MatrixAPIService) ProductConfiguratorGetMatrix(ctx context.Context, ten
 
 // Execute executes the request
 //  @return ProductconfiguratormatrixEntity
-func (a *MatrixAPIService) ProductConfiguratorGetMatrixExecute(r MatrixAPIProductConfiguratorGetMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
+func (a *MatrixAPIService) ProductConfiguratorGetMatrixExecute(r ApiProductConfiguratorGetMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -397,6 +425,20 @@ func (a *MatrixAPIService) ProductConfiguratorGetMatrixExecute(r MatrixAPIProduc
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -475,7 +517,7 @@ func (a *MatrixAPIService) ProductConfiguratorGetMatrixExecute(r MatrixAPIProduc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MatrixAPIProductConfiguratorListMatricesRequest struct {
+type ApiProductConfiguratorListMatricesRequest struct {
 	ctx context.Context
 	ApiService *MatrixAPIService
 	tenantId string
@@ -484,12 +526,12 @@ type MatrixAPIProductConfiguratorListMatricesRequest struct {
 	body *ProductConfiguratorListMatricesRequest
 }
 
-func (r MatrixAPIProductConfiguratorListMatricesRequest) Body(body ProductConfiguratorListMatricesRequest) MatrixAPIProductConfiguratorListMatricesRequest {
+func (r ApiProductConfiguratorListMatricesRequest) Body(body ProductConfiguratorListMatricesRequest) ApiProductConfiguratorListMatricesRequest {
 	r.body = &body
 	return r
 }
 
-func (r MatrixAPIProductConfiguratorListMatricesRequest) Execute() (*MatrixListMatricesResponse, *http.Response, error) {
+func (r ApiProductConfiguratorListMatricesRequest) Execute() (*MatrixListMatricesResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorListMatricesExecute(r)
 }
 
@@ -502,10 +544,10 @@ Retrieve a list of matrices for a specific configurator based on tenant and conf
  @param tenantId
  @param configuratorId
  @param pageSize
- @return MatrixAPIProductConfiguratorListMatricesRequest
+ @return ApiProductConfiguratorListMatricesRequest
 */
-func (a *MatrixAPIService) ProductConfiguratorListMatrices(ctx context.Context, tenantId string, configuratorId string, pageSize string) MatrixAPIProductConfiguratorListMatricesRequest {
-	return MatrixAPIProductConfiguratorListMatricesRequest{
+func (a *MatrixAPIService) ProductConfiguratorListMatrices(ctx context.Context, tenantId string, configuratorId string, pageSize string) ApiProductConfiguratorListMatricesRequest {
+	return ApiProductConfiguratorListMatricesRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -516,7 +558,7 @@ func (a *MatrixAPIService) ProductConfiguratorListMatrices(ctx context.Context, 
 
 // Execute executes the request
 //  @return MatrixListMatricesResponse
-func (a *MatrixAPIService) ProductConfiguratorListMatricesExecute(r MatrixAPIProductConfiguratorListMatricesRequest) (*MatrixListMatricesResponse, *http.Response, error) {
+func (a *MatrixAPIService) ProductConfiguratorListMatricesExecute(r ApiProductConfiguratorListMatricesRequest) (*MatrixListMatricesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -560,6 +602,20 @@ func (a *MatrixAPIService) ProductConfiguratorListMatricesExecute(r MatrixAPIPro
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -638,7 +694,7 @@ func (a *MatrixAPIService) ProductConfiguratorListMatricesExecute(r MatrixAPIPro
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MatrixAPIProductConfiguratorRemovePricelistFromMatrixRequest struct {
+type ApiProductConfiguratorRemovePricelistFromMatrixRequest struct {
 	ctx context.Context
 	ApiService *MatrixAPIService
 	tenantId string
@@ -646,7 +702,7 @@ type MatrixAPIProductConfiguratorRemovePricelistFromMatrixRequest struct {
 	pricelistGrn string
 }
 
-func (r MatrixAPIProductConfiguratorRemovePricelistFromMatrixRequest) Execute() (*ProductconfiguratormatrixEntity, *http.Response, error) {
+func (r ApiProductConfiguratorRemovePricelistFromMatrixRequest) Execute() (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorRemovePricelistFromMatrixExecute(r)
 }
 
@@ -659,10 +715,10 @@ Remove a specific pricelist from a matrix by specifying the tenant, matrix, and 
  @param tenantId
  @param matrixId
  @param pricelistGrn
- @return MatrixAPIProductConfiguratorRemovePricelistFromMatrixRequest
+ @return ApiProductConfiguratorRemovePricelistFromMatrixRequest
 */
-func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrix(ctx context.Context, tenantId string, matrixId string, pricelistGrn string) MatrixAPIProductConfiguratorRemovePricelistFromMatrixRequest {
-	return MatrixAPIProductConfiguratorRemovePricelistFromMatrixRequest{
+func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrix(ctx context.Context, tenantId string, matrixId string, pricelistGrn string) ApiProductConfiguratorRemovePricelistFromMatrixRequest {
+	return ApiProductConfiguratorRemovePricelistFromMatrixRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -673,7 +729,7 @@ func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrix(ctx cont
 
 // Execute executes the request
 //  @return ProductconfiguratormatrixEntity
-func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrixExecute(r MatrixAPIProductConfiguratorRemovePricelistFromMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
+func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrixExecute(r ApiProductConfiguratorRemovePricelistFromMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -712,6 +768,20 @@ func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrixExecute(r
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -790,7 +860,7 @@ func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrixExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MatrixAPIProductConfiguratorUpdateMatrixRequest struct {
+type ApiProductConfiguratorUpdateMatrixRequest struct {
 	ctx context.Context
 	ApiService *MatrixAPIService
 	tenantId string
@@ -798,12 +868,12 @@ type MatrixAPIProductConfiguratorUpdateMatrixRequest struct {
 	body *ProductConfiguratorUpdateMatrixRequest
 }
 
-func (r MatrixAPIProductConfiguratorUpdateMatrixRequest) Body(body ProductConfiguratorUpdateMatrixRequest) MatrixAPIProductConfiguratorUpdateMatrixRequest {
+func (r ApiProductConfiguratorUpdateMatrixRequest) Body(body ProductConfiguratorUpdateMatrixRequest) ApiProductConfiguratorUpdateMatrixRequest {
 	r.body = &body
 	return r
 }
 
-func (r MatrixAPIProductConfiguratorUpdateMatrixRequest) Execute() (*ProductconfiguratormatrixEntity, *http.Response, error) {
+func (r ApiProductConfiguratorUpdateMatrixRequest) Execute() (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorUpdateMatrixExecute(r)
 }
 
@@ -815,10 +885,10 @@ Modify an existing matrix by specifying the tenant and matrix IDs. Utilize a PUT
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param matrixId
- @return MatrixAPIProductConfiguratorUpdateMatrixRequest
+ @return ApiProductConfiguratorUpdateMatrixRequest
 */
-func (a *MatrixAPIService) ProductConfiguratorUpdateMatrix(ctx context.Context, tenantId string, matrixId string) MatrixAPIProductConfiguratorUpdateMatrixRequest {
-	return MatrixAPIProductConfiguratorUpdateMatrixRequest{
+func (a *MatrixAPIService) ProductConfiguratorUpdateMatrix(ctx context.Context, tenantId string, matrixId string) ApiProductConfiguratorUpdateMatrixRequest {
+	return ApiProductConfiguratorUpdateMatrixRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -828,7 +898,7 @@ func (a *MatrixAPIService) ProductConfiguratorUpdateMatrix(ctx context.Context, 
 
 // Execute executes the request
 //  @return ProductconfiguratormatrixEntity
-func (a *MatrixAPIService) ProductConfiguratorUpdateMatrixExecute(r MatrixAPIProductConfiguratorUpdateMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
+func (a *MatrixAPIService) ProductConfiguratorUpdateMatrixExecute(r ApiProductConfiguratorUpdateMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -871,6 +941,20 @@ func (a *MatrixAPIService) ProductConfiguratorUpdateMatrixExecute(r MatrixAPIPro
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

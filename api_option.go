@@ -24,7 +24,7 @@ import (
 // OptionAPIService OptionAPI service
 type OptionAPIService service
 
-type OptionAPIProductConfiguratorBulkCreateOptionsRequest struct {
+type ApiProductConfiguratorBulkCreateOptionsRequest struct {
 	ctx context.Context
 	ApiService *OptionAPIService
 	tenantId string
@@ -32,12 +32,12 @@ type OptionAPIProductConfiguratorBulkCreateOptionsRequest struct {
 	body *ProductConfiguratorBulkCreateOptionsRequest
 }
 
-func (r OptionAPIProductConfiguratorBulkCreateOptionsRequest) Body(body ProductConfiguratorBulkCreateOptionsRequest) OptionAPIProductConfiguratorBulkCreateOptionsRequest {
+func (r ApiProductConfiguratorBulkCreateOptionsRequest) Body(body ProductConfiguratorBulkCreateOptionsRequest) ApiProductConfiguratorBulkCreateOptionsRequest {
 	r.body = &body
 	return r
 }
 
-func (r OptionAPIProductConfiguratorBulkCreateOptionsRequest) Execute() (*ProductconfiguratoroptionBulkCreateResponse, *http.Response, error) {
+func (r ApiProductConfiguratorBulkCreateOptionsRequest) Execute() (*ProductconfiguratoroptionBulkCreateResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorBulkCreateOptionsExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add multiple options to an existing step simultaneously. Submit a POST request w
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param stepId
- @return OptionAPIProductConfiguratorBulkCreateOptionsRequest
+ @return ApiProductConfiguratorBulkCreateOptionsRequest
 */
-func (a *OptionAPIService) ProductConfiguratorBulkCreateOptions(ctx context.Context, tenantId string, stepId string) OptionAPIProductConfiguratorBulkCreateOptionsRequest {
-	return OptionAPIProductConfiguratorBulkCreateOptionsRequest{
+func (a *OptionAPIService) ProductConfiguratorBulkCreateOptions(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorBulkCreateOptionsRequest {
+	return ApiProductConfiguratorBulkCreateOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -62,7 +62,7 @@ func (a *OptionAPIService) ProductConfiguratorBulkCreateOptions(ctx context.Cont
 
 // Execute executes the request
 //  @return ProductconfiguratoroptionBulkCreateResponse
-func (a *OptionAPIService) ProductConfiguratorBulkCreateOptionsExecute(r OptionAPIProductConfiguratorBulkCreateOptionsRequest) (*ProductconfiguratoroptionBulkCreateResponse, *http.Response, error) {
+func (a *OptionAPIService) ProductConfiguratorBulkCreateOptionsExecute(r ApiProductConfiguratorBulkCreateOptionsRequest) (*ProductconfiguratoroptionBulkCreateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -105,6 +105,20 @@ func (a *OptionAPIService) ProductConfiguratorBulkCreateOptionsExecute(r OptionA
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -183,19 +197,19 @@ func (a *OptionAPIService) ProductConfiguratorBulkCreateOptionsExecute(r OptionA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OptionAPIProductConfiguratorBulkDeleteOptionsRequest struct {
+type ApiProductConfiguratorBulkDeleteOptionsRequest struct {
 	ctx context.Context
 	ApiService *OptionAPIService
 	tenantId string
 	body *ProductConfiguratorBulkDeleteOptionsRequest
 }
 
-func (r OptionAPIProductConfiguratorBulkDeleteOptionsRequest) Body(body ProductConfiguratorBulkDeleteOptionsRequest) OptionAPIProductConfiguratorBulkDeleteOptionsRequest {
+func (r ApiProductConfiguratorBulkDeleteOptionsRequest) Body(body ProductConfiguratorBulkDeleteOptionsRequest) ApiProductConfiguratorBulkDeleteOptionsRequest {
 	r.body = &body
 	return r
 }
 
-func (r OptionAPIProductConfiguratorBulkDeleteOptionsRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiProductConfiguratorBulkDeleteOptionsRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorBulkDeleteOptionsExecute(r)
 }
 
@@ -206,10 +220,10 @@ Efficiently remove multiple options from configurations using a bulk delete oper
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
- @return OptionAPIProductConfiguratorBulkDeleteOptionsRequest
+ @return ApiProductConfiguratorBulkDeleteOptionsRequest
 */
-func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptions(ctx context.Context, tenantId string) OptionAPIProductConfiguratorBulkDeleteOptionsRequest {
-	return OptionAPIProductConfiguratorBulkDeleteOptionsRequest{
+func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptions(ctx context.Context, tenantId string) ApiProductConfiguratorBulkDeleteOptionsRequest {
+	return ApiProductConfiguratorBulkDeleteOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -218,7 +232,7 @@ func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptions(ctx context.Cont
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptionsExecute(r OptionAPIProductConfiguratorBulkDeleteOptionsRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptionsExecute(r ApiProductConfiguratorBulkDeleteOptionsRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -260,6 +274,20 @@ func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptionsExecute(r OptionA
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -338,19 +366,19 @@ func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptionsExecute(r OptionA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OptionAPIProductConfiguratorBulkUpdateOptionsRequest struct {
+type ApiProductConfiguratorBulkUpdateOptionsRequest struct {
 	ctx context.Context
 	ApiService *OptionAPIService
 	tenantId string
 	body *ProductConfiguratorBulkUpdateOptionsRequest
 }
 
-func (r OptionAPIProductConfiguratorBulkUpdateOptionsRequest) Body(body ProductConfiguratorBulkUpdateOptionsRequest) OptionAPIProductConfiguratorBulkUpdateOptionsRequest {
+func (r ApiProductConfiguratorBulkUpdateOptionsRequest) Body(body ProductConfiguratorBulkUpdateOptionsRequest) ApiProductConfiguratorBulkUpdateOptionsRequest {
 	r.body = &body
 	return r
 }
 
-func (r OptionAPIProductConfiguratorBulkUpdateOptionsRequest) Execute() (*ProductconfiguratoroptionBulkUpdateResponse, *http.Response, error) {
+func (r ApiProductConfiguratorBulkUpdateOptionsRequest) Execute() (*ProductconfiguratoroptionBulkUpdateResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorBulkUpdateOptionsExecute(r)
 }
 
@@ -361,10 +389,10 @@ Effortlessly update multiple options. Specify the tenant ID and submit a PUT req
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
- @return OptionAPIProductConfiguratorBulkUpdateOptionsRequest
+ @return ApiProductConfiguratorBulkUpdateOptionsRequest
 */
-func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptions(ctx context.Context, tenantId string) OptionAPIProductConfiguratorBulkUpdateOptionsRequest {
-	return OptionAPIProductConfiguratorBulkUpdateOptionsRequest{
+func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptions(ctx context.Context, tenantId string) ApiProductConfiguratorBulkUpdateOptionsRequest {
+	return ApiProductConfiguratorBulkUpdateOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -373,7 +401,7 @@ func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptions(ctx context.Cont
 
 // Execute executes the request
 //  @return ProductconfiguratoroptionBulkUpdateResponse
-func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptionsExecute(r OptionAPIProductConfiguratorBulkUpdateOptionsRequest) (*ProductconfiguratoroptionBulkUpdateResponse, *http.Response, error) {
+func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptionsExecute(r ApiProductConfiguratorBulkUpdateOptionsRequest) (*ProductconfiguratoroptionBulkUpdateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -415,6 +443,20 @@ func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptionsExecute(r OptionA
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -493,7 +535,7 @@ func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptionsExecute(r OptionA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OptionAPIProductConfiguratorCopyOptionRequest struct {
+type ApiProductConfiguratorCopyOptionRequest struct {
 	ctx context.Context
 	ApiService *OptionAPIService
 	tenantId string
@@ -501,12 +543,12 @@ type OptionAPIProductConfiguratorCopyOptionRequest struct {
 	body *ProductConfiguratorCopyOptionRequest
 }
 
-func (r OptionAPIProductConfiguratorCopyOptionRequest) Body(body ProductConfiguratorCopyOptionRequest) OptionAPIProductConfiguratorCopyOptionRequest {
+func (r ApiProductConfiguratorCopyOptionRequest) Body(body ProductConfiguratorCopyOptionRequest) ApiProductConfiguratorCopyOptionRequest {
 	r.body = &body
 	return r
 }
 
-func (r OptionAPIProductConfiguratorCopyOptionRequest) Execute() (*ProductconfiguratoroptionEntity, *http.Response, error) {
+func (r ApiProductConfiguratorCopyOptionRequest) Execute() (*ProductconfiguratoroptionEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorCopyOptionExecute(r)
 }
 
@@ -518,10 +560,10 @@ Duplicate an existing option from the source to a specified tenant. Utilize a PO
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param sourceOptionId
- @return OptionAPIProductConfiguratorCopyOptionRequest
+ @return ApiProductConfiguratorCopyOptionRequest
 */
-func (a *OptionAPIService) ProductConfiguratorCopyOption(ctx context.Context, tenantId string, sourceOptionId string) OptionAPIProductConfiguratorCopyOptionRequest {
-	return OptionAPIProductConfiguratorCopyOptionRequest{
+func (a *OptionAPIService) ProductConfiguratorCopyOption(ctx context.Context, tenantId string, sourceOptionId string) ApiProductConfiguratorCopyOptionRequest {
+	return ApiProductConfiguratorCopyOptionRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -531,7 +573,7 @@ func (a *OptionAPIService) ProductConfiguratorCopyOption(ctx context.Context, te
 
 // Execute executes the request
 //  @return ProductconfiguratoroptionEntity
-func (a *OptionAPIService) ProductConfiguratorCopyOptionExecute(r OptionAPIProductConfiguratorCopyOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error) {
+func (a *OptionAPIService) ProductConfiguratorCopyOptionExecute(r ApiProductConfiguratorCopyOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -574,6 +616,20 @@ func (a *OptionAPIService) ProductConfiguratorCopyOptionExecute(r OptionAPIProdu
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -652,7 +708,7 @@ func (a *OptionAPIService) ProductConfiguratorCopyOptionExecute(r OptionAPIProdu
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OptionAPIProductConfiguratorCreateOptionRequest struct {
+type ApiProductConfiguratorCreateOptionRequest struct {
 	ctx context.Context
 	ApiService *OptionAPIService
 	tenantId string
@@ -660,12 +716,12 @@ type OptionAPIProductConfiguratorCreateOptionRequest struct {
 	body *ProductConfiguratorCreateOptionRequest
 }
 
-func (r OptionAPIProductConfiguratorCreateOptionRequest) Body(body ProductConfiguratorCreateOptionRequest) OptionAPIProductConfiguratorCreateOptionRequest {
+func (r ApiProductConfiguratorCreateOptionRequest) Body(body ProductConfiguratorCreateOptionRequest) ApiProductConfiguratorCreateOptionRequest {
 	r.body = &body
 	return r
 }
 
-func (r OptionAPIProductConfiguratorCreateOptionRequest) Execute() (*ProductconfiguratoroptionEntity, *http.Response, error) {
+func (r ApiProductConfiguratorCreateOptionRequest) Execute() (*ProductconfiguratoroptionEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorCreateOptionExecute(r)
 }
 
@@ -677,10 +733,10 @@ Integrate a new option into an existing step by specifying the tenant and step I
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param stepId
- @return OptionAPIProductConfiguratorCreateOptionRequest
+ @return ApiProductConfiguratorCreateOptionRequest
 */
-func (a *OptionAPIService) ProductConfiguratorCreateOption(ctx context.Context, tenantId string, stepId string) OptionAPIProductConfiguratorCreateOptionRequest {
-	return OptionAPIProductConfiguratorCreateOptionRequest{
+func (a *OptionAPIService) ProductConfiguratorCreateOption(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorCreateOptionRequest {
+	return ApiProductConfiguratorCreateOptionRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -690,7 +746,7 @@ func (a *OptionAPIService) ProductConfiguratorCreateOption(ctx context.Context, 
 
 // Execute executes the request
 //  @return ProductconfiguratoroptionEntity
-func (a *OptionAPIService) ProductConfiguratorCreateOptionExecute(r OptionAPIProductConfiguratorCreateOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error) {
+func (a *OptionAPIService) ProductConfiguratorCreateOptionExecute(r ApiProductConfiguratorCreateOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -733,6 +789,20 @@ func (a *OptionAPIService) ProductConfiguratorCreateOptionExecute(r OptionAPIPro
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -811,14 +881,14 @@ func (a *OptionAPIService) ProductConfiguratorCreateOptionExecute(r OptionAPIPro
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OptionAPIProductConfiguratorDeleteOptionRequest struct {
+type ApiProductConfiguratorDeleteOptionRequest struct {
 	ctx context.Context
 	ApiService *OptionAPIService
 	tenantId string
 	optionId string
 }
 
-func (r OptionAPIProductConfiguratorDeleteOptionRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiProductConfiguratorDeleteOptionRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorDeleteOptionExecute(r)
 }
 
@@ -830,10 +900,10 @@ Remove a specific option by specifying the tenant and option IDs. Ensure precisi
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param optionId
- @return OptionAPIProductConfiguratorDeleteOptionRequest
+ @return ApiProductConfiguratorDeleteOptionRequest
 */
-func (a *OptionAPIService) ProductConfiguratorDeleteOption(ctx context.Context, tenantId string, optionId string) OptionAPIProductConfiguratorDeleteOptionRequest {
-	return OptionAPIProductConfiguratorDeleteOptionRequest{
+func (a *OptionAPIService) ProductConfiguratorDeleteOption(ctx context.Context, tenantId string, optionId string) ApiProductConfiguratorDeleteOptionRequest {
+	return ApiProductConfiguratorDeleteOptionRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -843,7 +913,7 @@ func (a *OptionAPIService) ProductConfiguratorDeleteOption(ctx context.Context, 
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *OptionAPIService) ProductConfiguratorDeleteOptionExecute(r OptionAPIProductConfiguratorDeleteOptionRequest) (map[string]interface{}, *http.Response, error) {
+func (a *OptionAPIService) ProductConfiguratorDeleteOptionExecute(r ApiProductConfiguratorDeleteOptionRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -881,6 +951,20 @@ func (a *OptionAPIService) ProductConfiguratorDeleteOptionExecute(r OptionAPIPro
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -959,7 +1043,7 @@ func (a *OptionAPIService) ProductConfiguratorDeleteOptionExecute(r OptionAPIPro
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OptionAPIProductConfiguratorListOptionsRequest struct {
+type ApiProductConfiguratorListOptionsRequest struct {
 	ctx context.Context
 	ApiService *OptionAPIService
 	tenantId string
@@ -968,12 +1052,12 @@ type OptionAPIProductConfiguratorListOptionsRequest struct {
 	body *ProductConfiguratorListPropertiesRequest
 }
 
-func (r OptionAPIProductConfiguratorListOptionsRequest) Body(body ProductConfiguratorListPropertiesRequest) OptionAPIProductConfiguratorListOptionsRequest {
+func (r ApiProductConfiguratorListOptionsRequest) Body(body ProductConfiguratorListPropertiesRequest) ApiProductConfiguratorListOptionsRequest {
 	r.body = &body
 	return r
 }
 
-func (r OptionAPIProductConfiguratorListOptionsRequest) Execute() (*OptionListOptionsResponse, *http.Response, error) {
+func (r ApiProductConfiguratorListOptionsRequest) Execute() (*OptionListOptionsResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorListOptionsExecute(r)
 }
 
@@ -986,10 +1070,10 @@ Retrieve a list of options for a specific step based on tenant and step IDs. Cus
  @param tenantId
  @param stepId
  @param pageSize
- @return OptionAPIProductConfiguratorListOptionsRequest
+ @return ApiProductConfiguratorListOptionsRequest
 */
-func (a *OptionAPIService) ProductConfiguratorListOptions(ctx context.Context, tenantId string, stepId string, pageSize int64) OptionAPIProductConfiguratorListOptionsRequest {
-	return OptionAPIProductConfiguratorListOptionsRequest{
+func (a *OptionAPIService) ProductConfiguratorListOptions(ctx context.Context, tenantId string, stepId string, pageSize int64) ApiProductConfiguratorListOptionsRequest {
+	return ApiProductConfiguratorListOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -1000,7 +1084,7 @@ func (a *OptionAPIService) ProductConfiguratorListOptions(ctx context.Context, t
 
 // Execute executes the request
 //  @return OptionListOptionsResponse
-func (a *OptionAPIService) ProductConfiguratorListOptionsExecute(r OptionAPIProductConfiguratorListOptionsRequest) (*OptionListOptionsResponse, *http.Response, error) {
+func (a *OptionAPIService) ProductConfiguratorListOptionsExecute(r ApiProductConfiguratorListOptionsRequest) (*OptionListOptionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1044,6 +1128,20 @@ func (a *OptionAPIService) ProductConfiguratorListOptionsExecute(r OptionAPIProd
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1122,7 +1220,7 @@ func (a *OptionAPIService) ProductConfiguratorListOptionsExecute(r OptionAPIProd
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type OptionAPIProductConfiguratorUpdateOptionRequest struct {
+type ApiProductConfiguratorUpdateOptionRequest struct {
 	ctx context.Context
 	ApiService *OptionAPIService
 	tenantId string
@@ -1130,12 +1228,12 @@ type OptionAPIProductConfiguratorUpdateOptionRequest struct {
 	body *ProductConfiguratorUpdateOptionRequest
 }
 
-func (r OptionAPIProductConfiguratorUpdateOptionRequest) Body(body ProductConfiguratorUpdateOptionRequest) OptionAPIProductConfiguratorUpdateOptionRequest {
+func (r ApiProductConfiguratorUpdateOptionRequest) Body(body ProductConfiguratorUpdateOptionRequest) ApiProductConfiguratorUpdateOptionRequest {
 	r.body = &body
 	return r
 }
 
-func (r OptionAPIProductConfiguratorUpdateOptionRequest) Execute() (*ProductconfiguratoroptionEntity, *http.Response, error) {
+func (r ApiProductConfiguratorUpdateOptionRequest) Execute() (*ProductconfiguratoroptionEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorUpdateOptionExecute(r)
 }
 
@@ -1147,10 +1245,10 @@ Modify an existing option by specifying the tenant and option IDs. Utilize a PUT
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param optionId
- @return OptionAPIProductConfiguratorUpdateOptionRequest
+ @return ApiProductConfiguratorUpdateOptionRequest
 */
-func (a *OptionAPIService) ProductConfiguratorUpdateOption(ctx context.Context, tenantId string, optionId string) OptionAPIProductConfiguratorUpdateOptionRequest {
-	return OptionAPIProductConfiguratorUpdateOptionRequest{
+func (a *OptionAPIService) ProductConfiguratorUpdateOption(ctx context.Context, tenantId string, optionId string) ApiProductConfiguratorUpdateOptionRequest {
+	return ApiProductConfiguratorUpdateOptionRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -1160,7 +1258,7 @@ func (a *OptionAPIService) ProductConfiguratorUpdateOption(ctx context.Context, 
 
 // Execute executes the request
 //  @return ProductconfiguratoroptionEntity
-func (a *OptionAPIService) ProductConfiguratorUpdateOptionExecute(r OptionAPIProductConfiguratorUpdateOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error) {
+func (a *OptionAPIService) ProductConfiguratorUpdateOptionExecute(r ApiProductConfiguratorUpdateOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1203,6 +1301,20 @@ func (a *OptionAPIService) ProductConfiguratorUpdateOptionExecute(r OptionAPIPro
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

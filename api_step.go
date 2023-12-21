@@ -24,7 +24,7 @@ import (
 // StepAPIService StepAPI service
 type StepAPIService service
 
-type StepAPIProductConfiguratorBulkCreateStepsRequest struct {
+type ApiProductConfiguratorBulkCreateStepsRequest struct {
 	ctx context.Context
 	ApiService *StepAPIService
 	tenantId string
@@ -32,12 +32,12 @@ type StepAPIProductConfiguratorBulkCreateStepsRequest struct {
 	body *ProductConfiguratorBulkCreateStepsRequest
 }
 
-func (r StepAPIProductConfiguratorBulkCreateStepsRequest) Body(body ProductConfiguratorBulkCreateStepsRequest) StepAPIProductConfiguratorBulkCreateStepsRequest {
+func (r ApiProductConfiguratorBulkCreateStepsRequest) Body(body ProductConfiguratorBulkCreateStepsRequest) ApiProductConfiguratorBulkCreateStepsRequest {
 	r.body = &body
 	return r
 }
 
-func (r StepAPIProductConfiguratorBulkCreateStepsRequest) Execute() (*ProductconfiguratorstepBulkCreateResponse, *http.Response, error) {
+func (r ApiProductConfiguratorBulkCreateStepsRequest) Execute() (*ProductconfiguratorstepBulkCreateResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorBulkCreateStepsExecute(r)
 }
 
@@ -49,10 +49,10 @@ Add multiple steps to an existing product configurator simultaneously. Submit a 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param configuratorId
- @return StepAPIProductConfiguratorBulkCreateStepsRequest
+ @return ApiProductConfiguratorBulkCreateStepsRequest
 */
-func (a *StepAPIService) ProductConfiguratorBulkCreateSteps(ctx context.Context, tenantId string, configuratorId string) StepAPIProductConfiguratorBulkCreateStepsRequest {
-	return StepAPIProductConfiguratorBulkCreateStepsRequest{
+func (a *StepAPIService) ProductConfiguratorBulkCreateSteps(ctx context.Context, tenantId string, configuratorId string) ApiProductConfiguratorBulkCreateStepsRequest {
+	return ApiProductConfiguratorBulkCreateStepsRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -62,7 +62,7 @@ func (a *StepAPIService) ProductConfiguratorBulkCreateSteps(ctx context.Context,
 
 // Execute executes the request
 //  @return ProductconfiguratorstepBulkCreateResponse
-func (a *StepAPIService) ProductConfiguratorBulkCreateStepsExecute(r StepAPIProductConfiguratorBulkCreateStepsRequest) (*ProductconfiguratorstepBulkCreateResponse, *http.Response, error) {
+func (a *StepAPIService) ProductConfiguratorBulkCreateStepsExecute(r ApiProductConfiguratorBulkCreateStepsRequest) (*ProductconfiguratorstepBulkCreateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -105,6 +105,20 @@ func (a *StepAPIService) ProductConfiguratorBulkCreateStepsExecute(r StepAPIProd
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -183,19 +197,19 @@ func (a *StepAPIService) ProductConfiguratorBulkCreateStepsExecute(r StepAPIProd
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type StepAPIProductConfiguratorBulkDeleteStepsRequest struct {
+type ApiProductConfiguratorBulkDeleteStepsRequest struct {
 	ctx context.Context
 	ApiService *StepAPIService
 	tenantId string
 	body *ProductConfiguratorBulkDeleteStepsRequest
 }
 
-func (r StepAPIProductConfiguratorBulkDeleteStepsRequest) Body(body ProductConfiguratorBulkDeleteStepsRequest) StepAPIProductConfiguratorBulkDeleteStepsRequest {
+func (r ApiProductConfiguratorBulkDeleteStepsRequest) Body(body ProductConfiguratorBulkDeleteStepsRequest) ApiProductConfiguratorBulkDeleteStepsRequest {
 	r.body = &body
 	return r
 }
 
-func (r StepAPIProductConfiguratorBulkDeleteStepsRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiProductConfiguratorBulkDeleteStepsRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorBulkDeleteStepsExecute(r)
 }
 
@@ -206,10 +220,10 @@ Efficiently remove multiple steps from a product configurator using a bulk delet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
- @return StepAPIProductConfiguratorBulkDeleteStepsRequest
+ @return ApiProductConfiguratorBulkDeleteStepsRequest
 */
-func (a *StepAPIService) ProductConfiguratorBulkDeleteSteps(ctx context.Context, tenantId string) StepAPIProductConfiguratorBulkDeleteStepsRequest {
-	return StepAPIProductConfiguratorBulkDeleteStepsRequest{
+func (a *StepAPIService) ProductConfiguratorBulkDeleteSteps(ctx context.Context, tenantId string) ApiProductConfiguratorBulkDeleteStepsRequest {
+	return ApiProductConfiguratorBulkDeleteStepsRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -218,7 +232,7 @@ func (a *StepAPIService) ProductConfiguratorBulkDeleteSteps(ctx context.Context,
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *StepAPIService) ProductConfiguratorBulkDeleteStepsExecute(r StepAPIProductConfiguratorBulkDeleteStepsRequest) (map[string]interface{}, *http.Response, error) {
+func (a *StepAPIService) ProductConfiguratorBulkDeleteStepsExecute(r ApiProductConfiguratorBulkDeleteStepsRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -260,6 +274,20 @@ func (a *StepAPIService) ProductConfiguratorBulkDeleteStepsExecute(r StepAPIProd
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -338,7 +366,7 @@ func (a *StepAPIService) ProductConfiguratorBulkDeleteStepsExecute(r StepAPIProd
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type StepAPIProductConfiguratorCopyStepRequest struct {
+type ApiProductConfiguratorCopyStepRequest struct {
 	ctx context.Context
 	ApiService *StepAPIService
 	tenantId string
@@ -346,12 +374,12 @@ type StepAPIProductConfiguratorCopyStepRequest struct {
 	body *ProductConfiguratorCopyStepRequest
 }
 
-func (r StepAPIProductConfiguratorCopyStepRequest) Body(body ProductConfiguratorCopyStepRequest) StepAPIProductConfiguratorCopyStepRequest {
+func (r ApiProductConfiguratorCopyStepRequest) Body(body ProductConfiguratorCopyStepRequest) ApiProductConfiguratorCopyStepRequest {
 	r.body = &body
 	return r
 }
 
-func (r StepAPIProductConfiguratorCopyStepRequest) Execute() (*ProductconfiguratorstepEntity, *http.Response, error) {
+func (r ApiProductConfiguratorCopyStepRequest) Execute() (*ProductconfiguratorstepEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorCopyStepExecute(r)
 }
 
@@ -363,10 +391,10 @@ Duplicate an existing step from the source to a specified tenant. Utilize a POST
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param sourceStepId
- @return StepAPIProductConfiguratorCopyStepRequest
+ @return ApiProductConfiguratorCopyStepRequest
 */
-func (a *StepAPIService) ProductConfiguratorCopyStep(ctx context.Context, tenantId string, sourceStepId string) StepAPIProductConfiguratorCopyStepRequest {
-	return StepAPIProductConfiguratorCopyStepRequest{
+func (a *StepAPIService) ProductConfiguratorCopyStep(ctx context.Context, tenantId string, sourceStepId string) ApiProductConfiguratorCopyStepRequest {
+	return ApiProductConfiguratorCopyStepRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -376,7 +404,7 @@ func (a *StepAPIService) ProductConfiguratorCopyStep(ctx context.Context, tenant
 
 // Execute executes the request
 //  @return ProductconfiguratorstepEntity
-func (a *StepAPIService) ProductConfiguratorCopyStepExecute(r StepAPIProductConfiguratorCopyStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error) {
+func (a *StepAPIService) ProductConfiguratorCopyStepExecute(r ApiProductConfiguratorCopyStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -419,6 +447,20 @@ func (a *StepAPIService) ProductConfiguratorCopyStepExecute(r StepAPIProductConf
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -497,7 +539,7 @@ func (a *StepAPIService) ProductConfiguratorCopyStepExecute(r StepAPIProductConf
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type StepAPIProductConfiguratorCreateStepRequest struct {
+type ApiProductConfiguratorCreateStepRequest struct {
 	ctx context.Context
 	ApiService *StepAPIService
 	tenantId string
@@ -505,12 +547,12 @@ type StepAPIProductConfiguratorCreateStepRequest struct {
 	body *ProductConfiguratorCreateStepRequest
 }
 
-func (r StepAPIProductConfiguratorCreateStepRequest) Body(body ProductConfiguratorCreateStepRequest) StepAPIProductConfiguratorCreateStepRequest {
+func (r ApiProductConfiguratorCreateStepRequest) Body(body ProductConfiguratorCreateStepRequest) ApiProductConfiguratorCreateStepRequest {
 	r.body = &body
 	return r
 }
 
-func (r StepAPIProductConfiguratorCreateStepRequest) Execute() (*ProductconfiguratorstepEntity, *http.Response, error) {
+func (r ApiProductConfiguratorCreateStepRequest) Execute() (*ProductconfiguratorstepEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorCreateStepExecute(r)
 }
 
@@ -522,10 +564,10 @@ Add a new step to an existing product configurator by specifying the tenant and 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param configuratorId
- @return StepAPIProductConfiguratorCreateStepRequest
+ @return ApiProductConfiguratorCreateStepRequest
 */
-func (a *StepAPIService) ProductConfiguratorCreateStep(ctx context.Context, tenantId string, configuratorId string) StepAPIProductConfiguratorCreateStepRequest {
-	return StepAPIProductConfiguratorCreateStepRequest{
+func (a *StepAPIService) ProductConfiguratorCreateStep(ctx context.Context, tenantId string, configuratorId string) ApiProductConfiguratorCreateStepRequest {
+	return ApiProductConfiguratorCreateStepRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -535,7 +577,7 @@ func (a *StepAPIService) ProductConfiguratorCreateStep(ctx context.Context, tena
 
 // Execute executes the request
 //  @return ProductconfiguratorstepEntity
-func (a *StepAPIService) ProductConfiguratorCreateStepExecute(r StepAPIProductConfiguratorCreateStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error) {
+func (a *StepAPIService) ProductConfiguratorCreateStepExecute(r ApiProductConfiguratorCreateStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -578,6 +620,20 @@ func (a *StepAPIService) ProductConfiguratorCreateStepExecute(r StepAPIProductCo
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -656,14 +712,14 @@ func (a *StepAPIService) ProductConfiguratorCreateStepExecute(r StepAPIProductCo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type StepAPIProductConfiguratorDeleteStepRequest struct {
+type ApiProductConfiguratorDeleteStepRequest struct {
 	ctx context.Context
 	ApiService *StepAPIService
 	tenantId string
 	stepId string
 }
 
-func (r StepAPIProductConfiguratorDeleteStepRequest) Execute() (*GooglerpcStatus, *http.Response, error) {
+func (r ApiProductConfiguratorDeleteStepRequest) Execute() (*GooglerpcStatus, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorDeleteStepExecute(r)
 }
 
@@ -675,10 +731,10 @@ Remove a step from a product configurator by specifying the tenant and step IDs.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param stepId
- @return StepAPIProductConfiguratorDeleteStepRequest
+ @return ApiProductConfiguratorDeleteStepRequest
 */
-func (a *StepAPIService) ProductConfiguratorDeleteStep(ctx context.Context, tenantId string, stepId string) StepAPIProductConfiguratorDeleteStepRequest {
-	return StepAPIProductConfiguratorDeleteStepRequest{
+func (a *StepAPIService) ProductConfiguratorDeleteStep(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorDeleteStepRequest {
+	return ApiProductConfiguratorDeleteStepRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -688,7 +744,7 @@ func (a *StepAPIService) ProductConfiguratorDeleteStep(ctx context.Context, tena
 
 // Execute executes the request
 //  @return GooglerpcStatus
-func (a *StepAPIService) ProductConfiguratorDeleteStepExecute(r StepAPIProductConfiguratorDeleteStepRequest) (*GooglerpcStatus, *http.Response, error) {
+func (a *StepAPIService) ProductConfiguratorDeleteStepExecute(r ApiProductConfiguratorDeleteStepRequest) (*GooglerpcStatus, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -726,6 +782,20 @@ func (a *StepAPIService) ProductConfiguratorDeleteStepExecute(r StepAPIProductCo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -804,7 +874,7 @@ func (a *StepAPIService) ProductConfiguratorDeleteStepExecute(r StepAPIProductCo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type StepAPIProductConfiguratorUpdateStepRequest struct {
+type ApiProductConfiguratorUpdateStepRequest struct {
 	ctx context.Context
 	ApiService *StepAPIService
 	tenantId string
@@ -812,12 +882,12 @@ type StepAPIProductConfiguratorUpdateStepRequest struct {
 	body *ProductConfiguratorUpdateStepRequest
 }
 
-func (r StepAPIProductConfiguratorUpdateStepRequest) Body(body ProductConfiguratorUpdateStepRequest) StepAPIProductConfiguratorUpdateStepRequest {
+func (r ApiProductConfiguratorUpdateStepRequest) Body(body ProductConfiguratorUpdateStepRequest) ApiProductConfiguratorUpdateStepRequest {
 	r.body = &body
 	return r
 }
 
-func (r StepAPIProductConfiguratorUpdateStepRequest) Execute() (*ProductconfiguratorstepEntity, *http.Response, error) {
+func (r ApiProductConfiguratorUpdateStepRequest) Execute() (*ProductconfiguratorstepEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorUpdateStepExecute(r)
 }
 
@@ -829,10 +899,10 @@ Modify an existing step within a product configurator by specifying the tenant a
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param stepId
- @return StepAPIProductConfiguratorUpdateStepRequest
+ @return ApiProductConfiguratorUpdateStepRequest
 */
-func (a *StepAPIService) ProductConfiguratorUpdateStep(ctx context.Context, tenantId string, stepId string) StepAPIProductConfiguratorUpdateStepRequest {
-	return StepAPIProductConfiguratorUpdateStepRequest{
+func (a *StepAPIService) ProductConfiguratorUpdateStep(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorUpdateStepRequest {
+	return ApiProductConfiguratorUpdateStepRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -842,7 +912,7 @@ func (a *StepAPIService) ProductConfiguratorUpdateStep(ctx context.Context, tena
 
 // Execute executes the request
 //  @return ProductconfiguratorstepEntity
-func (a *StepAPIService) ProductConfiguratorUpdateStepExecute(r StepAPIProductConfiguratorUpdateStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error) {
+func (a *StepAPIService) ProductConfiguratorUpdateStepExecute(r ApiProductConfiguratorUpdateStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -885,6 +955,20 @@ func (a *StepAPIService) ProductConfiguratorUpdateStepExecute(r StepAPIProductCo
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

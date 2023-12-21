@@ -24,7 +24,7 @@ import (
 // ConfiguratorAPIService ConfiguratorAPI service
 type ConfiguratorAPIService service
 
-type ConfiguratorAPIProductConfiguratorCopyConfiguratorRequest struct {
+type ApiProductConfiguratorCopyConfiguratorRequest struct {
 	ctx context.Context
 	ApiService *ConfiguratorAPIService
 	tenantId string
@@ -32,12 +32,12 @@ type ConfiguratorAPIProductConfiguratorCopyConfiguratorRequest struct {
 	body *ProductConfiguratorCopyConfiguratorRequest
 }
 
-func (r ConfiguratorAPIProductConfiguratorCopyConfiguratorRequest) Body(body ProductConfiguratorCopyConfiguratorRequest) ConfiguratorAPIProductConfiguratorCopyConfiguratorRequest {
+func (r ApiProductConfiguratorCopyConfiguratorRequest) Body(body ProductConfiguratorCopyConfiguratorRequest) ApiProductConfiguratorCopyConfiguratorRequest {
 	r.body = &body
 	return r
 }
 
-func (r ConfiguratorAPIProductConfiguratorCopyConfiguratorRequest) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+func (r ApiProductConfiguratorCopyConfiguratorRequest) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorCopyConfiguratorExecute(r)
 }
 
@@ -49,10 +49,10 @@ Duplicate an existing product configurator from the source to the specified tena
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param sourceConfiguratorId
- @return ConfiguratorAPIProductConfiguratorCopyConfiguratorRequest
+ @return ApiProductConfiguratorCopyConfiguratorRequest
 */
-func (a *ConfiguratorAPIService) ProductConfiguratorCopyConfigurator(ctx context.Context, tenantId string, sourceConfiguratorId string) ConfiguratorAPIProductConfiguratorCopyConfiguratorRequest {
-	return ConfiguratorAPIProductConfiguratorCopyConfiguratorRequest{
+func (a *ConfiguratorAPIService) ProductConfiguratorCopyConfigurator(ctx context.Context, tenantId string, sourceConfiguratorId string) ApiProductConfiguratorCopyConfiguratorRequest {
+	return ApiProductConfiguratorCopyConfiguratorRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -62,7 +62,7 @@ func (a *ConfiguratorAPIService) ProductConfiguratorCopyConfigurator(ctx context
 
 // Execute executes the request
 //  @return ProductconfiguratorconfiguratorEntity
-func (a *ConfiguratorAPIService) ProductConfiguratorCopyConfiguratorExecute(r ConfiguratorAPIProductConfiguratorCopyConfiguratorRequest) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+func (a *ConfiguratorAPIService) ProductConfiguratorCopyConfiguratorExecute(r ApiProductConfiguratorCopyConfiguratorRequest) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -105,6 +105,20 @@ func (a *ConfiguratorAPIService) ProductConfiguratorCopyConfiguratorExecute(r Co
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -183,7 +197,7 @@ func (a *ConfiguratorAPIService) ProductConfiguratorCopyConfiguratorExecute(r Co
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ConfiguratorAPIProductConfiguratorCreateConfiguratorRequest struct {
+type ApiProductConfiguratorCreateConfiguratorRequest struct {
 	ctx context.Context
 	ApiService *ConfiguratorAPIService
 	tenantId string
@@ -191,12 +205,12 @@ type ConfiguratorAPIProductConfiguratorCreateConfiguratorRequest struct {
 	body *ProductConfiguratorCreateConfiguratorRequest
 }
 
-func (r ConfiguratorAPIProductConfiguratorCreateConfiguratorRequest) Body(body ProductConfiguratorCreateConfiguratorRequest) ConfiguratorAPIProductConfiguratorCreateConfiguratorRequest {
+func (r ApiProductConfiguratorCreateConfiguratorRequest) Body(body ProductConfiguratorCreateConfiguratorRequest) ApiProductConfiguratorCreateConfiguratorRequest {
 	r.body = &body
 	return r
 }
 
-func (r ConfiguratorAPIProductConfiguratorCreateConfiguratorRequest) Execute() (*ProductconfiguratorconfiguratorCreateRequest, *http.Response, error) {
+func (r ApiProductConfiguratorCreateConfiguratorRequest) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorCreateConfiguratorExecute(r)
 }
 
@@ -208,10 +222,10 @@ Create a new product configurator for a specified tenant and product. Submit the
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param productId
- @return ConfiguratorAPIProductConfiguratorCreateConfiguratorRequest
+ @return ApiProductConfiguratorCreateConfiguratorRequest
 */
-func (a *ConfiguratorAPIService) ProductConfiguratorCreateConfigurator(ctx context.Context, tenantId string, productId string) ConfiguratorAPIProductConfiguratorCreateConfiguratorRequest {
-	return ConfiguratorAPIProductConfiguratorCreateConfiguratorRequest{
+func (a *ConfiguratorAPIService) ProductConfiguratorCreateConfigurator(ctx context.Context, tenantId string, productId string) ApiProductConfiguratorCreateConfiguratorRequest {
+	return ApiProductConfiguratorCreateConfiguratorRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -220,13 +234,13 @@ func (a *ConfiguratorAPIService) ProductConfiguratorCreateConfigurator(ctx conte
 }
 
 // Execute executes the request
-//  @return ProductconfiguratorconfiguratorCreateRequest
-func (a *ConfiguratorAPIService) ProductConfiguratorCreateConfiguratorExecute(r ConfiguratorAPIProductConfiguratorCreateConfiguratorRequest) (*ProductconfiguratorconfiguratorCreateRequest, *http.Response, error) {
+//  @return ProductconfiguratorconfiguratorEntity
+func (a *ConfiguratorAPIService) ProductConfiguratorCreateConfiguratorExecute(r ApiProductConfiguratorCreateConfiguratorRequest) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratorconfiguratorCreateRequest
+		localVarReturnValue  *ProductconfiguratorconfiguratorEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfiguratorAPIService.ProductConfiguratorCreateConfigurator")
@@ -264,6 +278,20 @@ func (a *ConfiguratorAPIService) ProductConfiguratorCreateConfiguratorExecute(r 
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -331,14 +359,14 @@ func (a *ConfiguratorAPIService) ProductConfiguratorCreateConfiguratorExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ConfiguratorAPIProductConfiguratorDeleteConfiguratorRequest struct {
+type ApiProductConfiguratorDeleteConfiguratorRequest struct {
 	ctx context.Context
 	ApiService *ConfiguratorAPIService
 	tenantId string
 	configuratorId string
 }
 
-func (r ConfiguratorAPIProductConfiguratorDeleteConfiguratorRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiProductConfiguratorDeleteConfiguratorRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorDeleteConfiguratorExecute(r)
 }
 
@@ -350,10 +378,10 @@ Delete a product configurator by specifying the tenant and configurator IDs. Ens
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param configuratorId
- @return ConfiguratorAPIProductConfiguratorDeleteConfiguratorRequest
+ @return ApiProductConfiguratorDeleteConfiguratorRequest
 */
-func (a *ConfiguratorAPIService) ProductConfiguratorDeleteConfigurator(ctx context.Context, tenantId string, configuratorId string) ConfiguratorAPIProductConfiguratorDeleteConfiguratorRequest {
-	return ConfiguratorAPIProductConfiguratorDeleteConfiguratorRequest{
+func (a *ConfiguratorAPIService) ProductConfiguratorDeleteConfigurator(ctx context.Context, tenantId string, configuratorId string) ApiProductConfiguratorDeleteConfiguratorRequest {
+	return ApiProductConfiguratorDeleteConfiguratorRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -363,7 +391,7 @@ func (a *ConfiguratorAPIService) ProductConfiguratorDeleteConfigurator(ctx conte
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *ConfiguratorAPIService) ProductConfiguratorDeleteConfiguratorExecute(r ConfiguratorAPIProductConfiguratorDeleteConfiguratorRequest) (map[string]interface{}, *http.Response, error) {
+func (a *ConfiguratorAPIService) ProductConfiguratorDeleteConfiguratorExecute(r ApiProductConfiguratorDeleteConfiguratorRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -401,6 +429,20 @@ func (a *ConfiguratorAPIService) ProductConfiguratorDeleteConfiguratorExecute(r 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -468,7 +510,7 @@ func (a *ConfiguratorAPIService) ProductConfiguratorDeleteConfiguratorExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ConfiguratorAPIProductConfiguratorGetConfiguratorByProductIdRequest struct {
+type ApiProductConfiguratorGetConfiguratorByProductIdRequest struct {
 	ctx context.Context
 	ApiService *ConfiguratorAPIService
 	tenantId string
@@ -476,27 +518,27 @@ type ConfiguratorAPIProductConfiguratorGetConfiguratorByProductIdRequest struct 
 	status *string
 }
 
-func (r ConfiguratorAPIProductConfiguratorGetConfiguratorByProductIdRequest) Status(status string) ConfiguratorAPIProductConfiguratorGetConfiguratorByProductIdRequest {
+func (r ApiProductConfiguratorGetConfiguratorByProductIdRequest) Status(status string) ApiProductConfiguratorGetConfiguratorByProductIdRequest {
 	r.status = &status
 	return r
 }
 
-func (r ConfiguratorAPIProductConfiguratorGetConfiguratorByProductIdRequest) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+func (r ApiProductConfiguratorGetConfiguratorByProductIdRequest) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorGetConfiguratorByProductIdExecute(r)
 }
 
 /*
-ProductConfiguratorGetConfiguratorByProductId Get Product Configurator by Product ID
+ProductConfiguratorGetConfiguratorByProductId Get Configurator by Product ID
 
-Get a product configurator by product ID.
+Retrieve product configurations with status details, filtered by product and tenant IDs. Flexible options for specifying additional status parameters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param productId
- @return ConfiguratorAPIProductConfiguratorGetConfiguratorByProductIdRequest
+ @return ApiProductConfiguratorGetConfiguratorByProductIdRequest
 */
-func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductId(ctx context.Context, tenantId string, productId string) ConfiguratorAPIProductConfiguratorGetConfiguratorByProductIdRequest {
-	return ConfiguratorAPIProductConfiguratorGetConfiguratorByProductIdRequest{
+func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductId(ctx context.Context, tenantId string, productId string) ApiProductConfiguratorGetConfiguratorByProductIdRequest {
+	return ApiProductConfiguratorGetConfiguratorByProductIdRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -506,7 +548,7 @@ func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductId(c
 
 // Execute executes the request
 //  @return ProductconfiguratorconfiguratorEntity
-func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductIdExecute(r ConfiguratorAPIProductConfiguratorGetConfiguratorByProductIdRequest) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductIdExecute(r ApiProductConfiguratorGetConfiguratorByProductIdRequest) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -550,6 +592,20 @@ func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductIdEx
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -617,7 +673,7 @@ func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductIdEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ConfiguratorAPIProductConfiguratorGetConfiguratorByProductId2Request struct {
+type ApiProductConfiguratorGetConfiguratorByProductId2Request struct {
 	ctx context.Context
 	ApiService *ConfiguratorAPIService
 	tenantId string
@@ -625,23 +681,23 @@ type ConfiguratorAPIProductConfiguratorGetConfiguratorByProductId2Request struct
 	status string
 }
 
-func (r ConfiguratorAPIProductConfiguratorGetConfiguratorByProductId2Request) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+func (r ApiProductConfiguratorGetConfiguratorByProductId2Request) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorGetConfiguratorByProductId2Execute(r)
 }
 
 /*
-ProductConfiguratorGetConfiguratorByProductId2 Get Product Configurator by Product ID
+ProductConfiguratorGetConfiguratorByProductId2 Get Configurator by Product ID
 
-Get a product configurator by product ID.
+Retrieve product configurations with status details, filtered by product and tenant IDs. Flexible options for specifying additional status parameters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param productId
  @param status
- @return ConfiguratorAPIProductConfiguratorGetConfiguratorByProductId2Request
+ @return ApiProductConfiguratorGetConfiguratorByProductId2Request
 */
-func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductId2(ctx context.Context, tenantId string, productId string, status string) ConfiguratorAPIProductConfiguratorGetConfiguratorByProductId2Request {
-	return ConfiguratorAPIProductConfiguratorGetConfiguratorByProductId2Request{
+func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductId2(ctx context.Context, tenantId string, productId string, status string) ApiProductConfiguratorGetConfiguratorByProductId2Request {
+	return ApiProductConfiguratorGetConfiguratorByProductId2Request{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -652,7 +708,7 @@ func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductId2(
 
 // Execute executes the request
 //  @return ProductconfiguratorconfiguratorEntity
-func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductId2Execute(r ConfiguratorAPIProductConfiguratorGetConfiguratorByProductId2Request) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductId2Execute(r ApiProductConfiguratorGetConfiguratorByProductId2Request) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -691,6 +747,20 @@ func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductId2E
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -758,7 +828,7 @@ func (a *ConfiguratorAPIService) ProductConfiguratorGetConfiguratorByProductId2E
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ConfiguratorAPIProductConfiguratorListConfiguratorsRequest struct {
+type ApiProductConfiguratorListConfiguratorsRequest struct {
 	ctx context.Context
 	ApiService *ConfiguratorAPIService
 	tenantId string
@@ -767,12 +837,12 @@ type ConfiguratorAPIProductConfiguratorListConfiguratorsRequest struct {
 	body *ProductConfiguratorListPropertiesRequest
 }
 
-func (r ConfiguratorAPIProductConfiguratorListConfiguratorsRequest) Body(body ProductConfiguratorListPropertiesRequest) ConfiguratorAPIProductConfiguratorListConfiguratorsRequest {
+func (r ApiProductConfiguratorListConfiguratorsRequest) Body(body ProductConfiguratorListPropertiesRequest) ApiProductConfiguratorListConfiguratorsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ConfiguratorAPIProductConfiguratorListConfiguratorsRequest) Execute() (*ConfiguratorListResponse, *http.Response, error) {
+func (r ApiProductConfiguratorListConfiguratorsRequest) Execute() (*ConfiguratorListResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorListConfiguratorsExecute(r)
 }
 
@@ -785,10 +855,10 @@ List all product configurators.
  @param tenantId
  @param productId
  @param pageSize
- @return ConfiguratorAPIProductConfiguratorListConfiguratorsRequest
+ @return ApiProductConfiguratorListConfiguratorsRequest
 */
-func (a *ConfiguratorAPIService) ProductConfiguratorListConfigurators(ctx context.Context, tenantId string, productId string, pageSize int64) ConfiguratorAPIProductConfiguratorListConfiguratorsRequest {
-	return ConfiguratorAPIProductConfiguratorListConfiguratorsRequest{
+func (a *ConfiguratorAPIService) ProductConfiguratorListConfigurators(ctx context.Context, tenantId string, productId string, pageSize int64) ApiProductConfiguratorListConfiguratorsRequest {
+	return ApiProductConfiguratorListConfiguratorsRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -799,7 +869,7 @@ func (a *ConfiguratorAPIService) ProductConfiguratorListConfigurators(ctx contex
 
 // Execute executes the request
 //  @return ConfiguratorListResponse
-func (a *ConfiguratorAPIService) ProductConfiguratorListConfiguratorsExecute(r ConfiguratorAPIProductConfiguratorListConfiguratorsRequest) (*ConfiguratorListResponse, *http.Response, error) {
+func (a *ConfiguratorAPIService) ProductConfiguratorListConfiguratorsExecute(r ApiProductConfiguratorListConfiguratorsRequest) (*ConfiguratorListResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -843,6 +913,20 @@ func (a *ConfiguratorAPIService) ProductConfiguratorListConfiguratorsExecute(r C
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -921,7 +1005,7 @@ func (a *ConfiguratorAPIService) ProductConfiguratorListConfiguratorsExecute(r C
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ConfiguratorAPIProductConfiguratorUpdateConfiguratorRequest struct {
+type ApiProductConfiguratorUpdateConfiguratorRequest struct {
 	ctx context.Context
 	ApiService *ConfiguratorAPIService
 	tenantId string
@@ -929,12 +1013,12 @@ type ConfiguratorAPIProductConfiguratorUpdateConfiguratorRequest struct {
 	body *ProductConfiguratorUpdateConfiguratorRequest
 }
 
-func (r ConfiguratorAPIProductConfiguratorUpdateConfiguratorRequest) Body(body ProductConfiguratorUpdateConfiguratorRequest) ConfiguratorAPIProductConfiguratorUpdateConfiguratorRequest {
+func (r ApiProductConfiguratorUpdateConfiguratorRequest) Body(body ProductConfiguratorUpdateConfiguratorRequest) ApiProductConfiguratorUpdateConfiguratorRequest {
 	r.body = &body
 	return r
 }
 
-func (r ConfiguratorAPIProductConfiguratorUpdateConfiguratorRequest) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+func (r ApiProductConfiguratorUpdateConfiguratorRequest) Execute() (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorUpdateConfiguratorExecute(r)
 }
 
@@ -946,10 +1030,10 @@ Modify an existing product configurator by specifying the tenant and configurato
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param configuratorId
- @return ConfiguratorAPIProductConfiguratorUpdateConfiguratorRequest
+ @return ApiProductConfiguratorUpdateConfiguratorRequest
 */
-func (a *ConfiguratorAPIService) ProductConfiguratorUpdateConfigurator(ctx context.Context, tenantId string, configuratorId string) ConfiguratorAPIProductConfiguratorUpdateConfiguratorRequest {
-	return ConfiguratorAPIProductConfiguratorUpdateConfiguratorRequest{
+func (a *ConfiguratorAPIService) ProductConfiguratorUpdateConfigurator(ctx context.Context, tenantId string, configuratorId string) ApiProductConfiguratorUpdateConfiguratorRequest {
+	return ApiProductConfiguratorUpdateConfiguratorRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -959,7 +1043,7 @@ func (a *ConfiguratorAPIService) ProductConfiguratorUpdateConfigurator(ctx conte
 
 // Execute executes the request
 //  @return ProductconfiguratorconfiguratorEntity
-func (a *ConfiguratorAPIService) ProductConfiguratorUpdateConfiguratorExecute(r ConfiguratorAPIProductConfiguratorUpdateConfiguratorRequest) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
+func (a *ConfiguratorAPIService) ProductConfiguratorUpdateConfiguratorExecute(r ApiProductConfiguratorUpdateConfiguratorRequest) (*ProductconfiguratorconfiguratorEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -1002,6 +1086,20 @@ func (a *ConfiguratorAPIService) ProductConfiguratorUpdateConfiguratorExecute(r 
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -19,6 +19,5 @@ generate-go-client:
 	--git-user-id=gemini-commerce \
 	--git-repo-id=go-client-${lower_service} \
 	--additional-properties ${artifact_version}\
-	structPrefix=true,\
 	enumClassPrefix=true,\
 	packageName="${lower_service}"

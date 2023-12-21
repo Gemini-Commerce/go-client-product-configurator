@@ -115,7 +115,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Delete Configurator
       tags:
       - configurator
@@ -174,7 +175,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Update Configurator
       tags:
       - configurator
@@ -242,7 +244,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: List Matrices
       tags:
       - matrix
@@ -303,7 +306,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Create Step
       tags:
       - step
@@ -365,7 +369,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Bulk Create Steps
       tags:
       - step
@@ -420,7 +425,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Delete Dependency
       tags:
       - dependency
@@ -479,7 +485,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Update Dependency
       tags:
       - dependency
@@ -535,7 +542,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Create Matrix
       tags:
       - matrix
@@ -590,7 +598,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Delete Matrix
       tags:
       - matrix
@@ -643,7 +652,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Get Matrix
       tags:
       - matrix
@@ -703,7 +713,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Update Matrix
       tags:
       - matrix
@@ -770,7 +781,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: List Properties
       tags:
       - property
@@ -830,7 +842,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Remove Pricelist from Matrix
       tags:
       - matrix
@@ -885,7 +898,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Bulk Update Options
       tags:
       - option
@@ -941,7 +955,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Bulk Delete Options
       tags:
       - option
@@ -996,7 +1011,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Delete Option
       tags:
       - option
@@ -1055,7 +1071,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Update Option
       tags:
       - option
@@ -1117,7 +1134,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Copy Option
       tags:
       - option
@@ -1179,14 +1197,17 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: List Dependencies
       tags:
       - dependency
       x-codegen-request-body-name: body
   /v1/{tenantId}/product/{productId}:
     get:
-      description: Get a product configurator by product ID.
+      description: "Retrieve product configurations with status details, filtered\
+        \ by product and tenant IDs. Flexible options for specifying additional status\
+        \ parameters."
       operationId: ProductConfigurator_GetConfiguratorByProductId
       parameters:
       - in: path
@@ -1236,8 +1257,9 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
-      summary: Get Product Configurator by Product ID
+      - APIAuthorization: []
+        standardAuthorization: []
+      summary: Get Configurator by Product ID
       tags:
       - configurator
   /v1/{tenantId}/product/{productId}/configuration:
@@ -1296,7 +1318,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Get Available Configuration
       tags:
       - configuration
@@ -1356,7 +1379,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Get Available Configuration
       tags:
       - configuration
@@ -1418,7 +1442,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Get Configuration from Selections
       tags:
       - configuration
@@ -1451,7 +1476,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/productconfiguratorconfiguratorCreateRequest'
+                $ref: '#/components/schemas/productconfiguratorconfiguratorEntity'
           description: OK
         "401":
           content:
@@ -1473,7 +1498,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Create Configurator
       tags:
       - configurator
@@ -1538,14 +1564,17 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: List Product Configurators
       tags:
       - configurator
       x-codegen-request-body-name: body
   /v1/{tenantId}/product/{productId}/status/{status}:
     get:
-      description: Get a product configurator by product ID.
+      description: "Retrieve product configurations with status details, filtered\
+        \ by product and tenant IDs. Flexible options for specifying additional status\
+        \ parameters."
       operationId: ProductConfigurator_GetConfiguratorByProductId2
       parameters:
       - in: path
@@ -1595,8 +1624,9 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
-      summary: Get Product Configurator by Product ID
+      - APIAuthorization: []
+        standardAuthorization: []
+      summary: Get Configurator by Product ID
       tags:
       - configurator
   /v1/{tenantId}/product/{sourceConfiguratorId}/copy:
@@ -1655,7 +1685,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Copy Configurator
       tags:
       - configurator
@@ -1711,7 +1742,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Bulk Update Properties
       tags:
       - property
@@ -1767,7 +1799,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Create Property
       tags:
       - property
@@ -1823,7 +1856,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Bulk Create Properties
       tags:
       - property
@@ -1884,7 +1918,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Update Property
       tags:
       - property
@@ -1912,7 +1947,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/productconfiguratoroptionBulkDeleteResponse'
+                $ref: '#/components/schemas/productconfiguratorstepBulkDeleteResponse'
           description: OK
         "400":
           content:
@@ -1940,7 +1975,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Bulk Delete Steps
       tags:
       - step
@@ -2002,7 +2038,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Copy Step
       tags:
       - step
@@ -2057,7 +2094,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Delete Step
       tags:
       - step
@@ -2116,7 +2154,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Update Step
       tags:
       - step
@@ -2177,7 +2216,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Create Dependency
       tags:
       - dependency
@@ -2238,7 +2278,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Create Option
       tags:
       - option
@@ -2300,7 +2341,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: Bulk Create Options
       tags:
       - option
@@ -2367,7 +2409,8 @@ paths:
                 $ref: '#/components/schemas/googlerpcStatus'
           description: An unexpected error response.
       security:
-      - standardAuthorization: []
+      - APIAuthorization: []
+        standardAuthorization: []
       summary: List Options
       tags:
       - option
@@ -4647,6 +4690,10 @@ components:
           type: array
       type: object
   securitySchemes:
+    APIAuthorization:
+      in: header
+      name: Authorization
+      type: apiKey
     standardAuthorization:
       flows:
         implicit:

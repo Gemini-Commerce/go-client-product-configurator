@@ -24,19 +24,19 @@ import (
 // PropertyAPIService PropertyAPI service
 type PropertyAPIService service
 
-type PropertyAPIProductConfiguratorBulkCreatePropertiesRequest struct {
+type ApiProductConfiguratorBulkCreatePropertiesRequest struct {
 	ctx context.Context
 	ApiService *PropertyAPIService
 	tenantId string
 	body *ProductConfiguratorBulkCreatePropertiesRequest
 }
 
-func (r PropertyAPIProductConfiguratorBulkCreatePropertiesRequest) Body(body ProductConfiguratorBulkCreatePropertiesRequest) PropertyAPIProductConfiguratorBulkCreatePropertiesRequest {
+func (r ApiProductConfiguratorBulkCreatePropertiesRequest) Body(body ProductConfiguratorBulkCreatePropertiesRequest) ApiProductConfiguratorBulkCreatePropertiesRequest {
 	r.body = &body
 	return r
 }
 
-func (r PropertyAPIProductConfiguratorBulkCreatePropertiesRequest) Execute() (*ProductconfiguratorpropertyBulkCreateResponse, *http.Response, error) {
+func (r ApiProductConfiguratorBulkCreatePropertiesRequest) Execute() (*ProductconfiguratorpropertyBulkCreateResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorBulkCreatePropertiesExecute(r)
 }
 
@@ -47,10 +47,10 @@ Efficiently add multiple properties to configurations with a bulk create operati
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
- @return PropertyAPIProductConfiguratorBulkCreatePropertiesRequest
+ @return ApiProductConfiguratorBulkCreatePropertiesRequest
 */
-func (a *PropertyAPIService) ProductConfiguratorBulkCreateProperties(ctx context.Context, tenantId string) PropertyAPIProductConfiguratorBulkCreatePropertiesRequest {
-	return PropertyAPIProductConfiguratorBulkCreatePropertiesRequest{
+func (a *PropertyAPIService) ProductConfiguratorBulkCreateProperties(ctx context.Context, tenantId string) ApiProductConfiguratorBulkCreatePropertiesRequest {
+	return ApiProductConfiguratorBulkCreatePropertiesRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -59,7 +59,7 @@ func (a *PropertyAPIService) ProductConfiguratorBulkCreateProperties(ctx context
 
 // Execute executes the request
 //  @return ProductconfiguratorpropertyBulkCreateResponse
-func (a *PropertyAPIService) ProductConfiguratorBulkCreatePropertiesExecute(r PropertyAPIProductConfiguratorBulkCreatePropertiesRequest) (*ProductconfiguratorpropertyBulkCreateResponse, *http.Response, error) {
+func (a *PropertyAPIService) ProductConfiguratorBulkCreatePropertiesExecute(r ApiProductConfiguratorBulkCreatePropertiesRequest) (*ProductconfiguratorpropertyBulkCreateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -101,6 +101,20 @@ func (a *PropertyAPIService) ProductConfiguratorBulkCreatePropertiesExecute(r Pr
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -179,19 +193,19 @@ func (a *PropertyAPIService) ProductConfiguratorBulkCreatePropertiesExecute(r Pr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PropertyAPIProductConfiguratorBulkUpdatePropertiesRequest struct {
+type ApiProductConfiguratorBulkUpdatePropertiesRequest struct {
 	ctx context.Context
 	ApiService *PropertyAPIService
 	tenantId string
 	body *ProductConfiguratorBulkUpdatePropertiesRequest
 }
 
-func (r PropertyAPIProductConfiguratorBulkUpdatePropertiesRequest) Body(body ProductConfiguratorBulkUpdatePropertiesRequest) PropertyAPIProductConfiguratorBulkUpdatePropertiesRequest {
+func (r ApiProductConfiguratorBulkUpdatePropertiesRequest) Body(body ProductConfiguratorBulkUpdatePropertiesRequest) ApiProductConfiguratorBulkUpdatePropertiesRequest {
 	r.body = &body
 	return r
 }
 
-func (r PropertyAPIProductConfiguratorBulkUpdatePropertiesRequest) Execute() (*ProductconfiguratorpropertyBulkUpdateResponse, *http.Response, error) {
+func (r ApiProductConfiguratorBulkUpdatePropertiesRequest) Execute() (*ProductconfiguratorpropertyBulkUpdateResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorBulkUpdatePropertiesExecute(r)
 }
 
@@ -202,10 +216,10 @@ Effortlessly update multiple properties. Specify the tenant ID and submit a PUT 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
- @return PropertyAPIProductConfiguratorBulkUpdatePropertiesRequest
+ @return ApiProductConfiguratorBulkUpdatePropertiesRequest
 */
-func (a *PropertyAPIService) ProductConfiguratorBulkUpdateProperties(ctx context.Context, tenantId string) PropertyAPIProductConfiguratorBulkUpdatePropertiesRequest {
-	return PropertyAPIProductConfiguratorBulkUpdatePropertiesRequest{
+func (a *PropertyAPIService) ProductConfiguratorBulkUpdateProperties(ctx context.Context, tenantId string) ApiProductConfiguratorBulkUpdatePropertiesRequest {
+	return ApiProductConfiguratorBulkUpdatePropertiesRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -214,7 +228,7 @@ func (a *PropertyAPIService) ProductConfiguratorBulkUpdateProperties(ctx context
 
 // Execute executes the request
 //  @return ProductconfiguratorpropertyBulkUpdateResponse
-func (a *PropertyAPIService) ProductConfiguratorBulkUpdatePropertiesExecute(r PropertyAPIProductConfiguratorBulkUpdatePropertiesRequest) (*ProductconfiguratorpropertyBulkUpdateResponse, *http.Response, error) {
+func (a *PropertyAPIService) ProductConfiguratorBulkUpdatePropertiesExecute(r ApiProductConfiguratorBulkUpdatePropertiesRequest) (*ProductconfiguratorpropertyBulkUpdateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -256,6 +270,20 @@ func (a *PropertyAPIService) ProductConfiguratorBulkUpdatePropertiesExecute(r Pr
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -334,19 +362,19 @@ func (a *PropertyAPIService) ProductConfiguratorBulkUpdatePropertiesExecute(r Pr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PropertyAPIProductConfiguratorCreatePropertyRequest struct {
+type ApiProductConfiguratorCreatePropertyRequest struct {
 	ctx context.Context
 	ApiService *PropertyAPIService
 	tenantId string
 	body *ProductConfiguratorCreatePropertyRequest
 }
 
-func (r PropertyAPIProductConfiguratorCreatePropertyRequest) Body(body ProductConfiguratorCreatePropertyRequest) PropertyAPIProductConfiguratorCreatePropertyRequest {
+func (r ApiProductConfiguratorCreatePropertyRequest) Body(body ProductConfiguratorCreatePropertyRequest) ApiProductConfiguratorCreatePropertyRequest {
 	r.body = &body
 	return r
 }
 
-func (r PropertyAPIProductConfiguratorCreatePropertyRequest) Execute() (*ProductconfiguratorpropertyEntity, *http.Response, error) {
+func (r ApiProductConfiguratorCreatePropertyRequest) Execute() (*ProductconfiguratorpropertyEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorCreatePropertyExecute(r)
 }
 
@@ -357,10 +385,10 @@ Integrate a new property into configurations by specifying the tenant ID. Use a 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
- @return PropertyAPIProductConfiguratorCreatePropertyRequest
+ @return ApiProductConfiguratorCreatePropertyRequest
 */
-func (a *PropertyAPIService) ProductConfiguratorCreateProperty(ctx context.Context, tenantId string) PropertyAPIProductConfiguratorCreatePropertyRequest {
-	return PropertyAPIProductConfiguratorCreatePropertyRequest{
+func (a *PropertyAPIService) ProductConfiguratorCreateProperty(ctx context.Context, tenantId string) ApiProductConfiguratorCreatePropertyRequest {
+	return ApiProductConfiguratorCreatePropertyRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -369,7 +397,7 @@ func (a *PropertyAPIService) ProductConfiguratorCreateProperty(ctx context.Conte
 
 // Execute executes the request
 //  @return ProductconfiguratorpropertyEntity
-func (a *PropertyAPIService) ProductConfiguratorCreatePropertyExecute(r PropertyAPIProductConfiguratorCreatePropertyRequest) (*ProductconfiguratorpropertyEntity, *http.Response, error) {
+func (a *PropertyAPIService) ProductConfiguratorCreatePropertyExecute(r ApiProductConfiguratorCreatePropertyRequest) (*ProductconfiguratorpropertyEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -411,6 +439,20 @@ func (a *PropertyAPIService) ProductConfiguratorCreatePropertyExecute(r Property
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -489,7 +531,7 @@ func (a *PropertyAPIService) ProductConfiguratorCreatePropertyExecute(r Property
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PropertyAPIProductConfiguratorListPropertiesRequest struct {
+type ApiProductConfiguratorListPropertiesRequest struct {
 	ctx context.Context
 	ApiService *PropertyAPIService
 	tenantId string
@@ -498,12 +540,12 @@ type PropertyAPIProductConfiguratorListPropertiesRequest struct {
 	body *ProductConfiguratorListPropertiesRequest
 }
 
-func (r PropertyAPIProductConfiguratorListPropertiesRequest) Body(body ProductConfiguratorListPropertiesRequest) PropertyAPIProductConfiguratorListPropertiesRequest {
+func (r ApiProductConfiguratorListPropertiesRequest) Body(body ProductConfiguratorListPropertiesRequest) ApiProductConfiguratorListPropertiesRequest {
 	r.body = &body
 	return r
 }
 
-func (r PropertyAPIProductConfiguratorListPropertiesRequest) Execute() (*PropertyListPropertiesResponse, *http.Response, error) {
+func (r ApiProductConfiguratorListPropertiesRequest) Execute() (*PropertyListPropertiesResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorListPropertiesExecute(r)
 }
 
@@ -516,10 +558,10 @@ Retrieve a list of properties for a specific matrix based on tenant and matrix I
  @param tenantId
  @param matrixId
  @param pageSize
- @return PropertyAPIProductConfiguratorListPropertiesRequest
+ @return ApiProductConfiguratorListPropertiesRequest
 */
-func (a *PropertyAPIService) ProductConfiguratorListProperties(ctx context.Context, tenantId string, matrixId string, pageSize string) PropertyAPIProductConfiguratorListPropertiesRequest {
-	return PropertyAPIProductConfiguratorListPropertiesRequest{
+func (a *PropertyAPIService) ProductConfiguratorListProperties(ctx context.Context, tenantId string, matrixId string, pageSize string) ApiProductConfiguratorListPropertiesRequest {
+	return ApiProductConfiguratorListPropertiesRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -530,7 +572,7 @@ func (a *PropertyAPIService) ProductConfiguratorListProperties(ctx context.Conte
 
 // Execute executes the request
 //  @return PropertyListPropertiesResponse
-func (a *PropertyAPIService) ProductConfiguratorListPropertiesExecute(r PropertyAPIProductConfiguratorListPropertiesRequest) (*PropertyListPropertiesResponse, *http.Response, error) {
+func (a *PropertyAPIService) ProductConfiguratorListPropertiesExecute(r ApiProductConfiguratorListPropertiesRequest) (*PropertyListPropertiesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -574,6 +616,20 @@ func (a *PropertyAPIService) ProductConfiguratorListPropertiesExecute(r Property
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -652,7 +708,7 @@ func (a *PropertyAPIService) ProductConfiguratorListPropertiesExecute(r Property
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type PropertyAPIProductConfiguratorUpdatePropertyRequest struct {
+type ApiProductConfiguratorUpdatePropertyRequest struct {
 	ctx context.Context
 	ApiService *PropertyAPIService
 	tenantId string
@@ -660,12 +716,12 @@ type PropertyAPIProductConfiguratorUpdatePropertyRequest struct {
 	body *ProductConfiguratorUpdatePropertyRequest
 }
 
-func (r PropertyAPIProductConfiguratorUpdatePropertyRequest) Body(body ProductConfiguratorUpdatePropertyRequest) PropertyAPIProductConfiguratorUpdatePropertyRequest {
+func (r ApiProductConfiguratorUpdatePropertyRequest) Body(body ProductConfiguratorUpdatePropertyRequest) ApiProductConfiguratorUpdatePropertyRequest {
 	r.body = &body
 	return r
 }
 
-func (r PropertyAPIProductConfiguratorUpdatePropertyRequest) Execute() (*ProductconfiguratorpropertyEntity, *http.Response, error) {
+func (r ApiProductConfiguratorUpdatePropertyRequest) Execute() (*ProductconfiguratorpropertyEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorUpdatePropertyExecute(r)
 }
 
@@ -677,10 +733,10 @@ Modify an existing property by specifying the tenant and property IDs. Utilize a
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param propertyId
- @return PropertyAPIProductConfiguratorUpdatePropertyRequest
+ @return ApiProductConfiguratorUpdatePropertyRequest
 */
-func (a *PropertyAPIService) ProductConfiguratorUpdateProperty(ctx context.Context, tenantId string, propertyId string) PropertyAPIProductConfiguratorUpdatePropertyRequest {
-	return PropertyAPIProductConfiguratorUpdatePropertyRequest{
+func (a *PropertyAPIService) ProductConfiguratorUpdateProperty(ctx context.Context, tenantId string, propertyId string) ApiProductConfiguratorUpdatePropertyRequest {
+	return ApiProductConfiguratorUpdatePropertyRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -690,7 +746,7 @@ func (a *PropertyAPIService) ProductConfiguratorUpdateProperty(ctx context.Conte
 
 // Execute executes the request
 //  @return ProductconfiguratorpropertyEntity
-func (a *PropertyAPIService) ProductConfiguratorUpdatePropertyExecute(r PropertyAPIProductConfiguratorUpdatePropertyRequest) (*ProductconfiguratorpropertyEntity, *http.Response, error) {
+func (a *PropertyAPIService) ProductConfiguratorUpdatePropertyExecute(r ApiProductConfiguratorUpdatePropertyRequest) (*ProductconfiguratorpropertyEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -733,6 +789,20 @@ func (a *PropertyAPIService) ProductConfiguratorUpdatePropertyExecute(r Property
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

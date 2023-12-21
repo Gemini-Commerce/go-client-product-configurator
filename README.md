@@ -138,8 +138,8 @@ Class | Method | HTTP request | Description
 *ConfiguratorAPI* | [**ProductConfiguratorCopyConfigurator**](docs/ConfiguratorAPI.md#productconfiguratorcopyconfigurator) | **Post** /v1/{tenantId}/product/{sourceConfiguratorId}/copy | Copy Configurator
 *ConfiguratorAPI* | [**ProductConfiguratorCreateConfigurator**](docs/ConfiguratorAPI.md#productconfiguratorcreateconfigurator) | **Post** /v1/{tenantId}/product/{productId}/create | Create Configurator
 *ConfiguratorAPI* | [**ProductConfiguratorDeleteConfigurator**](docs/ConfiguratorAPI.md#productconfiguratordeleteconfigurator) | **Delete** /v1/{tenantId}/configurator/{configuratorId} | Delete Configurator
-*ConfiguratorAPI* | [**ProductConfiguratorGetConfiguratorByProductId**](docs/ConfiguratorAPI.md#productconfiguratorgetconfiguratorbyproductid) | **Get** /v1/{tenantId}/product/{productId} | Get Product Configurator by Product ID
-*ConfiguratorAPI* | [**ProductConfiguratorGetConfiguratorByProductId2**](docs/ConfiguratorAPI.md#productconfiguratorgetconfiguratorbyproductid2) | **Get** /v1/{tenantId}/product/{productId}/status/{status} | Get Product Configurator by Product ID
+*ConfiguratorAPI* | [**ProductConfiguratorGetConfiguratorByProductId**](docs/ConfiguratorAPI.md#productconfiguratorgetconfiguratorbyproductid) | **Get** /v1/{tenantId}/product/{productId} | Get Configurator by Product ID
+*ConfiguratorAPI* | [**ProductConfiguratorGetConfiguratorByProductId2**](docs/ConfiguratorAPI.md#productconfiguratorgetconfiguratorbyproductid2) | **Get** /v1/{tenantId}/product/{productId}/status/{status} | Get Configurator by Product ID
 *ConfiguratorAPI* | [**ProductConfiguratorListConfigurators**](docs/ConfiguratorAPI.md#productconfiguratorlistconfigurators) | **Post** /v1/{tenantId}/product/{productId}/page-size/{pageSize}/configurators | List Product Configurators
 *ConfiguratorAPI* | [**ProductConfiguratorUpdateConfigurator**](docs/ConfiguratorAPI.md#productconfiguratorupdateconfigurator) | **Put** /v1/{tenantId}/configurator/{configuratorId} | Update Configurator
 *DependencyAPI* | [**ProductConfiguratorCreateDependency**](docs/DependencyAPI.md#productconfiguratorcreatedependency) | **Post** /v1/{tenantId}/step/{stepId}/dependency/create | Create Dependency
@@ -269,6 +269,27 @@ Class | Method | HTTP request | Description
 
 
 Authentication schemes defined for the API:
+### APIAuthorization
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: Authorization and passed in as the auth context for each request.
+
+Example
+
+```golang
+auth := context.WithValue(
+		context.Background(),
+		product_configurator.ContextAPIKeys,
+		map[string]product_configurator.APIKey{
+			"Authorization": {Key: "API_KEY_STRING"},
+		},
+	)
+r, err := client.Service.Operation(auth, args)
+```
+
 ### standardAuthorization
 
 

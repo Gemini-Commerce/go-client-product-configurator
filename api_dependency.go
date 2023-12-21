@@ -24,7 +24,7 @@ import (
 // DependencyAPIService DependencyAPI service
 type DependencyAPIService service
 
-type DependencyAPIProductConfiguratorCreateDependencyRequest struct {
+type ApiProductConfiguratorCreateDependencyRequest struct {
 	ctx context.Context
 	ApiService *DependencyAPIService
 	tenantId string
@@ -32,12 +32,12 @@ type DependencyAPIProductConfiguratorCreateDependencyRequest struct {
 	body *ProductConfiguratorCreateDependencyRequest
 }
 
-func (r DependencyAPIProductConfiguratorCreateDependencyRequest) Body(body ProductConfiguratorCreateDependencyRequest) DependencyAPIProductConfiguratorCreateDependencyRequest {
+func (r ApiProductConfiguratorCreateDependencyRequest) Body(body ProductConfiguratorCreateDependencyRequest) ApiProductConfiguratorCreateDependencyRequest {
 	r.body = &body
 	return r
 }
 
-func (r DependencyAPIProductConfiguratorCreateDependencyRequest) Execute() (*ProductconfiguratordependencyEntity, *http.Response, error) {
+func (r ApiProductConfiguratorCreateDependencyRequest) Execute() (*ProductconfiguratordependencyEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorCreateDependencyExecute(r)
 }
 
@@ -49,10 +49,10 @@ Establish a new dependency for an existing step by specifying the tenant and ste
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param stepId
- @return DependencyAPIProductConfiguratorCreateDependencyRequest
+ @return ApiProductConfiguratorCreateDependencyRequest
 */
-func (a *DependencyAPIService) ProductConfiguratorCreateDependency(ctx context.Context, tenantId string, stepId string) DependencyAPIProductConfiguratorCreateDependencyRequest {
-	return DependencyAPIProductConfiguratorCreateDependencyRequest{
+func (a *DependencyAPIService) ProductConfiguratorCreateDependency(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorCreateDependencyRequest {
+	return ApiProductConfiguratorCreateDependencyRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -62,7 +62,7 @@ func (a *DependencyAPIService) ProductConfiguratorCreateDependency(ctx context.C
 
 // Execute executes the request
 //  @return ProductconfiguratordependencyEntity
-func (a *DependencyAPIService) ProductConfiguratorCreateDependencyExecute(r DependencyAPIProductConfiguratorCreateDependencyRequest) (*ProductconfiguratordependencyEntity, *http.Response, error) {
+func (a *DependencyAPIService) ProductConfiguratorCreateDependencyExecute(r ApiProductConfiguratorCreateDependencyRequest) (*ProductconfiguratordependencyEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -105,6 +105,20 @@ func (a *DependencyAPIService) ProductConfiguratorCreateDependencyExecute(r Depe
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -183,14 +197,14 @@ func (a *DependencyAPIService) ProductConfiguratorCreateDependencyExecute(r Depe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DependencyAPIProductConfiguratorDeleteDependencyRequest struct {
+type ApiProductConfiguratorDeleteDependencyRequest struct {
 	ctx context.Context
 	ApiService *DependencyAPIService
 	tenantId string
 	dependencyId string
 }
 
-func (r DependencyAPIProductConfiguratorDeleteDependencyRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r ApiProductConfiguratorDeleteDependencyRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorDeleteDependencyExecute(r)
 }
 
@@ -202,10 +216,10 @@ Remove a specific dependency by specifying the tenant and dependency IDs. Ensure
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param dependencyId
- @return DependencyAPIProductConfiguratorDeleteDependencyRequest
+ @return ApiProductConfiguratorDeleteDependencyRequest
 */
-func (a *DependencyAPIService) ProductConfiguratorDeleteDependency(ctx context.Context, tenantId string, dependencyId string) DependencyAPIProductConfiguratorDeleteDependencyRequest {
-	return DependencyAPIProductConfiguratorDeleteDependencyRequest{
+func (a *DependencyAPIService) ProductConfiguratorDeleteDependency(ctx context.Context, tenantId string, dependencyId string) ApiProductConfiguratorDeleteDependencyRequest {
+	return ApiProductConfiguratorDeleteDependencyRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -215,7 +229,7 @@ func (a *DependencyAPIService) ProductConfiguratorDeleteDependency(ctx context.C
 
 // Execute executes the request
 //  @return map[string]interface{}
-func (a *DependencyAPIService) ProductConfiguratorDeleteDependencyExecute(r DependencyAPIProductConfiguratorDeleteDependencyRequest) (map[string]interface{}, *http.Response, error) {
+func (a *DependencyAPIService) ProductConfiguratorDeleteDependencyExecute(r ApiProductConfiguratorDeleteDependencyRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -253,6 +267,20 @@ func (a *DependencyAPIService) ProductConfiguratorDeleteDependencyExecute(r Depe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -331,7 +359,7 @@ func (a *DependencyAPIService) ProductConfiguratorDeleteDependencyExecute(r Depe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DependencyAPIProductConfiguratorListDependenciesRequest struct {
+type ApiProductConfiguratorListDependenciesRequest struct {
 	ctx context.Context
 	ApiService *DependencyAPIService
 	tenantId string
@@ -339,12 +367,12 @@ type DependencyAPIProductConfiguratorListDependenciesRequest struct {
 	body *ProductConfiguratorListDependenciesRequest
 }
 
-func (r DependencyAPIProductConfiguratorListDependenciesRequest) Body(body ProductConfiguratorListDependenciesRequest) DependencyAPIProductConfiguratorListDependenciesRequest {
+func (r ApiProductConfiguratorListDependenciesRequest) Body(body ProductConfiguratorListDependenciesRequest) ApiProductConfiguratorListDependenciesRequest {
 	r.body = &body
 	return r
 }
 
-func (r DependencyAPIProductConfiguratorListDependenciesRequest) Execute() (*DependencyListDependenciesResponse, *http.Response, error) {
+func (r ApiProductConfiguratorListDependenciesRequest) Execute() (*DependencyListDependenciesResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorListDependenciesExecute(r)
 }
 
@@ -356,10 +384,10 @@ Retrieve a list of dependencies based on the specified tenant ID. Customize resu
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param pageSize
- @return DependencyAPIProductConfiguratorListDependenciesRequest
+ @return ApiProductConfiguratorListDependenciesRequest
 */
-func (a *DependencyAPIService) ProductConfiguratorListDependencies(ctx context.Context, tenantId string, pageSize int64) DependencyAPIProductConfiguratorListDependenciesRequest {
-	return DependencyAPIProductConfiguratorListDependenciesRequest{
+func (a *DependencyAPIService) ProductConfiguratorListDependencies(ctx context.Context, tenantId string, pageSize int64) ApiProductConfiguratorListDependenciesRequest {
+	return ApiProductConfiguratorListDependenciesRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -369,7 +397,7 @@ func (a *DependencyAPIService) ProductConfiguratorListDependencies(ctx context.C
 
 // Execute executes the request
 //  @return DependencyListDependenciesResponse
-func (a *DependencyAPIService) ProductConfiguratorListDependenciesExecute(r DependencyAPIProductConfiguratorListDependenciesRequest) (*DependencyListDependenciesResponse, *http.Response, error) {
+func (a *DependencyAPIService) ProductConfiguratorListDependenciesExecute(r ApiProductConfiguratorListDependenciesRequest) (*DependencyListDependenciesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -412,6 +440,20 @@ func (a *DependencyAPIService) ProductConfiguratorListDependenciesExecute(r Depe
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -490,7 +532,7 @@ func (a *DependencyAPIService) ProductConfiguratorListDependenciesExecute(r Depe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type DependencyAPIProductConfiguratorUpdateDependencyRequest struct {
+type ApiProductConfiguratorUpdateDependencyRequest struct {
 	ctx context.Context
 	ApiService *DependencyAPIService
 	tenantId string
@@ -498,12 +540,12 @@ type DependencyAPIProductConfiguratorUpdateDependencyRequest struct {
 	body *ProductConfiguratorUpdateDependencyRequest
 }
 
-func (r DependencyAPIProductConfiguratorUpdateDependencyRequest) Body(body ProductConfiguratorUpdateDependencyRequest) DependencyAPIProductConfiguratorUpdateDependencyRequest {
+func (r ApiProductConfiguratorUpdateDependencyRequest) Body(body ProductConfiguratorUpdateDependencyRequest) ApiProductConfiguratorUpdateDependencyRequest {
 	r.body = &body
 	return r
 }
 
-func (r DependencyAPIProductConfiguratorUpdateDependencyRequest) Execute() (*ProductconfiguratordependencyEntity, *http.Response, error) {
+func (r ApiProductConfiguratorUpdateDependencyRequest) Execute() (*ProductconfiguratordependencyEntity, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorUpdateDependencyExecute(r)
 }
 
@@ -515,10 +557,10 @@ Modify an existing dependency by specifying the tenant and dependency IDs. Utili
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param dependencyId
- @return DependencyAPIProductConfiguratorUpdateDependencyRequest
+ @return ApiProductConfiguratorUpdateDependencyRequest
 */
-func (a *DependencyAPIService) ProductConfiguratorUpdateDependency(ctx context.Context, tenantId string, dependencyId string) DependencyAPIProductConfiguratorUpdateDependencyRequest {
-	return DependencyAPIProductConfiguratorUpdateDependencyRequest{
+func (a *DependencyAPIService) ProductConfiguratorUpdateDependency(ctx context.Context, tenantId string, dependencyId string) ApiProductConfiguratorUpdateDependencyRequest {
+	return ApiProductConfiguratorUpdateDependencyRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -528,7 +570,7 @@ func (a *DependencyAPIService) ProductConfiguratorUpdateDependency(ctx context.C
 
 // Execute executes the request
 //  @return ProductconfiguratordependencyEntity
-func (a *DependencyAPIService) ProductConfiguratorUpdateDependencyExecute(r DependencyAPIProductConfiguratorUpdateDependencyRequest) (*ProductconfiguratordependencyEntity, *http.Response, error) {
+func (a *DependencyAPIService) ProductConfiguratorUpdateDependencyExecute(r ApiProductConfiguratorUpdateDependencyRequest) (*ProductconfiguratordependencyEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -571,6 +613,20 @@ func (a *DependencyAPIService) ProductConfiguratorUpdateDependencyExecute(r Depe
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

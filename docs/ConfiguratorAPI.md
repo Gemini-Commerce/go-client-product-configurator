@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**ProductConfiguratorCopyConfigurator**](ConfiguratorAPI.md#ProductConfiguratorCopyConfigurator) | **Post** /v1/{tenantId}/product/{sourceConfiguratorId}/copy | Copy Configurator
 [**ProductConfiguratorCreateConfigurator**](ConfiguratorAPI.md#ProductConfiguratorCreateConfigurator) | **Post** /v1/{tenantId}/product/{productId}/create | Create Configurator
 [**ProductConfiguratorDeleteConfigurator**](ConfiguratorAPI.md#ProductConfiguratorDeleteConfigurator) | **Delete** /v1/{tenantId}/configurator/{configuratorId} | Delete Configurator
-[**ProductConfiguratorGetConfiguratorByProductId**](ConfiguratorAPI.md#ProductConfiguratorGetConfiguratorByProductId) | **Get** /v1/{tenantId}/product/{productId} | Get Product Configurator by Product ID
-[**ProductConfiguratorGetConfiguratorByProductId2**](ConfiguratorAPI.md#ProductConfiguratorGetConfiguratorByProductId2) | **Get** /v1/{tenantId}/product/{productId}/status/{status} | Get Product Configurator by Product ID
+[**ProductConfiguratorGetConfiguratorByProductId**](ConfiguratorAPI.md#ProductConfiguratorGetConfiguratorByProductId) | **Get** /v1/{tenantId}/product/{productId} | Get Configurator by Product ID
+[**ProductConfiguratorGetConfiguratorByProductId2**](ConfiguratorAPI.md#ProductConfiguratorGetConfiguratorByProductId2) | **Get** /v1/{tenantId}/product/{productId}/status/{status} | Get Configurator by Product ID
 [**ProductConfiguratorListConfigurators**](ConfiguratorAPI.md#ProductConfiguratorListConfigurators) | **Post** /v1/{tenantId}/product/{productId}/page-size/{pageSize}/configurators | List Product Configurators
 [**ProductConfiguratorUpdateConfigurator**](ConfiguratorAPI.md#ProductConfiguratorUpdateConfigurator) | **Put** /v1/{tenantId}/configurator/{configuratorId} | Update Configurator
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## ProductConfiguratorCreateConfigurator
 
-> ProductconfiguratorconfiguratorCreateRequest ProductConfiguratorCreateConfigurator(ctx, tenantId, productId).Body(body).Execute()
+> ProductconfiguratorconfiguratorEntity ProductConfiguratorCreateConfigurator(ctx, tenantId, productId).Body(body).Execute()
 
 Create Configurator
 
@@ -121,7 +121,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorCreateConfigurator``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ProductConfiguratorCreateConfigurator`: ProductconfiguratorconfiguratorCreateRequest
+    // response from `ProductConfiguratorCreateConfigurator`: ProductconfiguratorconfiguratorEntity
     fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorCreateConfigurator`: %v\n", resp)
 }
 ```
@@ -148,11 +148,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProductconfiguratorconfiguratorCreateRequest**](ProductconfiguratorconfiguratorCreateRequest.md)
+[**ProductconfiguratorconfiguratorEntity**](ProductconfiguratorconfiguratorEntity.md)
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 > ProductconfiguratorconfiguratorEntity ProductConfiguratorGetConfiguratorByProductId(ctx, tenantId, productId).Status(status).Execute()
 
-Get Product Configurator by Product ID
+Get Configurator by Product ID
 
 
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 
 > ProductconfiguratorconfiguratorEntity ProductConfiguratorGetConfiguratorByProductId2(ctx, tenantId, productId, status).Execute()
 
-Get Product Configurator by Product ID
+Get Configurator by Product ID
 
 
 
@@ -376,7 +376,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 

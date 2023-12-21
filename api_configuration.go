@@ -24,7 +24,7 @@ import (
 // ConfigurationAPIService ConfigurationAPI service
 type ConfigurationAPIService service
 
-type ConfigurationAPIProductConfiguratorGetAvailableConfigurationRequest struct {
+type ApiProductConfiguratorGetAvailableConfigurationRequest struct {
 	ctx context.Context
 	ApiService *ConfigurationAPIService
 	tenantId string
@@ -33,12 +33,12 @@ type ConfigurationAPIProductConfiguratorGetAvailableConfigurationRequest struct 
 }
 
 // If not set, the service returns the active configurator
-func (r ConfigurationAPIProductConfiguratorGetAvailableConfigurationRequest) ConfiguratorId(configuratorId string) ConfigurationAPIProductConfiguratorGetAvailableConfigurationRequest {
+func (r ApiProductConfiguratorGetAvailableConfigurationRequest) ConfiguratorId(configuratorId string) ApiProductConfiguratorGetAvailableConfigurationRequest {
 	r.configuratorId = &configuratorId
 	return r
 }
 
-func (r ConfigurationAPIProductConfiguratorGetAvailableConfigurationRequest) Execute() (*ConfigurationGetAvailableConfigurationResponse, *http.Response, error) {
+func (r ApiProductConfiguratorGetAvailableConfigurationRequest) Execute() (*ConfigurationGetAvailableConfigurationResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorGetAvailableConfigurationExecute(r)
 }
 
@@ -50,10 +50,10 @@ Retrieve available configurations for a specific product and tenant. Use a GET r
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param productId
- @return ConfigurationAPIProductConfiguratorGetAvailableConfigurationRequest
+ @return ApiProductConfiguratorGetAvailableConfigurationRequest
 */
-func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration(ctx context.Context, tenantId string, productId string) ConfigurationAPIProductConfiguratorGetAvailableConfigurationRequest {
-	return ConfigurationAPIProductConfiguratorGetAvailableConfigurationRequest{
+func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration(ctx context.Context, tenantId string, productId string) ApiProductConfiguratorGetAvailableConfigurationRequest {
+	return ApiProductConfiguratorGetAvailableConfigurationRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -63,7 +63,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration(c
 
 // Execute executes the request
 //  @return ConfigurationGetAvailableConfigurationResponse
-func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfigurationExecute(r ConfigurationAPIProductConfiguratorGetAvailableConfigurationRequest) (*ConfigurationGetAvailableConfigurationResponse, *http.Response, error) {
+func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfigurationExecute(r ApiProductConfiguratorGetAvailableConfigurationRequest) (*ConfigurationGetAvailableConfigurationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -103,6 +103,20 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfigurationEx
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -182,7 +196,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfigurationEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ConfigurationAPIProductConfiguratorGetAvailableConfiguration2Request struct {
+type ApiProductConfiguratorGetAvailableConfiguration2Request struct {
 	ctx context.Context
 	ApiService *ConfigurationAPIService
 	tenantId string
@@ -190,12 +204,12 @@ type ConfigurationAPIProductConfiguratorGetAvailableConfiguration2Request struct
 	body *ProductConfiguratorGetAvailableConfiguration2Request
 }
 
-func (r ConfigurationAPIProductConfiguratorGetAvailableConfiguration2Request) Body(body ProductConfiguratorGetAvailableConfiguration2Request) ConfigurationAPIProductConfiguratorGetAvailableConfiguration2Request {
+func (r ApiProductConfiguratorGetAvailableConfiguration2Request) Body(body ProductConfiguratorGetAvailableConfiguration2Request) ApiProductConfiguratorGetAvailableConfiguration2Request {
 	r.body = &body
 	return r
 }
 
-func (r ConfigurationAPIProductConfiguratorGetAvailableConfiguration2Request) Execute() (*ConfigurationGetAvailableConfigurationResponse, *http.Response, error) {
+func (r ApiProductConfiguratorGetAvailableConfiguration2Request) Execute() (*ConfigurationGetAvailableConfigurationResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorGetAvailableConfiguration2Execute(r)
 }
 
@@ -207,10 +221,10 @@ Retrieve available configurations for a specific product and tenant. Use a GET r
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param productId
- @return ConfigurationAPIProductConfiguratorGetAvailableConfiguration2Request
+ @return ApiProductConfiguratorGetAvailableConfiguration2Request
 */
-func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2(ctx context.Context, tenantId string, productId string) ConfigurationAPIProductConfiguratorGetAvailableConfiguration2Request {
-	return ConfigurationAPIProductConfiguratorGetAvailableConfiguration2Request{
+func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2(ctx context.Context, tenantId string, productId string) ApiProductConfiguratorGetAvailableConfiguration2Request {
+	return ApiProductConfiguratorGetAvailableConfiguration2Request{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -220,7 +234,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2(
 
 // Execute executes the request
 //  @return ConfigurationGetAvailableConfigurationResponse
-func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2Execute(r ConfigurationAPIProductConfiguratorGetAvailableConfiguration2Request) (*ConfigurationGetAvailableConfigurationResponse, *http.Response, error) {
+func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2Execute(r ApiProductConfiguratorGetAvailableConfiguration2Request) (*ConfigurationGetAvailableConfigurationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -263,6 +277,20 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2E
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -341,7 +369,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2E
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ConfigurationAPIProductConfiguratorGetConfigurationFromSelectionsRequest struct {
+type ApiProductConfiguratorGetConfigurationFromSelectionsRequest struct {
 	ctx context.Context
 	ApiService *ConfigurationAPIService
 	tenantId string
@@ -349,12 +377,12 @@ type ConfigurationAPIProductConfiguratorGetConfigurationFromSelectionsRequest st
 	body *ProductConfiguratorGetConfigurationFromSelectionsRequest
 }
 
-func (r ConfigurationAPIProductConfiguratorGetConfigurationFromSelectionsRequest) Body(body ProductConfiguratorGetConfigurationFromSelectionsRequest) ConfigurationAPIProductConfiguratorGetConfigurationFromSelectionsRequest {
+func (r ApiProductConfiguratorGetConfigurationFromSelectionsRequest) Body(body ProductConfiguratorGetConfigurationFromSelectionsRequest) ApiProductConfiguratorGetConfigurationFromSelectionsRequest {
 	r.body = &body
 	return r
 }
 
-func (r ConfigurationAPIProductConfiguratorGetConfigurationFromSelectionsRequest) Execute() (*ConfigurationGetConfigurationFromSelectionsResponse, *http.Response, error) {
+func (r ApiProductConfiguratorGetConfigurationFromSelectionsRequest) Execute() (*ConfigurationGetConfigurationFromSelectionsResponse, *http.Response, error) {
 	return r.ApiService.ProductConfiguratorGetConfigurationFromSelectionsExecute(r)
 }
 
@@ -366,10 +394,10 @@ Retrieve a configuration based on user selections for a specific product and ten
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param tenantId
  @param productId
- @return ConfigurationAPIProductConfiguratorGetConfigurationFromSelectionsRequest
+ @return ApiProductConfiguratorGetConfigurationFromSelectionsRequest
 */
-func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelections(ctx context.Context, tenantId string, productId string) ConfigurationAPIProductConfiguratorGetConfigurationFromSelectionsRequest {
-	return ConfigurationAPIProductConfiguratorGetConfigurationFromSelectionsRequest{
+func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelections(ctx context.Context, tenantId string, productId string) ApiProductConfiguratorGetConfigurationFromSelectionsRequest {
+	return ApiProductConfiguratorGetConfigurationFromSelectionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		tenantId: tenantId,
@@ -379,7 +407,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelecti
 
 // Execute executes the request
 //  @return ConfigurationGetConfigurationFromSelectionsResponse
-func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelectionsExecute(r ConfigurationAPIProductConfiguratorGetConfigurationFromSelectionsRequest) (*ConfigurationGetConfigurationFromSelectionsResponse, *http.Response, error) {
+func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelectionsExecute(r ApiProductConfiguratorGetConfigurationFromSelectionsRequest) (*ConfigurationGetConfigurationFromSelectionsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -422,6 +450,20 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelecti
 	}
 	// body params
 	localVarPostBody = r.body
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["APIAuthorization"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

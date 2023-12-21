@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[standardAuthorization](../README.md#standardAuthorization)
+[standardAuthorization](../README.md#standardAuthorization), [APIAuthorization](../README.md#APIAuthorization)
 
 ### HTTP request headers
 

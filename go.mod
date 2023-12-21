@@ -1,4 +1,4 @@
-module github.com/gemini-commerce/go-client-product_configurator
+module github.com/gemini-commerce/go-client-product-configurator
 
 go 1.18
 

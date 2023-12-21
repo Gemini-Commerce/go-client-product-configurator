@@ -21,9 +21,9 @@ type ProductconfiguratorWeightUnit string
 
 // List of productconfiguratorWeightUnit
 const (
-	UNKNOWN ProductconfiguratorWeightUnit = "WEIGHT_UNIT_UNKNOWN"
-	KILOGRAM ProductconfiguratorWeightUnit = "WEIGHT_UNIT_KILOGRAM"
-	POUND ProductconfiguratorWeightUnit = "WEIGHT_UNIT_POUND"
+	PRODUCTCONFIGURATORWEIGHTUNIT_UNKNOWN ProductconfiguratorWeightUnit = "WEIGHT_UNIT_UNKNOWN"
+	PRODUCTCONFIGURATORWEIGHTUNIT_KILOGRAM ProductconfiguratorWeightUnit = "WEIGHT_UNIT_KILOGRAM"
+	PRODUCTCONFIGURATORWEIGHTUNIT_POUND ProductconfiguratorWeightUnit = "WEIGHT_UNIT_POUND"
 )
 
 // All allowed values of ProductconfiguratorWeightUnit enum

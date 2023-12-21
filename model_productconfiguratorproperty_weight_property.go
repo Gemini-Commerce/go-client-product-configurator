@@ -30,7 +30,7 @@ type ProductconfiguratorpropertyWeightProperty struct {
 // will change when the set of required properties is changed
 func NewProductconfiguratorpropertyWeightProperty() *ProductconfiguratorpropertyWeightProperty {
 	this := ProductconfiguratorpropertyWeightProperty{}
-	var weightUnit ProductconfiguratorWeightUnit = UNKNOWN
+	var weightUnit ProductconfiguratorWeightUnit = PRODUCTCONFIGURATORWEIGHTUNIT_UNKNOWN
 	this.WeightUnit = &weightUnit
 	return &this
 }
@@ -40,7 +40,7 @@ func NewProductconfiguratorpropertyWeightProperty() *Productconfiguratorproperty
 // but it doesn't guarantee that properties required by API are set
 func NewProductconfiguratorpropertyWeightPropertyWithDefaults() *ProductconfiguratorpropertyWeightProperty {
 	this := ProductconfiguratorpropertyWeightProperty{}
-	var weightUnit ProductconfiguratorWeightUnit = UNKNOWN
+	var weightUnit ProductconfiguratorWeightUnit = PRODUCTCONFIGURATORWEIGHTUNIT_UNKNOWN
 	this.WeightUnit = &weightUnit
 	return &this
 }

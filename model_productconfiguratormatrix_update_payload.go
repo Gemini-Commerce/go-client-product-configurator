@@ -34,7 +34,7 @@ type ProductconfiguratormatrixUpdatePayload struct {
 // will change when the set of required properties is changed
 func NewProductconfiguratormatrixUpdatePayload() *ProductconfiguratormatrixUpdatePayload {
 	this := ProductconfiguratormatrixUpdatePayload{}
-	var propertiesMode ProductconfiguratorPropertyMode = UNKNOWN
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
 	this.PropertiesMode = &propertiesMode
 	return &this
 }
@@ -44,7 +44,7 @@ func NewProductconfiguratormatrixUpdatePayload() *ProductconfiguratormatrixUpdat
 // but it doesn't guarantee that properties required by API are set
 func NewProductconfiguratormatrixUpdatePayloadWithDefaults() *ProductconfiguratormatrixUpdatePayload {
 	this := ProductconfiguratormatrixUpdatePayload{}
-	var propertiesMode ProductconfiguratorPropertyMode = UNKNOWN
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
 	this.PropertiesMode = &propertiesMode
 	return &this
 }

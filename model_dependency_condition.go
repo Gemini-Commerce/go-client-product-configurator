@@ -31,7 +31,7 @@ type DependencyCondition struct {
 // will change when the set of required properties is changed
 func NewDependencyCondition() *DependencyCondition {
 	this := DependencyCondition{}
-	var type_ ProductconfiguratordependencyType = UNKNOWN
+	var type_ ProductconfiguratordependencyType = PRODUCTCONFIGURATORDEPENDENCYTYPE_UNKNOWN
 	this.Type = &type_
 	return &this
 }
@@ -41,7 +41,7 @@ func NewDependencyCondition() *DependencyCondition {
 // but it doesn't guarantee that properties required by API are set
 func NewDependencyConditionWithDefaults() *DependencyCondition {
 	this := DependencyCondition{}
-	var type_ ProductconfiguratordependencyType = UNKNOWN
+	var type_ ProductconfiguratordependencyType = PRODUCTCONFIGURATORDEPENDENCYTYPE_UNKNOWN
 	this.Type = &type_
 	return &this
 }

@@ -21,10 +21,10 @@ type ProductconfiguratorPropertyType string
 
 // List of productconfiguratorPropertyType
 const (
-	UNKNOWN ProductconfiguratorPropertyType = "PROPERTY_TYPE_UNKNOWN"
-	GENERIC ProductconfiguratorPropertyType = "PROPERTY_TYPE_GENERIC"
-	PRICE ProductconfiguratorPropertyType = "PROPERTY_TYPE_PRICE"
-	WEIGHT ProductconfiguratorPropertyType = "PROPERTY_TYPE_WEIGHT"
+	PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN ProductconfiguratorPropertyType = "PROPERTY_TYPE_UNKNOWN"
+	PRODUCTCONFIGURATORPROPERTYTYPE_GENERIC ProductconfiguratorPropertyType = "PROPERTY_TYPE_GENERIC"
+	PRODUCTCONFIGURATORPROPERTYTYPE_PRICE ProductconfiguratorPropertyType = "PROPERTY_TYPE_PRICE"
+	PRODUCTCONFIGURATORPROPERTYTYPE_WEIGHT ProductconfiguratorPropertyType = "PROPERTY_TYPE_WEIGHT"
 )
 
 // All allowed values of ProductconfiguratorPropertyType enum

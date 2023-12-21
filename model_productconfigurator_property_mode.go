@@ -21,9 +21,9 @@ type ProductconfiguratorPropertyMode string
 
 // List of productconfiguratorPropertyMode
 const (
-	UNKNOWN ProductconfiguratorPropertyMode = "PROPERTY_MODE_UNKNOWN"
-	FINAL ProductconfiguratorPropertyMode = "PROPERTY_MODE_FINAL"
-	INCREMENTAL ProductconfiguratorPropertyMode = "PROPERTY_MODE_INCREMENTAL"
+	PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN ProductconfiguratorPropertyMode = "PROPERTY_MODE_UNKNOWN"
+	PRODUCTCONFIGURATORPROPERTYMODE_FINAL ProductconfiguratorPropertyMode = "PROPERTY_MODE_FINAL"
+	PRODUCTCONFIGURATORPROPERTYMODE_INCREMENTAL ProductconfiguratorPropertyMode = "PROPERTY_MODE_INCREMENTAL"
 )
 
 // All allowed values of ProductconfiguratorPropertyMode enum

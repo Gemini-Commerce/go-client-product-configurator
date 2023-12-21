@@ -29,7 +29,7 @@ type MatrixWeightType struct {
 // will change when the set of required properties is changed
 func NewMatrixWeightType() *MatrixWeightType {
 	this := MatrixWeightType{}
-	var weightUnit ProductconfiguratorWeightUnit = UNKNOWN
+	var weightUnit ProductconfiguratorWeightUnit = PRODUCTCONFIGURATORWEIGHTUNIT_UNKNOWN
 	this.WeightUnit = &weightUnit
 	return &this
 }
@@ -39,7 +39,7 @@ func NewMatrixWeightType() *MatrixWeightType {
 // but it doesn't guarantee that properties required by API are set
 func NewMatrixWeightTypeWithDefaults() *MatrixWeightType {
 	this := MatrixWeightType{}
-	var weightUnit ProductconfiguratorWeightUnit = UNKNOWN
+	var weightUnit ProductconfiguratorWeightUnit = PRODUCTCONFIGURATORWEIGHTUNIT_UNKNOWN
 	this.WeightUnit = &weightUnit
 	return &this
 }

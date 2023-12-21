@@ -21,10 +21,10 @@ type ProductconfiguratorconfiguratorStatus string
 
 // List of productconfiguratorconfiguratorStatus
 const (
-	UNKNOWN ProductconfiguratorconfiguratorStatus = "UNKNOWN"
-	ACTIVE ProductconfiguratorconfiguratorStatus = "ACTIVE"
-	DRAFT ProductconfiguratorconfiguratorStatus = "DRAFT"
-	DISABLED ProductconfiguratorconfiguratorStatus = "DISABLED"
+	PRODUCTCONFIGURATORCONFIGURATORSTATUS_UNKNOWN ProductconfiguratorconfiguratorStatus = "UNKNOWN"
+	PRODUCTCONFIGURATORCONFIGURATORSTATUS_ACTIVE ProductconfiguratorconfiguratorStatus = "ACTIVE"
+	PRODUCTCONFIGURATORCONFIGURATORSTATUS_DRAFT ProductconfiguratorconfiguratorStatus = "DRAFT"
+	PRODUCTCONFIGURATORCONFIGURATORSTATUS_DISABLED ProductconfiguratorconfiguratorStatus = "DISABLED"
 )
 
 // All allowed values of ProductconfiguratorconfiguratorStatus enum

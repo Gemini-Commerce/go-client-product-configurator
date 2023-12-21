@@ -21,9 +21,9 @@ type ProductconfiguratordependencyType string
 
 // List of productconfiguratordependencyType
 const (
-	UNKNOWN ProductconfiguratordependencyType = "UNKNOWN"
-	ALL ProductconfiguratordependencyType = "ALL"
-	ANY ProductconfiguratordependencyType = "ANY"
+	PRODUCTCONFIGURATORDEPENDENCYTYPE_UNKNOWN ProductconfiguratordependencyType = "UNKNOWN"
+	PRODUCTCONFIGURATORDEPENDENCYTYPE_ALL ProductconfiguratordependencyType = "ALL"
+	PRODUCTCONFIGURATORDEPENDENCYTYPE_ANY ProductconfiguratordependencyType = "ANY"
 )
 
 // All allowed values of ProductconfiguratordependencyType enum

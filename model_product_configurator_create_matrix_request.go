@@ -35,7 +35,7 @@ type ProductConfiguratorCreateMatrixRequest struct {
 // will change when the set of required properties is changed
 func NewProductConfiguratorCreateMatrixRequest() *ProductConfiguratorCreateMatrixRequest {
 	this := ProductConfiguratorCreateMatrixRequest{}
-	var propertiesMode ProductconfiguratorPropertyMode = UNKNOWN
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
 	this.PropertiesMode = &propertiesMode
 	return &this
 }
@@ -45,7 +45,7 @@ func NewProductConfiguratorCreateMatrixRequest() *ProductConfiguratorCreateMatri
 // but it doesn't guarantee that properties required by API are set
 func NewProductConfiguratorCreateMatrixRequestWithDefaults() *ProductConfiguratorCreateMatrixRequest {
 	this := ProductConfiguratorCreateMatrixRequest{}
-	var propertiesMode ProductconfiguratorPropertyMode = UNKNOWN
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
 	this.PropertiesMode = &propertiesMode
 	return &this
 }

@@ -33,7 +33,7 @@ type ConfigurationOptionProperty struct {
 // will change when the set of required properties is changed
 func NewConfigurationOptionProperty() *ConfigurationOptionProperty {
 	this := ConfigurationOptionProperty{}
-	var propertyType ProductconfiguratorPropertyType = UNKNOWN
+	var propertyType ProductconfiguratorPropertyType = PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN
 	this.PropertyType = &propertyType
 	return &this
 }
@@ -43,7 +43,7 @@ func NewConfigurationOptionProperty() *ConfigurationOptionProperty {
 // but it doesn't guarantee that properties required by API are set
 func NewConfigurationOptionPropertyWithDefaults() *ConfigurationOptionProperty {
 	this := ConfigurationOptionProperty{}
-	var propertyType ProductconfiguratorPropertyType = UNKNOWN
+	var propertyType ProductconfiguratorPropertyType = PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN
 	this.PropertyType = &propertyType
 	return &this
 }

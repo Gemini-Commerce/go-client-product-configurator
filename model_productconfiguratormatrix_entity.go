@@ -41,7 +41,7 @@ type ProductconfiguratormatrixEntity struct {
 // will change when the set of required properties is changed
 func NewProductconfiguratormatrixEntity() *ProductconfiguratormatrixEntity {
 	this := ProductconfiguratormatrixEntity{}
-	var propertiesMode ProductconfiguratorPropertyMode = UNKNOWN
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
 	this.PropertiesMode = &propertiesMode
 	return &this
 }
@@ -51,7 +51,7 @@ func NewProductconfiguratormatrixEntity() *ProductconfiguratormatrixEntity {
 // but it doesn't guarantee that properties required by API are set
 func NewProductconfiguratormatrixEntityWithDefaults() *ProductconfiguratormatrixEntity {
 	this := ProductconfiguratormatrixEntity{}
-	var propertiesMode ProductconfiguratorPropertyMode = UNKNOWN
+	var propertiesMode ProductconfiguratorPropertyMode = PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN
 	this.PropertiesMode = &propertiesMode
 	return &this
 }

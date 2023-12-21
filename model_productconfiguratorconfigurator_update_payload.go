@@ -30,7 +30,7 @@ type ProductconfiguratorconfiguratorUpdatePayload struct {
 // will change when the set of required properties is changed
 func NewProductconfiguratorconfiguratorUpdatePayload() *ProductconfiguratorconfiguratorUpdatePayload {
 	this := ProductconfiguratorconfiguratorUpdatePayload{}
-	var status ProductconfiguratorconfiguratorStatus = UNKNOWN
+	var status ProductconfiguratorconfiguratorStatus = PRODUCTCONFIGURATORCONFIGURATORSTATUS_UNKNOWN
 	this.Status = &status
 	return &this
 }
@@ -40,7 +40,7 @@ func NewProductconfiguratorconfiguratorUpdatePayload() *Productconfiguratorconfi
 // but it doesn't guarantee that properties required by API are set
 func NewProductconfiguratorconfiguratorUpdatePayloadWithDefaults() *ProductconfiguratorconfiguratorUpdatePayload {
 	this := ProductconfiguratorconfiguratorUpdatePayload{}
-	var status ProductconfiguratorconfiguratorStatus = UNKNOWN
+	var status ProductconfiguratorconfiguratorStatus = PRODUCTCONFIGURATORCONFIGURATORSTATUS_UNKNOWN
 	this.Status = &status
 	return &this
 }

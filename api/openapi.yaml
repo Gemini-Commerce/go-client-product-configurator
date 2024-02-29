@@ -250,6 +250,48 @@ paths:
       tags:
       - matrix
       x-codegen-request-body-name: body
+  /v1/{tenantId}/configurator/{configuratorId}/page-size/{pageSize}/properties:
+    post:
+      operationId: ProductConfigurator_ListPropertiesByConfiguration
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: configuratorId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: pageSize
+        required: true
+        schema:
+          format: uint64
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductConfigurator_ListPropertiesByConfiguration_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertyListPropertiesByConfigurationResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
+      x-codegen-request-body-name: body
   /v1/{tenantId}/configurator/{configuratorId}/step/create:
     post:
       description: Add a new step to an existing product configurator by specifying
@@ -1863,6 +1905,34 @@ paths:
       - property
       x-codegen-request-body-name: body
   /v1/{tenantId}/property/{propertyId}:
+    get:
+      operationId: ProductConfigurator_GetProperty
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: propertyId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productconfiguratorpropertyEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/googlerpcStatus'
+          description: An unexpected error response.
+      tags:
+      - ProductConfigurator
     put:
       description: Modify an existing property by specifying the tenant and property
         IDs. Utilize a PUT request with updated property details in the body for seamless
@@ -2841,7 +2911,7 @@ components:
           type: array
         selections:
           items:
-            $ref: '#/components/schemas/configurationSelection'
+            $ref: '#/components/schemas/productconfiguratorconfigurationSelection'
           type: array
       type: object
     configurationGetConfigurationFromSelectionsResponse:
@@ -3046,20 +3116,6 @@ components:
     configurationPropertyFilterPriceProperty:
       type: object
     configurationPropertyFilterWeightProperty:
-      type: object
-    configurationSelection:
-      example:
-        stepId: stepId
-        optionIds:
-        - optionIds
-        - optionIds
-      properties:
-        stepId:
-          type: string
-        optionIds:
-          items:
-            type: string
-          type: array
       type: object
     configuratorListResponse:
       example:
@@ -3561,6 +3617,20 @@ components:
           type: array
         hasQuantity:
           type: boolean
+      type: object
+    productconfiguratorconfigurationSelection:
+      example:
+        stepId: stepId
+        optionIds:
+        - optionIds
+        - optionIds
+      properties:
+        stepId:
+          type: string
+        optionIds:
+          items:
+            type: string
+          type: array
       type: object
     productconfiguratorconfigurationStep:
       example:
@@ -4393,6 +4463,43 @@ components:
         optionsHaveQuantity:
           type: boolean
       type: object
+    propertyListPropertiesByConfigurationRequestSelection:
+      properties:
+        stepId:
+          type: string
+        optionId:
+          type: string
+      type: object
+    propertyListPropertiesByConfigurationResponse:
+      example:
+        nextPageToken: nextPageToken
+        properties:
+        - propertyKey: propertyKey
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          propertyType: null
+          propertyValue: propertyValue
+          id: id
+          stepIdToOptionId:
+            key: stepIdToOptionId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - propertyKey: propertyKey
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          propertyType: null
+          propertyValue: propertyValue
+          id: id
+          stepIdToOptionId:
+            key: stepIdToOptionId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        properties:
+          items:
+            $ref: '#/components/schemas/productconfiguratorpropertyEntity'
+          type: array
+        nextPageToken:
+          type: string
+      type: object
     propertyListPropertiesResponse:
       example:
         nextPageToken: nextPageToken
@@ -4463,6 +4570,17 @@ components:
           type: string
         filter:
           $ref: '#/components/schemas/ListMatricesRequestFilter'
+        pageToken:
+          type: string
+      type: object
+    ProductConfigurator_ListPropertiesByConfiguration_request:
+      properties:
+        selections:
+          items:
+            $ref: '#/components/schemas/propertyListPropertiesByConfigurationRequestSelection'
+          type: array
+        propertyType:
+          $ref: '#/components/schemas/productconfiguratorPropertyType'
         pageToken:
           type: string
       type: object
@@ -4565,7 +4683,7 @@ components:
       properties:
         selections:
           items:
-            $ref: '#/components/schemas/configurationSelection'
+            $ref: '#/components/schemas/productconfiguratorconfigurationSelection'
           type: array
         propertyFilters:
           items:
@@ -4579,7 +4697,7 @@ components:
       properties:
         selections:
           items:
-            $ref: '#/components/schemas/configurationSelection'
+            $ref: '#/components/schemas/productconfiguratorconfigurationSelection'
           type: array
       type: object
     ProductConfigurator_CreateConfigurator_request:

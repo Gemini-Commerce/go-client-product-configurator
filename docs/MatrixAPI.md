@@ -1,4 +1,4 @@
-# \MatrixAPI
+# GeminiCommerce\ProductConfigurator\MatrixAPI
 
 All URIs are relative to *https://product-configurator.api.gogemini.io*
 
@@ -27,25 +27,25 @@ Create Matrix
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorCreateMatrixRequest() // ProductConfiguratorCreateMatrixRequest | 
+	tenantId := "tenantId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorCreateMatrixRequest() // ProductConfiguratorCreateMatrixRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MatrixAPI.ProductConfiguratorCreateMatrix(context.Background(), tenantId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorCreateMatrix``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorCreateMatrix`: ProductconfiguratormatrixEntity
-    fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorCreateMatrix`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MatrixAPI.ProductConfiguratorCreateMatrix(context.Background(), tenantId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorCreateMatrix``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorCreateMatrix`: ProductconfiguratormatrixEntity
+	fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorCreateMatrix`: %v\n", resp)
 }
 ```
 
@@ -99,25 +99,25 @@ Delete Matrix
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    matrixId := "matrixId_example" // string | 
+	tenantId := "tenantId_example" // string | 
+	matrixId := "matrixId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MatrixAPI.ProductConfiguratorDeleteMatrix(context.Background(), tenantId, matrixId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorDeleteMatrix``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorDeleteMatrix`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorDeleteMatrix`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MatrixAPI.ProductConfiguratorDeleteMatrix(context.Background(), tenantId, matrixId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorDeleteMatrix``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorDeleteMatrix`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorDeleteMatrix`: %v\n", resp)
 }
 ```
 
@@ -172,25 +172,25 @@ Get Matrix
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    matrixId := "matrixId_example" // string | 
+	tenantId := "tenantId_example" // string | 
+	matrixId := "matrixId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MatrixAPI.ProductConfiguratorGetMatrix(context.Background(), tenantId, matrixId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorGetMatrix``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorGetMatrix`: ProductconfiguratormatrixEntity
-    fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorGetMatrix`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MatrixAPI.ProductConfiguratorGetMatrix(context.Background(), tenantId, matrixId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorGetMatrix``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorGetMatrix`: ProductconfiguratormatrixEntity
+	fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorGetMatrix`: %v\n", resp)
 }
 ```
 
@@ -245,27 +245,27 @@ List Matrices
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    configuratorId := "configuratorId_example" // string | 
-    pageSize := "pageSize_example" // string | 
-    body := *openapiclient.NewProductConfiguratorListMatricesRequest() // ProductConfiguratorListMatricesRequest | 
+	tenantId := "tenantId_example" // string | 
+	configuratorId := "configuratorId_example" // string | 
+	pageSize := "pageSize_example" // string | 
+	body := *openapiclient.NewProductConfiguratorListMatricesRequest() // ProductConfiguratorListMatricesRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MatrixAPI.ProductConfiguratorListMatrices(context.Background(), tenantId, configuratorId, pageSize).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorListMatrices``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorListMatrices`: MatrixListMatricesResponse
-    fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorListMatrices`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MatrixAPI.ProductConfiguratorListMatrices(context.Background(), tenantId, configuratorId, pageSize).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorListMatrices``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorListMatrices`: MatrixListMatricesResponse
+	fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorListMatrices`: %v\n", resp)
 }
 ```
 
@@ -323,26 +323,26 @@ Remove Pricelist from Matrix
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    matrixId := "matrixId_example" // string | 
-    pricelistGrn := "pricelistGrn_example" // string | 
+	tenantId := "tenantId_example" // string | 
+	matrixId := "matrixId_example" // string | 
+	pricelistGrn := "pricelistGrn_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MatrixAPI.ProductConfiguratorRemovePricelistFromMatrix(context.Background(), tenantId, matrixId, pricelistGrn).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorRemovePricelistFromMatrix``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorRemovePricelistFromMatrix`: ProductconfiguratormatrixEntity
-    fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorRemovePricelistFromMatrix`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MatrixAPI.ProductConfiguratorRemovePricelistFromMatrix(context.Background(), tenantId, matrixId, pricelistGrn).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorRemovePricelistFromMatrix``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorRemovePricelistFromMatrix`: ProductconfiguratormatrixEntity
+	fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorRemovePricelistFromMatrix`: %v\n", resp)
 }
 ```
 
@@ -399,26 +399,26 @@ Update Matrix
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    matrixId := "matrixId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorUpdateMatrixRequest() // ProductConfiguratorUpdateMatrixRequest | 
+	tenantId := "tenantId_example" // string | 
+	matrixId := "matrixId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorUpdateMatrixRequest() // ProductConfiguratorUpdateMatrixRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MatrixAPI.ProductConfiguratorUpdateMatrix(context.Background(), tenantId, matrixId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorUpdateMatrix``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorUpdateMatrix`: ProductconfiguratormatrixEntity
-    fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorUpdateMatrix`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MatrixAPI.ProductConfiguratorUpdateMatrix(context.Background(), tenantId, matrixId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MatrixAPI.ProductConfiguratorUpdateMatrix``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorUpdateMatrix`: ProductconfiguratormatrixEntity
+	fmt.Fprintf(os.Stdout, "Response from `MatrixAPI.ProductConfiguratorUpdateMatrix`: %v\n", resp)
 }
 ```
 

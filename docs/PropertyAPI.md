@@ -1,4 +1,4 @@
-# \PropertyAPI
+# GeminiCommerce\ProductConfigurator\PropertyAPI
 
 All URIs are relative to *https://product-configurator.api.gogemini.io*
 
@@ -26,25 +26,25 @@ Bulk Create Properties
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorBulkCreatePropertiesRequest() // ProductConfiguratorBulkCreatePropertiesRequest | 
+	tenantId := "tenantId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorBulkCreatePropertiesRequest() // ProductConfiguratorBulkCreatePropertiesRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PropertyAPI.ProductConfiguratorBulkCreateProperties(context.Background(), tenantId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PropertyAPI.ProductConfiguratorBulkCreateProperties``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorBulkCreateProperties`: ProductconfiguratorpropertyBulkCreateResponse
-    fmt.Fprintf(os.Stdout, "Response from `PropertyAPI.ProductConfiguratorBulkCreateProperties`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PropertyAPI.ProductConfiguratorBulkCreateProperties(context.Background(), tenantId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PropertyAPI.ProductConfiguratorBulkCreateProperties``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorBulkCreateProperties`: ProductconfiguratorpropertyBulkCreateResponse
+	fmt.Fprintf(os.Stdout, "Response from `PropertyAPI.ProductConfiguratorBulkCreateProperties`: %v\n", resp)
 }
 ```
 
@@ -98,25 +98,25 @@ Bulk Update Properties
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorBulkUpdatePropertiesRequest() // ProductConfiguratorBulkUpdatePropertiesRequest | 
+	tenantId := "tenantId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorBulkUpdatePropertiesRequest() // ProductConfiguratorBulkUpdatePropertiesRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PropertyAPI.ProductConfiguratorBulkUpdateProperties(context.Background(), tenantId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PropertyAPI.ProductConfiguratorBulkUpdateProperties``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorBulkUpdateProperties`: ProductconfiguratorpropertyBulkUpdateResponse
-    fmt.Fprintf(os.Stdout, "Response from `PropertyAPI.ProductConfiguratorBulkUpdateProperties`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PropertyAPI.ProductConfiguratorBulkUpdateProperties(context.Background(), tenantId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PropertyAPI.ProductConfiguratorBulkUpdateProperties``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorBulkUpdateProperties`: ProductconfiguratorpropertyBulkUpdateResponse
+	fmt.Fprintf(os.Stdout, "Response from `PropertyAPI.ProductConfiguratorBulkUpdateProperties`: %v\n", resp)
 }
 ```
 
@@ -170,25 +170,25 @@ Create Property
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorCreatePropertyRequest() // ProductConfiguratorCreatePropertyRequest | 
+	tenantId := "tenantId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorCreatePropertyRequest() // ProductConfiguratorCreatePropertyRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PropertyAPI.ProductConfiguratorCreateProperty(context.Background(), tenantId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PropertyAPI.ProductConfiguratorCreateProperty``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorCreateProperty`: ProductconfiguratorpropertyEntity
-    fmt.Fprintf(os.Stdout, "Response from `PropertyAPI.ProductConfiguratorCreateProperty`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PropertyAPI.ProductConfiguratorCreateProperty(context.Background(), tenantId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PropertyAPI.ProductConfiguratorCreateProperty``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorCreateProperty`: ProductconfiguratorpropertyEntity
+	fmt.Fprintf(os.Stdout, "Response from `PropertyAPI.ProductConfiguratorCreateProperty`: %v\n", resp)
 }
 ```
 
@@ -242,27 +242,27 @@ List Properties
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    matrixId := "matrixId_example" // string | 
-    pageSize := "pageSize_example" // string | 
-    body := *openapiclient.NewProductConfiguratorListPropertiesRequest() // ProductConfiguratorListPropertiesRequest | 
+	tenantId := "tenantId_example" // string | 
+	matrixId := "matrixId_example" // string | 
+	pageSize := "pageSize_example" // string | 
+	body := *openapiclient.NewProductConfiguratorListPropertiesRequest() // ProductConfiguratorListPropertiesRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PropertyAPI.ProductConfiguratorListProperties(context.Background(), tenantId, matrixId, pageSize).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PropertyAPI.ProductConfiguratorListProperties``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorListProperties`: PropertyListPropertiesResponse
-    fmt.Fprintf(os.Stdout, "Response from `PropertyAPI.ProductConfiguratorListProperties`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PropertyAPI.ProductConfiguratorListProperties(context.Background(), tenantId, matrixId, pageSize).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PropertyAPI.ProductConfiguratorListProperties``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorListProperties`: PropertyListPropertiesResponse
+	fmt.Fprintf(os.Stdout, "Response from `PropertyAPI.ProductConfiguratorListProperties`: %v\n", resp)
 }
 ```
 
@@ -320,26 +320,26 @@ Update Property
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    propertyId := "propertyId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorUpdatePropertyRequest() // ProductConfiguratorUpdatePropertyRequest | 
+	tenantId := "tenantId_example" // string | 
+	propertyId := "propertyId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorUpdatePropertyRequest() // ProductConfiguratorUpdatePropertyRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PropertyAPI.ProductConfiguratorUpdateProperty(context.Background(), tenantId, propertyId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PropertyAPI.ProductConfiguratorUpdateProperty``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorUpdateProperty`: ProductconfiguratorpropertyEntity
-    fmt.Fprintf(os.Stdout, "Response from `PropertyAPI.ProductConfiguratorUpdateProperty`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PropertyAPI.ProductConfiguratorUpdateProperty(context.Background(), tenantId, propertyId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PropertyAPI.ProductConfiguratorUpdateProperty``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorUpdateProperty`: ProductconfiguratorpropertyEntity
+	fmt.Fprintf(os.Stdout, "Response from `PropertyAPI.ProductConfiguratorUpdateProperty`: %v\n", resp)
 }
 ```
 

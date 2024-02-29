@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Selections**| [**[]ConfigurationSelection**](ConfigurationSelection.md) |   | [optional]
+**Selections**| [**[]ProductconfiguratorconfigurationSelection**](ProductconfiguratorconfigurationSelection.md) |   | [optional]
 **PropertyFilters**| [**[]ConfigurationPropertyFilter**](ConfigurationPropertyFilter.md) |   | [optional]
 **ConfiguratorId**| **string** |   | [optional]
 

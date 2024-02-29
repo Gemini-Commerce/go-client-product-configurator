@@ -1,4 +1,4 @@
-# \OptionAPI
+# GeminiCommerce\ProductConfigurator\OptionAPI
 
 All URIs are relative to *https://product-configurator.api.gogemini.io*
 
@@ -29,26 +29,26 @@ Bulk Create Options
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    stepId := "stepId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorBulkCreateOptionsRequest() // ProductConfiguratorBulkCreateOptionsRequest | 
+	tenantId := "tenantId_example" // string | 
+	stepId := "stepId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorBulkCreateOptionsRequest() // ProductConfiguratorBulkCreateOptionsRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OptionAPI.ProductConfiguratorBulkCreateOptions(context.Background(), tenantId, stepId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorBulkCreateOptions``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorBulkCreateOptions`: ProductconfiguratoroptionBulkCreateResponse
-    fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorBulkCreateOptions`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionAPI.ProductConfiguratorBulkCreateOptions(context.Background(), tenantId, stepId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorBulkCreateOptions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorBulkCreateOptions`: ProductconfiguratoroptionBulkCreateResponse
+	fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorBulkCreateOptions`: %v\n", resp)
 }
 ```
 
@@ -104,25 +104,25 @@ Bulk Delete Options
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorBulkDeleteOptionsRequest() // ProductConfiguratorBulkDeleteOptionsRequest | 
+	tenantId := "tenantId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorBulkDeleteOptionsRequest() // ProductConfiguratorBulkDeleteOptionsRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OptionAPI.ProductConfiguratorBulkDeleteOptions(context.Background(), tenantId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorBulkDeleteOptions``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorBulkDeleteOptions`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorBulkDeleteOptions`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionAPI.ProductConfiguratorBulkDeleteOptions(context.Background(), tenantId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorBulkDeleteOptions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorBulkDeleteOptions`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorBulkDeleteOptions`: %v\n", resp)
 }
 ```
 
@@ -176,25 +176,25 @@ Bulk Update Options
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorBulkUpdateOptionsRequest() // ProductConfiguratorBulkUpdateOptionsRequest | 
+	tenantId := "tenantId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorBulkUpdateOptionsRequest() // ProductConfiguratorBulkUpdateOptionsRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OptionAPI.ProductConfiguratorBulkUpdateOptions(context.Background(), tenantId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorBulkUpdateOptions``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorBulkUpdateOptions`: ProductconfiguratoroptionBulkUpdateResponse
-    fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorBulkUpdateOptions`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionAPI.ProductConfiguratorBulkUpdateOptions(context.Background(), tenantId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorBulkUpdateOptions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorBulkUpdateOptions`: ProductconfiguratoroptionBulkUpdateResponse
+	fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorBulkUpdateOptions`: %v\n", resp)
 }
 ```
 
@@ -248,26 +248,26 @@ Copy Option
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    sourceOptionId := "sourceOptionId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorCopyOptionRequest() // ProductConfiguratorCopyOptionRequest | 
+	tenantId := "tenantId_example" // string | 
+	sourceOptionId := "sourceOptionId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorCopyOptionRequest() // ProductConfiguratorCopyOptionRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OptionAPI.ProductConfiguratorCopyOption(context.Background(), tenantId, sourceOptionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorCopyOption``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorCopyOption`: ProductconfiguratoroptionEntity
-    fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorCopyOption`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionAPI.ProductConfiguratorCopyOption(context.Background(), tenantId, sourceOptionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorCopyOption``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorCopyOption`: ProductconfiguratoroptionEntity
+	fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorCopyOption`: %v\n", resp)
 }
 ```
 
@@ -323,26 +323,26 @@ Create Option
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    stepId := "stepId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorCreateOptionRequest() // ProductConfiguratorCreateOptionRequest | 
+	tenantId := "tenantId_example" // string | 
+	stepId := "stepId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorCreateOptionRequest() // ProductConfiguratorCreateOptionRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OptionAPI.ProductConfiguratorCreateOption(context.Background(), tenantId, stepId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorCreateOption``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorCreateOption`: ProductconfiguratoroptionEntity
-    fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorCreateOption`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionAPI.ProductConfiguratorCreateOption(context.Background(), tenantId, stepId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorCreateOption``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorCreateOption`: ProductconfiguratoroptionEntity
+	fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorCreateOption`: %v\n", resp)
 }
 ```
 
@@ -398,25 +398,25 @@ Delete Option
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    optionId := "optionId_example" // string | 
+	tenantId := "tenantId_example" // string | 
+	optionId := "optionId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OptionAPI.ProductConfiguratorDeleteOption(context.Background(), tenantId, optionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorDeleteOption``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorDeleteOption`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorDeleteOption`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionAPI.ProductConfiguratorDeleteOption(context.Background(), tenantId, optionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorDeleteOption``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorDeleteOption`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorDeleteOption`: %v\n", resp)
 }
 ```
 
@@ -471,27 +471,27 @@ List Options
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    stepId := "stepId_example" // string | 
-    pageSize := int64(789) // int64 | 
-    body := *openapiclient.NewProductConfiguratorListPropertiesRequest() // ProductConfiguratorListPropertiesRequest | 
+	tenantId := "tenantId_example" // string | 
+	stepId := "stepId_example" // string | 
+	pageSize := int64(789) // int64 | 
+	body := *openapiclient.NewProductConfiguratorListPropertiesRequest() // ProductConfiguratorListPropertiesRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OptionAPI.ProductConfiguratorListOptions(context.Background(), tenantId, stepId, pageSize).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorListOptions``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorListOptions`: OptionListOptionsResponse
-    fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorListOptions`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionAPI.ProductConfiguratorListOptions(context.Background(), tenantId, stepId, pageSize).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorListOptions``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorListOptions`: OptionListOptionsResponse
+	fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorListOptions`: %v\n", resp)
 }
 ```
 
@@ -549,26 +549,26 @@ Update Option
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    optionId := "optionId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorUpdateOptionRequest() // ProductConfiguratorUpdateOptionRequest | 
+	tenantId := "tenantId_example" // string | 
+	optionId := "optionId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorUpdateOptionRequest() // ProductConfiguratorUpdateOptionRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OptionAPI.ProductConfiguratorUpdateOption(context.Background(), tenantId, optionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorUpdateOption``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorUpdateOption`: ProductconfiguratoroptionEntity
-    fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorUpdateOption`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.OptionAPI.ProductConfiguratorUpdateOption(context.Background(), tenantId, optionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `OptionAPI.ProductConfiguratorUpdateOption``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorUpdateOption`: ProductconfiguratoroptionEntity
+	fmt.Fprintf(os.Stdout, "Response from `OptionAPI.ProductConfiguratorUpdateOption`: %v\n", resp)
 }
 ```
 

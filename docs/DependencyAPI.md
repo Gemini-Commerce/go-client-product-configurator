@@ -1,4 +1,4 @@
-# \DependencyAPI
+# GeminiCommerce\ProductConfigurator\DependencyAPI
 
 All URIs are relative to *https://product-configurator.api.gogemini.io*
 
@@ -25,26 +25,26 @@ Create Dependency
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    stepId := "stepId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorCreateDependencyRequest() // ProductConfiguratorCreateDependencyRequest | 
+	tenantId := "tenantId_example" // string | 
+	stepId := "stepId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorCreateDependencyRequest() // ProductConfiguratorCreateDependencyRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DependencyAPI.ProductConfiguratorCreateDependency(context.Background(), tenantId, stepId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DependencyAPI.ProductConfiguratorCreateDependency``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorCreateDependency`: ProductconfiguratordependencyEntity
-    fmt.Fprintf(os.Stdout, "Response from `DependencyAPI.ProductConfiguratorCreateDependency`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DependencyAPI.ProductConfiguratorCreateDependency(context.Background(), tenantId, stepId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DependencyAPI.ProductConfiguratorCreateDependency``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorCreateDependency`: ProductconfiguratordependencyEntity
+	fmt.Fprintf(os.Stdout, "Response from `DependencyAPI.ProductConfiguratorCreateDependency`: %v\n", resp)
 }
 ```
 
@@ -100,25 +100,25 @@ Delete Dependency
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    dependencyId := "dependencyId_example" // string | 
+	tenantId := "tenantId_example" // string | 
+	dependencyId := "dependencyId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DependencyAPI.ProductConfiguratorDeleteDependency(context.Background(), tenantId, dependencyId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DependencyAPI.ProductConfiguratorDeleteDependency``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorDeleteDependency`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `DependencyAPI.ProductConfiguratorDeleteDependency`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DependencyAPI.ProductConfiguratorDeleteDependency(context.Background(), tenantId, dependencyId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DependencyAPI.ProductConfiguratorDeleteDependency``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorDeleteDependency`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `DependencyAPI.ProductConfiguratorDeleteDependency`: %v\n", resp)
 }
 ```
 
@@ -173,26 +173,26 @@ List Dependencies
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    pageSize := int64(789) // int64 | 
-    body := *openapiclient.NewProductConfiguratorListDependenciesRequest() // ProductConfiguratorListDependenciesRequest | 
+	tenantId := "tenantId_example" // string | 
+	pageSize := int64(789) // int64 | 
+	body := *openapiclient.NewProductConfiguratorListDependenciesRequest() // ProductConfiguratorListDependenciesRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DependencyAPI.ProductConfiguratorListDependencies(context.Background(), tenantId, pageSize).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DependencyAPI.ProductConfiguratorListDependencies``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorListDependencies`: DependencyListDependenciesResponse
-    fmt.Fprintf(os.Stdout, "Response from `DependencyAPI.ProductConfiguratorListDependencies`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DependencyAPI.ProductConfiguratorListDependencies(context.Background(), tenantId, pageSize).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DependencyAPI.ProductConfiguratorListDependencies``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorListDependencies`: DependencyListDependenciesResponse
+	fmt.Fprintf(os.Stdout, "Response from `DependencyAPI.ProductConfiguratorListDependencies`: %v\n", resp)
 }
 ```
 
@@ -248,26 +248,26 @@ Update Dependency
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    dependencyId := "dependencyId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorUpdateDependencyRequest() // ProductConfiguratorUpdateDependencyRequest | 
+	tenantId := "tenantId_example" // string | 
+	dependencyId := "dependencyId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorUpdateDependencyRequest() // ProductConfiguratorUpdateDependencyRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DependencyAPI.ProductConfiguratorUpdateDependency(context.Background(), tenantId, dependencyId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DependencyAPI.ProductConfiguratorUpdateDependency``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorUpdateDependency`: ProductconfiguratordependencyEntity
-    fmt.Fprintf(os.Stdout, "Response from `DependencyAPI.ProductConfiguratorUpdateDependency`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DependencyAPI.ProductConfiguratorUpdateDependency(context.Background(), tenantId, dependencyId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DependencyAPI.ProductConfiguratorUpdateDependency``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorUpdateDependency`: ProductconfiguratordependencyEntity
+	fmt.Fprintf(os.Stdout, "Response from `DependencyAPI.ProductConfiguratorUpdateDependency`: %v\n", resp)
 }
 ```
 

@@ -1,4 +1,4 @@
-# \ConfiguratorAPI
+# GeminiCommerce\ProductConfigurator\ConfiguratorAPI
 
 All URIs are relative to *https://product-configurator.api.gogemini.io*
 
@@ -28,26 +28,26 @@ Copy Configurator
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    sourceConfiguratorId := "sourceConfiguratorId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorCopyConfiguratorRequest() // ProductConfiguratorCopyConfiguratorRequest | 
+	tenantId := "tenantId_example" // string | 
+	sourceConfiguratorId := "sourceConfiguratorId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorCopyConfiguratorRequest() // ProductConfiguratorCopyConfiguratorRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorCopyConfigurator(context.Background(), tenantId, sourceConfiguratorId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorCopyConfigurator``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorCopyConfigurator`: ProductconfiguratorconfiguratorEntity
-    fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorCopyConfigurator`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorCopyConfigurator(context.Background(), tenantId, sourceConfiguratorId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorCopyConfigurator``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorCopyConfigurator`: ProductconfiguratorconfiguratorEntity
+	fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorCopyConfigurator`: %v\n", resp)
 }
 ```
 
@@ -103,26 +103,26 @@ Create Configurator
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    productId := "productId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorCreateConfiguratorRequest() // ProductConfiguratorCreateConfiguratorRequest | 
+	tenantId := "tenantId_example" // string | 
+	productId := "productId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorCreateConfiguratorRequest() // ProductConfiguratorCreateConfiguratorRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorCreateConfigurator(context.Background(), tenantId, productId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorCreateConfigurator``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorCreateConfigurator`: ProductconfiguratorconfiguratorEntity
-    fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorCreateConfigurator`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorCreateConfigurator(context.Background(), tenantId, productId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorCreateConfigurator``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorCreateConfigurator`: ProductconfiguratorconfiguratorEntity
+	fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorCreateConfigurator`: %v\n", resp)
 }
 ```
 
@@ -178,25 +178,25 @@ Delete Configurator
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    configuratorId := "configuratorId_example" // string | 
+	tenantId := "tenantId_example" // string | 
+	configuratorId := "configuratorId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorDeleteConfigurator(context.Background(), tenantId, configuratorId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorDeleteConfigurator``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorDeleteConfigurator`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorDeleteConfigurator`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorDeleteConfigurator(context.Background(), tenantId, configuratorId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorDeleteConfigurator``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorDeleteConfigurator`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorDeleteConfigurator`: %v\n", resp)
 }
 ```
 
@@ -251,26 +251,26 @@ Get Configurator by Product ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    productId := "productId_example" // string | 
-    status := "status_example" // string |  (optional) (default to "UNKNOWN")
+	tenantId := "tenantId_example" // string | 
+	productId := "productId_example" // string | 
+	status := "status_example" // string |  (optional) (default to "UNKNOWN")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId(context.Background(), tenantId, productId).Status(status).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorGetConfiguratorByProductId`: ProductconfiguratorconfiguratorEntity
-    fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId(context.Background(), tenantId, productId).Status(status).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorGetConfiguratorByProductId`: ProductconfiguratorconfiguratorEntity
+	fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId`: %v\n", resp)
 }
 ```
 
@@ -326,26 +326,26 @@ Get Configurator by Product ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    productId := "productId_example" // string | 
-    status := "status_example" // string | 
+	tenantId := "tenantId_example" // string | 
+	productId := "productId_example" // string | 
+	status := "status_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId2(context.Background(), tenantId, productId, status).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorGetConfiguratorByProductId2`: ProductconfiguratorconfiguratorEntity
-    fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId2(context.Background(), tenantId, productId, status).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorGetConfiguratorByProductId2`: ProductconfiguratorconfiguratorEntity
+	fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorGetConfiguratorByProductId2`: %v\n", resp)
 }
 ```
 
@@ -402,27 +402,27 @@ List Product Configurators
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    productId := "productId_example" // string | 
-    pageSize := int64(789) // int64 | 
-    body := *openapiclient.NewProductConfiguratorListPropertiesRequest() // ProductConfiguratorListPropertiesRequest | 
+	tenantId := "tenantId_example" // string | 
+	productId := "productId_example" // string | 
+	pageSize := int64(789) // int64 | 
+	body := *openapiclient.NewProductConfiguratorListPropertiesRequest() // ProductConfiguratorListPropertiesRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorListConfigurators(context.Background(), tenantId, productId, pageSize).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorListConfigurators``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorListConfigurators`: ConfiguratorListResponse
-    fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorListConfigurators`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorListConfigurators(context.Background(), tenantId, productId, pageSize).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorListConfigurators``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorListConfigurators`: ConfiguratorListResponse
+	fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorListConfigurators`: %v\n", resp)
 }
 ```
 
@@ -480,26 +480,26 @@ Update Configurator
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    configuratorId := "configuratorId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorUpdateConfiguratorRequest() // ProductConfiguratorUpdateConfiguratorRequest | 
+	tenantId := "tenantId_example" // string | 
+	configuratorId := "configuratorId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorUpdateConfiguratorRequest() // ProductConfiguratorUpdateConfiguratorRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorUpdateConfigurator(context.Background(), tenantId, configuratorId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorUpdateConfigurator``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorUpdateConfigurator`: ProductconfiguratorconfiguratorEntity
-    fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorUpdateConfigurator`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfiguratorAPI.ProductConfiguratorUpdateConfigurator(context.Background(), tenantId, configuratorId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfiguratorAPI.ProductConfiguratorUpdateConfigurator``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorUpdateConfigurator`: ProductconfiguratorconfiguratorEntity
+	fmt.Fprintf(os.Stdout, "Response from `ConfiguratorAPI.ProductConfiguratorUpdateConfigurator`: %v\n", resp)
 }
 ```
 

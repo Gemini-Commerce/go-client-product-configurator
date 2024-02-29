@@ -7,6 +7,7 @@ api_configurator.go
 api_dependency.go
 api_matrix.go
 api_option.go
+api_product_configurator.go
 api_property.go
 api_step.go
 client.go
@@ -20,7 +21,6 @@ docs/ConfigurationOptionProperty.md
 docs/ConfigurationProperty.md
 docs/ConfigurationPropertyFilter.md
 docs/ConfigurationPropertyFilterGenericProperty.md
-docs/ConfigurationSelection.md
 docs/ConfigurationStepOption.md
 docs/ConfiguratorAPI.md
 docs/ConfiguratorListResponse.md
@@ -38,6 +38,7 @@ docs/MatrixWeightType.md
 docs/OptionAPI.md
 docs/OptionListOptionsResponse.md
 docs/OptionSwatch.md
+docs/ProductConfiguratorAPI.md
 docs/ProductConfiguratorBulkCreateOptionsRequest.md
 docs/ProductConfiguratorBulkCreatePropertiesRequest.md
 docs/ProductConfiguratorBulkCreateStepsRequest.md
@@ -58,6 +59,7 @@ docs/ProductConfiguratorGetAvailableConfiguration2Request.md
 docs/ProductConfiguratorGetConfigurationFromSelectionsRequest.md
 docs/ProductConfiguratorListDependenciesRequest.md
 docs/ProductConfiguratorListMatricesRequest.md
+docs/ProductConfiguratorListPropertiesByConfigurationRequest.md
 docs/ProductConfiguratorListPropertiesRequest.md
 docs/ProductConfiguratorUpdateConfiguratorRequest.md
 docs/ProductConfiguratorUpdateDependencyRequest.md
@@ -70,6 +72,7 @@ docs/ProductconfiguratorPropertyMode.md
 docs/ProductconfiguratorPropertyType.md
 docs/ProductconfiguratorWeightUnit.md
 docs/ProductconfiguratorconfigurationOption.md
+docs/ProductconfiguratorconfigurationSelection.md
 docs/ProductconfiguratorconfigurationStep.md
 docs/ProductconfiguratorconfiguratorEntity.md
 docs/ProductconfiguratorconfiguratorStatus.md
@@ -100,6 +103,8 @@ docs/ProductconfiguratorstepBulkCreateResponse.md
 docs/ProductconfiguratorstepEntity.md
 docs/ProductconfiguratorstepUpdatePayload.md
 docs/PropertyAPI.md
+docs/PropertyListPropertiesByConfigurationRequestSelection.md
+docs/PropertyListPropertiesByConfigurationResponse.md
 docs/PropertyListPropertiesResponse.md
 docs/PropertyUpdatePayloadGenericProperty.md
 docs/PropertyUpdatePayloadPriceProperty.md
@@ -117,7 +122,6 @@ model_configuration_option_property.go
 model_configuration_property.go
 model_configuration_property_filter.go
 model_configuration_property_filter_generic_property.go
-model_configuration_selection.go
 model_configuration_step_option.go
 model_configurator_list_response.go
 model_dependency_condition.go
@@ -151,6 +155,7 @@ model_product_configurator_get_available_configuration2_request.go
 model_product_configurator_get_configuration_from_selections_request.go
 model_product_configurator_list_dependencies_request.go
 model_product_configurator_list_matrices_request.go
+model_product_configurator_list_properties_by_configuration_request.go
 model_product_configurator_list_properties_request.go
 model_product_configurator_update_configurator_request.go
 model_product_configurator_update_dependency_request.go
@@ -163,6 +168,7 @@ model_productconfigurator_property_mode.go
 model_productconfigurator_property_type.go
 model_productconfigurator_weight_unit.go
 model_productconfiguratorconfiguration_option.go
+model_productconfiguratorconfiguration_selection.go
 model_productconfiguratorconfiguration_step.go
 model_productconfiguratorconfigurator_entity.go
 model_productconfiguratorconfigurator_status.go
@@ -192,10 +198,20 @@ model_productconfiguratorstep_bulk_create_request_create_entity.go
 model_productconfiguratorstep_bulk_create_response.go
 model_productconfiguratorstep_entity.go
 model_productconfiguratorstep_update_payload.go
+model_property_list_properties_by_configuration_request_selection.go
+model_property_list_properties_by_configuration_response.go
 model_property_list_properties_response.go
 model_property_update_payload_generic_property.go
 model_property_update_payload_price_property.go
 model_property_update_payload_weight_property.go
 model_protobuf_any.go
 response.go
+test/api_configuration_test.go
+test/api_configurator_test.go
+test/api_dependency_test.go
+test/api_matrix_test.go
+test/api_option_test.go
+test/api_product_configurator_test.go
+test/api_property_test.go
+test/api_step_test.go
 utils.go

@@ -1,4 +1,4 @@
-# \StepAPI
+# GeminiCommerce\ProductConfigurator\StepAPI
 
 All URIs are relative to *https://product-configurator.api.gogemini.io*
 
@@ -27,26 +27,26 @@ Bulk Create Steps
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    configuratorId := "configuratorId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorBulkCreateStepsRequest() // ProductConfiguratorBulkCreateStepsRequest | 
+	tenantId := "tenantId_example" // string | 
+	configuratorId := "configuratorId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorBulkCreateStepsRequest() // ProductConfiguratorBulkCreateStepsRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StepAPI.ProductConfiguratorBulkCreateSteps(context.Background(), tenantId, configuratorId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorBulkCreateSteps``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorBulkCreateSteps`: ProductconfiguratorstepBulkCreateResponse
-    fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorBulkCreateSteps`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StepAPI.ProductConfiguratorBulkCreateSteps(context.Background(), tenantId, configuratorId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorBulkCreateSteps``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorBulkCreateSteps`: ProductconfiguratorstepBulkCreateResponse
+	fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorBulkCreateSteps`: %v\n", resp)
 }
 ```
 
@@ -102,25 +102,25 @@ Bulk Delete Steps
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorBulkDeleteStepsRequest() // ProductConfiguratorBulkDeleteStepsRequest | 
+	tenantId := "tenantId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorBulkDeleteStepsRequest() // ProductConfiguratorBulkDeleteStepsRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StepAPI.ProductConfiguratorBulkDeleteSteps(context.Background(), tenantId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorBulkDeleteSteps``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorBulkDeleteSteps`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorBulkDeleteSteps`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StepAPI.ProductConfiguratorBulkDeleteSteps(context.Background(), tenantId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorBulkDeleteSteps``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorBulkDeleteSteps`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorBulkDeleteSteps`: %v\n", resp)
 }
 ```
 
@@ -174,26 +174,26 @@ Copy Step
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    sourceStepId := "sourceStepId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorCopyStepRequest() // ProductConfiguratorCopyStepRequest | 
+	tenantId := "tenantId_example" // string | 
+	sourceStepId := "sourceStepId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorCopyStepRequest() // ProductConfiguratorCopyStepRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StepAPI.ProductConfiguratorCopyStep(context.Background(), tenantId, sourceStepId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorCopyStep``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorCopyStep`: ProductconfiguratorstepEntity
-    fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorCopyStep`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StepAPI.ProductConfiguratorCopyStep(context.Background(), tenantId, sourceStepId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorCopyStep``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorCopyStep`: ProductconfiguratorstepEntity
+	fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorCopyStep`: %v\n", resp)
 }
 ```
 
@@ -249,26 +249,26 @@ Create Step
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    configuratorId := "configuratorId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorCreateStepRequest() // ProductConfiguratorCreateStepRequest | 
+	tenantId := "tenantId_example" // string | 
+	configuratorId := "configuratorId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorCreateStepRequest() // ProductConfiguratorCreateStepRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StepAPI.ProductConfiguratorCreateStep(context.Background(), tenantId, configuratorId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorCreateStep``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorCreateStep`: ProductconfiguratorstepEntity
-    fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorCreateStep`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StepAPI.ProductConfiguratorCreateStep(context.Background(), tenantId, configuratorId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorCreateStep``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorCreateStep`: ProductconfiguratorstepEntity
+	fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorCreateStep`: %v\n", resp)
 }
 ```
 
@@ -324,25 +324,25 @@ Delete Step
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    stepId := "stepId_example" // string | 
+	tenantId := "tenantId_example" // string | 
+	stepId := "stepId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StepAPI.ProductConfiguratorDeleteStep(context.Background(), tenantId, stepId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorDeleteStep``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorDeleteStep`: GooglerpcStatus
-    fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorDeleteStep`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StepAPI.ProductConfiguratorDeleteStep(context.Background(), tenantId, stepId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorDeleteStep``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorDeleteStep`: GooglerpcStatus
+	fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorDeleteStep`: %v\n", resp)
 }
 ```
 
@@ -397,26 +397,26 @@ Update Step
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    stepId := "stepId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorUpdateStepRequest() // ProductConfiguratorUpdateStepRequest | 
+	tenantId := "tenantId_example" // string | 
+	stepId := "stepId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorUpdateStepRequest() // ProductConfiguratorUpdateStepRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.StepAPI.ProductConfiguratorUpdateStep(context.Background(), tenantId, stepId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorUpdateStep``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorUpdateStep`: ProductconfiguratorstepEntity
-    fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorUpdateStep`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.StepAPI.ProductConfiguratorUpdateStep(context.Background(), tenantId, stepId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorUpdateStep``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorUpdateStep`: ProductconfiguratorstepEntity
+	fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorUpdateStep`: %v\n", resp)
 }
 ```
 

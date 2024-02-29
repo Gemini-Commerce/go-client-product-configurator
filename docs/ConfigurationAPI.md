@@ -1,4 +1,4 @@
-# \ConfigurationAPI
+# GeminiCommerce\ProductConfigurator\ConfigurationAPI
 
 All URIs are relative to *https://product-configurator.api.gogemini.io*
 
@@ -24,26 +24,26 @@ Get Available Configuration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    productId := "productId_example" // string | 
-    configuratorId := "configuratorId_example" // string | If not set, the service returns the active configurator (optional)
+	tenantId := "tenantId_example" // string | 
+	productId := "productId_example" // string | 
+	configuratorId := "configuratorId_example" // string | If not set, the service returns the active configurator (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration(context.Background(), tenantId, productId).ConfiguratorId(configuratorId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorGetAvailableConfiguration`: ConfigurationGetAvailableConfigurationResponse
-    fmt.Fprintf(os.Stdout, "Response from `ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration(context.Background(), tenantId, productId).ConfiguratorId(configuratorId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorGetAvailableConfiguration`: ConfigurationGetAvailableConfigurationResponse
+	fmt.Fprintf(os.Stdout, "Response from `ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration`: %v\n", resp)
 }
 ```
 
@@ -99,26 +99,26 @@ Get Available Configuration
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    productId := "productId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorGetAvailableConfiguration2Request() // ProductConfiguratorGetAvailableConfiguration2Request | 
+	tenantId := "tenantId_example" // string | 
+	productId := "productId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorGetAvailableConfiguration2Request() // ProductConfiguratorGetAvailableConfiguration2Request | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration2(context.Background(), tenantId, productId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration2``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorGetAvailableConfiguration2`: ConfigurationGetAvailableConfigurationResponse
-    fmt.Fprintf(os.Stdout, "Response from `ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration2`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration2(context.Background(), tenantId, productId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration2``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorGetAvailableConfiguration2`: ConfigurationGetAvailableConfigurationResponse
+	fmt.Fprintf(os.Stdout, "Response from `ConfigurationAPI.ProductConfiguratorGetAvailableConfiguration2`: %v\n", resp)
 }
 ```
 
@@ -174,26 +174,26 @@ Get Configuration from Selections
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/gemini-commerce/go-client-product_configurator"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
 )
 
 func main() {
-    tenantId := "tenantId_example" // string | 
-    productId := "productId_example" // string | 
-    body := *openapiclient.NewProductConfiguratorGetConfigurationFromSelectionsRequest() // ProductConfiguratorGetConfigurationFromSelectionsRequest | 
+	tenantId := "tenantId_example" // string | 
+	productId := "productId_example" // string | 
+	body := *openapiclient.NewProductConfiguratorGetConfigurationFromSelectionsRequest() // ProductConfiguratorGetConfigurationFromSelectionsRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigurationAPI.ProductConfiguratorGetConfigurationFromSelections(context.Background(), tenantId, productId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationAPI.ProductConfiguratorGetConfigurationFromSelections``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ProductConfiguratorGetConfigurationFromSelections`: ConfigurationGetConfigurationFromSelectionsResponse
-    fmt.Fprintf(os.Stdout, "Response from `ConfigurationAPI.ProductConfiguratorGetConfigurationFromSelections`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ConfigurationAPI.ProductConfiguratorGetConfigurationFromSelections(context.Background(), tenantId, productId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationAPI.ProductConfiguratorGetConfigurationFromSelections``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorGetConfigurationFromSelections`: ConfigurationGetConfigurationFromSelectionsResponse
+	fmt.Fprintf(os.Stdout, "Response from `ConfigurationAPI.ProductConfiguratorGetConfigurationFromSelections`: %v\n", resp)
 }
 ```
 

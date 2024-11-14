@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Selections**| [**[]PropertyListPropertiesByConfigurationRequestSelection**](PropertyListPropertiesByConfigurationRequestSelection.md) |   | [optional]
-**PropertyType**| [**ProductconfiguratorPropertyType**](ProductconfiguratorPropertyType.md) |  for more information please, see Model/ProductconfiguratorPropertyType.php  | [optional] [default to UNKNOWN]
+**PropertyType**| [**ProductconfiguratorPropertyType**](ProductconfiguratorPropertyType.md) |  for more information please, see Model/ProductconfiguratorPropertyType.php  | [optional] [default to PRODUCTCONFIGURATORPROPERTYTYPE_UNKNOWN]
 **PageToken**| **string** |   | [optional]
 
 

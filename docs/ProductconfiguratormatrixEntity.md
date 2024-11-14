@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **ConfiguratorId**| **string** |   | [optional]
 **Label**| **string** |   | [optional]
 **DefaultPropertyId**| **string** |   | [optional]
-**PropertiesMode**| [**ProductconfiguratorPropertyMode**](ProductconfiguratorPropertyMode.md) |  for more information please, see Model/ProductconfiguratorPropertyMode.php  | [optional] [default to UNKNOWN]
+**PropertiesMode**| [**ProductconfiguratorPropertyMode**](ProductconfiguratorPropertyMode.md) |  for more information please, see Model/ProductconfiguratorPropertyMode.php  | [optional] [default to PRODUCTCONFIGURATORPROPERTYMODE_UNKNOWN]
 **GenericType**| [**MatrixGenericType**](MatrixGenericType.md) |   | [optional]
 **PriceType**| [**MatrixPriceType**](MatrixPriceType.md) |   | [optional]
 **WeightType**| [**MatrixWeightType**](MatrixWeightType.md) |   | [optional]

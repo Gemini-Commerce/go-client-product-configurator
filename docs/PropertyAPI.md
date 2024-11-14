@@ -1,4 +1,4 @@
-# GeminiCommerce\ProductConfigurator\PropertyAPI
+# \PropertyAPI
 
 All URIs are relative to *https://product-configurator.api.gogemini.io*
 

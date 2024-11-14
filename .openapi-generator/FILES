@@ -206,12 +206,4 @@ model_property_update_payload_price_property.go
 model_property_update_payload_weight_property.go
 model_protobuf_any.go
 response.go
-test/api_configuration_test.go
-test/api_configurator_test.go
-test/api_dependency_test.go
-test/api_matrix_test.go
-test/api_option_test.go
-test/api_product_configurator_test.go
-test/api_property_test.go
-test/api_step_test.go
 utils.go

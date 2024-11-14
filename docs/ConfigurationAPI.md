@@ -1,4 +1,4 @@
-# GeminiCommerce\ProductConfigurator\ConfigurationAPI
+# \ConfigurationAPI
 
 All URIs are relative to *https://product-configurator.api.gogemini.io*
 

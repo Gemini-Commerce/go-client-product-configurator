@@ -1,4 +1,4 @@
-# GeminiCommerce\ProductConfigurator\MatrixAPI
+# \MatrixAPI
 
 All URIs are relative to *https://product-configurator.api.gogemini.io*
 

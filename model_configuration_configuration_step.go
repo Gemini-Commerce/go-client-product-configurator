@@ -65,8 +65,8 @@ func (o *ConfigurationConfigurationStep) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// &#39;Has&#39;Id returns a boolean if a field has been set.
-func (o *ConfigurationConfigurationStep) &#39;Has&#39;Id() bool {
+// HasId returns a boolean if a field has been set.
+func (o *ConfigurationConfigurationStep) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -97,8 +97,8 @@ func (o *ConfigurationConfigurationStep) GetGrnOk() (*string, bool) {
 	return o.Grn, true
 }
 
-// &#39;Has&#39;Grn returns a boolean if a field has been set.
-func (o *ConfigurationConfigurationStep) &#39;Has&#39;Grn() bool {
+// HasGrn returns a boolean if a field has been set.
+func (o *ConfigurationConfigurationStep) HasGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -129,8 +129,8 @@ func (o *ConfigurationConfigurationStep) GetLabelOk() (*LocalisationLocalizedTex
 	return o.Label, true
 }
 
-// &#39;Has&#39;Label returns a boolean if a field has been set.
-func (o *ConfigurationConfigurationStep) &#39;Has&#39;Label() bool {
+// HasLabel returns a boolean if a field has been set.
+func (o *ConfigurationConfigurationStep) HasLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -161,8 +161,8 @@ func (o *ConfigurationConfigurationStep) GetOptionsOk() ([]ConfigurationStepOpti
 	return o.Options, true
 }
 
-// &#39;Has&#39;Options returns a boolean if a field has been set.
-func (o *ConfigurationConfigurationStep) &#39;Has&#39;Options() bool {
+// HasOptions returns a boolean if a field has been set.
+func (o *ConfigurationConfigurationStep) HasOptions() bool {
 	if o != nil && !IsNil(o.Options) {
 		return true
 	}
@@ -193,8 +193,8 @@ func (o *ConfigurationConfigurationStep) GetHasMultipleSelectionOk() (*bool, boo
 	return o.HasMultipleSelection, true
 }
 
-// &#39;Has&#39;HasMultipleSelection returns a boolean if a field has been set.
-func (o *ConfigurationConfigurationStep) &#39;Has&#39;HasMultipleSelection() bool {
+// HasHasMultipleSelection returns a boolean if a field has been set.
+func (o *ConfigurationConfigurationStep) HasHasMultipleSelection() bool {
 	if o != nil && !IsNil(o.HasMultipleSelection) {
 		return true
 	}

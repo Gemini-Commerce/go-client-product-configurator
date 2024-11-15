@@ -66,8 +66,8 @@ func (o *ProductconfiguratorpropertyWeightProperty) GetWeightOk() (*float64, boo
 	return o.Weight, true
 }
 
-// &#39;Has&#39;Weight returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyWeightProperty) &#39;Has&#39;Weight() bool {
+// HasWeight returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyWeightProperty) HasWeight() bool {
 	if o != nil && !IsNil(o.Weight) {
 		return true
 	}
@@ -98,8 +98,8 @@ func (o *ProductconfiguratorpropertyWeightProperty) GetWeightUnitOk() (*Productc
 	return o.WeightUnit, true
 }
 
-// &#39;Has&#39;WeightUnit returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyWeightProperty) &#39;Has&#39;WeightUnit() bool {
+// HasWeightUnit returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyWeightProperty) HasWeightUnit() bool {
 	if o != nil && !IsNil(o.WeightUnit) {
 		return true
 	}

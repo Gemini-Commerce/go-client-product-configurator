@@ -61,8 +61,8 @@ func (o *ProductconfiguratorpropertyBulkUpdateResponse) GetPropertiesOk() ([]Pro
 	return o.Properties, true
 }
 
-// &#39;Has&#39;Properties returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkUpdateResponse) &#39;Has&#39;Properties() bool {
+// HasProperties returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyBulkUpdateResponse) HasProperties() bool {
 	if o != nil && !IsNil(o.Properties) {
 		return true
 	}

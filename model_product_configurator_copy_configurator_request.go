@@ -63,8 +63,8 @@ func (o *ProductConfiguratorCopyConfiguratorRequest) GetTargetProductIdOk() (*st
 	return o.TargetProductId, true
 }
 
-// &#39;Has&#39;TargetProductId returns a boolean if a field has been set.
-func (o *ProductConfiguratorCopyConfiguratorRequest) &#39;Has&#39;TargetProductId() bool {
+// HasTargetProductId returns a boolean if a field has been set.
+func (o *ProductConfiguratorCopyConfiguratorRequest) HasTargetProductId() bool {
 	if o != nil && !IsNil(o.TargetProductId) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *ProductConfiguratorCopyConfiguratorRequest) GetCopyDependenciesOk() (*b
 	return o.CopyDependencies, true
 }
 
-// &#39;Has&#39;CopyDependencies returns a boolean if a field has been set.
-func (o *ProductConfiguratorCopyConfiguratorRequest) &#39;Has&#39;CopyDependencies() bool {
+// HasCopyDependencies returns a boolean if a field has been set.
+func (o *ProductConfiguratorCopyConfiguratorRequest) HasCopyDependencies() bool {
 	if o != nil && !IsNil(o.CopyDependencies) {
 		return true
 	}
@@ -127,8 +127,8 @@ func (o *ProductConfiguratorCopyConfiguratorRequest) GetCopyMatricesOk() (*bool,
 	return o.CopyMatrices, true
 }
 
-// &#39;Has&#39;CopyMatrices returns a boolean if a field has been set.
-func (o *ProductConfiguratorCopyConfiguratorRequest) &#39;Has&#39;CopyMatrices() bool {
+// HasCopyMatrices returns a boolean if a field has been set.
+func (o *ProductConfiguratorCopyConfiguratorRequest) HasCopyMatrices() bool {
 	if o != nil && !IsNil(o.CopyMatrices) {
 		return true
 	}

@@ -62,8 +62,8 @@ func (o *ProductConfiguratorListDependenciesRequest) GetStepIdsOk() ([]string, b
 	return o.StepIds, true
 }
 
-// &#39;Has&#39;StepIds returns a boolean if a field has been set.
-func (o *ProductConfiguratorListDependenciesRequest) &#39;Has&#39;StepIds() bool {
+// HasStepIds returns a boolean if a field has been set.
+func (o *ProductConfiguratorListDependenciesRequest) HasStepIds() bool {
 	if o != nil && !IsNil(o.StepIds) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *ProductConfiguratorListDependenciesRequest) GetPageTokenOk() (*string, 
 	return o.PageToken, true
 }
 
-// &#39;Has&#39;PageToken returns a boolean if a field has been set.
-func (o *ProductConfiguratorListDependenciesRequest) &#39;Has&#39;PageToken() bool {
+// HasPageToken returns a boolean if a field has been set.
+func (o *ProductConfiguratorListDependenciesRequest) HasPageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}

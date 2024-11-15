@@ -62,8 +62,8 @@ func (o *ProductConfiguratorBulkCreatePropertiesRequest) GetMatrixIdOk() (*strin
 	return o.MatrixId, true
 }
 
-// &#39;Has&#39;MatrixId returns a boolean if a field has been set.
-func (o *ProductConfiguratorBulkCreatePropertiesRequest) &#39;Has&#39;MatrixId() bool {
+// HasMatrixId returns a boolean if a field has been set.
+func (o *ProductConfiguratorBulkCreatePropertiesRequest) HasMatrixId() bool {
 	if o != nil && !IsNil(o.MatrixId) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *ProductConfiguratorBulkCreatePropertiesRequest) GetPropertiesOk() ([]Pr
 	return o.Properties, true
 }
 
-// &#39;Has&#39;Properties returns a boolean if a field has been set.
-func (o *ProductConfiguratorBulkCreatePropertiesRequest) &#39;Has&#39;Properties() bool {
+// HasProperties returns a boolean if a field has been set.
+func (o *ProductConfiguratorBulkCreatePropertiesRequest) HasProperties() bool {
 	if o != nil && !IsNil(o.Properties) {
 		return true
 	}

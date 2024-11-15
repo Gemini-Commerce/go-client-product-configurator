@@ -63,8 +63,8 @@ func (o *ProductconfiguratoroptionBulkUpdateRequestUpdateEntity) GetOptionIdOk()
 	return o.OptionId, true
 }
 
-// &#39;Has&#39;OptionId returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionBulkUpdateRequestUpdateEntity) &#39;Has&#39;OptionId() bool {
+// HasOptionId returns a boolean if a field has been set.
+func (o *ProductconfiguratoroptionBulkUpdateRequestUpdateEntity) HasOptionId() bool {
 	if o != nil && !IsNil(o.OptionId) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *ProductconfiguratoroptionBulkUpdateRequestUpdateEntity) GetPayloadOk() 
 	return o.Payload, true
 }
 
-// &#39;Has&#39;Payload returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionBulkUpdateRequestUpdateEntity) &#39;Has&#39;Payload() bool {
+// HasPayload returns a boolean if a field has been set.
+func (o *ProductconfiguratoroptionBulkUpdateRequestUpdateEntity) HasPayload() bool {
 	if o != nil && !IsNil(o.Payload) {
 		return true
 	}
@@ -127,8 +127,8 @@ func (o *ProductconfiguratoroptionBulkUpdateRequestUpdateEntity) GetPayloadMaskO
 	return o.PayloadMask, true
 }
 
-// &#39;Has&#39;PayloadMask returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionBulkUpdateRequestUpdateEntity) &#39;Has&#39;PayloadMask() bool {
+// HasPayloadMask returns a boolean if a field has been set.
+func (o *ProductconfiguratoroptionBulkUpdateRequestUpdateEntity) HasPayloadMask() bool {
 	if o != nil && !IsNil(o.PayloadMask) {
 		return true
 	}

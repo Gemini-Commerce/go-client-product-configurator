@@ -63,8 +63,8 @@ func (o *ConfigurationPropertyFilter) GetGenericPropertyOk() (*ConfigurationProp
 	return o.GenericProperty, true
 }
 
-// &#39;Has&#39;GenericProperty returns a boolean if a field has been set.
-func (o *ConfigurationPropertyFilter) &#39;Has&#39;GenericProperty() bool {
+// HasGenericProperty returns a boolean if a field has been set.
+func (o *ConfigurationPropertyFilter) HasGenericProperty() bool {
 	if o != nil && !IsNil(o.GenericProperty) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *ConfigurationPropertyFilter) GetPricePropertyOk() (map[string]interface
 	return o.PriceProperty, true
 }
 
-// &#39;Has&#39;PriceProperty returns a boolean if a field has been set.
-func (o *ConfigurationPropertyFilter) &#39;Has&#39;PriceProperty() bool {
+// HasPriceProperty returns a boolean if a field has been set.
+func (o *ConfigurationPropertyFilter) HasPriceProperty() bool {
 	if o != nil && !IsNil(o.PriceProperty) {
 		return true
 	}
@@ -127,8 +127,8 @@ func (o *ConfigurationPropertyFilter) GetWeightPropertyOk() (map[string]interfac
 	return o.WeightProperty, true
 }
 
-// &#39;Has&#39;WeightProperty returns a boolean if a field has been set.
-func (o *ConfigurationPropertyFilter) &#39;Has&#39;WeightProperty() bool {
+// HasWeightProperty returns a boolean if a field has been set.
+func (o *ConfigurationPropertyFilter) HasWeightProperty() bool {
 	if o != nil && !IsNil(o.WeightProperty) {
 		return true
 	}

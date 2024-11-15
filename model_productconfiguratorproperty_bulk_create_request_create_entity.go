@@ -64,8 +64,8 @@ func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) GetStepIdToOp
 	return o.StepIdToOptionId, true
 }
 
-// &#39;Has&#39;StepIdToOptionId returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) &#39;Has&#39;StepIdToOptionId() bool {
+// HasStepIdToOptionId returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) HasStepIdToOptionId() bool {
 	if o != nil && !IsNil(o.StepIdToOptionId) {
 		return true
 	}
@@ -96,8 +96,8 @@ func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) GetGenericPro
 	return o.GenericProperty, true
 }
 
-// &#39;Has&#39;GenericProperty returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) &#39;Has&#39;GenericProperty() bool {
+// HasGenericProperty returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) HasGenericProperty() bool {
 	if o != nil && !IsNil(o.GenericProperty) {
 		return true
 	}
@@ -128,8 +128,8 @@ func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) GetPricePrope
 	return o.PriceProperty, true
 }
 
-// &#39;Has&#39;PriceProperty returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) &#39;Has&#39;PriceProperty() bool {
+// HasPriceProperty returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) HasPriceProperty() bool {
 	if o != nil && !IsNil(o.PriceProperty) {
 		return true
 	}
@@ -160,8 +160,8 @@ func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) GetWeightProp
 	return o.WeightProperty, true
 }
 
-// &#39;Has&#39;WeightProperty returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) &#39;Has&#39;WeightProperty() bool {
+// HasWeightProperty returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) HasWeightProperty() bool {
 	if o != nil && !IsNil(o.WeightProperty) {
 		return true
 	}

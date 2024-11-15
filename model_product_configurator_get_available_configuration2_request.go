@@ -63,8 +63,8 @@ func (o *ProductConfiguratorGetAvailableConfiguration2Request) GetSelectionsOk()
 	return o.Selections, true
 }
 
-// &#39;Has&#39;Selections returns a boolean if a field has been set.
-func (o *ProductConfiguratorGetAvailableConfiguration2Request) &#39;Has&#39;Selections() bool {
+// HasSelections returns a boolean if a field has been set.
+func (o *ProductConfiguratorGetAvailableConfiguration2Request) HasSelections() bool {
 	if o != nil && !IsNil(o.Selections) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *ProductConfiguratorGetAvailableConfiguration2Request) GetPropertyFilter
 	return o.PropertyFilters, true
 }
 
-// &#39;Has&#39;PropertyFilters returns a boolean if a field has been set.
-func (o *ProductConfiguratorGetAvailableConfiguration2Request) &#39;Has&#39;PropertyFilters() bool {
+// HasPropertyFilters returns a boolean if a field has been set.
+func (o *ProductConfiguratorGetAvailableConfiguration2Request) HasPropertyFilters() bool {
 	if o != nil && !IsNil(o.PropertyFilters) {
 		return true
 	}
@@ -127,8 +127,8 @@ func (o *ProductConfiguratorGetAvailableConfiguration2Request) GetConfiguratorId
 	return o.ConfiguratorId, true
 }
 
-// &#39;Has&#39;ConfiguratorId returns a boolean if a field has been set.
-func (o *ProductConfiguratorGetAvailableConfiguration2Request) &#39;Has&#39;ConfiguratorId() bool {
+// HasConfiguratorId returns a boolean if a field has been set.
+func (o *ProductConfiguratorGetAvailableConfiguration2Request) HasConfiguratorId() bool {
 	if o != nil && !IsNil(o.ConfiguratorId) {
 		return true
 	}

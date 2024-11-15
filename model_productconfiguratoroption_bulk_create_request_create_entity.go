@@ -64,8 +64,8 @@ func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) GetLabelOk() (*
 	return o.Label, true
 }
 
-// &#39;Has&#39;Label returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) &#39;Has&#39;Label() bool {
+// HasLabel returns a boolean if a field has been set.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) HasLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -96,8 +96,8 @@ func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) GetPositionOk()
 	return o.Position, true
 }
 
-// &#39;Has&#39;Position returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) &#39;Has&#39;Position() bool {
+// HasPosition returns a boolean if a field has been set.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) HasPosition() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -128,8 +128,8 @@ func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) GetExternalRefe
 	return o.ExternalReferenceId, true
 }
 
-// &#39;Has&#39;ExternalReferenceId returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) &#39;Has&#39;ExternalReferenceId() bool {
+// HasExternalReferenceId returns a boolean if a field has been set.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) HasExternalReferenceId() bool {
 	if o != nil && !IsNil(o.ExternalReferenceId) {
 		return true
 	}
@@ -160,8 +160,8 @@ func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) GetSwatchOk() (
 	return o.Swatch, true
 }
 
-// &#39;Has&#39;Swatch returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) &#39;Has&#39;Swatch() bool {
+// HasSwatch returns a boolean if a field has been set.
+func (o *ProductconfiguratoroptionBulkCreateRequestCreateEntity) HasSwatch() bool {
 	if o != nil && !IsNil(o.Swatch) {
 		return true
 	}

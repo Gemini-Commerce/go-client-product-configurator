@@ -65,8 +65,8 @@ func (o *MatrixWeightType) GetWeightUnitOk() (*ProductconfiguratorWeightUnit, bo
 	return o.WeightUnit, true
 }
 
-// &#39;Has&#39;WeightUnit returns a boolean if a field has been set.
-func (o *MatrixWeightType) &#39;Has&#39;WeightUnit() bool {
+// HasWeightUnit returns a boolean if a field has been set.
+func (o *MatrixWeightType) HasWeightUnit() bool {
 	if o != nil && !IsNil(o.WeightUnit) {
 		return true
 	}

@@ -62,8 +62,8 @@ func (o *ProductconfiguratorpropertyGenericProperty) GetPropertyKeyOk() (*string
 	return o.PropertyKey, true
 }
 
-// &#39;Has&#39;PropertyKey returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyGenericProperty) &#39;Has&#39;PropertyKey() bool {
+// HasPropertyKey returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyGenericProperty) HasPropertyKey() bool {
 	if o != nil && !IsNil(o.PropertyKey) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *ProductconfiguratorpropertyGenericProperty) GetPropertyValueOk() (*stri
 	return o.PropertyValue, true
 }
 
-// &#39;Has&#39;PropertyValue returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyGenericProperty) &#39;Has&#39;PropertyValue() bool {
+// HasPropertyValue returns a boolean if a field has been set.
+func (o *ProductconfiguratorpropertyGenericProperty) HasPropertyValue() bool {
 	if o != nil && !IsNil(o.PropertyValue) {
 		return true
 	}

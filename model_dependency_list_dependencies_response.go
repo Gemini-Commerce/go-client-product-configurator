@@ -62,8 +62,8 @@ func (o *DependencyListDependenciesResponse) GetDependenciesOk() ([]Productconfi
 	return o.Dependencies, true
 }
 
-// &#39;Has&#39;Dependencies returns a boolean if a field has been set.
-func (o *DependencyListDependenciesResponse) &#39;Has&#39;Dependencies() bool {
+// HasDependencies returns a boolean if a field has been set.
+func (o *DependencyListDependenciesResponse) HasDependencies() bool {
 	if o != nil && !IsNil(o.Dependencies) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *DependencyListDependenciesResponse) GetNextPageTokenOk() (*string, bool
 	return o.NextPageToken, true
 }
 
-// &#39;Has&#39;NextPageToken returns a boolean if a field has been set.
-func (o *DependencyListDependenciesResponse) &#39;Has&#39;NextPageToken() bool {
+// HasNextPageToken returns a boolean if a field has been set.
+func (o *DependencyListDependenciesResponse) HasNextPageToken() bool {
 	if o != nil && !IsNil(o.NextPageToken) {
 		return true
 	}

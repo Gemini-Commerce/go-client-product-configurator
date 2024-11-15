@@ -71,8 +71,8 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetConfiguratorIdOk() (*string,
 	return o.ConfiguratorId, true
 }
 
-// &#39;Has&#39;ConfiguratorId returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) &#39;Has&#39;ConfiguratorId() bool {
+// HasConfiguratorId returns a boolean if a field has been set.
+func (o *ProductConfiguratorCreateMatrixRequest) HasConfiguratorId() bool {
 	if o != nil && !IsNil(o.ConfiguratorId) {
 		return true
 	}
@@ -103,8 +103,8 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetLabelOk() (*string, bool) {
 	return o.Label, true
 }
 
-// &#39;Has&#39;Label returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) &#39;Has&#39;Label() bool {
+// HasLabel returns a boolean if a field has been set.
+func (o *ProductConfiguratorCreateMatrixRequest) HasLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -135,8 +135,8 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetGenericTypeOk() (*MatrixGene
 	return o.GenericType, true
 }
 
-// &#39;Has&#39;GenericType returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) &#39;Has&#39;GenericType() bool {
+// HasGenericType returns a boolean if a field has been set.
+func (o *ProductConfiguratorCreateMatrixRequest) HasGenericType() bool {
 	if o != nil && !IsNil(o.GenericType) {
 		return true
 	}
@@ -167,8 +167,8 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetPriceTypeOk() (*MatrixPriceT
 	return o.PriceType, true
 }
 
-// &#39;Has&#39;PriceType returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) &#39;Has&#39;PriceType() bool {
+// HasPriceType returns a boolean if a field has been set.
+func (o *ProductConfiguratorCreateMatrixRequest) HasPriceType() bool {
 	if o != nil && !IsNil(o.PriceType) {
 		return true
 	}
@@ -199,8 +199,8 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetWeightTypeOk() (*MatrixWeigh
 	return o.WeightType, true
 }
 
-// &#39;Has&#39;WeightType returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) &#39;Has&#39;WeightType() bool {
+// HasWeightType returns a boolean if a field has been set.
+func (o *ProductConfiguratorCreateMatrixRequest) HasWeightType() bool {
 	if o != nil && !IsNil(o.WeightType) {
 		return true
 	}
@@ -231,8 +231,8 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetStepsOk() ([]Productconfigur
 	return o.Steps, true
 }
 
-// &#39;Has&#39;Steps returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) &#39;Has&#39;Steps() bool {
+// HasSteps returns a boolean if a field has been set.
+func (o *ProductConfiguratorCreateMatrixRequest) HasSteps() bool {
 	if o != nil && !IsNil(o.Steps) {
 		return true
 	}
@@ -263,8 +263,8 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetPropertiesModeOk() (*Product
 	return o.PropertiesMode, true
 }
 
-// &#39;Has&#39;PropertiesMode returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) &#39;Has&#39;PropertiesMode() bool {
+// HasPropertiesMode returns a boolean if a field has been set.
+func (o *ProductConfiguratorCreateMatrixRequest) HasPropertiesMode() bool {
 	if o != nil && !IsNil(o.PropertiesMode) {
 		return true
 	}

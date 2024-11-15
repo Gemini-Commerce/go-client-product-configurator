@@ -62,8 +62,8 @@ func (o *PropertyListPropertiesResponse) GetPropertiesOk() ([]Productconfigurato
 	return o.Properties, true
 }
 
-// &#39;Has&#39;Properties returns a boolean if a field has been set.
-func (o *PropertyListPropertiesResponse) &#39;Has&#39;Properties() bool {
+// HasProperties returns a boolean if a field has been set.
+func (o *PropertyListPropertiesResponse) HasProperties() bool {
 	if o != nil && !IsNil(o.Properties) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *PropertyListPropertiesResponse) GetNextPageTokenOk() (*string, bool) {
 	return o.NextPageToken, true
 }
 
-// &#39;Has&#39;NextPageToken returns a boolean if a field has been set.
-func (o *PropertyListPropertiesResponse) &#39;Has&#39;NextPageToken() bool {
+// HasNextPageToken returns a boolean if a field has been set.
+func (o *PropertyListPropertiesResponse) HasNextPageToken() bool {
 	if o != nil && !IsNil(o.NextPageToken) {
 		return true
 	}

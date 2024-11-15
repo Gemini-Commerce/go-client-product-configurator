@@ -62,8 +62,8 @@ func (o *ProductconfiguratordependencyUpdatePayload) GetOptionIdsOk() ([]string,
 	return o.OptionIds, true
 }
 
-// &#39;Has&#39;OptionIds returns a boolean if a field has been set.
-func (o *ProductconfiguratordependencyUpdatePayload) &#39;Has&#39;OptionIds() bool {
+// HasOptionIds returns a boolean if a field has been set.
+func (o *ProductconfiguratordependencyUpdatePayload) HasOptionIds() bool {
 	if o != nil && !IsNil(o.OptionIds) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *ProductconfiguratordependencyUpdatePayload) GetConditionOk() (*Dependen
 	return o.Condition, true
 }
 
-// &#39;Has&#39;Condition returns a boolean if a field has been set.
-func (o *ProductconfiguratordependencyUpdatePayload) &#39;Has&#39;Condition() bool {
+// HasCondition returns a boolean if a field has been set.
+func (o *ProductconfiguratordependencyUpdatePayload) HasCondition() bool {
 	if o != nil && !IsNil(o.Condition) {
 		return true
 	}

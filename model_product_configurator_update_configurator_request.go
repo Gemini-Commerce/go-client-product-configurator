@@ -62,8 +62,8 @@ func (o *ProductConfiguratorUpdateConfiguratorRequest) GetPayloadOk() (*Productc
 	return o.Payload, true
 }
 
-// &#39;Has&#39;Payload returns a boolean if a field has been set.
-func (o *ProductConfiguratorUpdateConfiguratorRequest) &#39;Has&#39;Payload() bool {
+// HasPayload returns a boolean if a field has been set.
+func (o *ProductConfiguratorUpdateConfiguratorRequest) HasPayload() bool {
 	if o != nil && !IsNil(o.Payload) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *ProductConfiguratorUpdateConfiguratorRequest) GetPayloadMaskOk() (*stri
 	return o.PayloadMask, true
 }
 
-// &#39;Has&#39;PayloadMask returns a boolean if a field has been set.
-func (o *ProductConfiguratorUpdateConfiguratorRequest) &#39;Has&#39;PayloadMask() bool {
+// HasPayloadMask returns a boolean if a field has been set.
+func (o *ProductConfiguratorUpdateConfiguratorRequest) HasPayloadMask() bool {
 	if o != nil && !IsNil(o.PayloadMask) {
 		return true
 	}

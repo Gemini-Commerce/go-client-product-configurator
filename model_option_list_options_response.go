@@ -62,8 +62,8 @@ func (o *OptionListOptionsResponse) GetOptionsOk() ([]ProductconfiguratoroptionE
 	return o.Options, true
 }
 
-// &#39;Has&#39;Options returns a boolean if a field has been set.
-func (o *OptionListOptionsResponse) &#39;Has&#39;Options() bool {
+// HasOptions returns a boolean if a field has been set.
+func (o *OptionListOptionsResponse) HasOptions() bool {
 	if o != nil && !IsNil(o.Options) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *OptionListOptionsResponse) GetNextPageTokenOk() (*string, bool) {
 	return o.NextPageToken, true
 }
 
-// &#39;Has&#39;NextPageToken returns a boolean if a field has been set.
-func (o *OptionListOptionsResponse) &#39;Has&#39;NextPageToken() bool {
+// HasNextPageToken returns a boolean if a field has been set.
+func (o *OptionListOptionsResponse) HasNextPageToken() bool {
 	if o != nil && !IsNil(o.NextPageToken) {
 		return true
 	}

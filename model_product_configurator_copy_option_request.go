@@ -61,8 +61,8 @@ func (o *ProductConfiguratorCopyOptionRequest) GetTargetStepIdOk() (*string, boo
 	return o.TargetStepId, true
 }
 
-// &#39;Has&#39;TargetStepId returns a boolean if a field has been set.
-func (o *ProductConfiguratorCopyOptionRequest) &#39;Has&#39;TargetStepId() bool {
+// HasTargetStepId returns a boolean if a field has been set.
+func (o *ProductConfiguratorCopyOptionRequest) HasTargetStepId() bool {
 	if o != nil && !IsNil(o.TargetStepId) {
 		return true
 	}

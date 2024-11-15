@@ -62,8 +62,8 @@ func (o *MatrixListMatricesResponse) GetMatricesOk() ([]Productconfiguratormatri
 	return o.Matrices, true
 }
 
-// &#39;Has&#39;Matrices returns a boolean if a field has been set.
-func (o *MatrixListMatricesResponse) &#39;Has&#39;Matrices() bool {
+// HasMatrices returns a boolean if a field has been set.
+func (o *MatrixListMatricesResponse) HasMatrices() bool {
 	if o != nil && !IsNil(o.Matrices) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *MatrixListMatricesResponse) GetNextPageTokenOk() (*string, bool) {
 	return o.NextPageToken, true
 }
 
-// &#39;Has&#39;NextPageToken returns a boolean if a field has been set.
-func (o *MatrixListMatricesResponse) &#39;Has&#39;NextPageToken() bool {
+// HasNextPageToken returns a boolean if a field has been set.
+func (o *MatrixListMatricesResponse) HasNextPageToken() bool {
 	if o != nil && !IsNil(o.NextPageToken) {
 		return true
 	}

@@ -62,8 +62,8 @@ func (o *ProductconfiguratorconfigurationSelection) GetStepIdOk() (*string, bool
 	return o.StepId, true
 }
 
-// &#39;Has&#39;StepId returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationSelection) &#39;Has&#39;StepId() bool {
+// HasStepId returns a boolean if a field has been set.
+func (o *ProductconfiguratorconfigurationSelection) HasStepId() bool {
 	if o != nil && !IsNil(o.StepId) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *ProductconfiguratorconfigurationSelection) GetOptionIdsOk() ([]string, 
 	return o.OptionIds, true
 }
 
-// &#39;Has&#39;OptionIds returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationSelection) &#39;Has&#39;OptionIds() bool {
+// HasOptionIds returns a boolean if a field has been set.
+func (o *ProductconfiguratorconfigurationSelection) HasOptionIds() bool {
 	if o != nil && !IsNil(o.OptionIds) {
 		return true
 	}

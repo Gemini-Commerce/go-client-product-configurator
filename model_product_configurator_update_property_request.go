@@ -63,8 +63,8 @@ func (o *ProductConfiguratorUpdatePropertyRequest) GetMatrixIdOk() (*string, boo
 	return o.MatrixId, true
 }
 
-// &#39;Has&#39;MatrixId returns a boolean if a field has been set.
-func (o *ProductConfiguratorUpdatePropertyRequest) &#39;Has&#39;MatrixId() bool {
+// HasMatrixId returns a boolean if a field has been set.
+func (o *ProductConfiguratorUpdatePropertyRequest) HasMatrixId() bool {
 	if o != nil && !IsNil(o.MatrixId) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *ProductConfiguratorUpdatePropertyRequest) GetPayloadOk() (*Productconfi
 	return o.Payload, true
 }
 
-// &#39;Has&#39;Payload returns a boolean if a field has been set.
-func (o *ProductConfiguratorUpdatePropertyRequest) &#39;Has&#39;Payload() bool {
+// HasPayload returns a boolean if a field has been set.
+func (o *ProductConfiguratorUpdatePropertyRequest) HasPayload() bool {
 	if o != nil && !IsNil(o.Payload) {
 		return true
 	}
@@ -127,8 +127,8 @@ func (o *ProductConfiguratorUpdatePropertyRequest) GetPayloadMaskOk() (*string, 
 	return o.PayloadMask, true
 }
 
-// &#39;Has&#39;PayloadMask returns a boolean if a field has been set.
-func (o *ProductConfiguratorUpdatePropertyRequest) &#39;Has&#39;PayloadMask() bool {
+// HasPayloadMask returns a boolean if a field has been set.
+func (o *ProductConfiguratorUpdatePropertyRequest) HasPayloadMask() bool {
 	if o != nil && !IsNil(o.PayloadMask) {
 		return true
 	}

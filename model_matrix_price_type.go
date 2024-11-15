@@ -61,8 +61,8 @@ func (o *MatrixPriceType) GetPricelistGrnsOk() ([]string, bool) {
 	return o.PricelistGrns, true
 }
 
-// &#39;Has&#39;PricelistGrns returns a boolean if a field has been set.
-func (o *MatrixPriceType) &#39;Has&#39;PricelistGrns() bool {
+// HasPricelistGrns returns a boolean if a field has been set.
+func (o *MatrixPriceType) HasPricelistGrns() bool {
 	if o != nil && !IsNil(o.PricelistGrns) {
 		return true
 	}

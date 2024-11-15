@@ -61,8 +61,8 @@ func (o *ProductConfiguratorCreateConfiguratorRequest) GetLabelOk() (*string, bo
 	return o.Label, true
 }
 
-// &#39;Has&#39;Label returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateConfiguratorRequest) &#39;Has&#39;Label() bool {
+// HasLabel returns a boolean if a field has been set.
+func (o *ProductConfiguratorCreateConfiguratorRequest) HasLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}

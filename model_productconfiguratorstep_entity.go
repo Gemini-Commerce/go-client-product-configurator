@@ -73,8 +73,8 @@ func (o *ProductconfiguratorstepEntity) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// &#39;Has&#39;Id returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;Id() bool {
+// HasId returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -105,8 +105,8 @@ func (o *ProductconfiguratorstepEntity) GetGrnOk() (*string, bool) {
 	return o.Grn, true
 }
 
-// &#39;Has&#39;Grn returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;Grn() bool {
+// HasGrn returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -137,8 +137,8 @@ func (o *ProductconfiguratorstepEntity) GetLabelOk() (*LocalisationLocalizedText
 	return o.Label, true
 }
 
-// &#39;Has&#39;Label returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;Label() bool {
+// HasLabel returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -169,8 +169,8 @@ func (o *ProductconfiguratorstepEntity) GetDescriptionOk() (*LocalisationLocaliz
 	return o.Description, true
 }
 
-// &#39;Has&#39;Description returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;Description() bool {
+// HasDescription returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -201,8 +201,8 @@ func (o *ProductconfiguratorstepEntity) GetSubjectToStepIdOk() (*string, bool) {
 	return o.SubjectToStepId, true
 }
 
-// &#39;Has&#39;SubjectToStepId returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;SubjectToStepId() bool {
+// HasSubjectToStepId returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasSubjectToStepId() bool {
 	if o != nil && !IsNil(o.SubjectToStepId) {
 		return true
 	}
@@ -233,8 +233,8 @@ func (o *ProductconfiguratorstepEntity) GetPositionOk() (*string, bool) {
 	return o.Position, true
 }
 
-// &#39;Has&#39;Position returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;Position() bool {
+// HasPosition returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasPosition() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -265,8 +265,8 @@ func (o *ProductconfiguratorstepEntity) GetIsRequiredOk() (*bool, bool) {
 	return o.IsRequired, true
 }
 
-// &#39;Has&#39;IsRequired returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;IsRequired() bool {
+// HasIsRequired returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasIsRequired() bool {
 	if o != nil && !IsNil(o.IsRequired) {
 		return true
 	}
@@ -297,8 +297,8 @@ func (o *ProductconfiguratorstepEntity) GetOptionsOk() ([]Productconfiguratoropt
 	return o.Options, true
 }
 
-// &#39;Has&#39;Options returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;Options() bool {
+// HasOptions returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasOptions() bool {
 	if o != nil && !IsNil(o.Options) {
 		return true
 	}
@@ -329,8 +329,8 @@ func (o *ProductconfiguratorstepEntity) GetHasMultipleSelectionOk() (*bool, bool
 	return o.HasMultipleSelection, true
 }
 
-// &#39;Has&#39;HasMultipleSelection returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;HasMultipleSelection() bool {
+// HasHasMultipleSelection returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasHasMultipleSelection() bool {
 	if o != nil && !IsNil(o.HasMultipleSelection) {
 		return true
 	}
@@ -361,8 +361,8 @@ func (o *ProductconfiguratorstepEntity) GetOptionsHaveQuantityOk() (*bool, bool)
 	return o.OptionsHaveQuantity, true
 }
 
-// &#39;Has&#39;OptionsHaveQuantity returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;OptionsHaveQuantity() bool {
+// HasOptionsHaveQuantity returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasOptionsHaveQuantity() bool {
 	if o != nil && !IsNil(o.OptionsHaveQuantity) {
 		return true
 	}
@@ -393,8 +393,8 @@ func (o *ProductconfiguratorstepEntity) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// &#39;Has&#39;CreatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;CreatedAt() bool {
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -425,8 +425,8 @@ func (o *ProductconfiguratorstepEntity) GetUpdatedAtOk() (*time.Time, bool) {
 	return o.UpdatedAt, true
 }
 
-// &#39;Has&#39;UpdatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) &#39;Has&#39;UpdatedAt() bool {
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *ProductconfiguratorstepEntity) HasUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}

@@ -62,8 +62,8 @@ func (o *PropertyListPropertiesByConfigurationRequestSelection) GetStepIdOk() (*
 	return o.StepId, true
 }
 
-// &#39;Has&#39;StepId returns a boolean if a field has been set.
-func (o *PropertyListPropertiesByConfigurationRequestSelection) &#39;Has&#39;StepId() bool {
+// HasStepId returns a boolean if a field has been set.
+func (o *PropertyListPropertiesByConfigurationRequestSelection) HasStepId() bool {
 	if o != nil && !IsNil(o.StepId) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *PropertyListPropertiesByConfigurationRequestSelection) GetOptionIdOk() 
 	return o.OptionId, true
 }
 
-// &#39;Has&#39;OptionId returns a boolean if a field has been set.
-func (o *PropertyListPropertiesByConfigurationRequestSelection) &#39;Has&#39;OptionId() bool {
+// HasOptionId returns a boolean if a field has been set.
+func (o *PropertyListPropertiesByConfigurationRequestSelection) HasOptionId() bool {
 	if o != nil && !IsNil(o.OptionId) {
 		return true
 	}

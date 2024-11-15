@@ -61,8 +61,8 @@ func (o *ProductconfiguratormatrixStep) GetStepIdOk() (*string, bool) {
 	return o.StepId, true
 }
 
-// &#39;Has&#39;StepId returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixStep) &#39;Has&#39;StepId() bool {
+// HasStepId returns a boolean if a field has been set.
+func (o *ProductconfiguratormatrixStep) HasStepId() bool {
 	if o != nil && !IsNil(o.StepId) {
 		return true
 	}

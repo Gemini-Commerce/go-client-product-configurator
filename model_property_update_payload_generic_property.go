@@ -61,8 +61,8 @@ func (o *PropertyUpdatePayloadGenericProperty) GetPropertyValueOk() (*string, bo
 	return o.PropertyValue, true
 }
 
-// &#39;Has&#39;PropertyValue returns a boolean if a field has been set.
-func (o *PropertyUpdatePayloadGenericProperty) &#39;Has&#39;PropertyValue() bool {
+// HasPropertyValue returns a boolean if a field has been set.
+func (o *PropertyUpdatePayloadGenericProperty) HasPropertyValue() bool {
 	if o != nil && !IsNil(o.PropertyValue) {
 		return true
 	}

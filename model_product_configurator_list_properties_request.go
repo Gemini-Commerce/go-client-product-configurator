@@ -61,8 +61,8 @@ func (o *ProductConfiguratorListPropertiesRequest) GetPageTokenOk() (*string, bo
 	return o.PageToken, true
 }
 
-// &#39;Has&#39;PageToken returns a boolean if a field has been set.
-func (o *ProductConfiguratorListPropertiesRequest) &#39;Has&#39;PageToken() bool {
+// HasPageToken returns a boolean if a field has been set.
+func (o *ProductConfiguratorListPropertiesRequest) HasPageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}

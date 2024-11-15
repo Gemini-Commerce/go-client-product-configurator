@@ -67,8 +67,8 @@ func (o *DependencyCondition) GetOptionIdsOk() ([]string, bool) {
 	return o.OptionIds, true
 }
 
-// &#39;Has&#39;OptionIds returns a boolean if a field has been set.
-func (o *DependencyCondition) &#39;Has&#39;OptionIds() bool {
+// HasOptionIds returns a boolean if a field has been set.
+func (o *DependencyCondition) HasOptionIds() bool {
 	if o != nil && !IsNil(o.OptionIds) {
 		return true
 	}
@@ -99,8 +99,8 @@ func (o *DependencyCondition) GetConditionsOk() ([]DependencyCondition, bool) {
 	return o.Conditions, true
 }
 
-// &#39;Has&#39;Conditions returns a boolean if a field has been set.
-func (o *DependencyCondition) &#39;Has&#39;Conditions() bool {
+// HasConditions returns a boolean if a field has been set.
+func (o *DependencyCondition) HasConditions() bool {
 	if o != nil && !IsNil(o.Conditions) {
 		return true
 	}
@@ -131,8 +131,8 @@ func (o *DependencyCondition) GetTypeOk() (*ProductconfiguratordependencyType, b
 	return o.Type, true
 }
 
-// &#39;Has&#39;Type returns a boolean if a field has been set.
-func (o *DependencyCondition) &#39;Has&#39;Type() bool {
+// HasType returns a boolean if a field has been set.
+func (o *DependencyCondition) HasType() bool {
 	if o != nil && !IsNil(o.Type) {
 		return true
 	}

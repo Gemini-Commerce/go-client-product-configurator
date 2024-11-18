@@ -1,13 +1,13 @@
 /*
 Product Configurator Service
 
-## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/Gemini-Commerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@gemini-commerce.com](mailto:info@gemini-commerce.com) and we will get back to you.
+## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/Gemini_Commerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@gemini_commerce.com](mailto:info@gemini_commerce.com) and we will get back to you.
 
 API version: v1
-Contact: info@gemini-commerce.com
+Contact: info@gemini_commerce.com
 */
 
-// Code generated by OpenAPI Generator (https://openapi-generator.tech); DO NOT EDIT.
+// Code generated by OpenAPI Generator (https://openapi_generator.tech); DO NOT EDIT.
 
 package productconfigurator
 
@@ -20,16 +20,82 @@ import (
 	"strings"
 )
 
+type DependencyAPI interface {
+
+	/*
+		ProductConfiguratorCreateDependency Create Dependency
+
+		Establish a new dependency for an existing step by specifying the tenant and step IDs. Utilize a POST request with the required dependency details in the body to seamlessly enhance the configuration logic of your product.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param stepId
+		@return ApiProductConfiguratorCreateDependencyRequest
+	*/
+	ProductConfiguratorCreateDependency(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorCreateDependencyRequest
+
+	// ProductConfiguratorCreateDependencyExecute executes the request
+	//  @return ProductconfiguratordependencyEntity
+	ProductConfiguratorCreateDependencyExecute(r ApiProductConfiguratorCreateDependencyRequest) (*ProductconfiguratordependencyEntity, *http.Response, error)
+
+	/*
+		ProductConfiguratorDeleteDependency Delete Dependency
+
+		Remove a specific dependency by specifying the tenant and dependency IDs. Ensure precision in dependency management with a straightforward DELETE request, simplifying the elimination of unwanted configuration logic.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param dependencyId
+		@return ApiProductConfiguratorDeleteDependencyRequest
+	*/
+	ProductConfiguratorDeleteDependency(ctx context.Context, tenantId string, dependencyId string) ApiProductConfiguratorDeleteDependencyRequest
+
+	// ProductConfiguratorDeleteDependencyExecute executes the request
+	//  @return map[string]interface{}
+	ProductConfiguratorDeleteDependencyExecute(r ApiProductConfiguratorDeleteDependencyRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+		ProductConfiguratorListDependencies List Dependencies
+
+		Retrieve a list of dependencies based on the specified tenant ID. Customize results by specifying page size for efficient pagination. Submit an empty body to get all dependencies associated with the configurations.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param pageSize
+		@return ApiProductConfiguratorListDependenciesRequest
+	*/
+	ProductConfiguratorListDependencies(ctx context.Context, tenantId string, pageSize int64) ApiProductConfiguratorListDependenciesRequest
+
+	// ProductConfiguratorListDependenciesExecute executes the request
+	//  @return DependencyListDependenciesResponse
+	ProductConfiguratorListDependenciesExecute(r ApiProductConfiguratorListDependenciesRequest) (*DependencyListDependenciesResponse, *http.Response, error)
+
+	/*
+		ProductConfiguratorUpdateDependency Update Dependency
+
+		Modify an existing dependency by specifying the tenant and dependency IDs. Utilize a PUT request with updated dependency details in the body for seamless customization and fine_tuning of your product configurations.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param dependencyId
+		@return ApiProductConfiguratorUpdateDependencyRequest
+	*/
+	ProductConfiguratorUpdateDependency(ctx context.Context, tenantId string, dependencyId string) ApiProductConfiguratorUpdateDependencyRequest
+
+	// ProductConfiguratorUpdateDependencyExecute executes the request
+	//  @return ProductconfiguratordependencyEntity
+	ProductConfiguratorUpdateDependencyExecute(r ApiProductConfiguratorUpdateDependencyRequest) (*ProductconfiguratordependencyEntity, *http.Response, error)
+}
 
 // DependencyAPIService DependencyAPI service
 type DependencyAPIService service
 
 type ApiProductConfiguratorCreateDependencyRequest struct {
-	ctx context.Context
-	ApiService *DependencyAPIService
-	tenantId string
-	stepId string
-	body *ProductConfiguratorCreateDependencyRequest
+	ctx        context.Context
+	ApiService DependencyAPI
+	tenantId   string
+	stepId     string
+	body       *ProductConfiguratorCreateDependencyRequest
 }
 
 func (r ApiProductConfiguratorCreateDependencyRequest) Body(body ProductConfiguratorCreateDependencyRequest) ApiProductConfiguratorCreateDependencyRequest {
@@ -46,28 +112,29 @@ ProductConfiguratorCreateDependency Create Dependency
 
 Establish a new dependency for an existing step by specifying the tenant and step IDs. Utilize a POST request with the required dependency details in the body to seamlessly enhance the configuration logic of your product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param stepId
- @return ApiProductConfiguratorCreateDependencyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param stepId
+	@return ApiProductConfiguratorCreateDependencyRequest
 */
 func (a *DependencyAPIService) ProductConfiguratorCreateDependency(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorCreateDependencyRequest {
 	return ApiProductConfiguratorCreateDependencyRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		stepId: stepId,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		stepId:     stepId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratordependencyEntity
+//
+//	@return ProductconfiguratordependencyEntity
 func (a *DependencyAPIService) ProductConfiguratorCreateDependencyExecute(r ApiProductConfiguratorCreateDependencyRequest) (*ProductconfiguratordependencyEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratordependencyEntity
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratordependencyEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DependencyAPIService.ProductConfiguratorCreateDependency")
@@ -86,13 +153,13 @@ func (a *DependencyAPIService) ProductConfiguratorCreateDependencyExecute(r ApiP
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -143,49 +210,49 @@ func (a *DependencyAPIService) ProductConfiguratorCreateDependencyExecute(r ApiP
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -198,9 +265,9 @@ func (a *DependencyAPIService) ProductConfiguratorCreateDependencyExecute(r ApiP
 }
 
 type ApiProductConfiguratorDeleteDependencyRequest struct {
-	ctx context.Context
-	ApiService *DependencyAPIService
-	tenantId string
+	ctx          context.Context
+	ApiService   DependencyAPI
+	tenantId     string
 	dependencyId string
 }
 
@@ -213,28 +280,29 @@ ProductConfiguratorDeleteDependency Delete Dependency
 
 Remove a specific dependency by specifying the tenant and dependency IDs. Ensure precision in dependency management with a straightforward DELETE request, simplifying the elimination of unwanted configuration logic.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param dependencyId
- @return ApiProductConfiguratorDeleteDependencyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param dependencyId
+	@return ApiProductConfiguratorDeleteDependencyRequest
 */
 func (a *DependencyAPIService) ProductConfiguratorDeleteDependency(ctx context.Context, tenantId string, dependencyId string) ApiProductConfiguratorDeleteDependencyRequest {
 	return ApiProductConfiguratorDeleteDependencyRequest{
-		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ApiService:   a,
+		ctx:          ctx,
+		tenantId:     tenantId,
 		dependencyId: dependencyId,
 	}
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
+//
+//	@return map[string]interface{}
 func (a *DependencyAPIService) ProductConfiguratorDeleteDependencyExecute(r ApiProductConfiguratorDeleteDependencyRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DependencyAPIService.ProductConfiguratorDeleteDependency")
@@ -250,13 +318,13 @@ func (a *DependencyAPIService) ProductConfiguratorDeleteDependencyExecute(r ApiP
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -305,49 +373,49 @@ func (a *DependencyAPIService) ProductConfiguratorDeleteDependencyExecute(r ApiP
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -360,11 +428,11 @@ func (a *DependencyAPIService) ProductConfiguratorDeleteDependencyExecute(r ApiP
 }
 
 type ApiProductConfiguratorListDependenciesRequest struct {
-	ctx context.Context
-	ApiService *DependencyAPIService
-	tenantId string
-	pageSize int64
-	body *ProductConfiguratorListDependenciesRequest
+	ctx        context.Context
+	ApiService DependencyAPI
+	tenantId   string
+	pageSize   int64
+	body       *ProductConfiguratorListDependenciesRequest
 }
 
 func (r ApiProductConfiguratorListDependenciesRequest) Body(body ProductConfiguratorListDependenciesRequest) ApiProductConfiguratorListDependenciesRequest {
@@ -381,28 +449,29 @@ ProductConfiguratorListDependencies List Dependencies
 
 Retrieve a list of dependencies based on the specified tenant ID. Customize results by specifying page size for efficient pagination. Submit an empty body to get all dependencies associated with the configurations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param pageSize
- @return ApiProductConfiguratorListDependenciesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param pageSize
+	@return ApiProductConfiguratorListDependenciesRequest
 */
 func (a *DependencyAPIService) ProductConfiguratorListDependencies(ctx context.Context, tenantId string, pageSize int64) ApiProductConfiguratorListDependenciesRequest {
 	return ApiProductConfiguratorListDependenciesRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		pageSize: pageSize,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		pageSize:   pageSize,
 	}
 }
 
 // Execute executes the request
-//  @return DependencyListDependenciesResponse
+//
+//	@return DependencyListDependenciesResponse
 func (a *DependencyAPIService) ProductConfiguratorListDependenciesExecute(r ApiProductConfiguratorListDependenciesRequest) (*DependencyListDependenciesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DependencyListDependenciesResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DependencyListDependenciesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DependencyAPIService.ProductConfiguratorListDependencies")
@@ -410,7 +479,7 @@ func (a *DependencyAPIService) ProductConfiguratorListDependenciesExecute(r ApiP
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/{tenantId}/page-size/{pageSize}/dependencies"
+	localVarPath := localBasePath + "/v1/{tenantId}/page_size/{pageSize}/dependencies"
 	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"pageSize"+"}", url.PathEscape(parameterValueToString(r.pageSize, "pageSize")), -1)
 
@@ -421,13 +490,13 @@ func (a *DependencyAPIService) ProductConfiguratorListDependenciesExecute(r ApiP
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -478,49 +547,49 @@ func (a *DependencyAPIService) ProductConfiguratorListDependenciesExecute(r ApiP
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -533,11 +602,11 @@ func (a *DependencyAPIService) ProductConfiguratorListDependenciesExecute(r ApiP
 }
 
 type ApiProductConfiguratorUpdateDependencyRequest struct {
-	ctx context.Context
-	ApiService *DependencyAPIService
-	tenantId string
+	ctx          context.Context
+	ApiService   DependencyAPI
+	tenantId     string
 	dependencyId string
-	body *ProductConfiguratorUpdateDependencyRequest
+	body         *ProductConfiguratorUpdateDependencyRequest
 }
 
 func (r ApiProductConfiguratorUpdateDependencyRequest) Body(body ProductConfiguratorUpdateDependencyRequest) ApiProductConfiguratorUpdateDependencyRequest {
@@ -552,30 +621,31 @@ func (r ApiProductConfiguratorUpdateDependencyRequest) Execute() (*Productconfig
 /*
 ProductConfiguratorUpdateDependency Update Dependency
 
-Modify an existing dependency by specifying the tenant and dependency IDs. Utilize a PUT request with updated dependency details in the body for seamless customization and fine-tuning of your product configurations.
+Modify an existing dependency by specifying the tenant and dependency IDs. Utilize a PUT request with updated dependency details in the body for seamless customization and fine_tuning of your product configurations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param dependencyId
- @return ApiProductConfiguratorUpdateDependencyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param dependencyId
+	@return ApiProductConfiguratorUpdateDependencyRequest
 */
 func (a *DependencyAPIService) ProductConfiguratorUpdateDependency(ctx context.Context, tenantId string, dependencyId string) ApiProductConfiguratorUpdateDependencyRequest {
 	return ApiProductConfiguratorUpdateDependencyRequest{
-		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ApiService:   a,
+		ctx:          ctx,
+		tenantId:     tenantId,
 		dependencyId: dependencyId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratordependencyEntity
+//
+//	@return ProductconfiguratordependencyEntity
 func (a *DependencyAPIService) ProductConfiguratorUpdateDependencyExecute(r ApiProductConfiguratorUpdateDependencyRequest) (*ProductconfiguratordependencyEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratordependencyEntity
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratordependencyEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DependencyAPIService.ProductConfiguratorUpdateDependency")
@@ -594,13 +664,13 @@ func (a *DependencyAPIService) ProductConfiguratorUpdateDependencyExecute(r ApiP
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -651,49 +721,49 @@ func (a *DependencyAPIService) ProductConfiguratorUpdateDependencyExecute(r ApiP
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,

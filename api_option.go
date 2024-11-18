@@ -1,13 +1,13 @@
 /*
 Product Configurator Service
 
-## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/Gemini-Commerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@gemini-commerce.com](mailto:info@gemini-commerce.com) and we will get back to you.
+## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/Gemini_Commerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@gemini_commerce.com](mailto:info@gemini_commerce.com) and we will get back to you.
 
 API version: v1
-Contact: info@gemini-commerce.com
+Contact: info@gemini_commerce.com
 */
 
-// Code generated by OpenAPI Generator (https://openapi-generator.tech); DO NOT EDIT.
+// Code generated by OpenAPI Generator (https://openapi_generator.tech); DO NOT EDIT.
 
 package productconfigurator
 
@@ -20,16 +20,145 @@ import (
 	"strings"
 )
 
+type OptionAPI interface {
+
+	/*
+		ProductConfiguratorBulkCreateOptions Bulk Create Options
+
+		Add multiple options to an existing step simultaneously. Submit a POST request with the necessary option details in the body to efficiently expand the configuration possibilities in bulk. Streamline large_scale option management effortlessly.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param stepId
+		@return ApiProductConfiguratorBulkCreateOptionsRequest
+	*/
+	ProductConfiguratorBulkCreateOptions(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorBulkCreateOptionsRequest
+
+	// ProductConfiguratorBulkCreateOptionsExecute executes the request
+	//  @return ProductconfiguratoroptionBulkCreateResponse
+	ProductConfiguratorBulkCreateOptionsExecute(r ApiProductConfiguratorBulkCreateOptionsRequest) (*ProductconfiguratoroptionBulkCreateResponse, *http.Response, error)
+
+	/*
+		ProductConfiguratorBulkDeleteOptions Bulk Delete Options
+
+		Efficiently remove multiple options from configurations using a bulk delete operation. Specify the tenant ID and submit a POST request with the list of option IDs in the body for streamlined option management.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@return ApiProductConfiguratorBulkDeleteOptionsRequest
+	*/
+	ProductConfiguratorBulkDeleteOptions(ctx context.Context, tenantId string) ApiProductConfiguratorBulkDeleteOptionsRequest
+
+	// ProductConfiguratorBulkDeleteOptionsExecute executes the request
+	//  @return map[string]interface{}
+	ProductConfiguratorBulkDeleteOptionsExecute(r ApiProductConfiguratorBulkDeleteOptionsRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+		ProductConfiguratorBulkUpdateOptions Bulk Update Options
+
+		Effortlessly update multiple options. Specify the tenant ID and submit a PUT request with the updated option details in the body. Streamline the customization of a multitude of options in one go.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@return ApiProductConfiguratorBulkUpdateOptionsRequest
+	*/
+	ProductConfiguratorBulkUpdateOptions(ctx context.Context, tenantId string) ApiProductConfiguratorBulkUpdateOptionsRequest
+
+	// ProductConfiguratorBulkUpdateOptionsExecute executes the request
+	//  @return ProductconfiguratoroptionBulkUpdateResponse
+	ProductConfiguratorBulkUpdateOptionsExecute(r ApiProductConfiguratorBulkUpdateOptionsRequest) (*ProductconfiguratoroptionBulkUpdateResponse, *http.Response, error)
+
+	/*
+		ProductConfiguratorCopyOption Copy Option
+
+		Duplicate an existing option from the source to a specified tenant. Utilize a POST request with an empty body to initiate the copy process, creating a new option based on the source configuration. Streamline option replication effortlessly.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param sourceOptionId
+		@return ApiProductConfiguratorCopyOptionRequest
+	*/
+	ProductConfiguratorCopyOption(ctx context.Context, tenantId string, sourceOptionId string) ApiProductConfiguratorCopyOptionRequest
+
+	// ProductConfiguratorCopyOptionExecute executes the request
+	//  @return ProductconfiguratoroptionEntity
+	ProductConfiguratorCopyOptionExecute(r ApiProductConfiguratorCopyOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error)
+
+	/*
+		ProductConfiguratorCreateOption Create Option
+
+		Integrate a new option into an existing step by specifying the tenant and step IDs. Use a POST request with the required option details in the body for seamless customization and expansion of product configurations.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param stepId
+		@return ApiProductConfiguratorCreateOptionRequest
+	*/
+	ProductConfiguratorCreateOption(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorCreateOptionRequest
+
+	// ProductConfiguratorCreateOptionExecute executes the request
+	//  @return ProductconfiguratoroptionEntity
+	ProductConfiguratorCreateOptionExecute(r ApiProductConfiguratorCreateOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error)
+
+	/*
+		ProductConfiguratorDeleteOption Delete Option
+
+		Remove a specific option by specifying the tenant and option IDs. Ensure precision in option management with a straightforward DELETE request, simplifying the elimination of unwanted configuration choices.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param optionId
+		@return ApiProductConfiguratorDeleteOptionRequest
+	*/
+	ProductConfiguratorDeleteOption(ctx context.Context, tenantId string, optionId string) ApiProductConfiguratorDeleteOptionRequest
+
+	// ProductConfiguratorDeleteOptionExecute executes the request
+	//  @return map[string]interface{}
+	ProductConfiguratorDeleteOptionExecute(r ApiProductConfiguratorDeleteOptionRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+		ProductConfiguratorListOptions List Options
+
+		Retrieve a list of options for a specific step based on tenant and step IDs. Customize results by specifying page size for efficient pagination. Submit an empty body to get all options associated with the step.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param stepId
+		@param pageSize
+		@return ApiProductConfiguratorListOptionsRequest
+	*/
+	ProductConfiguratorListOptions(ctx context.Context, tenantId string, stepId string, pageSize int64) ApiProductConfiguratorListOptionsRequest
+
+	// ProductConfiguratorListOptionsExecute executes the request
+	//  @return OptionListOptionsResponse
+	ProductConfiguratorListOptionsExecute(r ApiProductConfiguratorListOptionsRequest) (*OptionListOptionsResponse, *http.Response, error)
+
+	/*
+		ProductConfiguratorUpdateOption Update Option
+
+		Modify an existing option by specifying the tenant and option IDs. Utilize a PUT request with updated option details in the body for seamless customization and fine_tuning of your product configurations.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param optionId
+		@return ApiProductConfiguratorUpdateOptionRequest
+	*/
+	ProductConfiguratorUpdateOption(ctx context.Context, tenantId string, optionId string) ApiProductConfiguratorUpdateOptionRequest
+
+	// ProductConfiguratorUpdateOptionExecute executes the request
+	//  @return ProductconfiguratoroptionEntity
+	ProductConfiguratorUpdateOptionExecute(r ApiProductConfiguratorUpdateOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error)
+}
 
 // OptionAPIService OptionAPI service
 type OptionAPIService service
 
 type ApiProductConfiguratorBulkCreateOptionsRequest struct {
-	ctx context.Context
-	ApiService *OptionAPIService
-	tenantId string
-	stepId string
-	body *ProductConfiguratorBulkCreateOptionsRequest
+	ctx        context.Context
+	ApiService OptionAPI
+	tenantId   string
+	stepId     string
+	body       *ProductConfiguratorBulkCreateOptionsRequest
 }
 
 func (r ApiProductConfiguratorBulkCreateOptionsRequest) Body(body ProductConfiguratorBulkCreateOptionsRequest) ApiProductConfiguratorBulkCreateOptionsRequest {
@@ -44,30 +173,31 @@ func (r ApiProductConfiguratorBulkCreateOptionsRequest) Execute() (*Productconfi
 /*
 ProductConfiguratorBulkCreateOptions Bulk Create Options
 
-Add multiple options to an existing step simultaneously. Submit a POST request with the necessary option details in the body to efficiently expand the configuration possibilities in bulk. Streamline large-scale option management effortlessly.
+Add multiple options to an existing step simultaneously. Submit a POST request with the necessary option details in the body to efficiently expand the configuration possibilities in bulk. Streamline large_scale option management effortlessly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param stepId
- @return ApiProductConfiguratorBulkCreateOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param stepId
+	@return ApiProductConfiguratorBulkCreateOptionsRequest
 */
 func (a *OptionAPIService) ProductConfiguratorBulkCreateOptions(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorBulkCreateOptionsRequest {
 	return ApiProductConfiguratorBulkCreateOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		stepId: stepId,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		stepId:     stepId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratoroptionBulkCreateResponse
+//
+//	@return ProductconfiguratoroptionBulkCreateResponse
 func (a *OptionAPIService) ProductConfiguratorBulkCreateOptionsExecute(r ApiProductConfiguratorBulkCreateOptionsRequest) (*ProductconfiguratoroptionBulkCreateResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratoroptionBulkCreateResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratoroptionBulkCreateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionAPIService.ProductConfiguratorBulkCreateOptions")
@@ -86,13 +216,13 @@ func (a *OptionAPIService) ProductConfiguratorBulkCreateOptionsExecute(r ApiProd
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -143,49 +273,49 @@ func (a *OptionAPIService) ProductConfiguratorBulkCreateOptionsExecute(r ApiProd
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -198,10 +328,10 @@ func (a *OptionAPIService) ProductConfiguratorBulkCreateOptionsExecute(r ApiProd
 }
 
 type ApiProductConfiguratorBulkDeleteOptionsRequest struct {
-	ctx context.Context
-	ApiService *OptionAPIService
-	tenantId string
-	body *ProductConfiguratorBulkDeleteOptionsRequest
+	ctx        context.Context
+	ApiService OptionAPI
+	tenantId   string
+	body       *ProductConfiguratorBulkDeleteOptionsRequest
 }
 
 func (r ApiProductConfiguratorBulkDeleteOptionsRequest) Body(body ProductConfiguratorBulkDeleteOptionsRequest) ApiProductConfiguratorBulkDeleteOptionsRequest {
@@ -218,26 +348,27 @@ ProductConfiguratorBulkDeleteOptions Bulk Delete Options
 
 Efficiently remove multiple options from configurations using a bulk delete operation. Specify the tenant ID and submit a POST request with the list of option IDs in the body for streamlined option management.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @return ApiProductConfiguratorBulkDeleteOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@return ApiProductConfiguratorBulkDeleteOptionsRequest
 */
 func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptions(ctx context.Context, tenantId string) ApiProductConfiguratorBulkDeleteOptionsRequest {
 	return ApiProductConfiguratorBulkDeleteOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ctx:        ctx,
+		tenantId:   tenantId,
 	}
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
+//
+//	@return map[string]interface{}
 func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptionsExecute(r ApiProductConfiguratorBulkDeleteOptionsRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionAPIService.ProductConfiguratorBulkDeleteOptions")
@@ -255,13 +386,13 @@ func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptionsExecute(r ApiProd
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -312,49 +443,49 @@ func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptionsExecute(r ApiProd
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -367,10 +498,10 @@ func (a *OptionAPIService) ProductConfiguratorBulkDeleteOptionsExecute(r ApiProd
 }
 
 type ApiProductConfiguratorBulkUpdateOptionsRequest struct {
-	ctx context.Context
-	ApiService *OptionAPIService
-	tenantId string
-	body *ProductConfiguratorBulkUpdateOptionsRequest
+	ctx        context.Context
+	ApiService OptionAPI
+	tenantId   string
+	body       *ProductConfiguratorBulkUpdateOptionsRequest
 }
 
 func (r ApiProductConfiguratorBulkUpdateOptionsRequest) Body(body ProductConfiguratorBulkUpdateOptionsRequest) ApiProductConfiguratorBulkUpdateOptionsRequest {
@@ -387,26 +518,27 @@ ProductConfiguratorBulkUpdateOptions Bulk Update Options
 
 Effortlessly update multiple options. Specify the tenant ID and submit a PUT request with the updated option details in the body. Streamline the customization of a multitude of options in one go.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @return ApiProductConfiguratorBulkUpdateOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@return ApiProductConfiguratorBulkUpdateOptionsRequest
 */
 func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptions(ctx context.Context, tenantId string) ApiProductConfiguratorBulkUpdateOptionsRequest {
 	return ApiProductConfiguratorBulkUpdateOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ctx:        ctx,
+		tenantId:   tenantId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratoroptionBulkUpdateResponse
+//
+//	@return ProductconfiguratoroptionBulkUpdateResponse
 func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptionsExecute(r ApiProductConfiguratorBulkUpdateOptionsRequest) (*ProductconfiguratoroptionBulkUpdateResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratoroptionBulkUpdateResponse
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratoroptionBulkUpdateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionAPIService.ProductConfiguratorBulkUpdateOptions")
@@ -424,13 +556,13 @@ func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptionsExecute(r ApiProd
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -481,49 +613,49 @@ func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptionsExecute(r ApiProd
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -536,11 +668,11 @@ func (a *OptionAPIService) ProductConfiguratorBulkUpdateOptionsExecute(r ApiProd
 }
 
 type ApiProductConfiguratorCopyOptionRequest struct {
-	ctx context.Context
-	ApiService *OptionAPIService
-	tenantId string
+	ctx            context.Context
+	ApiService     OptionAPI
+	tenantId       string
 	sourceOptionId string
-	body *ProductConfiguratorCopyOptionRequest
+	body           *ProductConfiguratorCopyOptionRequest
 }
 
 func (r ApiProductConfiguratorCopyOptionRequest) Body(body ProductConfiguratorCopyOptionRequest) ApiProductConfiguratorCopyOptionRequest {
@@ -557,28 +689,29 @@ ProductConfiguratorCopyOption Copy Option
 
 Duplicate an existing option from the source to a specified tenant. Utilize a POST request with an empty body to initiate the copy process, creating a new option based on the source configuration. Streamline option replication effortlessly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param sourceOptionId
- @return ApiProductConfiguratorCopyOptionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param sourceOptionId
+	@return ApiProductConfiguratorCopyOptionRequest
 */
 func (a *OptionAPIService) ProductConfiguratorCopyOption(ctx context.Context, tenantId string, sourceOptionId string) ApiProductConfiguratorCopyOptionRequest {
 	return ApiProductConfiguratorCopyOptionRequest{
-		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ApiService:     a,
+		ctx:            ctx,
+		tenantId:       tenantId,
 		sourceOptionId: sourceOptionId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratoroptionEntity
+//
+//	@return ProductconfiguratoroptionEntity
 func (a *OptionAPIService) ProductConfiguratorCopyOptionExecute(r ApiProductConfiguratorCopyOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratoroptionEntity
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratoroptionEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionAPIService.ProductConfiguratorCopyOption")
@@ -597,13 +730,13 @@ func (a *OptionAPIService) ProductConfiguratorCopyOptionExecute(r ApiProductConf
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -654,49 +787,49 @@ func (a *OptionAPIService) ProductConfiguratorCopyOptionExecute(r ApiProductConf
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -709,11 +842,11 @@ func (a *OptionAPIService) ProductConfiguratorCopyOptionExecute(r ApiProductConf
 }
 
 type ApiProductConfiguratorCreateOptionRequest struct {
-	ctx context.Context
-	ApiService *OptionAPIService
-	tenantId string
-	stepId string
-	body *ProductConfiguratorCreateOptionRequest
+	ctx        context.Context
+	ApiService OptionAPI
+	tenantId   string
+	stepId     string
+	body       *ProductConfiguratorCreateOptionRequest
 }
 
 func (r ApiProductConfiguratorCreateOptionRequest) Body(body ProductConfiguratorCreateOptionRequest) ApiProductConfiguratorCreateOptionRequest {
@@ -730,28 +863,29 @@ ProductConfiguratorCreateOption Create Option
 
 Integrate a new option into an existing step by specifying the tenant and step IDs. Use a POST request with the required option details in the body for seamless customization and expansion of product configurations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param stepId
- @return ApiProductConfiguratorCreateOptionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param stepId
+	@return ApiProductConfiguratorCreateOptionRequest
 */
 func (a *OptionAPIService) ProductConfiguratorCreateOption(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorCreateOptionRequest {
 	return ApiProductConfiguratorCreateOptionRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		stepId: stepId,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		stepId:     stepId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratoroptionEntity
+//
+//	@return ProductconfiguratoroptionEntity
 func (a *OptionAPIService) ProductConfiguratorCreateOptionExecute(r ApiProductConfiguratorCreateOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratoroptionEntity
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratoroptionEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionAPIService.ProductConfiguratorCreateOption")
@@ -770,13 +904,13 @@ func (a *OptionAPIService) ProductConfiguratorCreateOptionExecute(r ApiProductCo
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -827,49 +961,49 @@ func (a *OptionAPIService) ProductConfiguratorCreateOptionExecute(r ApiProductCo
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -882,10 +1016,10 @@ func (a *OptionAPIService) ProductConfiguratorCreateOptionExecute(r ApiProductCo
 }
 
 type ApiProductConfiguratorDeleteOptionRequest struct {
-	ctx context.Context
-	ApiService *OptionAPIService
-	tenantId string
-	optionId string
+	ctx        context.Context
+	ApiService OptionAPI
+	tenantId   string
+	optionId   string
 }
 
 func (r ApiProductConfiguratorDeleteOptionRequest) Execute() (map[string]interface{}, *http.Response, error) {
@@ -897,28 +1031,29 @@ ProductConfiguratorDeleteOption Delete Option
 
 Remove a specific option by specifying the tenant and option IDs. Ensure precision in option management with a straightforward DELETE request, simplifying the elimination of unwanted configuration choices.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param optionId
- @return ApiProductConfiguratorDeleteOptionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param optionId
+	@return ApiProductConfiguratorDeleteOptionRequest
 */
 func (a *OptionAPIService) ProductConfiguratorDeleteOption(ctx context.Context, tenantId string, optionId string) ApiProductConfiguratorDeleteOptionRequest {
 	return ApiProductConfiguratorDeleteOptionRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		optionId: optionId,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		optionId:   optionId,
 	}
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
+//
+//	@return map[string]interface{}
 func (a *OptionAPIService) ProductConfiguratorDeleteOptionExecute(r ApiProductConfiguratorDeleteOptionRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionAPIService.ProductConfiguratorDeleteOption")
@@ -934,13 +1069,13 @@ func (a *OptionAPIService) ProductConfiguratorDeleteOptionExecute(r ApiProductCo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -989,49 +1124,49 @@ func (a *OptionAPIService) ProductConfiguratorDeleteOptionExecute(r ApiProductCo
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1044,12 +1179,12 @@ func (a *OptionAPIService) ProductConfiguratorDeleteOptionExecute(r ApiProductCo
 }
 
 type ApiProductConfiguratorListOptionsRequest struct {
-	ctx context.Context
-	ApiService *OptionAPIService
-	tenantId string
-	stepId string
-	pageSize int64
-	body *ProductConfiguratorListPropertiesRequest
+	ctx        context.Context
+	ApiService OptionAPI
+	tenantId   string
+	stepId     string
+	pageSize   int64
+	body       *ProductConfiguratorListPropertiesRequest
 }
 
 func (r ApiProductConfiguratorListOptionsRequest) Body(body ProductConfiguratorListPropertiesRequest) ApiProductConfiguratorListOptionsRequest {
@@ -1066,30 +1201,31 @@ ProductConfiguratorListOptions List Options
 
 Retrieve a list of options for a specific step based on tenant and step IDs. Customize results by specifying page size for efficient pagination. Submit an empty body to get all options associated with the step.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param stepId
- @param pageSize
- @return ApiProductConfiguratorListOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param stepId
+	@param pageSize
+	@return ApiProductConfiguratorListOptionsRequest
 */
 func (a *OptionAPIService) ProductConfiguratorListOptions(ctx context.Context, tenantId string, stepId string, pageSize int64) ApiProductConfiguratorListOptionsRequest {
 	return ApiProductConfiguratorListOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		stepId: stepId,
-		pageSize: pageSize,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		stepId:     stepId,
+		pageSize:   pageSize,
 	}
 }
 
 // Execute executes the request
-//  @return OptionListOptionsResponse
+//
+//	@return OptionListOptionsResponse
 func (a *OptionAPIService) ProductConfiguratorListOptionsExecute(r ApiProductConfiguratorListOptionsRequest) (*OptionListOptionsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OptionListOptionsResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OptionListOptionsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionAPIService.ProductConfiguratorListOptions")
@@ -1097,7 +1233,7 @@ func (a *OptionAPIService) ProductConfiguratorListOptionsExecute(r ApiProductCon
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/{tenantId}/step/{stepId}/page-size/{pageSize}/options"
+	localVarPath := localBasePath + "/v1/{tenantId}/step/{stepId}/page_size/{pageSize}/options"
 	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"stepId"+"}", url.PathEscape(parameterValueToString(r.stepId, "stepId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"pageSize"+"}", url.PathEscape(parameterValueToString(r.pageSize, "pageSize")), -1)
@@ -1109,13 +1245,13 @@ func (a *OptionAPIService) ProductConfiguratorListOptionsExecute(r ApiProductCon
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -1166,49 +1302,49 @@ func (a *OptionAPIService) ProductConfiguratorListOptionsExecute(r ApiProductCon
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1221,11 +1357,11 @@ func (a *OptionAPIService) ProductConfiguratorListOptionsExecute(r ApiProductCon
 }
 
 type ApiProductConfiguratorUpdateOptionRequest struct {
-	ctx context.Context
-	ApiService *OptionAPIService
-	tenantId string
-	optionId string
-	body *ProductConfiguratorUpdateOptionRequest
+	ctx        context.Context
+	ApiService OptionAPI
+	tenantId   string
+	optionId   string
+	body       *ProductConfiguratorUpdateOptionRequest
 }
 
 func (r ApiProductConfiguratorUpdateOptionRequest) Body(body ProductConfiguratorUpdateOptionRequest) ApiProductConfiguratorUpdateOptionRequest {
@@ -1240,30 +1376,31 @@ func (r ApiProductConfiguratorUpdateOptionRequest) Execute() (*Productconfigurat
 /*
 ProductConfiguratorUpdateOption Update Option
 
-Modify an existing option by specifying the tenant and option IDs. Utilize a PUT request with updated option details in the body for seamless customization and fine-tuning of your product configurations.
+Modify an existing option by specifying the tenant and option IDs. Utilize a PUT request with updated option details in the body for seamless customization and fine_tuning of your product configurations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param optionId
- @return ApiProductConfiguratorUpdateOptionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param optionId
+	@return ApiProductConfiguratorUpdateOptionRequest
 */
 func (a *OptionAPIService) ProductConfiguratorUpdateOption(ctx context.Context, tenantId string, optionId string) ApiProductConfiguratorUpdateOptionRequest {
 	return ApiProductConfiguratorUpdateOptionRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		optionId: optionId,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		optionId:   optionId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratoroptionEntity
+//
+//	@return ProductconfiguratoroptionEntity
 func (a *OptionAPIService) ProductConfiguratorUpdateOptionExecute(r ApiProductConfiguratorUpdateOptionRequest) (*ProductconfiguratoroptionEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratoroptionEntity
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratoroptionEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OptionAPIService.ProductConfiguratorUpdateOption")
@@ -1282,13 +1419,13 @@ func (a *OptionAPIService) ProductConfiguratorUpdateOptionExecute(r ApiProductCo
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -1339,49 +1476,49 @@ func (a *OptionAPIService) ProductConfiguratorUpdateOptionExecute(r ApiProductCo
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,

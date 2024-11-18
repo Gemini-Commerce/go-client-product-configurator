@@ -1,13 +1,13 @@
 /*
 Product Configurator Service
 
-## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/Gemini-Commerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@gemini-commerce.com](mailto:info@gemini-commerce.com) and we will get back to you.
+## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/Gemini_Commerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@gemini_commerce.com](mailto:info@gemini_commerce.com) and we will get back to you.
 
 API version: v1
-Contact: info@gemini-commerce.com
+Contact: info@gemini_commerce.com
 */
 
-// Code generated by OpenAPI Generator (https://openapi-generator.tech); DO NOT EDIT.
+// Code generated by OpenAPI Generator (https://openapi_generator.tech); DO NOT EDIT.
 
 package productconfigurator
 
@@ -20,16 +20,113 @@ import (
 	"strings"
 )
 
+type StepAPI interface {
+
+	/*
+		ProductConfiguratorBulkCreateSteps Bulk Create Steps
+
+		Add multiple steps to an existing product configurator simultaneously. Submit a POST request with the necessary step details in the body to efficiently extend the configuration process in bulk. Simplify large_scale configuration management effortlessly.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param configuratorId
+		@return ApiProductConfiguratorBulkCreateStepsRequest
+	*/
+	ProductConfiguratorBulkCreateSteps(ctx context.Context, tenantId string, configuratorId string) ApiProductConfiguratorBulkCreateStepsRequest
+
+	// ProductConfiguratorBulkCreateStepsExecute executes the request
+	//  @return ProductconfiguratorstepBulkCreateResponse
+	ProductConfiguratorBulkCreateStepsExecute(r ApiProductConfiguratorBulkCreateStepsRequest) (*ProductconfiguratorstepBulkCreateResponse, *http.Response, error)
+
+	/*
+		ProductConfiguratorBulkDeleteSteps Bulk Delete Steps
+
+		Efficiently remove multiple steps from a product configurator using a bulk delete operation. Specify the tenant ID and submit a POST request with the list of step IDs in the body for streamlined configuration management.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@return ApiProductConfiguratorBulkDeleteStepsRequest
+	*/
+	ProductConfiguratorBulkDeleteSteps(ctx context.Context, tenantId string) ApiProductConfiguratorBulkDeleteStepsRequest
+
+	// ProductConfiguratorBulkDeleteStepsExecute executes the request
+	//  @return map[string]interface{}
+	ProductConfiguratorBulkDeleteStepsExecute(r ApiProductConfiguratorBulkDeleteStepsRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+		ProductConfiguratorCopyStep Copy Step
+
+		Duplicate an existing step from the source to a specified tenant. Utilize a POST request with an empty body to initiate the copy process, creating a new step based on the source configuration. Streamline step replication effortlessly.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param sourceStepId
+		@return ApiProductConfiguratorCopyStepRequest
+	*/
+	ProductConfiguratorCopyStep(ctx context.Context, tenantId string, sourceStepId string) ApiProductConfiguratorCopyStepRequest
+
+	// ProductConfiguratorCopyStepExecute executes the request
+	//  @return ProductconfiguratorstepEntity
+	ProductConfiguratorCopyStepExecute(r ApiProductConfiguratorCopyStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error)
+
+	/*
+		ProductConfiguratorCreateStep Create Step
+
+		Add a new step to an existing product configurator by specifying the tenant and configurator IDs. Utilize a POST request with the required step details in the body to seamlessly extend the configuration process.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param configuratorId
+		@return ApiProductConfiguratorCreateStepRequest
+	*/
+	ProductConfiguratorCreateStep(ctx context.Context, tenantId string, configuratorId string) ApiProductConfiguratorCreateStepRequest
+
+	// ProductConfiguratorCreateStepExecute executes the request
+	//  @return ProductconfiguratorstepEntity
+	ProductConfiguratorCreateStepExecute(r ApiProductConfiguratorCreateStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error)
+
+	/*
+		ProductConfiguratorDeleteStep Delete Step
+
+		Remove a step from a product configurator by specifying the tenant and step IDs. Ensure precision in configuration management with a straightforward DELETE request, simplifying the elimination of unwanted steps.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param stepId
+		@return ApiProductConfiguratorDeleteStepRequest
+	*/
+	ProductConfiguratorDeleteStep(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorDeleteStepRequest
+
+	// ProductConfiguratorDeleteStepExecute executes the request
+	//  @return GooglerpcStatus
+	ProductConfiguratorDeleteStepExecute(r ApiProductConfiguratorDeleteStepRequest) (*GooglerpcStatus, *http.Response, error)
+
+	/*
+		ProductConfiguratorUpdateStep Update Step
+
+		Modify an existing step within a product configurator by specifying the tenant and step IDs. Utilize a PUT request with updated step details in the body for seamless customization and fine_tuning of your product configurations.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param stepId
+		@return ApiProductConfiguratorUpdateStepRequest
+	*/
+	ProductConfiguratorUpdateStep(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorUpdateStepRequest
+
+	// ProductConfiguratorUpdateStepExecute executes the request
+	//  @return ProductconfiguratorstepEntity
+	ProductConfiguratorUpdateStepExecute(r ApiProductConfiguratorUpdateStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error)
+}
 
 // StepAPIService StepAPI service
 type StepAPIService service
 
 type ApiProductConfiguratorBulkCreateStepsRequest struct {
-	ctx context.Context
-	ApiService *StepAPIService
-	tenantId string
+	ctx            context.Context
+	ApiService     StepAPI
+	tenantId       string
 	configuratorId string
-	body *ProductConfiguratorBulkCreateStepsRequest
+	body           *ProductConfiguratorBulkCreateStepsRequest
 }
 
 func (r ApiProductConfiguratorBulkCreateStepsRequest) Body(body ProductConfiguratorBulkCreateStepsRequest) ApiProductConfiguratorBulkCreateStepsRequest {
@@ -44,30 +141,31 @@ func (r ApiProductConfiguratorBulkCreateStepsRequest) Execute() (*Productconfigu
 /*
 ProductConfiguratorBulkCreateSteps Bulk Create Steps
 
-Add multiple steps to an existing product configurator simultaneously. Submit a POST request with the necessary step details in the body to efficiently extend the configuration process in bulk. Simplify large-scale configuration management effortlessly.
+Add multiple steps to an existing product configurator simultaneously. Submit a POST request with the necessary step details in the body to efficiently extend the configuration process in bulk. Simplify large_scale configuration management effortlessly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param configuratorId
- @return ApiProductConfiguratorBulkCreateStepsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param configuratorId
+	@return ApiProductConfiguratorBulkCreateStepsRequest
 */
 func (a *StepAPIService) ProductConfiguratorBulkCreateSteps(ctx context.Context, tenantId string, configuratorId string) ApiProductConfiguratorBulkCreateStepsRequest {
 	return ApiProductConfiguratorBulkCreateStepsRequest{
-		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ApiService:     a,
+		ctx:            ctx,
+		tenantId:       tenantId,
 		configuratorId: configuratorId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratorstepBulkCreateResponse
+//
+//	@return ProductconfiguratorstepBulkCreateResponse
 func (a *StepAPIService) ProductConfiguratorBulkCreateStepsExecute(r ApiProductConfiguratorBulkCreateStepsRequest) (*ProductconfiguratorstepBulkCreateResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratorstepBulkCreateResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratorstepBulkCreateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StepAPIService.ProductConfiguratorBulkCreateSteps")
@@ -86,13 +184,13 @@ func (a *StepAPIService) ProductConfiguratorBulkCreateStepsExecute(r ApiProductC
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -143,49 +241,49 @@ func (a *StepAPIService) ProductConfiguratorBulkCreateStepsExecute(r ApiProductC
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -198,10 +296,10 @@ func (a *StepAPIService) ProductConfiguratorBulkCreateStepsExecute(r ApiProductC
 }
 
 type ApiProductConfiguratorBulkDeleteStepsRequest struct {
-	ctx context.Context
-	ApiService *StepAPIService
-	tenantId string
-	body *ProductConfiguratorBulkDeleteStepsRequest
+	ctx        context.Context
+	ApiService StepAPI
+	tenantId   string
+	body       *ProductConfiguratorBulkDeleteStepsRequest
 }
 
 func (r ApiProductConfiguratorBulkDeleteStepsRequest) Body(body ProductConfiguratorBulkDeleteStepsRequest) ApiProductConfiguratorBulkDeleteStepsRequest {
@@ -218,26 +316,27 @@ ProductConfiguratorBulkDeleteSteps Bulk Delete Steps
 
 Efficiently remove multiple steps from a product configurator using a bulk delete operation. Specify the tenant ID and submit a POST request with the list of step IDs in the body for streamlined configuration management.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @return ApiProductConfiguratorBulkDeleteStepsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@return ApiProductConfiguratorBulkDeleteStepsRequest
 */
 func (a *StepAPIService) ProductConfiguratorBulkDeleteSteps(ctx context.Context, tenantId string) ApiProductConfiguratorBulkDeleteStepsRequest {
 	return ApiProductConfiguratorBulkDeleteStepsRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ctx:        ctx,
+		tenantId:   tenantId,
 	}
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
+//
+//	@return map[string]interface{}
 func (a *StepAPIService) ProductConfiguratorBulkDeleteStepsExecute(r ApiProductConfiguratorBulkDeleteStepsRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StepAPIService.ProductConfiguratorBulkDeleteSteps")
@@ -255,13 +354,13 @@ func (a *StepAPIService) ProductConfiguratorBulkDeleteStepsExecute(r ApiProductC
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -312,49 +411,49 @@ func (a *StepAPIService) ProductConfiguratorBulkDeleteStepsExecute(r ApiProductC
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -367,11 +466,11 @@ func (a *StepAPIService) ProductConfiguratorBulkDeleteStepsExecute(r ApiProductC
 }
 
 type ApiProductConfiguratorCopyStepRequest struct {
-	ctx context.Context
-	ApiService *StepAPIService
-	tenantId string
+	ctx          context.Context
+	ApiService   StepAPI
+	tenantId     string
 	sourceStepId string
-	body *ProductConfiguratorCopyStepRequest
+	body         *ProductConfiguratorCopyStepRequest
 }
 
 func (r ApiProductConfiguratorCopyStepRequest) Body(body ProductConfiguratorCopyStepRequest) ApiProductConfiguratorCopyStepRequest {
@@ -388,28 +487,29 @@ ProductConfiguratorCopyStep Copy Step
 
 Duplicate an existing step from the source to a specified tenant. Utilize a POST request with an empty body to initiate the copy process, creating a new step based on the source configuration. Streamline step replication effortlessly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param sourceStepId
- @return ApiProductConfiguratorCopyStepRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param sourceStepId
+	@return ApiProductConfiguratorCopyStepRequest
 */
 func (a *StepAPIService) ProductConfiguratorCopyStep(ctx context.Context, tenantId string, sourceStepId string) ApiProductConfiguratorCopyStepRequest {
 	return ApiProductConfiguratorCopyStepRequest{
-		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ApiService:   a,
+		ctx:          ctx,
+		tenantId:     tenantId,
 		sourceStepId: sourceStepId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratorstepEntity
+//
+//	@return ProductconfiguratorstepEntity
 func (a *StepAPIService) ProductConfiguratorCopyStepExecute(r ApiProductConfiguratorCopyStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratorstepEntity
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratorstepEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StepAPIService.ProductConfiguratorCopyStep")
@@ -428,13 +528,13 @@ func (a *StepAPIService) ProductConfiguratorCopyStepExecute(r ApiProductConfigur
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -485,49 +585,49 @@ func (a *StepAPIService) ProductConfiguratorCopyStepExecute(r ApiProductConfigur
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -540,11 +640,11 @@ func (a *StepAPIService) ProductConfiguratorCopyStepExecute(r ApiProductConfigur
 }
 
 type ApiProductConfiguratorCreateStepRequest struct {
-	ctx context.Context
-	ApiService *StepAPIService
-	tenantId string
+	ctx            context.Context
+	ApiService     StepAPI
+	tenantId       string
 	configuratorId string
-	body *ProductConfiguratorCreateStepRequest
+	body           *ProductConfiguratorCreateStepRequest
 }
 
 func (r ApiProductConfiguratorCreateStepRequest) Body(body ProductConfiguratorCreateStepRequest) ApiProductConfiguratorCreateStepRequest {
@@ -561,28 +661,29 @@ ProductConfiguratorCreateStep Create Step
 
 Add a new step to an existing product configurator by specifying the tenant and configurator IDs. Utilize a POST request with the required step details in the body to seamlessly extend the configuration process.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param configuratorId
- @return ApiProductConfiguratorCreateStepRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param configuratorId
+	@return ApiProductConfiguratorCreateStepRequest
 */
 func (a *StepAPIService) ProductConfiguratorCreateStep(ctx context.Context, tenantId string, configuratorId string) ApiProductConfiguratorCreateStepRequest {
 	return ApiProductConfiguratorCreateStepRequest{
-		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ApiService:     a,
+		ctx:            ctx,
+		tenantId:       tenantId,
 		configuratorId: configuratorId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratorstepEntity
+//
+//	@return ProductconfiguratorstepEntity
 func (a *StepAPIService) ProductConfiguratorCreateStepExecute(r ApiProductConfiguratorCreateStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratorstepEntity
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratorstepEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StepAPIService.ProductConfiguratorCreateStep")
@@ -601,13 +702,13 @@ func (a *StepAPIService) ProductConfiguratorCreateStepExecute(r ApiProductConfig
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -658,49 +759,49 @@ func (a *StepAPIService) ProductConfiguratorCreateStepExecute(r ApiProductConfig
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -713,10 +814,10 @@ func (a *StepAPIService) ProductConfiguratorCreateStepExecute(r ApiProductConfig
 }
 
 type ApiProductConfiguratorDeleteStepRequest struct {
-	ctx context.Context
-	ApiService *StepAPIService
-	tenantId string
-	stepId string
+	ctx        context.Context
+	ApiService StepAPI
+	tenantId   string
+	stepId     string
 }
 
 func (r ApiProductConfiguratorDeleteStepRequest) Execute() (*GooglerpcStatus, *http.Response, error) {
@@ -728,28 +829,29 @@ ProductConfiguratorDeleteStep Delete Step
 
 Remove a step from a product configurator by specifying the tenant and step IDs. Ensure precision in configuration management with a straightforward DELETE request, simplifying the elimination of unwanted steps.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param stepId
- @return ApiProductConfiguratorDeleteStepRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param stepId
+	@return ApiProductConfiguratorDeleteStepRequest
 */
 func (a *StepAPIService) ProductConfiguratorDeleteStep(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorDeleteStepRequest {
 	return ApiProductConfiguratorDeleteStepRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		stepId: stepId,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		stepId:     stepId,
 	}
 }
 
 // Execute executes the request
-//  @return GooglerpcStatus
+//
+//	@return GooglerpcStatus
 func (a *StepAPIService) ProductConfiguratorDeleteStepExecute(r ApiProductConfiguratorDeleteStepRequest) (*GooglerpcStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GooglerpcStatus
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GooglerpcStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StepAPIService.ProductConfiguratorDeleteStep")
@@ -765,13 +867,13 @@ func (a *StepAPIService) ProductConfiguratorDeleteStepExecute(r ApiProductConfig
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -820,49 +922,49 @@ func (a *StepAPIService) ProductConfiguratorDeleteStepExecute(r ApiProductConfig
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -875,11 +977,11 @@ func (a *StepAPIService) ProductConfiguratorDeleteStepExecute(r ApiProductConfig
 }
 
 type ApiProductConfiguratorUpdateStepRequest struct {
-	ctx context.Context
-	ApiService *StepAPIService
-	tenantId string
-	stepId string
-	body *ProductConfiguratorUpdateStepRequest
+	ctx        context.Context
+	ApiService StepAPI
+	tenantId   string
+	stepId     string
+	body       *ProductConfiguratorUpdateStepRequest
 }
 
 func (r ApiProductConfiguratorUpdateStepRequest) Body(body ProductConfiguratorUpdateStepRequest) ApiProductConfiguratorUpdateStepRequest {
@@ -894,30 +996,31 @@ func (r ApiProductConfiguratorUpdateStepRequest) Execute() (*Productconfigurator
 /*
 ProductConfiguratorUpdateStep Update Step
 
-Modify an existing step within a product configurator by specifying the tenant and step IDs. Utilize a PUT request with updated step details in the body for seamless customization and fine-tuning of your product configurations.
+Modify an existing step within a product configurator by specifying the tenant and step IDs. Utilize a PUT request with updated step details in the body for seamless customization and fine_tuning of your product configurations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param stepId
- @return ApiProductConfiguratorUpdateStepRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param stepId
+	@return ApiProductConfiguratorUpdateStepRequest
 */
 func (a *StepAPIService) ProductConfiguratorUpdateStep(ctx context.Context, tenantId string, stepId string) ApiProductConfiguratorUpdateStepRequest {
 	return ApiProductConfiguratorUpdateStepRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		stepId: stepId,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		stepId:     stepId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratorstepEntity
+//
+//	@return ProductconfiguratorstepEntity
 func (a *StepAPIService) ProductConfiguratorUpdateStepExecute(r ApiProductConfiguratorUpdateStepRequest) (*ProductconfiguratorstepEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratorstepEntity
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratorstepEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StepAPIService.ProductConfiguratorUpdateStep")
@@ -936,13 +1039,13 @@ func (a *StepAPIService) ProductConfiguratorUpdateStepExecute(r ApiProductConfig
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -993,49 +1096,49 @@ func (a *StepAPIService) ProductConfiguratorUpdateStepExecute(r ApiProductConfig
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,

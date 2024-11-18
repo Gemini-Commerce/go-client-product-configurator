@@ -1,13 +1,13 @@
 /*
 Product Configurator Service
 
-## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/Gemini-Commerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@gemini-commerce.com](mailto:info@gemini-commerce.com) and we will get back to you.
+## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/Gemini_Commerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@gemini_commerce.com](mailto:info@gemini_commerce.com) and we will get back to you.
 
 API version: v1
-Contact: info@gemini-commerce.com
+Contact: info@gemini_commerce.com
 */
 
-// Code generated by OpenAPI Generator (https://openapi-generator.tech); DO NOT EDIT.
+// Code generated by OpenAPI Generator (https://openapi_generator.tech); DO NOT EDIT.
 
 package productconfigurator
 
@@ -20,15 +20,114 @@ import (
 	"strings"
 )
 
+type MatrixAPI interface {
+
+	/*
+		ProductConfiguratorCreateMatrix Create Matrix
+
+		Establish a new matrix by specifying the tenant ID. Utilize a POST request with the required matrix details in the body for seamless customization and expansion of matrix configurations.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@return ApiProductConfiguratorCreateMatrixRequest
+	*/
+	ProductConfiguratorCreateMatrix(ctx context.Context, tenantId string) ApiProductConfiguratorCreateMatrixRequest
+
+	// ProductConfiguratorCreateMatrixExecute executes the request
+	//  @return ProductconfiguratormatrixEntity
+	ProductConfiguratorCreateMatrixExecute(r ApiProductConfiguratorCreateMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error)
+
+	/*
+		ProductConfiguratorDeleteMatrix Delete Matrix
+
+		Remove a specific matrix by specifying the tenant and matrix IDs. Ensure precision in matrix management with a straightforward DELETE request, simplifying the elimination of unwanted matrix configurations.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param matrixId
+		@return ApiProductConfiguratorDeleteMatrixRequest
+	*/
+	ProductConfiguratorDeleteMatrix(ctx context.Context, tenantId string, matrixId string) ApiProductConfiguratorDeleteMatrixRequest
+
+	// ProductConfiguratorDeleteMatrixExecute executes the request
+	//  @return map[string]interface{}
+	ProductConfiguratorDeleteMatrixExecute(r ApiProductConfiguratorDeleteMatrixRequest) (map[string]interface{}, *http.Response, error)
+
+	/*
+		ProductConfiguratorGetMatrix Get Matrix
+
+		Retrieve matrix details by specifying the tenant and matrix IDs. Utilize a GET request for a comprehensive view of matrix configurations within your product configurator service.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param matrixId
+		@return ApiProductConfiguratorGetMatrixRequest
+	*/
+	ProductConfiguratorGetMatrix(ctx context.Context, tenantId string, matrixId string) ApiProductConfiguratorGetMatrixRequest
+
+	// ProductConfiguratorGetMatrixExecute executes the request
+	//  @return ProductconfiguratormatrixEntity
+	ProductConfiguratorGetMatrixExecute(r ApiProductConfiguratorGetMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error)
+
+	/*
+		ProductConfiguratorListMatrices List Matrices
+
+		Retrieve a list of matrices for a specific configurator based on tenant and configurator IDs. Customize results by specifying page size for efficient pagination. Submit an empty body to get all matrices associated with the configurator. Streamline matrix management effortlessly.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param configuratorId
+		@param pageSize
+		@return ApiProductConfiguratorListMatricesRequest
+	*/
+	ProductConfiguratorListMatrices(ctx context.Context, tenantId string, configuratorId string, pageSize string) ApiProductConfiguratorListMatricesRequest
+
+	// ProductConfiguratorListMatricesExecute executes the request
+	//  @return MatrixListMatricesResponse
+	ProductConfiguratorListMatricesExecute(r ApiProductConfiguratorListMatricesRequest) (*MatrixListMatricesResponse, *http.Response, error)
+
+	/*
+		ProductConfiguratorRemovePricelistFromMatrix Remove Pricelist from Matrix
+
+		Remove a specific pricelist from a matrix by specifying the tenant, matrix, and pricelist IDs. Use a DELETE request for precise management of pricelist configurations within your product configurator service.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param matrixId
+		@param pricelistGrn
+		@return ApiProductConfiguratorRemovePricelistFromMatrixRequest
+	*/
+	ProductConfiguratorRemovePricelistFromMatrix(ctx context.Context, tenantId string, matrixId string, pricelistGrn string) ApiProductConfiguratorRemovePricelistFromMatrixRequest
+
+	// ProductConfiguratorRemovePricelistFromMatrixExecute executes the request
+	//  @return ProductconfiguratormatrixEntity
+	ProductConfiguratorRemovePricelistFromMatrixExecute(r ApiProductConfiguratorRemovePricelistFromMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error)
+
+	/*
+		ProductConfiguratorUpdateMatrix Update Matrix
+
+		Modify an existing matrix by specifying the tenant and matrix IDs. Utilize a PUT request with updated matrix details in the body for seamless customization and fine_tuning of your product configurations. Keep your matrices in sync effortlessly.
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param matrixId
+		@return ApiProductConfiguratorUpdateMatrixRequest
+	*/
+	ProductConfiguratorUpdateMatrix(ctx context.Context, tenantId string, matrixId string) ApiProductConfiguratorUpdateMatrixRequest
+
+	// ProductConfiguratorUpdateMatrixExecute executes the request
+	//  @return ProductconfiguratormatrixEntity
+	ProductConfiguratorUpdateMatrixExecute(r ApiProductConfiguratorUpdateMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error)
+}
 
 // MatrixAPIService MatrixAPI service
 type MatrixAPIService service
 
 type ApiProductConfiguratorCreateMatrixRequest struct {
-	ctx context.Context
-	ApiService *MatrixAPIService
-	tenantId string
-	body *ProductConfiguratorCreateMatrixRequest
+	ctx        context.Context
+	ApiService MatrixAPI
+	tenantId   string
+	body       *ProductConfiguratorCreateMatrixRequest
 }
 
 func (r ApiProductConfiguratorCreateMatrixRequest) Body(body ProductConfiguratorCreateMatrixRequest) ApiProductConfiguratorCreateMatrixRequest {
@@ -45,26 +144,27 @@ ProductConfiguratorCreateMatrix Create Matrix
 
 Establish a new matrix by specifying the tenant ID. Utilize a POST request with the required matrix details in the body for seamless customization and expansion of matrix configurations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @return ApiProductConfiguratorCreateMatrixRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@return ApiProductConfiguratorCreateMatrixRequest
 */
 func (a *MatrixAPIService) ProductConfiguratorCreateMatrix(ctx context.Context, tenantId string) ApiProductConfiguratorCreateMatrixRequest {
 	return ApiProductConfiguratorCreateMatrixRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ctx:        ctx,
+		tenantId:   tenantId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratormatrixEntity
+//
+//	@return ProductconfiguratormatrixEntity
 func (a *MatrixAPIService) ProductConfiguratorCreateMatrixExecute(r ApiProductConfiguratorCreateMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratormatrixEntity
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratormatrixEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MatrixAPIService.ProductConfiguratorCreateMatrix")
@@ -82,13 +182,13 @@ func (a *MatrixAPIService) ProductConfiguratorCreateMatrixExecute(r ApiProductCo
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -139,49 +239,49 @@ func (a *MatrixAPIService) ProductConfiguratorCreateMatrixExecute(r ApiProductCo
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -194,10 +294,10 @@ func (a *MatrixAPIService) ProductConfiguratorCreateMatrixExecute(r ApiProductCo
 }
 
 type ApiProductConfiguratorDeleteMatrixRequest struct {
-	ctx context.Context
-	ApiService *MatrixAPIService
-	tenantId string
-	matrixId string
+	ctx        context.Context
+	ApiService MatrixAPI
+	tenantId   string
+	matrixId   string
 }
 
 func (r ApiProductConfiguratorDeleteMatrixRequest) Execute() (map[string]interface{}, *http.Response, error) {
@@ -209,28 +309,29 @@ ProductConfiguratorDeleteMatrix Delete Matrix
 
 Remove a specific matrix by specifying the tenant and matrix IDs. Ensure precision in matrix management with a straightforward DELETE request, simplifying the elimination of unwanted matrix configurations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param matrixId
- @return ApiProductConfiguratorDeleteMatrixRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param matrixId
+	@return ApiProductConfiguratorDeleteMatrixRequest
 */
 func (a *MatrixAPIService) ProductConfiguratorDeleteMatrix(ctx context.Context, tenantId string, matrixId string) ApiProductConfiguratorDeleteMatrixRequest {
 	return ApiProductConfiguratorDeleteMatrixRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		matrixId: matrixId,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		matrixId:   matrixId,
 	}
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
+//
+//	@return map[string]interface{}
 func (a *MatrixAPIService) ProductConfiguratorDeleteMatrixExecute(r ApiProductConfiguratorDeleteMatrixRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MatrixAPIService.ProductConfiguratorDeleteMatrix")
@@ -246,13 +347,13 @@ func (a *MatrixAPIService) ProductConfiguratorDeleteMatrixExecute(r ApiProductCo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -301,49 +402,49 @@ func (a *MatrixAPIService) ProductConfiguratorDeleteMatrixExecute(r ApiProductCo
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -356,10 +457,10 @@ func (a *MatrixAPIService) ProductConfiguratorDeleteMatrixExecute(r ApiProductCo
 }
 
 type ApiProductConfiguratorGetMatrixRequest struct {
-	ctx context.Context
-	ApiService *MatrixAPIService
-	tenantId string
-	matrixId string
+	ctx        context.Context
+	ApiService MatrixAPI
+	tenantId   string
+	matrixId   string
 }
 
 func (r ApiProductConfiguratorGetMatrixRequest) Execute() (*ProductconfiguratormatrixEntity, *http.Response, error) {
@@ -371,28 +472,29 @@ ProductConfiguratorGetMatrix Get Matrix
 
 Retrieve matrix details by specifying the tenant and matrix IDs. Utilize a GET request for a comprehensive view of matrix configurations within your product configurator service.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param matrixId
- @return ApiProductConfiguratorGetMatrixRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param matrixId
+	@return ApiProductConfiguratorGetMatrixRequest
 */
 func (a *MatrixAPIService) ProductConfiguratorGetMatrix(ctx context.Context, tenantId string, matrixId string) ApiProductConfiguratorGetMatrixRequest {
 	return ApiProductConfiguratorGetMatrixRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		matrixId: matrixId,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		matrixId:   matrixId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratormatrixEntity
+//
+//	@return ProductconfiguratormatrixEntity
 func (a *MatrixAPIService) ProductConfiguratorGetMatrixExecute(r ApiProductConfiguratorGetMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratormatrixEntity
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratormatrixEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MatrixAPIService.ProductConfiguratorGetMatrix")
@@ -408,13 +510,13 @@ func (a *MatrixAPIService) ProductConfiguratorGetMatrixExecute(r ApiProductConfi
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -463,49 +565,49 @@ func (a *MatrixAPIService) ProductConfiguratorGetMatrixExecute(r ApiProductConfi
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -518,12 +620,12 @@ func (a *MatrixAPIService) ProductConfiguratorGetMatrixExecute(r ApiProductConfi
 }
 
 type ApiProductConfiguratorListMatricesRequest struct {
-	ctx context.Context
-	ApiService *MatrixAPIService
-	tenantId string
+	ctx            context.Context
+	ApiService     MatrixAPI
+	tenantId       string
 	configuratorId string
-	pageSize string
-	body *ProductConfiguratorListMatricesRequest
+	pageSize       string
+	body           *ProductConfiguratorListMatricesRequest
 }
 
 func (r ApiProductConfiguratorListMatricesRequest) Body(body ProductConfiguratorListMatricesRequest) ApiProductConfiguratorListMatricesRequest {
@@ -540,30 +642,31 @@ ProductConfiguratorListMatrices List Matrices
 
 Retrieve a list of matrices for a specific configurator based on tenant and configurator IDs. Customize results by specifying page size for efficient pagination. Submit an empty body to get all matrices associated with the configurator. Streamline matrix management effortlessly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param configuratorId
- @param pageSize
- @return ApiProductConfiguratorListMatricesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param configuratorId
+	@param pageSize
+	@return ApiProductConfiguratorListMatricesRequest
 */
 func (a *MatrixAPIService) ProductConfiguratorListMatrices(ctx context.Context, tenantId string, configuratorId string, pageSize string) ApiProductConfiguratorListMatricesRequest {
 	return ApiProductConfiguratorListMatricesRequest{
-		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ApiService:     a,
+		ctx:            ctx,
+		tenantId:       tenantId,
 		configuratorId: configuratorId,
-		pageSize: pageSize,
+		pageSize:       pageSize,
 	}
 }
 
 // Execute executes the request
-//  @return MatrixListMatricesResponse
+//
+//	@return MatrixListMatricesResponse
 func (a *MatrixAPIService) ProductConfiguratorListMatricesExecute(r ApiProductConfiguratorListMatricesRequest) (*MatrixListMatricesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MatrixListMatricesResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MatrixListMatricesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MatrixAPIService.ProductConfiguratorListMatrices")
@@ -571,7 +674,7 @@ func (a *MatrixAPIService) ProductConfiguratorListMatricesExecute(r ApiProductCo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/{tenantId}/configurator/{configuratorId}/page-size/{pageSize}/matrices"
+	localVarPath := localBasePath + "/v1/{tenantId}/configurator/{configuratorId}/page_size/{pageSize}/matrices"
 	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"configuratorId"+"}", url.PathEscape(parameterValueToString(r.configuratorId, "configuratorId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"pageSize"+"}", url.PathEscape(parameterValueToString(r.pageSize, "pageSize")), -1)
@@ -583,13 +686,13 @@ func (a *MatrixAPIService) ProductConfiguratorListMatricesExecute(r ApiProductCo
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -640,49 +743,49 @@ func (a *MatrixAPIService) ProductConfiguratorListMatricesExecute(r ApiProductCo
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -695,10 +798,10 @@ func (a *MatrixAPIService) ProductConfiguratorListMatricesExecute(r ApiProductCo
 }
 
 type ApiProductConfiguratorRemovePricelistFromMatrixRequest struct {
-	ctx context.Context
-	ApiService *MatrixAPIService
-	tenantId string
-	matrixId string
+	ctx          context.Context
+	ApiService   MatrixAPI
+	tenantId     string
+	matrixId     string
 	pricelistGrn string
 }
 
@@ -711,30 +814,31 @@ ProductConfiguratorRemovePricelistFromMatrix Remove Pricelist from Matrix
 
 Remove a specific pricelist from a matrix by specifying the tenant, matrix, and pricelist IDs. Use a DELETE request for precise management of pricelist configurations within your product configurator service.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param matrixId
- @param pricelistGrn
- @return ApiProductConfiguratorRemovePricelistFromMatrixRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param matrixId
+	@param pricelistGrn
+	@return ApiProductConfiguratorRemovePricelistFromMatrixRequest
 */
 func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrix(ctx context.Context, tenantId string, matrixId string, pricelistGrn string) ApiProductConfiguratorRemovePricelistFromMatrixRequest {
 	return ApiProductConfiguratorRemovePricelistFromMatrixRequest{
-		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		matrixId: matrixId,
+		ApiService:   a,
+		ctx:          ctx,
+		tenantId:     tenantId,
+		matrixId:     matrixId,
 		pricelistGrn: pricelistGrn,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratormatrixEntity
+//
+//	@return ProductconfiguratormatrixEntity
 func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrixExecute(r ApiProductConfiguratorRemovePricelistFromMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratormatrixEntity
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratormatrixEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MatrixAPIService.ProductConfiguratorRemovePricelistFromMatrix")
@@ -751,13 +855,13 @@ func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrixExecute(r
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -806,49 +910,49 @@ func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrixExecute(r
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -861,11 +965,11 @@ func (a *MatrixAPIService) ProductConfiguratorRemovePricelistFromMatrixExecute(r
 }
 
 type ApiProductConfiguratorUpdateMatrixRequest struct {
-	ctx context.Context
-	ApiService *MatrixAPIService
-	tenantId string
-	matrixId string
-	body *ProductConfiguratorUpdateMatrixRequest
+	ctx        context.Context
+	ApiService MatrixAPI
+	tenantId   string
+	matrixId   string
+	body       *ProductConfiguratorUpdateMatrixRequest
 }
 
 func (r ApiProductConfiguratorUpdateMatrixRequest) Body(body ProductConfiguratorUpdateMatrixRequest) ApiProductConfiguratorUpdateMatrixRequest {
@@ -880,30 +984,31 @@ func (r ApiProductConfiguratorUpdateMatrixRequest) Execute() (*Productconfigurat
 /*
 ProductConfiguratorUpdateMatrix Update Matrix
 
-Modify an existing matrix by specifying the tenant and matrix IDs. Utilize a PUT request with updated matrix details in the body for seamless customization and fine-tuning of your product configurations. Keep your matrices in sync effortlessly.
+Modify an existing matrix by specifying the tenant and matrix IDs. Utilize a PUT request with updated matrix details in the body for seamless customization and fine_tuning of your product configurations. Keep your matrices in sync effortlessly.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param matrixId
- @return ApiProductConfiguratorUpdateMatrixRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param matrixId
+	@return ApiProductConfiguratorUpdateMatrixRequest
 */
 func (a *MatrixAPIService) ProductConfiguratorUpdateMatrix(ctx context.Context, tenantId string, matrixId string) ApiProductConfiguratorUpdateMatrixRequest {
 	return ApiProductConfiguratorUpdateMatrixRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		matrixId: matrixId,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		matrixId:   matrixId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductconfiguratormatrixEntity
+//
+//	@return ProductconfiguratormatrixEntity
 func (a *MatrixAPIService) ProductConfiguratorUpdateMatrixExecute(r ApiProductConfiguratorUpdateMatrixRequest) (*ProductconfiguratormatrixEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductconfiguratormatrixEntity
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductconfiguratormatrixEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MatrixAPIService.ProductConfiguratorUpdateMatrix")
@@ -922,13 +1027,13 @@ func (a *MatrixAPIService) ProductConfiguratorUpdateMatrixExecute(r ApiProductCo
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content-Type header
+	// to determine the Content_Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content-Type header
+	// set Content_Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -979,49 +1084,49 @@ func (a *MatrixAPIService) ProductConfiguratorUpdateMatrixExecute(r ApiProductCo
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v GooglerpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,

@@ -1,13 +1,13 @@
 /*
 Product Configurator Service
 
-## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/Gemini_Commerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@gemini_commerce.com](mailto:info@gemini_commerce.com) and we will get back to you.
+## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/GeminiCommerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@geminicommerce.com](mailto:info@geminicommerce.com) and we will get back to you.
 
 API version: v1
-Contact: info@gemini_commerce.com
+Contact: info@geminicommerce.com
 */
 
-// Code generated by OpenAPI Generator (https://openapi_generator.tech); DO NOT EDIT.
+// Code generated by OpenAPI Generator (https://openapigenerator.tech); DO NOT EDIT.
 
 package productconfigurator
 
@@ -25,7 +25,7 @@ type ConfigurationAPI interface {
 	/*
 		ProductConfiguratorGetAvailableConfiguration Get Available Configuration
 
-		Retrieve available configurations for a specific product and tenant. Use a GET request for read_only access or submit additional criteria in the body of a POST request for tailored configuration results. Streamline the retrieval of configurations effortlessly.
+		Retrieve available configurations for a specific product and tenant. Use a GET request for readonly access or submit additional criteria in the body of a POST request for tailored configuration results. Streamline the retrieval of configurations effortlessly.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param tenantId
@@ -41,7 +41,7 @@ type ConfigurationAPI interface {
 	/*
 		ProductConfiguratorGetAvailableConfiguration2 Get Available Configuration
 
-		Retrieve available configurations for a specific product and tenant. Use a GET request for read_only access or submit additional criteria in the body of a POST request for tailored configuration results. Streamline the retrieval of configurations effortlessly.
+		Retrieve available configurations for a specific product and tenant. Use a GET request for readonly access or submit additional criteria in the body of a POST request for tailored configuration results. Streamline the retrieval of configurations effortlessly.
 
 		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 		@param tenantId
@@ -95,7 +95,7 @@ func (r ApiProductConfiguratorGetAvailableConfigurationRequest) Execute() (*Conf
 /*
 ProductConfiguratorGetAvailableConfiguration Get Available Configuration
 
-Retrieve available configurations for a specific product and tenant. Use a GET request for read_only access or submit additional criteria in the body of a POST request for tailored configuration results. Streamline the retrieval of configurations effortlessly.
+Retrieve available configurations for a specific product and tenant. Use a GET request for readonly access or submit additional criteria in the body of a POST request for tailored configuration results. Streamline the retrieval of configurations effortlessly.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param tenantId
@@ -138,13 +138,13 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfigurationEx
 	if r.configuratorId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "configuratorId", r.configuratorId, "", "")
 	}
-	// to determine the Content_Type header
+	// to determine the ContentType header
 	localVarHTTPContentTypes := []string{}
 
-	// set Content_Type header
+	// set ContentType header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
+		localVarHeaderParams["ContentType"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -193,7 +193,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfigurationEx
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
@@ -204,7 +204,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfigurationEx
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
@@ -215,7 +215,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfigurationEx
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
@@ -225,7 +225,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfigurationEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v GooglerpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 		if err != nil {
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
@@ -235,7 +235,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfigurationEx
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -267,7 +267,7 @@ func (r ApiProductConfiguratorGetAvailableConfiguration2Request) Execute() (*Con
 /*
 ProductConfiguratorGetAvailableConfiguration2 Get Available Configuration
 
-Retrieve available configurations for a specific product and tenant. Use a GET request for read_only access or submit additional criteria in the body of a POST request for tailored configuration results. Streamline the retrieval of configurations effortlessly.
+Retrieve available configurations for a specific product and tenant. Use a GET request for readonly access or submit additional criteria in the body of a POST request for tailored configuration results. Streamline the retrieval of configurations effortlessly.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@param tenantId
@@ -310,13 +310,13 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2E
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content_Type header
+	// to determine the ContentType header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content_Type header
+	// set ContentType header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
+		localVarHeaderParams["ContentType"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -367,7 +367,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2E
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
@@ -378,7 +378,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2E
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
@@ -389,7 +389,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2E
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
@@ -399,7 +399,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2E
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v GooglerpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 		if err != nil {
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
@@ -409,7 +409,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetAvailableConfiguration2E
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -473,7 +473,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelecti
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v1/{tenantId}/product/{productId}/configuration_from_selections"
+	localVarPath := localBasePath + "/v1/{tenantId}/product/{productId}/configurationfromselections"
 	localVarPath = strings.Replace(localVarPath, "{"+"tenantId"+"}", url.PathEscape(parameterValueToString(r.tenantId, "tenantId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"productId"+"}", url.PathEscape(parameterValueToString(r.productId, "productId")), -1)
 
@@ -484,13 +484,13 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelecti
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	// to determine the Content_Type header
+	// to determine the ContentType header
 	localVarHTTPContentTypes := []string{"application/json"}
 
-	// set Content_Type header
+	// set ContentType header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
 	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content_Type"] = localVarHTTPContentType
+		localVarHeaderParams["ContentType"] = localVarHTTPContentType
 	}
 
 	// to determine the Accept header
@@ -541,7 +541,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelecti
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
@@ -552,7 +552,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelecti
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
@@ -563,7 +563,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelecti
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
 			var v GooglerpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
@@ -573,7 +573,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelecti
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		var v GooglerpcStatus
-		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 		if err != nil {
 			newErr.error = err.Error()
 			return localVarReturnValue, localVarHTTPResponse, newErr
@@ -583,7 +583,7 @@ func (a *ConfigurationAPIService) ProductConfiguratorGetConfigurationFromSelecti
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content_Type"))
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("ContentType"))
 	if err != nil {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,

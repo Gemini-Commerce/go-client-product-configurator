@@ -1,13 +1,13 @@
 /*
 Product Configurator Service
 
-## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/GeminiCommerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@geminicommerce.com](mailto:info@geminicommerce.com) and we will get back to you.
+## Introduction  This comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.  ## Quick Start  Get up and running in no time! Follow these steps to kickstart your integration:  1. **Authentication:** Obtain your integration JWT to authenticate your requests. 2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language. 3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.  ## Integration  ### API Overview  Our RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.  ### Client Libraries  To expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/Gemini-Commerce).  ### Authentication  Security is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.  ## Configuration Management  ### Configurator Lifecycle  Understand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.  ### Steps and Options  Configure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.  ### Matrices  Delve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.  ### Price Management  Unleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.  ## Security  Your data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.  ## Backward Compatibility  Stay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.  ## Developer Support  Have questions? Need assistance? Write to us at [info@gemini-commerce.com](mailto:info@gemini-commerce.com) and we will get back to you.
 
 API version: v1
-Contact: info@geminicommerce.com
+Contact: info@gemini-commerce.com
 */
 
-// Code generated by OpenAPI Generator (https://openapigenerator.tech); DO NOT EDIT.
+// Code generated by OpenAPI Generator (https://openapi-generator.tech); DO NOT EDIT.
 
 package productconfigurator
 
@@ -314,10 +314,10 @@ func (c *APIClient) prepareRequest(
 
 	// Detect postBody type and post.
 	if postBody != nil {
-		contentType := headerParams["ContentType"]
+		contentType := headerParams["Content-Type"]
 		if contentType == "" {
 			contentType = detectContentType(postBody)
-			headerParams["ContentType"] = contentType
+			headerParams["Content-Type"] = contentType
 		}
 
 		body, err = setBody(postBody, contentType)
@@ -327,7 +327,7 @@ func (c *APIClient) prepareRequest(
 	}
 
 	// add form parameters and file if available.
-	if strings.HasPrefix(headerParams["ContentType"], "multipart/formdata") && len(formParams) > 0 || (len(formFiles) > 0) {
+	if strings.HasPrefix(headerParams["Content-Type"], "multipart/form-data") && len(formParams) > 0 || (len(formFiles) > 0) {
 		if body != nil {
 			return nil, errors.New("Cannot specify postBody and multipart form at the same time.")
 		}
@@ -360,22 +360,22 @@ func (c *APIClient) prepareRequest(
 			}
 		}
 
-		// Set the Boundary in the ContentType
-		headerParams["ContentType"] = w.FormDataContentType()
+		// Set the Boundary in the Content-Type
+		headerParams["Content-Type"] = w.FormDataContentType()
 
-		// Set ContentLength
-		headerParams["ContentLength"] = fmt.Sprintf("%d", body.Len())
+		// Set Content-Length
+		headerParams["Content-Length"] = fmt.Sprintf("%d", body.Len())
 		w.Close()
 	}
 
-	if strings.HasPrefix(headerParams["ContentType"], "application/xwwwformurlencoded") && len(formParams) > 0 {
+	if strings.HasPrefix(headerParams["Content-Type"], "application/x-www-form-urlencoded") && len(formParams) > 0 {
 		if body != nil {
-			return nil, errors.New("Cannot specify postBody and xwwwformurlencoded form at the same time.")
+			return nil, errors.New("Cannot specify postBody and x-www-form-urlencoded form at the same time.")
 		}
 		body = &bytes.Buffer{}
 		body.WriteString(formParams.Encode())
-		// Set ContentLength
-		headerParams["ContentLength"] = fmt.Sprintf("%d", body.Len())
+		// Set Content-Length
+		headerParams["Content-Length"] = fmt.Sprintf("%d", body.Len())
 	}
 
 	// Setup path and query parameters
@@ -429,7 +429,7 @@ func (c *APIClient) prepareRequest(
 	}
 
 	// Add the user agent to the request.
-	localVarRequest.Header.Add("UserAgent", c.cfg.UserAgent)
+	localVarRequest.Header.Add("User-Agent", c.cfg.UserAgent)
 
 	if ctx != nil {
 		// add context to the request
@@ -570,19 +570,19 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 
 // detectContentType method is used to figure out `Request.Body` content type for request header
 func detectContentType(body interface{}) string {
-	contentType := "text/plain; charset=utf8"
+	contentType := "text/plain; charset=utf-8"
 	kind := reflect.TypeOf(body).Kind()
 
 	switch kind {
 	case reflect.Struct, reflect.Map, reflect.Ptr:
-		contentType = "application/json; charset=utf8"
+		contentType = "application/json; charset=utf-8"
 	case reflect.String:
-		contentType = "text/plain; charset=utf8"
+		contentType = "text/plain; charset=utf-8"
 	default:
 		if b, ok := body.([]byte); ok {
 			contentType = http.DetectContentType(b)
 		} else if kind == reflect.Slice {
-			contentType = "application/json; charset=utf8"
+			contentType = "application/json; charset=utf-8"
 		}
 	}
 
@@ -594,7 +594,7 @@ type cacheControl map[string]string
 
 func parseCacheControl(headers http.Header) cacheControl {
 	cc := cacheControl{}
-	ccHeader := headers.Get("CacheControl")
+	ccHeader := headers.Get("Cache-Control")
 	for _, part := range strings.Split(ccHeader, ",") {
 		part = strings.Trim(part, " ")
 		if part == "" {
@@ -620,7 +620,7 @@ func CacheExpires(r *http.Response) time.Time {
 	}
 	respCacheControl := parseCacheControl(r.Header)
 
-	if maxAge, ok := respCacheControl["maxage"]; ok {
+	if maxAge, ok := respCacheControl["max-age"]; ok {
 		lifetime, err := time.ParseDuration(maxAge + "s")
 		if err != nil {
 			expires = now
@@ -650,7 +650,7 @@ type GenericOpenAPIError struct {
 	model interface{}
 }
 
-// Error returns nonempty string if there was an error.
+// Error returns non-empty string if there was an error.
 func (e GenericOpenAPIError) Error() string {
 	return e.error
 }

@@ -11,7 +11,7 @@ package productconfigurator
 
 import (
 	"context"
-	openapiclient "github.com/Gemini_Commerce/go_client_product_configurator"
+	openapiclient "github.com/Gemini-Commerce/go_client_product_configurator"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"

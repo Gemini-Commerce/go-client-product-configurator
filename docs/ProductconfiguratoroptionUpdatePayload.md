@@ -7,6 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Label**| [**LocalisationLocalizedText**](LocalisationLocalizedText.md) |   | [optional]
+**Description**| [**LocalisationLocalizedText**](LocalisationLocalizedText.md) |   | [optional]
 **Position**| **string** |   | [optional]
 **ExternalReferenceId**| **string** |   | [optional]
 **Swatch**| [**OptionSwatch**](OptionSwatch.md) |   | [optional]

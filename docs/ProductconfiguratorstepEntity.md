@@ -1,12 +1,12 @@
 # # ProductconfiguratorstepEntity
-
+Represents a step within a configurator, including its unique identifier, localized label, description, and associated options.
 
 ## Properties 
 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id**| **string** |   | [optional]
+**Id**| **string** | The unique identifier for the step.  | [optional]
 **Grn**| **string** |   | [optional]
 **Label**| [**LocalisationLocalizedText**](LocalisationLocalizedText.md) |   | [optional]
 **Description**| [**LocalisationLocalizedText**](LocalisationLocalizedText.md) |   | [optional]

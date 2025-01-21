@@ -4,9 +4,81 @@ All URIs are relative to *https://product-configurator.api.gogemini.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ProductConfiguratorGetConfiguratorById**](ProductConfiguratorAPI.md#ProductConfiguratorGetConfiguratorById) | **Get** /v1/{tenantId}/configurator/{configuratorId} | 
 [**ProductConfiguratorGetProperty**](ProductConfiguratorAPI.md#ProductConfiguratorGetProperty) | **Get** /v1/{tenantId}/property/{propertyId} | 
 [**ProductConfiguratorListPropertiesByConfiguration**](ProductConfiguratorAPI.md#ProductConfiguratorListPropertiesByConfiguration) | **Post** /v1/{tenantId}/configurator/{configuratorId}/page-size/{pageSize}/properties | 
 
+
+
+## ProductConfiguratorGetConfiguratorById
+
+> ProductconfiguratorconfiguratorEntity ProductConfiguratorGetConfiguratorById(ctx, tenantId, configuratorId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/Gemini-Commerce/go-client-product-configurator"
+)
+
+func main() {
+	tenantId := "tenantId_example" // string | 
+	configuratorId := "configuratorId_example" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProductConfiguratorAPI.ProductConfiguratorGetConfiguratorById(context.Background(), tenantId, configuratorId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProductConfiguratorAPI.ProductConfiguratorGetConfiguratorById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ProductConfiguratorGetConfiguratorById`: ProductconfiguratorconfiguratorEntity
+	fmt.Fprintf(os.Stdout, "Response from `ProductConfiguratorAPI.ProductConfiguratorGetConfiguratorById`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tenantId** | **string** |  | 
+**configuratorId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiProductConfiguratorGetConfiguratorByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**ProductconfiguratorconfiguratorEntity**](ProductconfiguratorconfiguratorEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ProductConfiguratorGetProperty

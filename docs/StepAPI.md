@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ## ProductConfiguratorDeleteStep
 
-> GooglerpcStatus ProductConfiguratorDeleteStep(ctx, tenantId, stepId).Execute()
+> map[string]interface{} ProductConfiguratorDeleteStep(ctx, tenantId, stepId).Execute()
 
 Delete Step
 
@@ -341,7 +341,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `StepAPI.ProductConfiguratorDeleteStep``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ProductConfiguratorDeleteStep`: GooglerpcStatus
+	// response from `ProductConfiguratorDeleteStep`: map[string]interface{}
 	fmt.Fprintf(os.Stdout, "Response from `StepAPI.ProductConfiguratorDeleteStep`: %v\n", resp)
 }
 ```
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GooglerpcStatus**](GooglerpcStatus.md)
+**map[string]interface{}**
 
 ### Authorization
 

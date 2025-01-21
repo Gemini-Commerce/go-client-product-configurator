@@ -75,7 +75,7 @@ func (o *ProductconfiguratorstepEntity) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasId() bool {
+func (o *ProductconfiguratorstepEntity) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -107,7 +107,7 @@ func (o *ProductconfiguratorstepEntity) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasGrn() bool {
+func (o *ProductconfiguratorstepEntity) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -139,7 +139,7 @@ func (o *ProductconfiguratorstepEntity) GetLabelOk() (*LocalisationLocalizedText
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasLabel() bool {
+func (o *ProductconfiguratorstepEntity) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -171,7 +171,7 @@ func (o *ProductconfiguratorstepEntity) GetDescriptionOk() (*LocalisationLocaliz
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasDescription() bool {
+func (o *ProductconfiguratorstepEntity) IsSetDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -203,7 +203,7 @@ func (o *ProductconfiguratorstepEntity) GetSubjectToStepIdOk() (*string, bool) {
 }
 
 // HasSubjectToStepId returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasSubjectToStepId() bool {
+func (o *ProductconfiguratorstepEntity) IsSetSubjectToStepId() bool {
 	if o != nil && !IsNil(o.SubjectToStepId) {
 		return true
 	}
@@ -235,7 +235,7 @@ func (o *ProductconfiguratorstepEntity) GetPositionOk() (*string, bool) {
 }
 
 // HasPosition returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasPosition() bool {
+func (o *ProductconfiguratorstepEntity) IsSetPosition() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -267,7 +267,7 @@ func (o *ProductconfiguratorstepEntity) GetIsRequiredOk() (*bool, bool) {
 }
 
 // HasIsRequired returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasIsRequired() bool {
+func (o *ProductconfiguratorstepEntity) IsSetIsRequired() bool {
 	if o != nil && !IsNil(o.IsRequired) {
 		return true
 	}
@@ -299,7 +299,7 @@ func (o *ProductconfiguratorstepEntity) GetOptionsOk() ([]Productconfiguratoropt
 }
 
 // HasOptions returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasOptions() bool {
+func (o *ProductconfiguratorstepEntity) IsSetOptions() bool {
 	if o != nil && !IsNil(o.Options) {
 		return true
 	}
@@ -331,7 +331,7 @@ func (o *ProductconfiguratorstepEntity) GetHasMultipleSelectionOk() (*bool, bool
 }
 
 // HasHasMultipleSelection returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasHasMultipleSelection() bool {
+func (o *ProductconfiguratorstepEntity) IsSetHasMultipleSelection() bool {
 	if o != nil && !IsNil(o.HasMultipleSelection) {
 		return true
 	}
@@ -363,7 +363,7 @@ func (o *ProductconfiguratorstepEntity) GetOptionsHaveQuantityOk() (*bool, bool)
 }
 
 // HasOptionsHaveQuantity returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasOptionsHaveQuantity() bool {
+func (o *ProductconfiguratorstepEntity) IsSetOptionsHaveQuantity() bool {
 	if o != nil && !IsNil(o.OptionsHaveQuantity) {
 		return true
 	}
@@ -395,7 +395,7 @@ func (o *ProductconfiguratorstepEntity) GetCreatedAtOk() (*time.Time, bool) {
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasCreatedAt() bool {
+func (o *ProductconfiguratorstepEntity) IsSetCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -427,7 +427,7 @@ func (o *ProductconfiguratorstepEntity) GetUpdatedAtOk() (*time.Time, bool) {
 }
 
 // HasUpdatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepEntity) HasUpdatedAt() bool {
+func (o *ProductconfiguratorstepEntity) IsSetUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}

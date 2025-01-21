@@ -67,7 +67,7 @@ func (o *ProductConfiguratorCreateStepRequest) GetLabelOk() (*LocalisationLocali
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateStepRequest) HasLabel() bool {
+func (o *ProductConfiguratorCreateStepRequest) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -99,7 +99,7 @@ func (o *ProductConfiguratorCreateStepRequest) GetDescriptionOk() (*Localisation
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateStepRequest) HasDescription() bool {
+func (o *ProductConfiguratorCreateStepRequest) IsSetDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -131,7 +131,7 @@ func (o *ProductConfiguratorCreateStepRequest) GetIsRequiredOk() (*bool, bool) {
 }
 
 // HasIsRequired returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateStepRequest) HasIsRequired() bool {
+func (o *ProductConfiguratorCreateStepRequest) IsSetIsRequired() bool {
 	if o != nil && !IsNil(o.IsRequired) {
 		return true
 	}
@@ -163,7 +163,7 @@ func (o *ProductConfiguratorCreateStepRequest) GetSubjectToStepIdOk() (*string, 
 }
 
 // HasSubjectToStepId returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateStepRequest) HasSubjectToStepId() bool {
+func (o *ProductConfiguratorCreateStepRequest) IsSetSubjectToStepId() bool {
 	if o != nil && !IsNil(o.SubjectToStepId) {
 		return true
 	}
@@ -195,7 +195,7 @@ func (o *ProductConfiguratorCreateStepRequest) GetHasMultipleSelectionOk() (*boo
 }
 
 // HasHasMultipleSelection returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateStepRequest) HasHasMultipleSelection() bool {
+func (o *ProductConfiguratorCreateStepRequest) IsSetHasMultipleSelection() bool {
 	if o != nil && !IsNil(o.HasMultipleSelection) {
 		return true
 	}
@@ -227,7 +227,7 @@ func (o *ProductConfiguratorCreateStepRequest) GetOptionsHaveQuantityOk() (*bool
 }
 
 // HasOptionsHaveQuantity returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateStepRequest) HasOptionsHaveQuantity() bool {
+func (o *ProductConfiguratorCreateStepRequest) IsSetOptionsHaveQuantity() bool {
 	if o != nil && !IsNil(o.OptionsHaveQuantity) {
 		return true
 	}

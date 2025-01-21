@@ -66,7 +66,7 @@ func (o *ConfigurationConfigurationStep) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ConfigurationConfigurationStep) HasId() bool {
+func (o *ConfigurationConfigurationStep) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -98,7 +98,7 @@ func (o *ConfigurationConfigurationStep) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ConfigurationConfigurationStep) HasGrn() bool {
+func (o *ConfigurationConfigurationStep) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -130,7 +130,7 @@ func (o *ConfigurationConfigurationStep) GetLabelOk() (*LocalisationLocalizedTex
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ConfigurationConfigurationStep) HasLabel() bool {
+func (o *ConfigurationConfigurationStep) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -162,7 +162,7 @@ func (o *ConfigurationConfigurationStep) GetOptionsOk() ([]ConfigurationStepOpti
 }
 
 // HasOptions returns a boolean if a field has been set.
-func (o *ConfigurationConfigurationStep) HasOptions() bool {
+func (o *ConfigurationConfigurationStep) IsSetOptions() bool {
 	if o != nil && !IsNil(o.Options) {
 		return true
 	}
@@ -194,7 +194,7 @@ func (o *ConfigurationConfigurationStep) GetHasMultipleSelectionOk() (*bool, boo
 }
 
 // HasHasMultipleSelection returns a boolean if a field has been set.
-func (o *ConfigurationConfigurationStep) HasHasMultipleSelection() bool {
+func (o *ConfigurationConfigurationStep) IsSetHasMultipleSelection() bool {
 	if o != nil && !IsNil(o.HasMultipleSelection) {
 		return true
 	}

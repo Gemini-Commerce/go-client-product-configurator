@@ -66,7 +66,7 @@ func (o *ProductConfiguratorCreatePropertyRequest) GetMatrixIdOk() (*string, boo
 }
 
 // HasMatrixId returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreatePropertyRequest) HasMatrixId() bool {
+func (o *ProductConfiguratorCreatePropertyRequest) IsSetMatrixId() bool {
 	if o != nil && !IsNil(o.MatrixId) {
 		return true
 	}
@@ -98,7 +98,7 @@ func (o *ProductConfiguratorCreatePropertyRequest) GetStepIdToOptionIdOk() (*map
 }
 
 // HasStepIdToOptionId returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreatePropertyRequest) HasStepIdToOptionId() bool {
+func (o *ProductConfiguratorCreatePropertyRequest) IsSetStepIdToOptionId() bool {
 	if o != nil && !IsNil(o.StepIdToOptionId) {
 		return true
 	}
@@ -130,7 +130,7 @@ func (o *ProductConfiguratorCreatePropertyRequest) GetGenericPropertyOk() (*Prod
 }
 
 // HasGenericProperty returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreatePropertyRequest) HasGenericProperty() bool {
+func (o *ProductConfiguratorCreatePropertyRequest) IsSetGenericProperty() bool {
 	if o != nil && !IsNil(o.GenericProperty) {
 		return true
 	}
@@ -162,7 +162,7 @@ func (o *ProductConfiguratorCreatePropertyRequest) GetPricePropertyOk() (*Produc
 }
 
 // HasPriceProperty returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreatePropertyRequest) HasPriceProperty() bool {
+func (o *ProductConfiguratorCreatePropertyRequest) IsSetPriceProperty() bool {
 	if o != nil && !IsNil(o.PriceProperty) {
 		return true
 	}
@@ -194,7 +194,7 @@ func (o *ProductConfiguratorCreatePropertyRequest) GetWeightPropertyOk() (*Produ
 }
 
 // HasWeightProperty returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreatePropertyRequest) HasWeightProperty() bool {
+func (o *ProductConfiguratorCreatePropertyRequest) IsSetWeightProperty() bool {
 	if o != nil && !IsNil(o.WeightProperty) {
 		return true
 	}

@@ -70,7 +70,7 @@ func (o *ProductconfiguratorconfigurationOption) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationOption) HasId() bool {
+func (o *ProductconfiguratorconfigurationOption) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -102,7 +102,7 @@ func (o *ProductconfiguratorconfigurationOption) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationOption) HasGrn() bool {
+func (o *ProductconfiguratorconfigurationOption) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -134,7 +134,7 @@ func (o *ProductconfiguratorconfigurationOption) GetLabelOk() (*LocalisationLoca
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationOption) HasLabel() bool {
+func (o *ProductconfiguratorconfigurationOption) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -166,7 +166,7 @@ func (o *ProductconfiguratorconfigurationOption) GetDescriptionOk() (*Localisati
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationOption) HasDescription() bool {
+func (o *ProductconfiguratorconfigurationOption) IsSetDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -198,7 +198,7 @@ func (o *ProductconfiguratorconfigurationOption) GetPositionOk() (*string, bool)
 }
 
 // HasPosition returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationOption) HasPosition() bool {
+func (o *ProductconfiguratorconfigurationOption) IsSetPosition() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -230,7 +230,7 @@ func (o *ProductconfiguratorconfigurationOption) GetSwatchOk() (*OptionSwatch, b
 }
 
 // HasSwatch returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationOption) HasSwatch() bool {
+func (o *ProductconfiguratorconfigurationOption) IsSetSwatch() bool {
 	if o != nil && !IsNil(o.Swatch) {
 		return true
 	}
@@ -262,7 +262,7 @@ func (o *ProductconfiguratorconfigurationOption) GetEnabledOk() (*bool, bool) {
 }
 
 // HasEnabled returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationOption) HasEnabled() bool {
+func (o *ProductconfiguratorconfigurationOption) IsSetEnabled() bool {
 	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
@@ -294,7 +294,7 @@ func (o *ProductconfiguratorconfigurationOption) GetOptionPropertiesOk() ([]Conf
 }
 
 // HasOptionProperties returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationOption) HasOptionProperties() bool {
+func (o *ProductconfiguratorconfigurationOption) IsSetOptionProperties() bool {
 	if o != nil && !IsNil(o.OptionProperties) {
 		return true
 	}
@@ -326,7 +326,7 @@ func (o *ProductconfiguratorconfigurationOption) GetHasQuantityOk() (*bool, bool
 }
 
 // HasHasQuantity returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationOption) HasHasQuantity() bool {
+func (o *ProductconfiguratorconfigurationOption) IsSetHasQuantity() bool {
 	if o != nil && !IsNil(o.HasQuantity) {
 		return true
 	}

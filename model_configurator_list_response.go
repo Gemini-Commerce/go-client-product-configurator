@@ -63,7 +63,7 @@ func (o *ConfiguratorListResponse) GetConfiguratorsOk() ([]Productconfiguratorco
 }
 
 // HasConfigurators returns a boolean if a field has been set.
-func (o *ConfiguratorListResponse) HasConfigurators() bool {
+func (o *ConfiguratorListResponse) IsSetConfigurators() bool {
 	if o != nil && !IsNil(o.Configurators) {
 		return true
 	}
@@ -95,7 +95,7 @@ func (o *ConfiguratorListResponse) GetNextPageTokenOk() (*string, bool) {
 }
 
 // HasNextPageToken returns a boolean if a field has been set.
-func (o *ConfiguratorListResponse) HasNextPageToken() bool {
+func (o *ConfiguratorListResponse) IsSetNextPageToken() bool {
 	if o != nil && !IsNil(o.NextPageToken) {
 		return true
 	}

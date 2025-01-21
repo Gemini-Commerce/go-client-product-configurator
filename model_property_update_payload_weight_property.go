@@ -62,7 +62,7 @@ func (o *PropertyUpdatePayloadWeightProperty) GetWeightOk() (*float64, bool) {
 }
 
 // HasWeight returns a boolean if a field has been set.
-func (o *PropertyUpdatePayloadWeightProperty) HasWeight() bool {
+func (o *PropertyUpdatePayloadWeightProperty) IsSetWeight() bool {
 	if o != nil && !IsNil(o.Weight) {
 		return true
 	}

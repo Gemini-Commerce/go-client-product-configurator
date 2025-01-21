@@ -71,7 +71,7 @@ func (o *ProductconfiguratormatrixUpdatePayload) GetLabelOk() (*string, bool) {
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixUpdatePayload) HasLabel() bool {
+func (o *ProductconfiguratormatrixUpdatePayload) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -103,7 +103,7 @@ func (o *ProductconfiguratormatrixUpdatePayload) GetDefaultPropertyIdOk() (*stri
 }
 
 // HasDefaultPropertyId returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixUpdatePayload) HasDefaultPropertyId() bool {
+func (o *ProductconfiguratormatrixUpdatePayload) IsSetDefaultPropertyId() bool {
 	if o != nil && !IsNil(o.DefaultPropertyId) {
 		return true
 	}
@@ -135,7 +135,7 @@ func (o *ProductconfiguratormatrixUpdatePayload) GetPropertiesModeOk() (*Product
 }
 
 // HasPropertiesMode returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixUpdatePayload) HasPropertiesMode() bool {
+func (o *ProductconfiguratormatrixUpdatePayload) IsSetPropertiesMode() bool {
 	if o != nil && !IsNil(o.PropertiesMode) {
 		return true
 	}
@@ -167,7 +167,7 @@ func (o *ProductconfiguratormatrixUpdatePayload) GetStepsOk() ([]Productconfigur
 }
 
 // HasSteps returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixUpdatePayload) HasSteps() bool {
+func (o *ProductconfiguratormatrixUpdatePayload) IsSetSteps() bool {
 	if o != nil && !IsNil(o.Steps) {
 		return true
 	}

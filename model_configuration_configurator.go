@@ -64,7 +64,7 @@ func (o *ConfigurationConfigurator) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ConfigurationConfigurator) HasId() bool {
+func (o *ConfigurationConfigurator) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -96,7 +96,7 @@ func (o *ConfigurationConfigurator) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ConfigurationConfigurator) HasGrn() bool {
+func (o *ConfigurationConfigurator) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -128,7 +128,7 @@ func (o *ConfigurationConfigurator) GetStepsOk() ([]Productconfiguratorconfigura
 }
 
 // HasSteps returns a boolean if a field has been set.
-func (o *ConfigurationConfigurator) HasSteps() bool {
+func (o *ConfigurationConfigurator) IsSetSteps() bool {
 	if o != nil && !IsNil(o.Steps) {
 		return true
 	}

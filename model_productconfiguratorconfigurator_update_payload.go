@@ -67,7 +67,7 @@ func (o *ProductconfiguratorconfiguratorUpdatePayload) GetLabelOk() (*string, bo
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfiguratorUpdatePayload) HasLabel() bool {
+func (o *ProductconfiguratorconfiguratorUpdatePayload) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -99,7 +99,7 @@ func (o *ProductconfiguratorconfiguratorUpdatePayload) GetStatusOk() (*Productco
 }
 
 // HasStatus returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfiguratorUpdatePayload) HasStatus() bool {
+func (o *ProductconfiguratorconfiguratorUpdatePayload) IsSetStatus() bool {
 	if o != nil && !IsNil(o.Status) {
 		return true
 	}

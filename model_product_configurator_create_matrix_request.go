@@ -72,7 +72,7 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetConfiguratorIdOk() (*string,
 }
 
 // HasConfiguratorId returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) HasConfiguratorId() bool {
+func (o *ProductConfiguratorCreateMatrixRequest) IsSetConfiguratorId() bool {
 	if o != nil && !IsNil(o.ConfiguratorId) {
 		return true
 	}
@@ -104,7 +104,7 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetLabelOk() (*string, bool) {
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) HasLabel() bool {
+func (o *ProductConfiguratorCreateMatrixRequest) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -136,7 +136,7 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetGenericTypeOk() (*MatrixGene
 }
 
 // HasGenericType returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) HasGenericType() bool {
+func (o *ProductConfiguratorCreateMatrixRequest) IsSetGenericType() bool {
 	if o != nil && !IsNil(o.GenericType) {
 		return true
 	}
@@ -168,7 +168,7 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetPriceTypeOk() (*MatrixPriceT
 }
 
 // HasPriceType returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) HasPriceType() bool {
+func (o *ProductConfiguratorCreateMatrixRequest) IsSetPriceType() bool {
 	if o != nil && !IsNil(o.PriceType) {
 		return true
 	}
@@ -200,7 +200,7 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetWeightTypeOk() (*MatrixWeigh
 }
 
 // HasWeightType returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) HasWeightType() bool {
+func (o *ProductConfiguratorCreateMatrixRequest) IsSetWeightType() bool {
 	if o != nil && !IsNil(o.WeightType) {
 		return true
 	}
@@ -232,7 +232,7 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetStepsOk() ([]Productconfigur
 }
 
 // HasSteps returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) HasSteps() bool {
+func (o *ProductConfiguratorCreateMatrixRequest) IsSetSteps() bool {
 	if o != nil && !IsNil(o.Steps) {
 		return true
 	}
@@ -264,7 +264,7 @@ func (o *ProductConfiguratorCreateMatrixRequest) GetPropertiesModeOk() (*Product
 }
 
 // HasPropertiesMode returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateMatrixRequest) HasPropertiesMode() bool {
+func (o *ProductConfiguratorCreateMatrixRequest) IsSetPropertiesMode() bool {
 	if o != nil && !IsNil(o.PropertiesMode) {
 		return true
 	}

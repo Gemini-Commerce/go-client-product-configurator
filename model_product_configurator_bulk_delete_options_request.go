@@ -62,7 +62,7 @@ func (o *ProductConfiguratorBulkDeleteOptionsRequest) GetOptionIdsOk() ([]string
 }
 
 // HasOptionIds returns a boolean if a field has been set.
-func (o *ProductConfiguratorBulkDeleteOptionsRequest) HasOptionIds() bool {
+func (o *ProductConfiguratorBulkDeleteOptionsRequest) IsSetOptionIds() bool {
 	if o != nil && !IsNil(o.OptionIds) {
 		return true
 	}

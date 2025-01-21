@@ -72,7 +72,7 @@ func (o *ProductconfiguratoroptionEntity) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionEntity) HasId() bool {
+func (o *ProductconfiguratoroptionEntity) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -104,7 +104,7 @@ func (o *ProductconfiguratoroptionEntity) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionEntity) HasGrn() bool {
+func (o *ProductconfiguratoroptionEntity) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -136,7 +136,7 @@ func (o *ProductconfiguratoroptionEntity) GetLabelOk() (*LocalisationLocalizedTe
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionEntity) HasLabel() bool {
+func (o *ProductconfiguratoroptionEntity) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -168,7 +168,7 @@ func (o *ProductconfiguratoroptionEntity) GetDescriptionOk() (*LocalisationLocal
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionEntity) HasDescription() bool {
+func (o *ProductconfiguratoroptionEntity) IsSetDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -200,7 +200,7 @@ func (o *ProductconfiguratoroptionEntity) GetPositionOk() (*string, bool) {
 }
 
 // HasPosition returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionEntity) HasPosition() bool {
+func (o *ProductconfiguratoroptionEntity) IsSetPosition() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -232,7 +232,7 @@ func (o *ProductconfiguratoroptionEntity) GetSwatchOk() (*OptionSwatch, bool) {
 }
 
 // HasSwatch returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionEntity) HasSwatch() bool {
+func (o *ProductconfiguratoroptionEntity) IsSetSwatch() bool {
 	if o != nil && !IsNil(o.Swatch) {
 		return true
 	}
@@ -264,7 +264,7 @@ func (o *ProductconfiguratoroptionEntity) GetExternalReferenceIdOk() (*string, b
 }
 
 // HasExternalReferenceId returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionEntity) HasExternalReferenceId() bool {
+func (o *ProductconfiguratoroptionEntity) IsSetExternalReferenceId() bool {
 	if o != nil && !IsNil(o.ExternalReferenceId) {
 		return true
 	}
@@ -296,7 +296,7 @@ func (o *ProductconfiguratoroptionEntity) GetCreatedAtOk() (*time.Time, bool) {
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionEntity) HasCreatedAt() bool {
+func (o *ProductconfiguratoroptionEntity) IsSetCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -328,7 +328,7 @@ func (o *ProductconfiguratoroptionEntity) GetUpdatedAtOk() (*time.Time, bool) {
 }
 
 // HasUpdatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionEntity) HasUpdatedAt() bool {
+func (o *ProductconfiguratoroptionEntity) IsSetUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}

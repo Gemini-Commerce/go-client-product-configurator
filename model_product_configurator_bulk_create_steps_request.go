@@ -62,7 +62,7 @@ func (o *ProductConfiguratorBulkCreateStepsRequest) GetStepsOk() ([]Productconfi
 }
 
 // HasSteps returns a boolean if a field has been set.
-func (o *ProductConfiguratorBulkCreateStepsRequest) HasSteps() bool {
+func (o *ProductConfiguratorBulkCreateStepsRequest) IsSetSteps() bool {
 	if o != nil && !IsNil(o.Steps) {
 		return true
 	}

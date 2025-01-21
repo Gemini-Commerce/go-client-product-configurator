@@ -74,7 +74,7 @@ func (o *ProductconfiguratorpropertyEntity) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyEntity) HasId() bool {
+func (o *ProductconfiguratorpropertyEntity) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -106,7 +106,7 @@ func (o *ProductconfiguratorpropertyEntity) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyEntity) HasGrn() bool {
+func (o *ProductconfiguratorpropertyEntity) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -138,7 +138,7 @@ func (o *ProductconfiguratorpropertyEntity) GetStepIdToOptionIdOk() (*map[string
 }
 
 // HasStepIdToOptionId returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyEntity) HasStepIdToOptionId() bool {
+func (o *ProductconfiguratorpropertyEntity) IsSetStepIdToOptionId() bool {
 	if o != nil && !IsNil(o.StepIdToOptionId) {
 		return true
 	}
@@ -170,7 +170,7 @@ func (o *ProductconfiguratorpropertyEntity) GetPropertyKeyOk() (*string, bool) {
 }
 
 // HasPropertyKey returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyEntity) HasPropertyKey() bool {
+func (o *ProductconfiguratorpropertyEntity) IsSetPropertyKey() bool {
 	if o != nil && !IsNil(o.PropertyKey) {
 		return true
 	}
@@ -202,7 +202,7 @@ func (o *ProductconfiguratorpropertyEntity) GetPropertyValueOk() (*string, bool)
 }
 
 // HasPropertyValue returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyEntity) HasPropertyValue() bool {
+func (o *ProductconfiguratorpropertyEntity) IsSetPropertyValue() bool {
 	if o != nil && !IsNil(o.PropertyValue) {
 		return true
 	}
@@ -234,7 +234,7 @@ func (o *ProductconfiguratorpropertyEntity) GetPropertyTypeOk() (*Productconfigu
 }
 
 // HasPropertyType returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyEntity) HasPropertyType() bool {
+func (o *ProductconfiguratorpropertyEntity) IsSetPropertyType() bool {
 	if o != nil && !IsNil(o.PropertyType) {
 		return true
 	}
@@ -266,7 +266,7 @@ func (o *ProductconfiguratorpropertyEntity) GetCreatedAtOk() (*time.Time, bool) 
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyEntity) HasCreatedAt() bool {
+func (o *ProductconfiguratorpropertyEntity) IsSetCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -298,7 +298,7 @@ func (o *ProductconfiguratorpropertyEntity) GetUpdatedAtOk() (*time.Time, bool) 
 }
 
 // HasUpdatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyEntity) HasUpdatedAt() bool {
+func (o *ProductconfiguratorpropertyEntity) IsSetUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}

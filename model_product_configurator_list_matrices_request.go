@@ -64,7 +64,7 @@ func (o *ProductConfiguratorListMatricesRequest) GetFilterMaskOk() (*string, boo
 }
 
 // HasFilterMask returns a boolean if a field has been set.
-func (o *ProductConfiguratorListMatricesRequest) HasFilterMask() bool {
+func (o *ProductConfiguratorListMatricesRequest) IsSetFilterMask() bool {
 	if o != nil && !IsNil(o.FilterMask) {
 		return true
 	}
@@ -96,7 +96,7 @@ func (o *ProductConfiguratorListMatricesRequest) GetFilterOk() (*ListMatricesReq
 }
 
 // HasFilter returns a boolean if a field has been set.
-func (o *ProductConfiguratorListMatricesRequest) HasFilter() bool {
+func (o *ProductConfiguratorListMatricesRequest) IsSetFilter() bool {
 	if o != nil && !IsNil(o.Filter) {
 		return true
 	}
@@ -128,7 +128,7 @@ func (o *ProductConfiguratorListMatricesRequest) GetPageTokenOk() (*string, bool
 }
 
 // HasPageToken returns a boolean if a field has been set.
-func (o *ProductConfiguratorListMatricesRequest) HasPageToken() bool {
+func (o *ProductConfiguratorListMatricesRequest) IsSetPageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}

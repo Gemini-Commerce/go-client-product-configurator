@@ -64,7 +64,7 @@ func (o *GooglerpcStatus) GetCodeOk() (*int32, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *GooglerpcStatus) HasCode() bool {
+func (o *GooglerpcStatus) IsSetCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -96,7 +96,7 @@ func (o *GooglerpcStatus) GetMessageOk() (*string, bool) {
 }
 
 // HasMessage returns a boolean if a field has been set.
-func (o *GooglerpcStatus) HasMessage() bool {
+func (o *GooglerpcStatus) IsSetMessage() bool {
 	if o != nil && !IsNil(o.Message) {
 		return true
 	}
@@ -128,7 +128,7 @@ func (o *GooglerpcStatus) GetDetailsOk() ([]ProtobufAny, bool) {
 }
 
 // HasDetails returns a boolean if a field has been set.
-func (o *GooglerpcStatus) HasDetails() bool {
+func (o *GooglerpcStatus) IsSetDetails() bool {
 	if o != nil && !IsNil(o.Details) {
 		return true
 	}

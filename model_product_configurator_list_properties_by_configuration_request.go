@@ -68,7 +68,7 @@ func (o *ProductConfiguratorListPropertiesByConfigurationRequest) GetSelectionsO
 }
 
 // HasSelections returns a boolean if a field has been set.
-func (o *ProductConfiguratorListPropertiesByConfigurationRequest) HasSelections() bool {
+func (o *ProductConfiguratorListPropertiesByConfigurationRequest) IsSetSelections() bool {
 	if o != nil && !IsNil(o.Selections) {
 		return true
 	}
@@ -100,7 +100,7 @@ func (o *ProductConfiguratorListPropertiesByConfigurationRequest) GetPropertyTyp
 }
 
 // HasPropertyType returns a boolean if a field has been set.
-func (o *ProductConfiguratorListPropertiesByConfigurationRequest) HasPropertyType() bool {
+func (o *ProductConfiguratorListPropertiesByConfigurationRequest) IsSetPropertyType() bool {
 	if o != nil && !IsNil(o.PropertyType) {
 		return true
 	}
@@ -132,7 +132,7 @@ func (o *ProductConfiguratorListPropertiesByConfigurationRequest) GetPageTokenOk
 }
 
 // HasPageToken returns a boolean if a field has been set.
-func (o *ProductConfiguratorListPropertiesByConfigurationRequest) HasPageToken() bool {
+func (o *ProductConfiguratorListPropertiesByConfigurationRequest) IsSetPageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}

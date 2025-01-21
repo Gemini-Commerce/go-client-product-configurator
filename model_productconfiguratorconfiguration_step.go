@@ -71,7 +71,7 @@ func (o *ProductconfiguratorconfigurationStep) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationStep) HasId() bool {
+func (o *ProductconfiguratorconfigurationStep) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -103,7 +103,7 @@ func (o *ProductconfiguratorconfigurationStep) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationStep) HasGrn() bool {
+func (o *ProductconfiguratorconfigurationStep) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -135,7 +135,7 @@ func (o *ProductconfiguratorconfigurationStep) GetLabelOk() (*LocalisationLocali
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationStep) HasLabel() bool {
+func (o *ProductconfiguratorconfigurationStep) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -167,7 +167,7 @@ func (o *ProductconfiguratorconfigurationStep) GetDescriptionOk() (*Localisation
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationStep) HasDescription() bool {
+func (o *ProductconfiguratorconfigurationStep) IsSetDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -199,7 +199,7 @@ func (o *ProductconfiguratorconfigurationStep) GetSubjectToStepIdOk() (*string, 
 }
 
 // HasSubjectToStepId returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationStep) HasSubjectToStepId() bool {
+func (o *ProductconfiguratorconfigurationStep) IsSetSubjectToStepId() bool {
 	if o != nil && !IsNil(o.SubjectToStepId) {
 		return true
 	}
@@ -231,7 +231,7 @@ func (o *ProductconfiguratorconfigurationStep) GetPositionOk() (*string, bool) {
 }
 
 // HasPosition returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationStep) HasPosition() bool {
+func (o *ProductconfiguratorconfigurationStep) IsSetPosition() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -263,7 +263,7 @@ func (o *ProductconfiguratorconfigurationStep) GetIsRequiredOk() (*bool, bool) {
 }
 
 // HasIsRequired returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationStep) HasIsRequired() bool {
+func (o *ProductconfiguratorconfigurationStep) IsSetIsRequired() bool {
 	if o != nil && !IsNil(o.IsRequired) {
 		return true
 	}
@@ -295,7 +295,7 @@ func (o *ProductconfiguratorconfigurationStep) GetOptionsOk() ([]Productconfigur
 }
 
 // HasOptions returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationStep) HasOptions() bool {
+func (o *ProductconfiguratorconfigurationStep) IsSetOptions() bool {
 	if o != nil && !IsNil(o.Options) {
 		return true
 	}
@@ -327,7 +327,7 @@ func (o *ProductconfiguratorconfigurationStep) GetEnabledOk() (*bool, bool) {
 }
 
 // HasEnabled returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationStep) HasEnabled() bool {
+func (o *ProductconfiguratorconfigurationStep) IsSetEnabled() bool {
 	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
@@ -359,7 +359,7 @@ func (o *ProductconfiguratorconfigurationStep) GetHasMultipleSelectionOk() (*boo
 }
 
 // HasHasMultipleSelection returns a boolean if a field has been set.
-func (o *ProductconfiguratorconfigurationStep) HasHasMultipleSelection() bool {
+func (o *ProductconfiguratorconfigurationStep) IsSetHasMultipleSelection() bool {
 	if o != nil && !IsNil(o.HasMultipleSelection) {
 		return true
 	}

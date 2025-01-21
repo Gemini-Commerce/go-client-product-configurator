@@ -64,7 +64,7 @@ func (o *ConfigurationGetAvailableConfigurationResponse) GetConfiguratorOk() (*C
 }
 
 // HasConfigurator returns a boolean if a field has been set.
-func (o *ConfigurationGetAvailableConfigurationResponse) HasConfigurator() bool {
+func (o *ConfigurationGetAvailableConfigurationResponse) IsSetConfigurator() bool {
 	if o != nil && !IsNil(o.Configurator) {
 		return true
 	}
@@ -96,7 +96,7 @@ func (o *ConfigurationGetAvailableConfigurationResponse) GetMatchedPropertiesOk(
 }
 
 // HasMatchedProperties returns a boolean if a field has been set.
-func (o *ConfigurationGetAvailableConfigurationResponse) HasMatchedProperties() bool {
+func (o *ConfigurationGetAvailableConfigurationResponse) IsSetMatchedProperties() bool {
 	if o != nil && !IsNil(o.MatchedProperties) {
 		return true
 	}
@@ -128,7 +128,7 @@ func (o *ConfigurationGetAvailableConfigurationResponse) GetSelectionsOk() ([]Pr
 }
 
 // HasSelections returns a boolean if a field has been set.
-func (o *ConfigurationGetAvailableConfigurationResponse) HasSelections() bool {
+func (o *ConfigurationGetAvailableConfigurationResponse) IsSetSelections() bool {
 	if o != nil && !IsNil(o.Selections) {
 		return true
 	}

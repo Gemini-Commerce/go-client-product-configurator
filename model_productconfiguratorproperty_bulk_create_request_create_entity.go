@@ -65,7 +65,7 @@ func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) GetStepIdToOp
 }
 
 // HasStepIdToOptionId returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) HasStepIdToOptionId() bool {
+func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) IsSetStepIdToOptionId() bool {
 	if o != nil && !IsNil(o.StepIdToOptionId) {
 		return true
 	}
@@ -97,7 +97,7 @@ func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) GetGenericPro
 }
 
 // HasGenericProperty returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) HasGenericProperty() bool {
+func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) IsSetGenericProperty() bool {
 	if o != nil && !IsNil(o.GenericProperty) {
 		return true
 	}
@@ -129,7 +129,7 @@ func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) GetPricePrope
 }
 
 // HasPriceProperty returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) HasPriceProperty() bool {
+func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) IsSetPriceProperty() bool {
 	if o != nil && !IsNil(o.PriceProperty) {
 		return true
 	}
@@ -161,7 +161,7 @@ func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) GetWeightProp
 }
 
 // HasWeightProperty returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) HasWeightProperty() bool {
+func (o *ProductconfiguratorpropertyBulkCreateRequestCreateEntity) IsSetWeightProperty() bool {
 	if o != nil && !IsNil(o.WeightProperty) {
 		return true
 	}

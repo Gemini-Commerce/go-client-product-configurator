@@ -78,7 +78,7 @@ func (o *ProductconfiguratormatrixEntity) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasId() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -110,7 +110,7 @@ func (o *ProductconfiguratormatrixEntity) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasGrn() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -142,7 +142,7 @@ func (o *ProductconfiguratormatrixEntity) GetConfiguratorIdOk() (*string, bool) 
 }
 
 // HasConfiguratorId returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasConfiguratorId() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetConfiguratorId() bool {
 	if o != nil && !IsNil(o.ConfiguratorId) {
 		return true
 	}
@@ -174,7 +174,7 @@ func (o *ProductconfiguratormatrixEntity) GetLabelOk() (*string, bool) {
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasLabel() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -206,7 +206,7 @@ func (o *ProductconfiguratormatrixEntity) GetDefaultPropertyIdOk() (*string, boo
 }
 
 // HasDefaultPropertyId returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasDefaultPropertyId() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetDefaultPropertyId() bool {
 	if o != nil && !IsNil(o.DefaultPropertyId) {
 		return true
 	}
@@ -238,7 +238,7 @@ func (o *ProductconfiguratormatrixEntity) GetPropertiesModeOk() (*Productconfigu
 }
 
 // HasPropertiesMode returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasPropertiesMode() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetPropertiesMode() bool {
 	if o != nil && !IsNil(o.PropertiesMode) {
 		return true
 	}
@@ -270,7 +270,7 @@ func (o *ProductconfiguratormatrixEntity) GetGenericTypeOk() (*MatrixGenericType
 }
 
 // HasGenericType returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasGenericType() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetGenericType() bool {
 	if o != nil && !IsNil(o.GenericType) {
 		return true
 	}
@@ -302,7 +302,7 @@ func (o *ProductconfiguratormatrixEntity) GetPriceTypeOk() (*MatrixPriceType, bo
 }
 
 // HasPriceType returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasPriceType() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetPriceType() bool {
 	if o != nil && !IsNil(o.PriceType) {
 		return true
 	}
@@ -334,7 +334,7 @@ func (o *ProductconfiguratormatrixEntity) GetWeightTypeOk() (*MatrixWeightType, 
 }
 
 // HasWeightType returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasWeightType() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetWeightType() bool {
 	if o != nil && !IsNil(o.WeightType) {
 		return true
 	}
@@ -366,7 +366,7 @@ func (o *ProductconfiguratormatrixEntity) GetStepsOk() ([]Productconfiguratormat
 }
 
 // HasSteps returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasSteps() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetSteps() bool {
 	if o != nil && !IsNil(o.Steps) {
 		return true
 	}
@@ -398,7 +398,7 @@ func (o *ProductconfiguratormatrixEntity) GetCreatedAtOk() (*time.Time, bool) {
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasCreatedAt() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -430,7 +430,7 @@ func (o *ProductconfiguratormatrixEntity) GetUpdatedAtOk() (*time.Time, bool) {
 }
 
 // HasUpdatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratormatrixEntity) HasUpdatedAt() bool {
+func (o *ProductconfiguratormatrixEntity) IsSetUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}

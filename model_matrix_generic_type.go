@@ -62,7 +62,7 @@ func (o *MatrixGenericType) GetPropertyKeyOk() (*string, bool) {
 }
 
 // HasPropertyKey returns a boolean if a field has been set.
-func (o *MatrixGenericType) HasPropertyKey() bool {
+func (o *MatrixGenericType) IsSetPropertyKey() bool {
 	if o != nil && !IsNil(o.PropertyKey) {
 		return true
 	}

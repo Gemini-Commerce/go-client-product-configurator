@@ -76,7 +76,7 @@ func (o *ConfigurationProperty) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ConfigurationProperty) HasId() bool {
+func (o *ConfigurationProperty) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -108,7 +108,7 @@ func (o *ConfigurationProperty) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ConfigurationProperty) HasGrn() bool {
+func (o *ConfigurationProperty) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -140,7 +140,7 @@ func (o *ConfigurationProperty) GetOptionIdsOk() ([]string, bool) {
 }
 
 // HasOptionIds returns a boolean if a field has been set.
-func (o *ConfigurationProperty) HasOptionIds() bool {
+func (o *ConfigurationProperty) IsSetOptionIds() bool {
 	if o != nil && !IsNil(o.OptionIds) {
 		return true
 	}
@@ -172,7 +172,7 @@ func (o *ConfigurationProperty) GetPropertyKeyOk() (*string, bool) {
 }
 
 // HasPropertyKey returns a boolean if a field has been set.
-func (o *ConfigurationProperty) HasPropertyKey() bool {
+func (o *ConfigurationProperty) IsSetPropertyKey() bool {
 	if o != nil && !IsNil(o.PropertyKey) {
 		return true
 	}
@@ -204,7 +204,7 @@ func (o *ConfigurationProperty) GetPropertyValueOk() (*string, bool) {
 }
 
 // HasPropertyValue returns a boolean if a field has been set.
-func (o *ConfigurationProperty) HasPropertyValue() bool {
+func (o *ConfigurationProperty) IsSetPropertyValue() bool {
 	if o != nil && !IsNil(o.PropertyValue) {
 		return true
 	}
@@ -236,7 +236,7 @@ func (o *ConfigurationProperty) GetPropertyTypeOk() (*ProductconfiguratorPropert
 }
 
 // HasPropertyType returns a boolean if a field has been set.
-func (o *ConfigurationProperty) HasPropertyType() bool {
+func (o *ConfigurationProperty) IsSetPropertyType() bool {
 	if o != nil && !IsNil(o.PropertyType) {
 		return true
 	}
@@ -268,7 +268,7 @@ func (o *ConfigurationProperty) GetPropertyModeOk() (*ProductconfiguratorPropert
 }
 
 // HasPropertyMode returns a boolean if a field has been set.
-func (o *ConfigurationProperty) HasPropertyMode() bool {
+func (o *ConfigurationProperty) IsSetPropertyMode() bool {
 	if o != nil && !IsNil(o.PropertyMode) {
 		return true
 	}

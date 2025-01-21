@@ -68,7 +68,7 @@ func (o *ProductconfiguratorstepUpdatePayload) GetLabelOk() (*LocalisationLocali
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepUpdatePayload) HasLabel() bool {
+func (o *ProductconfiguratorstepUpdatePayload) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -100,7 +100,7 @@ func (o *ProductconfiguratorstepUpdatePayload) GetDescriptionOk() (*Localisation
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepUpdatePayload) HasDescription() bool {
+func (o *ProductconfiguratorstepUpdatePayload) IsSetDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -132,7 +132,7 @@ func (o *ProductconfiguratorstepUpdatePayload) GetPositionOk() (*string, bool) {
 }
 
 // HasPosition returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepUpdatePayload) HasPosition() bool {
+func (o *ProductconfiguratorstepUpdatePayload) IsSetPosition() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -164,7 +164,7 @@ func (o *ProductconfiguratorstepUpdatePayload) GetIsRequiredOk() (*bool, bool) {
 }
 
 // HasIsRequired returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepUpdatePayload) HasIsRequired() bool {
+func (o *ProductconfiguratorstepUpdatePayload) IsSetIsRequired() bool {
 	if o != nil && !IsNil(o.IsRequired) {
 		return true
 	}
@@ -196,7 +196,7 @@ func (o *ProductconfiguratorstepUpdatePayload) GetSubjectToStepIdOk() (*string, 
 }
 
 // HasSubjectToStepId returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepUpdatePayload) HasSubjectToStepId() bool {
+func (o *ProductconfiguratorstepUpdatePayload) IsSetSubjectToStepId() bool {
 	if o != nil && !IsNil(o.SubjectToStepId) {
 		return true
 	}
@@ -228,7 +228,7 @@ func (o *ProductconfiguratorstepUpdatePayload) GetHasMultipleSelectionOk() (*boo
 }
 
 // HasHasMultipleSelection returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepUpdatePayload) HasHasMultipleSelection() bool {
+func (o *ProductconfiguratorstepUpdatePayload) IsSetHasMultipleSelection() bool {
 	if o != nil && !IsNil(o.HasMultipleSelection) {
 		return true
 	}
@@ -260,7 +260,7 @@ func (o *ProductconfiguratorstepUpdatePayload) GetOptionsHaveQuantityOk() (*bool
 }
 
 // HasOptionsHaveQuantity returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepUpdatePayload) HasOptionsHaveQuantity() bool {
+func (o *ProductconfiguratorstepUpdatePayload) IsSetOptionsHaveQuantity() bool {
 	if o != nil && !IsNil(o.OptionsHaveQuantity) {
 		return true
 	}

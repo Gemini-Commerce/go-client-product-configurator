@@ -63,7 +63,7 @@ func (o *ConfigurationGetConfigurationFromSelectionsResponse) GetStepsOk() ([]Co
 }
 
 // HasSteps returns a boolean if a field has been set.
-func (o *ConfigurationGetConfigurationFromSelectionsResponse) HasSteps() bool {
+func (o *ConfigurationGetConfigurationFromSelectionsResponse) IsSetSteps() bool {
 	if o != nil && !IsNil(o.Steps) {
 		return true
 	}
@@ -95,7 +95,7 @@ func (o *ConfigurationGetConfigurationFromSelectionsResponse) GetMatchedProperti
 }
 
 // HasMatchedProperties returns a boolean if a field has been set.
-func (o *ConfigurationGetConfigurationFromSelectionsResponse) HasMatchedProperties() bool {
+func (o *ConfigurationGetConfigurationFromSelectionsResponse) IsSetMatchedProperties() bool {
 	if o != nil && !IsNil(o.MatchedProperties) {
 		return true
 	}

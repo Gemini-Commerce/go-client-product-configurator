@@ -62,7 +62,7 @@ func (o *ProductconfiguratoroptionBulkCreateResponse) GetOptionsOk() ([]Productc
 }
 
 // HasOptions returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionBulkCreateResponse) HasOptions() bool {
+func (o *ProductconfiguratoroptionBulkCreateResponse) IsSetOptions() bool {
 	if o != nil && !IsNil(o.Options) {
 		return true
 	}

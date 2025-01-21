@@ -66,7 +66,7 @@ func (o *ProductconfiguratoroptionUpdatePayload) GetLabelOk() (*LocalisationLoca
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionUpdatePayload) HasLabel() bool {
+func (o *ProductconfiguratoroptionUpdatePayload) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -98,7 +98,7 @@ func (o *ProductconfiguratoroptionUpdatePayload) GetDescriptionOk() (*Localisati
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionUpdatePayload) HasDescription() bool {
+func (o *ProductconfiguratoroptionUpdatePayload) IsSetDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -130,7 +130,7 @@ func (o *ProductconfiguratoroptionUpdatePayload) GetPositionOk() (*string, bool)
 }
 
 // HasPosition returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionUpdatePayload) HasPosition() bool {
+func (o *ProductconfiguratoroptionUpdatePayload) IsSetPosition() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -162,7 +162,7 @@ func (o *ProductconfiguratoroptionUpdatePayload) GetExternalReferenceIdOk() (*st
 }
 
 // HasExternalReferenceId returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionUpdatePayload) HasExternalReferenceId() bool {
+func (o *ProductconfiguratoroptionUpdatePayload) IsSetExternalReferenceId() bool {
 	if o != nil && !IsNil(o.ExternalReferenceId) {
 		return true
 	}
@@ -194,7 +194,7 @@ func (o *ProductconfiguratoroptionUpdatePayload) GetSwatchOk() (*OptionSwatch, b
 }
 
 // HasSwatch returns a boolean if a field has been set.
-func (o *ProductconfiguratoroptionUpdatePayload) HasSwatch() bool {
+func (o *ProductconfiguratoroptionUpdatePayload) IsSetSwatch() bool {
 	if o != nil && !IsNil(o.Swatch) {
 		return true
 	}

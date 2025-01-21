@@ -65,7 +65,7 @@ func (o *OptionSwatch) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *OptionSwatch) HasGrn() bool {
+func (o *OptionSwatch) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -97,7 +97,7 @@ func (o *OptionSwatch) GetUrlOk() (*string, bool) {
 }
 
 // HasUrl returns a boolean if a field has been set.
-func (o *OptionSwatch) HasUrl() bool {
+func (o *OptionSwatch) IsSetUrl() bool {
 	if o != nil && !IsNil(o.Url) {
 		return true
 	}

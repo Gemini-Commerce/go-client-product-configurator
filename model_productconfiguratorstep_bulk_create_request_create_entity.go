@@ -67,7 +67,7 @@ func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) GetLabelOk() (*Lo
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) HasLabel() bool {
+func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -99,7 +99,7 @@ func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) GetDescriptionOk(
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) HasDescription() bool {
+func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) IsSetDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -131,7 +131,7 @@ func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) GetIsRequiredOk()
 }
 
 // HasIsRequired returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) HasIsRequired() bool {
+func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) IsSetIsRequired() bool {
 	if o != nil && !IsNil(o.IsRequired) {
 		return true
 	}
@@ -163,7 +163,7 @@ func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) GetSubjectToStepI
 }
 
 // HasSubjectToStepId returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) HasSubjectToStepId() bool {
+func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) IsSetSubjectToStepId() bool {
 	if o != nil && !IsNil(o.SubjectToStepId) {
 		return true
 	}
@@ -195,7 +195,7 @@ func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) GetHasMultipleSel
 }
 
 // HasHasMultipleSelection returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) HasHasMultipleSelection() bool {
+func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) IsSetHasMultipleSelection() bool {
 	if o != nil && !IsNil(o.HasMultipleSelection) {
 		return true
 	}
@@ -227,7 +227,7 @@ func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) GetOptionsHaveQua
 }
 
 // HasOptionsHaveQuantity returns a boolean if a field has been set.
-func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) HasOptionsHaveQuantity() bool {
+func (o *ProductconfiguratorstepBulkCreateRequestCreateEntity) IsSetOptionsHaveQuantity() bool {
 	if o != nil && !IsNil(o.OptionsHaveQuantity) {
 		return true
 	}

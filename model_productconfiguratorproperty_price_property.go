@@ -63,7 +63,7 @@ func (o *ProductconfiguratorpropertyPriceProperty) GetPriceOk() (*Productconfigu
 }
 
 // HasPrice returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyPriceProperty) HasPrice() bool {
+func (o *ProductconfiguratorpropertyPriceProperty) IsSetPrice() bool {
 	if o != nil && !IsNil(o.Price) {
 		return true
 	}
@@ -95,7 +95,7 @@ func (o *ProductconfiguratorpropertyPriceProperty) GetPricelistGrnOk() (*string,
 }
 
 // HasPricelistGrn returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyPriceProperty) HasPricelistGrn() bool {
+func (o *ProductconfiguratorpropertyPriceProperty) IsSetPricelistGrn() bool {
 	if o != nil && !IsNil(o.PricelistGrn) {
 		return true
 	}

@@ -63,7 +63,7 @@ func (o *ListMatricesRequestFilter) GetPropertyTypeOk() ([]ProductconfiguratorPr
 }
 
 // HasPropertyType returns a boolean if a field has been set.
-func (o *ListMatricesRequestFilter) HasPropertyType() bool {
+func (o *ListMatricesRequestFilter) IsSetPropertyType() bool {
 	if o != nil && !IsNil(o.PropertyType) {
 		return true
 	}
@@ -95,7 +95,7 @@ func (o *ListMatricesRequestFilter) GetPropertyKeyOk() ([]string, bool) {
 }
 
 // HasPropertyKey returns a boolean if a field has been set.
-func (o *ListMatricesRequestFilter) HasPropertyKey() bool {
+func (o *ListMatricesRequestFilter) IsSetPropertyKey() bool {
 	if o != nil && !IsNil(o.PropertyKey) {
 		return true
 	}

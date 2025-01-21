@@ -65,7 +65,7 @@ func (o *ProductconfiguratorMoney) GetUnitsOk() (*string, bool) {
 }
 
 // HasUnits returns a boolean if a field has been set.
-func (o *ProductconfiguratorMoney) HasUnits() bool {
+func (o *ProductconfiguratorMoney) IsSetUnits() bool {
 	if o != nil && !IsNil(o.Units) {
 		return true
 	}
@@ -97,7 +97,7 @@ func (o *ProductconfiguratorMoney) GetMicrosOk() (*int32, bool) {
 }
 
 // HasMicros returns a boolean if a field has been set.
-func (o *ProductconfiguratorMoney) HasMicros() bool {
+func (o *ProductconfiguratorMoney) IsSetMicros() bool {
 	if o != nil && !IsNil(o.Micros) {
 		return true
 	}

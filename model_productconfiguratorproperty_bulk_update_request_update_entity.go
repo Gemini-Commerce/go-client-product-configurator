@@ -64,7 +64,7 @@ func (o *ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity) GetPropertyId
 }
 
 // HasPropertyId returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity) HasPropertyId() bool {
+func (o *ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity) IsSetPropertyId() bool {
 	if o != nil && !IsNil(o.PropertyId) {
 		return true
 	}
@@ -96,7 +96,7 @@ func (o *ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity) GetPayloadOk(
 }
 
 // HasPayload returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity) HasPayload() bool {
+func (o *ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity) IsSetPayload() bool {
 	if o != nil && !IsNil(o.Payload) {
 		return true
 	}
@@ -128,7 +128,7 @@ func (o *ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity) GetPayloadMas
 }
 
 // HasPayloadMask returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity) HasPayloadMask() bool {
+func (o *ProductconfiguratorpropertyBulkUpdateRequestUpdateEntity) IsSetPayloadMask() bool {
 	if o != nil && !IsNil(o.PayloadMask) {
 		return true
 	}

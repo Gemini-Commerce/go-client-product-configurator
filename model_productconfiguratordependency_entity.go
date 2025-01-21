@@ -69,7 +69,7 @@ func (o *ProductconfiguratordependencyEntity) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ProductconfiguratordependencyEntity) HasId() bool {
+func (o *ProductconfiguratordependencyEntity) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -101,7 +101,7 @@ func (o *ProductconfiguratordependencyEntity) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ProductconfiguratordependencyEntity) HasGrn() bool {
+func (o *ProductconfiguratordependencyEntity) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -133,7 +133,7 @@ func (o *ProductconfiguratordependencyEntity) GetOptionIdsOk() ([]string, bool) 
 }
 
 // HasOptionIds returns a boolean if a field has been set.
-func (o *ProductconfiguratordependencyEntity) HasOptionIds() bool {
+func (o *ProductconfiguratordependencyEntity) IsSetOptionIds() bool {
 	if o != nil && !IsNil(o.OptionIds) {
 		return true
 	}
@@ -165,7 +165,7 @@ func (o *ProductconfiguratordependencyEntity) GetConditionOk() (*DependencyCondi
 }
 
 // HasCondition returns a boolean if a field has been set.
-func (o *ProductconfiguratordependencyEntity) HasCondition() bool {
+func (o *ProductconfiguratordependencyEntity) IsSetCondition() bool {
 	if o != nil && !IsNil(o.Condition) {
 		return true
 	}
@@ -197,7 +197,7 @@ func (o *ProductconfiguratordependencyEntity) GetStepIdOk() (*string, bool) {
 }
 
 // HasStepId returns a boolean if a field has been set.
-func (o *ProductconfiguratordependencyEntity) HasStepId() bool {
+func (o *ProductconfiguratordependencyEntity) IsSetStepId() bool {
 	if o != nil && !IsNil(o.StepId) {
 		return true
 	}
@@ -229,7 +229,7 @@ func (o *ProductconfiguratordependencyEntity) GetCreatedAtOk() (*time.Time, bool
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratordependencyEntity) HasCreatedAt() bool {
+func (o *ProductconfiguratordependencyEntity) IsSetCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -261,7 +261,7 @@ func (o *ProductconfiguratordependencyEntity) GetUpdatedAtOk() (*time.Time, bool
 }
 
 // HasUpdatedAt returns a boolean if a field has been set.
-func (o *ProductconfiguratordependencyEntity) HasUpdatedAt() bool {
+func (o *ProductconfiguratordependencyEntity) IsSetUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}

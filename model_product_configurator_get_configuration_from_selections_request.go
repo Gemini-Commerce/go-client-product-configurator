@@ -62,7 +62,7 @@ func (o *ProductConfiguratorGetConfigurationFromSelectionsRequest) GetSelections
 }
 
 // HasSelections returns a boolean if a field has been set.
-func (o *ProductConfiguratorGetConfigurationFromSelectionsRequest) HasSelections() bool {
+func (o *ProductConfiguratorGetConfigurationFromSelectionsRequest) IsSetSelections() bool {
 	if o != nil && !IsNil(o.Selections) {
 		return true
 	}

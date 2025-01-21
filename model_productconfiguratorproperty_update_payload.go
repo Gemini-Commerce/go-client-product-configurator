@@ -64,7 +64,7 @@ func (o *ProductconfiguratorpropertyUpdatePayload) GetGenericPropertyOk() (*Prop
 }
 
 // HasGenericProperty returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyUpdatePayload) HasGenericProperty() bool {
+func (o *ProductconfiguratorpropertyUpdatePayload) IsSetGenericProperty() bool {
 	if o != nil && !IsNil(o.GenericProperty) {
 		return true
 	}
@@ -96,7 +96,7 @@ func (o *ProductconfiguratorpropertyUpdatePayload) GetWeightPropertyOk() (*Prope
 }
 
 // HasWeightProperty returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyUpdatePayload) HasWeightProperty() bool {
+func (o *ProductconfiguratorpropertyUpdatePayload) IsSetWeightProperty() bool {
 	if o != nil && !IsNil(o.WeightProperty) {
 		return true
 	}
@@ -128,7 +128,7 @@ func (o *ProductconfiguratorpropertyUpdatePayload) GetPricePropertyOk() (*Proper
 }
 
 // HasPriceProperty returns a boolean if a field has been set.
-func (o *ProductconfiguratorpropertyUpdatePayload) HasPriceProperty() bool {
+func (o *ProductconfiguratorpropertyUpdatePayload) IsSetPriceProperty() bool {
 	if o != nil && !IsNil(o.PriceProperty) {
 		return true
 	}

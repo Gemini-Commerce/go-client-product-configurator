@@ -62,7 +62,7 @@ func (o *ConfigurationPropertyFilterGenericProperty) GetPropertyKeyOk() (*string
 }
 
 // HasPropertyKey returns a boolean if a field has been set.
-func (o *ConfigurationPropertyFilterGenericProperty) HasPropertyKey() bool {
+func (o *ConfigurationPropertyFilterGenericProperty) IsSetPropertyKey() bool {
 	if o != nil && !IsNil(o.PropertyKey) {
 		return true
 	}

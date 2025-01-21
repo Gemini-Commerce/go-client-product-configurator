@@ -70,7 +70,7 @@ func (o *ConfigurationOptionProperty) GetPropertyIdOk() (*string, bool) {
 }
 
 // HasPropertyId returns a boolean if a field has been set.
-func (o *ConfigurationOptionProperty) HasPropertyId() bool {
+func (o *ConfigurationOptionProperty) IsSetPropertyId() bool {
 	if o != nil && !IsNil(o.PropertyId) {
 		return true
 	}
@@ -102,7 +102,7 @@ func (o *ConfigurationOptionProperty) GetPropertyValueOk() (*string, bool) {
 }
 
 // HasPropertyValue returns a boolean if a field has been set.
-func (o *ConfigurationOptionProperty) HasPropertyValue() bool {
+func (o *ConfigurationOptionProperty) IsSetPropertyValue() bool {
 	if o != nil && !IsNil(o.PropertyValue) {
 		return true
 	}
@@ -134,7 +134,7 @@ func (o *ConfigurationOptionProperty) GetPropertyTypeOk() (*ProductconfiguratorP
 }
 
 // HasPropertyType returns a boolean if a field has been set.
-func (o *ConfigurationOptionProperty) HasPropertyType() bool {
+func (o *ConfigurationOptionProperty) IsSetPropertyType() bool {
 	if o != nil && !IsNil(o.PropertyType) {
 		return true
 	}
@@ -166,7 +166,7 @@ func (o *ConfigurationOptionProperty) GetSubtractToGetVariationOk() ([]string, b
 }
 
 // HasSubtractToGetVariation returns a boolean if a field has been set.
-func (o *ConfigurationOptionProperty) HasSubtractToGetVariation() bool {
+func (o *ConfigurationOptionProperty) IsSetSubtractToGetVariation() bool {
 	if o != nil && !IsNil(o.SubtractToGetVariation) {
 		return true
 	}

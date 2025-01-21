@@ -62,7 +62,7 @@ func (o *ProductConfiguratorBulkDeleteStepsRequest) GetStepIdsOk() ([]string, bo
 }
 
 // HasStepIds returns a boolean if a field has been set.
-func (o *ProductConfiguratorBulkDeleteStepsRequest) HasStepIds() bool {
+func (o *ProductConfiguratorBulkDeleteStepsRequest) IsSetStepIds() bool {
 	if o != nil && !IsNil(o.StepIds) {
 		return true
 	}

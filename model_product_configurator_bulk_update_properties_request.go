@@ -63,7 +63,7 @@ func (o *ProductConfiguratorBulkUpdatePropertiesRequest) GetMatrixIdOk() (*strin
 }
 
 // HasMatrixId returns a boolean if a field has been set.
-func (o *ProductConfiguratorBulkUpdatePropertiesRequest) HasMatrixId() bool {
+func (o *ProductConfiguratorBulkUpdatePropertiesRequest) IsSetMatrixId() bool {
 	if o != nil && !IsNil(o.MatrixId) {
 		return true
 	}
@@ -95,7 +95,7 @@ func (o *ProductConfiguratorBulkUpdatePropertiesRequest) GetEntitiesOk() ([]Prod
 }
 
 // HasEntities returns a boolean if a field has been set.
-func (o *ProductConfiguratorBulkUpdatePropertiesRequest) HasEntities() bool {
+func (o *ProductConfiguratorBulkUpdatePropertiesRequest) IsSetEntities() bool {
 	if o != nil && !IsNil(o.Entities) {
 		return true
 	}

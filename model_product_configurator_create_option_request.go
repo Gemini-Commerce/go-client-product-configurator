@@ -66,7 +66,7 @@ func (o *ProductConfiguratorCreateOptionRequest) GetLabelOk() (*LocalisationLoca
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateOptionRequest) HasLabel() bool {
+func (o *ProductConfiguratorCreateOptionRequest) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -98,7 +98,7 @@ func (o *ProductConfiguratorCreateOptionRequest) GetDescriptionOk() (*Localisati
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateOptionRequest) HasDescription() bool {
+func (o *ProductConfiguratorCreateOptionRequest) IsSetDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -130,7 +130,7 @@ func (o *ProductConfiguratorCreateOptionRequest) GetPositionOk() (*string, bool)
 }
 
 // HasPosition returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateOptionRequest) HasPosition() bool {
+func (o *ProductConfiguratorCreateOptionRequest) IsSetPosition() bool {
 	if o != nil && !IsNil(o.Position) {
 		return true
 	}
@@ -162,7 +162,7 @@ func (o *ProductConfiguratorCreateOptionRequest) GetExternalReferenceIdOk() (*st
 }
 
 // HasExternalReferenceId returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateOptionRequest) HasExternalReferenceId() bool {
+func (o *ProductConfiguratorCreateOptionRequest) IsSetExternalReferenceId() bool {
 	if o != nil && !IsNil(o.ExternalReferenceId) {
 		return true
 	}
@@ -194,7 +194,7 @@ func (o *ProductConfiguratorCreateOptionRequest) GetSwatchOk() (*OptionSwatch, b
 }
 
 // HasSwatch returns a boolean if a field has been set.
-func (o *ProductConfiguratorCreateOptionRequest) HasSwatch() bool {
+func (o *ProductConfiguratorCreateOptionRequest) IsSetSwatch() bool {
 	if o != nil && !IsNil(o.Swatch) {
 		return true
 	}

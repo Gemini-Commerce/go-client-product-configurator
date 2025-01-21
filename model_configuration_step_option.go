@@ -68,7 +68,7 @@ func (o *ConfigurationStepOption) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ConfigurationStepOption) HasId() bool {
+func (o *ConfigurationStepOption) IsSetId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -100,7 +100,7 @@ func (o *ConfigurationStepOption) GetGrnOk() (*string, bool) {
 }
 
 // HasGrn returns a boolean if a field has been set.
-func (o *ConfigurationStepOption) HasGrn() bool {
+func (o *ConfigurationStepOption) IsSetGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -132,7 +132,7 @@ func (o *ConfigurationStepOption) GetLabelOk() (*LocalisationLocalizedText, bool
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *ConfigurationStepOption) HasLabel() bool {
+func (o *ConfigurationStepOption) IsSetLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -164,7 +164,7 @@ func (o *ConfigurationStepOption) GetDescriptionOk() (*LocalisationLocalizedText
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *ConfigurationStepOption) HasDescription() bool {
+func (o *ConfigurationStepOption) IsSetDescription() bool {
 	if o != nil && !IsNil(o.Description) {
 		return true
 	}
@@ -196,7 +196,7 @@ func (o *ConfigurationStepOption) GetSwatchOk() (*OptionSwatch, bool) {
 }
 
 // HasSwatch returns a boolean if a field has been set.
-func (o *ConfigurationStepOption) HasSwatch() bool {
+func (o *ConfigurationStepOption) IsSetSwatch() bool {
 	if o != nil && !IsNil(o.Swatch) {
 		return true
 	}
@@ -228,7 +228,7 @@ func (o *ConfigurationStepOption) GetOptionPropertiesOk() ([]ConfigurationOption
 }
 
 // HasOptionProperties returns a boolean if a field has been set.
-func (o *ConfigurationStepOption) HasOptionProperties() bool {
+func (o *ConfigurationStepOption) IsSetOptionProperties() bool {
 	if o != nil && !IsNil(o.OptionProperties) {
 		return true
 	}
@@ -260,7 +260,7 @@ func (o *ConfigurationStepOption) GetHasQuantityOk() (*bool, bool) {
 }
 
 // HasHasQuantity returns a boolean if a field has been set.
-func (o *ConfigurationStepOption) HasHasQuantity() bool {
+func (o *ConfigurationStepOption) IsSetHasQuantity() bool {
 	if o != nil && !IsNil(o.HasQuantity) {
 		return true
 	}
